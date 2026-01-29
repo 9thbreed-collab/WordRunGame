@@ -248,129 +248,129 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FNDN-01 | -- | Pending |
-| FNDN-02 | -- | Pending |
-| FNDN-03 | -- | Pending |
-| FNDN-04 | -- | Pending |
-| FNDN-05 | -- | Pending |
-| FNDN-06 | -- | Pending |
-| FNDN-07 | -- | Pending |
-| FNDN-08 | -- | Pending |
-| PUZL-01 | -- | Pending |
-| PUZL-02 | -- | Pending |
-| PUZL-03 | -- | Pending |
-| PUZL-04 | -- | Pending |
-| PUZL-05 | -- | Pending |
-| PUZL-06 | -- | Pending |
-| PUZL-07 | -- | Pending |
-| PUZL-08 | -- | Pending |
-| PUZL-09 | -- | Pending |
-| PUZL-10 | -- | Pending |
-| SRGE-01 | -- | Pending |
-| SRGE-02 | -- | Pending |
-| SRGE-03 | -- | Pending |
-| SRGE-04 | -- | Pending |
-| SRGE-05 | -- | Pending |
-| SRGE-06 | -- | Pending |
-| SRGE-07 | -- | Pending |
-| SRGE-08 | -- | Pending |
-| OBST-01 | -- | Pending |
-| OBST-02 | -- | Pending |
-| OBST-03 | -- | Pending |
-| OBST-04 | -- | Pending |
-| OBST-05 | -- | Pending |
-| OBST-06 | -- | Pending |
-| OBST-07 | -- | Pending |
-| BOST-01 | -- | Pending |
-| BOST-02 | -- | Pending |
-| BOST-03 | -- | Pending |
-| BOST-04 | -- | Pending |
-| BOST-05 | -- | Pending |
-| BOST-06 | -- | Pending |
-| CONT-01 | -- | Pending |
-| CONT-02 | -- | Pending |
-| CONT-03 | -- | Pending |
-| CONT-04 | -- | Pending |
-| CONT-05 | -- | Pending |
-| CONT-06 | -- | Pending |
-| CONT-07 | -- | Pending |
-| PROG-01 | -- | Pending |
-| PROG-02 | -- | Pending |
-| PROG-03 | -- | Pending |
-| PROG-04 | -- | Pending |
-| PROG-05 | -- | Pending |
-| PROG-06 | -- | Pending |
-| PROG-07 | -- | Pending |
-| PROG-08 | -- | Pending |
-| ECON-01 | -- | Pending |
-| ECON-02 | -- | Pending |
-| ECON-03 | -- | Pending |
-| ECON-04 | -- | Pending |
-| ECON-05 | -- | Pending |
-| ECON-06 | -- | Pending |
-| ECON-07 | -- | Pending |
-| ECON-08 | -- | Pending |
-| ECON-09 | -- | Pending |
-| ECON-10 | -- | Pending |
-| WMAP-01 | -- | Pending |
-| WMAP-02 | -- | Pending |
-| WMAP-03 | -- | Pending |
-| WMAP-04 | -- | Pending |
-| WMAP-05 | -- | Pending |
-| WMAP-06 | -- | Pending |
-| WMAP-07 | -- | Pending |
-| WMAP-08 | -- | Pending |
-| BOSS-01 | -- | Pending |
-| BOSS-02 | -- | Pending |
-| BOSS-03 | -- | Pending |
-| BOSS-04 | -- | Pending |
-| BOSS-05 | -- | Pending |
-| BOSS-06 | -- | Pending |
-| AUTH-01 | -- | Pending |
-| AUTH-02 | -- | Pending |
-| AUTH-03 | -- | Pending |
-| AUTH-04 | -- | Pending |
-| AUTH-05 | -- | Pending |
-| AUTH-06 | -- | Pending |
-| AUTH-07 | -- | Pending |
-| AUTH-08 | -- | Pending |
-| BACK-01 | -- | Pending |
-| BACK-02 | -- | Pending |
-| BACK-03 | -- | Pending |
-| BACK-04 | -- | Pending |
-| BACK-05 | -- | Pending |
-| BACK-06 | -- | Pending |
-| BACK-07 | -- | Pending |
-| MNTZ-01 | -- | Pending |
-| MNTZ-02 | -- | Pending |
-| MNTZ-03 | -- | Pending |
-| MNTZ-04 | -- | Pending |
-| MNTZ-05 | -- | Pending |
-| MNTZ-06 | -- | Pending |
-| MNTZ-07 | -- | Pending |
-| AUDP-01 | -- | Pending |
-| AUDP-02 | -- | Pending |
-| AUDP-03 | -- | Pending |
-| AUDP-04 | -- | Pending |
-| AUDP-05 | -- | Pending |
-| TUTR-01 | -- | Pending |
-| TUTR-02 | -- | Pending |
-| TUTR-03 | -- | Pending |
-| TUTR-04 | -- | Pending |
-| TUTR-05 | -- | Pending |
-| TUTR-06 | -- | Pending |
-| RETN-01 | -- | Pending |
-| RETN-02 | -- | Pending |
-| RETN-03 | -- | Pending |
-| INVT-01 | -- | Pending |
-| INVT-02 | -- | Pending |
-| INVT-03 | -- | Pending |
+| FNDN-01 | Phase 1 | Pending |
+| FNDN-02 | Phase 1 | Pending |
+| FNDN-03 | Phase 1 | Pending |
+| FNDN-04 | Phase 1 | Pending |
+| FNDN-05 | Phase 1 | Pending |
+| FNDN-06 | Phase 1 | Pending |
+| FNDN-07 | Phase 1 | Pending |
+| FNDN-08 | Phase 1 | Pending |
+| PUZL-01 | Phase 2 | Pending |
+| PUZL-02 | Phase 2 | Pending |
+| PUZL-03 | Phase 2 | Pending |
+| PUZL-04 | Phase 2 | Pending |
+| PUZL-05 | Phase 2 | Pending |
+| PUZL-06 | Phase 2 | Pending |
+| PUZL-07 | Phase 2 | Pending |
+| PUZL-08 | Phase 2 | Pending |
+| PUZL-09 | Phase 2 | Pending |
+| PUZL-10 | Phase 2 | Pending |
+| SRGE-01 | Phase 3 | Pending |
+| SRGE-02 | Phase 3 | Pending |
+| SRGE-03 | Phase 3 | Pending |
+| SRGE-04 | Phase 3 | Pending |
+| SRGE-05 | Phase 3 | Pending |
+| SRGE-06 | Phase 3 | Pending |
+| SRGE-07 | Phase 3 | Pending |
+| SRGE-08 | Phase 3 | Pending |
+| OBST-01 | Phase 4 | Pending |
+| OBST-02 | Phase 4 | Pending |
+| OBST-03 | Phase 4 | Pending |
+| OBST-04 | Phase 4 | Pending |
+| OBST-05 | Phase 4 | Pending |
+| OBST-06 | Phase 4 | Pending |
+| OBST-07 | Phase 4 | Pending |
+| BOST-01 | Phase 4 | Pending |
+| BOST-02 | Phase 4 | Pending |
+| BOST-03 | Phase 4 | Pending |
+| BOST-04 | Phase 4 | Pending |
+| BOST-05 | Phase 4 | Pending |
+| BOST-06 | Phase 4 | Pending |
+| CONT-01 | Phase 4 | Pending |
+| CONT-02 | Phase 4 | Pending |
+| CONT-03 | Phase 4 | Pending |
+| CONT-04 | Phase 4 | Pending |
+| CONT-05 | Phase 4 | Pending |
+| CONT-06 | Phase 4 | Pending |
+| CONT-07 | Phase 4 | Pending |
+| PROG-01 | Phase 5 | Pending |
+| PROG-02 | Phase 5 | Pending |
+| PROG-03 | Phase 5 | Pending |
+| PROG-04 | Phase 5 | Pending |
+| PROG-05 | Phase 5 | Pending |
+| PROG-06 | Phase 5 | Pending |
+| PROG-07 | Phase 5 | Pending |
+| PROG-08 | Phase 5 | Pending |
+| ECON-01 | Phase 5 | Pending |
+| ECON-02 | Phase 5 | Pending |
+| ECON-03 | Phase 5 | Pending |
+| ECON-04 | Phase 5 | Pending |
+| ECON-05 | Phase 7 | Pending |
+| ECON-06 | Phase 5 | Pending |
+| ECON-07 | Phase 7 | Pending |
+| ECON-08 | Phase 7 | Pending |
+| ECON-09 | Phase 7 | Pending |
+| ECON-10 | Phase 7 | Pending |
+| WMAP-01 | Phase 6 | Pending |
+| WMAP-02 | Phase 6 | Pending |
+| WMAP-03 | Phase 6 | Pending |
+| WMAP-04 | Phase 6 | Pending |
+| WMAP-05 | Phase 6 | Pending |
+| WMAP-06 | Phase 6 | Pending |
+| WMAP-07 | Phase 6 | Pending |
+| WMAP-08 | Phase 6 | Pending |
+| BOSS-01 | Phase 5 | Pending |
+| BOSS-02 | Phase 5 | Pending |
+| BOSS-03 | Phase 5 | Pending |
+| BOSS-04 | Phase 5 | Pending |
+| BOSS-05 | Phase 5 | Pending |
+| BOSS-06 | Phase 5 | Pending |
+| AUTH-01 | Phase 7 | Pending |
+| AUTH-02 | Phase 7 | Pending |
+| AUTH-03 | Phase 7 | Pending |
+| AUTH-04 | Phase 7 | Pending |
+| AUTH-05 | Phase 7 | Pending |
+| AUTH-06 | Phase 6 | Pending |
+| AUTH-07 | Phase 6 | Pending |
+| AUTH-08 | Phase 6 | Pending |
+| BACK-01 | Phase 7 | Pending |
+| BACK-02 | Phase 7 | Pending |
+| BACK-03 | Phase 7 | Pending |
+| BACK-04 | Phase 7 | Pending |
+| BACK-05 | Phase 7 | Pending |
+| BACK-06 | Phase 7 | Pending |
+| BACK-07 | Phase 7 | Pending |
+| MNTZ-01 | Phase 7 | Pending |
+| MNTZ-02 | Phase 7 | Pending |
+| MNTZ-03 | Phase 7 | Pending |
+| MNTZ-04 | Phase 7 | Pending |
+| MNTZ-05 | Phase 7 | Pending |
+| MNTZ-06 | Phase 7 | Pending |
+| MNTZ-07 | Phase 7 | Pending |
+| AUDP-01 | Phase 3 | Pending |
+| AUDP-02 | Phase 3 | Pending |
+| AUDP-03 | Phase 3 | Pending |
+| AUDP-04 | Phase 3 | Pending |
+| AUDP-05 | Phase 7 | Pending |
+| TUTR-01 | Phase 6 | Pending |
+| TUTR-02 | Phase 6 | Pending |
+| TUTR-03 | Phase 6 | Pending |
+| TUTR-04 | Phase 6 | Pending |
+| TUTR-05 | Phase 6 | Pending |
+| TUTR-06 | Phase 6 | Pending |
+| RETN-01 | Phase 5 | Pending |
+| RETN-02 | Phase 5 | Pending |
+| RETN-03 | Phase 5 | Pending |
+| INVT-01 | Phase 5 | Pending |
+| INVT-02 | Phase 5 | Pending |
+| INVT-03 | Phase 5 | Pending |
 
 **Coverage:**
-- v1 requirements: 96 total
-- Mapped to phases: 0
-- Unmapped: 96 (traceability populated during roadmap creation)
+- v1 requirements: 117 total
+- Mapped to phases: 117
+- Unmapped: 0 (100% coverage)
 
 ---
 *Requirements defined: 2026-01-29*
-*Last updated: 2026-01-29 after research synthesis*
+*Last updated: 2026-01-29 after roadmap creation -- traceability table populated*
