@@ -1,0 +1,21 @@
+{
+  "mode": "yolo",
+  "depth": "comprehensive",
+  "parallelization": "adaptive",
+  "commit_docs": true,
+  "model_profile": "quality",
+  "workflow": {
+    "research": true,
+    "plan_check": true,
+    "verifier": true
+  },
+  "delegation": {
+    "gemini_cli": true,
+    "gemini_version": "0.25.1",
+    "gemini_usage": "Delegate non-Claude-specific tasks to gemini -p for token conservation. Use Playwright for online tasks."
+  },
+  "notes": {
+    "parallelization_detail": "Adaptive: orchestrator decides parallel vs sequential per checkpoint, discussed with user before implementing",
+    "model_usage": "Opus for deep analysis (research, roadmap, complex planning). Sonnet for standard agents. Haiku for lightweight/fast tasks. Mix based on need, not cost."
+  }
+}
