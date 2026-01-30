@@ -55,11 +55,13 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 **Estimated Complexity:** High
 
-**Plans:** TBD
+**Plans:** 4 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md -- Core architecture skeleton (directory structure, EventBus, GameManager, SaveData, FeatureFlags)
+- [ ] 01-02-PLAN.md -- PlatformServices autoload, banner ad region, and test screen
+- [ ] 01-03-PLAN.md -- Export pipeline validation on physical iOS and Android devices (bare project, no plugins)
+- [ ] 01-04-PLAN.md -- Monetization plugin spike (AdMob + IAP installation, wiring, and device validation)
 
 ---
 
@@ -450,7 +452,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
 
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
-| 1. Foundation and Validation Spikes | 0/TBD | Not started | - |
+| 1. Foundation and Validation Spikes | 0/4 | Planned | - |
 | 2. Core Puzzle Loop | 0/TBD | Not started | - |
 | 3. Game Feel -- Surge, Score, and Audio | 0/TBD | Not started | - |
 | 4. Obstacles, Boosts, and Content Pipeline | 0/TBD | Not started | - |
