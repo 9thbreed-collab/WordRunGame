@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2test_screen"]
+
+[ext_resource type="Script" path="res://scripts/screens/test_screen.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://d2banner_ad_region" path="res://scenes/ui/banner_ad_region.tscn" id="2_banner"]
+
+[node name="TestScreen" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="ContentArea" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="ContentArea"]
+layout_mode = 2
+text = "WordRun! Test Screen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="ContentArea"]
+layout_mode = 2
+text = "Architecture Validation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator1" type="HSeparator" parent="ContentArea"]
+layout_mode = 2
+
+[node name="AutoloadHeader" type="Label" parent="ContentArea"]
+layout_mode = 2
+text = "Autoload Status:"
+
+[node name="EventBusStatus" type="Label" parent="ContentArea"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "EventBus: checking..."
+
+[node name="SaveDataStatus" type="Label" parent="ContentArea"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SaveData: checking..."
+
+[node name="GameManagerStatus" type="Label" parent="ContentArea"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "GameManager: checking..."
+
+[node name="PlatformServicesStatus" type="Label" parent="ContentArea"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "PlatformServices: checking..."
+
+[node name="Separator2" type="HSeparator" parent="ContentArea"]
+layout_mode = 2
+
+[node name="BannerButtons" type="HBoxContainer" parent="ContentArea"]
+layout_mode = 2
+alignment = 1
+
+[node name="ShowBannerBtn" type="Button" parent="ContentArea/BannerButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(200, 56)
+text = "Show Banner"
+
+[node name="HideBannerBtn" type="Button" parent="ContentArea/BannerButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(200, 56)
+text = "Hide Banner"
+
+[node name="TestButtons" type="HBoxContainer" parent="ContentArea"]
+layout_mode = 2
+alignment = 1
+
+[node name="TestInterstitialBtn" type="Button" parent="ContentArea/TestButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(200, 56)
+text = "Test Interstitial"
+
+[node name="TestIAPBtn" type="Button" parent="ContentArea/TestButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(200, 56)
+text = "Test IAP"
+
+[node name="Separator3" type="HSeparator" parent="ContentArea"]
+layout_mode = 2
+
+[node name="StateLabel" type="Label" parent="ContentArea"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "State: LOADING"
+horizontal_alignment = 1
+
+[node name="BannerAdRegion" parent="." instance=ExtResource("2_banner")]
+layout_mode = 2
