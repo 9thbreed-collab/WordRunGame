@@ -12,7 +12,7 @@ WordRun! ships as a single-player-first commercial mobile word puzzle game built
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation and Validation Spikes** - Validate mobile export pipeline, plugin compatibility, and project architecture before writing game code
+- [ ] **Phase 1: Foundation and Validation Spikes** (In progress) - Validate mobile export pipeline, plugin compatibility, and project architecture before writing game code
 - [ ] **Phase 2: Core Puzzle Loop** - Build the atomic word-pair solving mechanic and validate it on touch devices
 - [ ] **Phase 3: Game Feel -- Surge, Score, and Audio** - Add the surge momentum system, scoring, and audio/visual feedback that create the "rush"
 - [ ] **Phase 4: Obstacles, Boosts, and Content Pipeline** - Build the extensible obstacle/boost system and the word-pair content validation pipeline
@@ -58,7 +58,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 4 plans
 
 Plans:
-- [ ] 01-01-PLAN.md -- Core architecture skeleton (directory structure, EventBus, GameManager, SaveData, FeatureFlags)
+- [x] 01-01-PLAN.md -- Core architecture skeleton (directory structure, EventBus, GameManager, SaveData, FeatureFlags)
 - [ ] 01-02-PLAN.md -- PlatformServices autoload, banner ad region, and test screen
 - [ ] 01-03-PLAN.md -- Export pipeline validation on physical iOS and Android devices (bare project, no plugins)
 - [ ] 01-04-PLAN.md -- Monetization plugin spike (AdMob + IAP installation, wiring, and device validation)
@@ -452,7 +452,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
 
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
-| 1. Foundation and Validation Spikes | 0/4 | Planned | - |
+| 1. Foundation and Validation Spikes | 1/4 | In progress | 2026-01-30 |
 | 2. Core Puzzle Loop | 0/TBD | Not started | - |
 | 3. Game Feel -- Surge, Score, and Audio | 0/TBD | Not started | - |
 | 4. Obstacles, Boosts, and Content Pipeline | 0/TBD | Not started | - |
@@ -464,4 +464,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
 
 ---
 *Roadmap created: 2026-01-29*
-*Last updated: 2026-01-29*
+*Last updated: 2026-01-30*

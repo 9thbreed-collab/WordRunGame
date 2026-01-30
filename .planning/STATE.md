@@ -5,32 +5,32 @@
 See: .planning/PROJECT.md (updated 2026-01-29)
 
 **Core value:** The word-pair puzzle with the surge momentum system must feel like a "rush" -- the tension between solving fast for multipliers and risking a bust, combined with obstacle anticipation, is the experience that makes WordRun! unique.
-**Current focus:** Project initialization complete, ready for Phase 1 planning
+**Current focus:** Phase 1 in progress -- core autoload skeleton complete, next up is PlatformServices and banner ad region
 
 ## Current Position
 
-Phase: 0 of 9 (Pre-Phase 1: Foundation and Validation Spikes)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-01-29 -- Roadmap and state initialized from research synthesis
+Phase: 1 of 9 (Foundation and Validation Spikes)
+Plan: 1 of 4 in current phase
+Status: In progress
+Last activity: 2026-01-30 -- Completed 01-01-PLAN.md (Core architecture skeleton)
 
-Progress: [..........] 0%
+Progress: [#.........] 2%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: --
-- Total execution time: 0 hours
+- Total plans completed: 1
+- Average duration: 5 minutes
+- Total execution time: 0.08 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 1 | 1/4 | 5m | 5m |
 
 **Recent Trend:**
-- Last 5 plans: --
+- Last 5 plans: 01-01 (5m)
 - Trend: --
 
 *Updated after each plan completion*
@@ -39,7 +39,7 @@ Progress: [..........] 0%
 
 | Phase | Name | Status | Requirements |
 |-------|------|--------|--------------|
-| 1 | Foundation and Validation Spikes | Not started | 8 items |
+| 1 | Foundation and Validation Spikes | In progress (1/4) | 8 items |
 | 2 | Core Puzzle Loop | Not started | 10 items |
 | 3 | Game Feel -- Surge, Score, and Audio | Not started | 12 items |
 | 4 | Obstacles, Boosts, and Content Pipeline | Not started | 20 items |
@@ -52,8 +52,8 @@ Progress: [..........] 0%
 ## Key Metrics
 
 - Total v1 requirements: 117
-- Requirements complete: 0
-- Current phase progress: 0%
+- Requirements complete: 3 (FNDN-05, FNDN-06, FNDN-07)
+- Current phase progress: 25% (1/4 plans)
 
 ## Accumulated Context
 
@@ -64,10 +64,13 @@ Recent decisions affecting current work:
 
 - [Init]: 9-phase roadmap adopted from research synthesis (7 critical path + soft launch + post-launch)
 - [Init]: Firebase recommended as backend; Godot 4.5 plugin compatibility is blocking unknown for Phase 1
+- [01-01-D1]: Autoload order: EventBus -> SaveData -> GameManager (later autoloads depend on earlier ones)
+- [01-01-D2]: FeatureFlags uses static instance + static methods with string-based flag names (enables runtime Remote Config lookup)
+- [01-01-D3]: Portrait 1080x1920 with canvas_items stretch and expand aspect (standard mobile 2D)
 
 ### Pending Todos
 
-None yet.
+None.
 
 ### Blockers/Concerns
 
@@ -75,7 +78,7 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-29
-Stopped at: Roadmap and state files created; requirements traceability updated
+Last session: 2026-01-30
+Stopped at: Completed 01-01-PLAN.md (core architecture skeleton)
 Resume file: None
-Next action: /gsd:plan-phase 1
+Next action: Execute 01-02-PLAN.md (PlatformServices autoload, banner ad region, test screen)
