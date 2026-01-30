@@ -1,0 +1,51 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1769577435
+COMPONENT_DRIVEN_ARCHITECTURE_GUIDE.md::TextFile::-1::1768540794::0::1::::<><><>0<>0<><>::
+Create-Prompt.md::TextFile::-1::1769290412::0::1::::<><><>0<>0<><>::
+ExtraIdeas.md::TextFile::-1::1769107731::0::1::::<><><>0<>0<><>::
+GeminiCliAddition.txt::TextFile::-1::1768965003::0::1::::<><><>0<>0<><>::
+icon.svg::CompressedTexture2D::4891938210136009793::1769111663::1769111663::1::::<><><>0<>0<>6bbf265c3775a3996addc3d8dfc9acb8<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+QuickExpo.md::TextFile::-1::1769121498::0::1::::<><><>0<>0<><>::
+README.md::TextFile::-1::1769069194::0::1::::<><><>0<>0<><>::
+Run-Prompt.md::TextFile::-1::1769290582::0::1::::<><><>0<>0<><>::
+Scratchpad2.md::TextFile::-1::1769110766::0::1::::<><><>0<>0<><>::
+::res://assets/::1769139261
+::res://assets/audio/::1769111678
+::res://assets/fonts/::1769111678
+::res://assets/sprites/::1769111678
+::res://assets/ui/::1769111678
+::res://data/::1769111663
+::res://Docs/::1769096928
+CLAUDE.md::TextFile::-1::1769069697::0::1::::<><><>0<>0<><>::
+PROMPTS.md::TextFile::-1::1769069472::0::1::::<><><>0<>0<><>::
+VGD_WORKFLOW.md::TextFile::-1::1769069494::0::1::::<><><>0<>0<><>::
+::res://Docs/GameMapInspo/::1769118106
+Image.png::CompressedTexture2D::7099133995412920002::1768693340::1769118106::1::::<><><>0<>0<>09f4c02cb2faf5251e25bc3af873532b<>res://.godot/imported/Image.png-a1486529319ea59e59b9df6c6ba182e6.ctex::
+Map1.png::CompressedTexture2D::8720469658269976609::1768694279::1769118106::1::::<><><>0<>0<>1aff17914587ebeb5191c84b0ca0ee82<>res://.godot/imported/Map1.png-169091accad3a7897c8eb409a13fe4d0.ctex::
+Map2.png::CompressedTexture2D::6389190867596091853::1768694741::1769118103::1::::<><><>0<>0<>b967f547357edda02752abe4f95c9bf6<>res://.godot/imported/Map2.png-03ea3297eb8b04565db539d8dee573c2.ctex::
+Map3.png::CompressedTexture2D::6419732294915019500::1768695293::1769118103::1::::<><><>0<>0<>34a233c277f1c905d8b425d1f36f4532<>res://.godot/imported/Map3.png-c723a06116b898ac08f48b3b2601bee2.ctex::
+::res://Docs/RuutCharacter/::1769118096
+3DFrontFacingModelAPose.png::CompressedTexture2D::5860713628031154912::1768024812::1769118095::1::::<><><>0<>0<>3126fbc598b44aa43303d7a81c819b4d<>res://.godot/imported/3DFrontFacingModelAPose.png-999ccb77f1dab9a57f5b75e0c72224ad.ctex::
+3DFrontFacingModelTPose.png::CompressedTexture2D::7438448819342717229::1768024812::1769118096::1::::<><><>0<>0<>b2992f3abd2cd034a6cb0ed2922ef001<>res://.godot/imported/3DFrontFacingModelTPose.png-0c0014491079656ce807c3d506cf7d54.ctex::
+3DIsometricModelAPose.png::CompressedTexture2D::6504189653231510098::1768027207::1769118096::1::::<><><>0<>0<>0aafc31456047cc14c9e9cecbff4f34c<>res://.godot/imported/3DIsometricModelAPose.png-7549842741c13342586f5736eb9666d8.ctex::
+3DIsometricModelAPoseBack.png::CompressedTexture2D::7196416013121017216::1768025714::1769118093::1::::<><><>0<>0<>c8c4c8cc6d84cd57355186172867e7b1<>res://.godot/imported/3DIsometricModelAPoseBack.png-59a79b9ea3ca0f8ac8d0241695913fed.ctex::
+3DIsometricModelTPose.png::CompressedTexture2D::7150068344516644348::1768020904::1769118091::1::::<><><>0<>0<>085dc2bde201ae472d6f45c542ee8710<>res://.godot/imported/3DIsometricModelTPose.png-456128cb9f52525c1489758015bb3967.ctex::
+3DIsometricModelTPoseBack.png::CompressedTexture2D::3151143209968343567::1768024344::1769118092::1::::<><><>0<>0<>ff31c30f63f173f859703ba0d15804a7<>res://.godot/imported/3DIsometricModelTPoseBack.png-6cb677ce47f03e2b035272725d6e6891.ctex::
+3DModelerDesign.png::CompressedTexture2D::6321466350506373524::1766908896::1769118092::1::::<><><>0<>0<>5f17d24abbc44b12158fb342a015e03d<>res://.godot/imported/3DModelerDesign.png-5b0f99a9826a8d5deed974f2573fb656.ctex::
+13A4FC1A-DB7F-4184-90E8-507716F1395E.jpg::CompressedTexture2D::73359454986666888::1767822130::1769118089::1::::<><><>0<>0<>bb3ba0acdbded3a0f69eaf2c1c25b0f1<>res://.godot/imported/13A4FC1A-DB7F-4184-90E8-507716F1395E.jpg-e293943f2fe1609447e848ea8e053e82.ctex::
+::res://Docs/RuutCharacter/Broken Animations (do not use)/::1768086600
+::res://Docs/RuutCharacter/FBXFiles/::1769118110
+Happy Idle.fbx::PackedScene::922370779283323879::1767077721::1769118110::1::::<><><>0<>0<>0e252115237fa8f529871925dc6d6163<>res://.godot/imported/Happy Idle.fbx-b1156ad353b9fceb203d2d2ef23588fd.scn::
+Meshy_AI_Sunny_Sprout_Ruut_1230054959_generate.fbx::PackedScene::4551954199923108943::1767073816::1769118109::1::::<><><>0<>0<>9e61a117429d9bf6b4538e05a825b31e<>res://.godot/imported/Meshy_AI_Sunny_Sprout_Ruut_1230054959_generate.fbx-3ad2d6a55076a9e24edbc7821fd7d958.scn::
+Sad Idle.fbx::PackedScene::200475034668655685::1767078760::1769118108::1::::<><><>0<>0<>5ee43eed7d08574436be37fb2cd6081d<>res://.godot/imported/Sad Idle.fbx-7264cc5754b072a7d28ed24aecbab128.scn::
+Standard Walk.fbx::PackedScene::3072805298016198::1767078263::1769118107::1::::<><><>0<>0<>d9fc36269d6ced1b2600acd7f18e6ae7<>res://.godot/imported/Standard Walk.fbx-ef829eb2c372f0a021da13be7ac81ae2.scn::
+::res://Docs/RuutCharacter/Skins/::1769118103
+2DIdeaAngles.PNG::CompressedTexture2D::90810332245376145::1763956359::1769118103::1::::<><><>0<>0<>3a1852148784475e1b484982d73ca360<>res://.godot/imported/2DIdeaAngles.PNG-852b67e8d29aaae5643e0d65e6d45b26.ctex::
+SkinsModels1.PNG::CompressedTexture2D::3076542615773759720::1763657243::1769118099::1::::<><><>0<>0<>33c5704463007cafb1399622492cc041<>res://.godot/imported/SkinsModels1.PNG-ab7d90cbb0c2de1016539cfc1e43f85e.ctex::
+SkinsModels2.PNG::CompressedTexture2D::4561205042267852054::1763692068::1769118100::1::::<><><>0<>0<>b6cbfc2ce511f5bbf0b7de4a26eab73a<>res://.godot/imported/SkinsModels2.PNG-797b0ec9926fc67f794c10c2b974ffdc.ctex::
+SkinsModels3.PNG::CompressedTexture2D::1229060982291659540::1763691416::1769118098::1::::<><><>0<>0<>16a600e22103199324a4fe00a30821d6<>res://.godot/imported/SkinsModels3.PNG-08c561a4293173bfe21d2d8069ac5d8a.ctex::
+::res://Docs/sessions/::1769069186
+2026-01-22-session-summary.md::TextFile::-1::1769069186::0::1::::<><><>0<>0<><>::
+::res://scenes/::1769111663
+main.tscn::PackedScene::6959197652428287398::1769111663::0::1::::<><><>0<>0<><>::
+::res://scripts/::1769111663
