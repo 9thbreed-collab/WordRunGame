@@ -1,0 +1,29 @@
+# Godot 4.x
+.godot/
+.import/
+
+# Export artifacts
+export_presets.cfg
+*.keystore
+*.jks
+
+# Android export
+android/
+*.apk
+*.aab
+
+# iOS export
+ios_build/
+*.ipa
+*.xcodeproj
+*.xcworkspace
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
