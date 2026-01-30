@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FeatureFlags" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/feature_flags.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+ads_enabled = true
+iap_enabled = true
+banner_ads_enabled = true
+interstitial_ads_enabled = true
+rewarded_ads_enabled = true
