@@ -15,6 +15,11 @@ enum AppState {
 var current_state: AppState = AppState.LOADING
 
 
+func _ready() -> void:
+	EventBus.level_completed.connect(_on_level_completed)
+	EventBus.level_failed.connect(_on_level_failed)
+
+
 ## Transitions to a new app state. Emits EventBus.app_state_changed with
 ## string representations of the old and new states, then runs entry logic.
 func transition_to(new_state: AppState) -> void:
@@ -54,3 +59,15 @@ func change_screen(scene_path: String) -> void:
 		return
 	var screen_name := scene_path.get_file().get_basename()
 	EventBus.screen_changed.emit(screen_name)
+
+
+## Handles level completion by transitioning to results screen.
+func _on_level_completed() -> void:
+	transition_to(AppState.RESULTS)
+	change_screen("res://scenes/screens/results_screen.tscn")
+
+
+## Handles level failure by transitioning to results screen.
+func _on_level_failed() -> void:
+	transition_to(AppState.RESULTS)
+	change_screen("res://scenes/screens/results_screen.tscn")
