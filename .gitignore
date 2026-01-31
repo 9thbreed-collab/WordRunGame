@@ -7,8 +7,8 @@ export_presets.cfg
 *.keystore
 *.jks
 
-# Android export
-android/
+# Android export (root-level only -- Godot's "Install Android Build Template" output)
+/android/
 *.apk
 *.aab
 
@@ -25,8 +25,9 @@ addons/AdmobPlugin/bin/
 ios/
 # godot-iap Android AAR files
 addons/godot-iap/android/*.aar
-# godot-iap native frameworks
-addons/godot-iap/bin/
+# godot-iap native frameworks (iOS/macOS .framework bundles)
+addons/godot-iap/bin/ios/
+addons/godot-iap/bin/macos/
 
 # macOS
 .DS_Store
