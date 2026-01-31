@@ -11,20 +11,34 @@ WordRun! is a timed word puzzle game built in Godot 4.5 for iOS and Android. Pla
 ## Current Status
 
 **Version:** v0.0.02
-**Phase:** Foundation & Planning
-**Progress:** 0 of 117 v1 requirements complete
+**Phase:** Phase 1 Complete (Foundation and Validation Spikes)
+**Progress:** 4 of 117 v1 requirements complete (8 partially addressed)
 
-The project has completed comprehensive planning and research. A 9-phase roadmap defines execution from foundation validation through soft launch. The Godot project is initialized with directory structure, and Phase 1 (Foundation and Validation Spikes) is ready for planning.
+Phase 1 code is complete. The project has established architecture foundation (autoloads, PlatformServices abstraction, feature flags) and integrated monetization plugins (AdMob v5.3, godot-iap v1.2.3). Physical device validation is deferred due to hardware constraints but does not block Phase 2-6 development.
 
 ### Key Accomplishments
-- 9-phase roadmap with 117 requirements across 16 categories
-- Research synthesis covering stack, features, architecture, and 30+ pitfall mitigations
-- Component-Driven Architecture documented as core UI/UX principle
-- Godot 4.5 project initialized with layered directory structure
-- Phase 1 context captured with monetization integration strategy
+- Architecture skeleton: EventBus, GameManager, PlatformServices, SaveData autoloads
+- PlatformServices abstraction layer for plugin resilience
+- BannerAdRegion component with collapsible behavior and test screen
+- AdMob v5.3 plugin installed and wired into PlatformServices
+- godot-iap v1.2.3 plugin installed and wired into PlatformServices
+- FeatureFlags system for runtime feature control
+- Export pipeline documented (iOS/Android export presets guide created)
+
+### Requirements Complete
+- FNDN-05: Autoload architecture implemented
+- FNDN-06: PlatformServices abstraction layer
+- FNDN-07: Banner ad region component
+- FNDN-08: FeatureFlags system
+
+### Requirements Code-Ready (Device Validation Pending)
+- FNDN-03: AdMob plugin integrated (awaiting physical device test)
+- FNDN-04: IAP plugin integrated (awaiting physical device test)
+- FNDN-01: iOS export configured (device testing deferred)
+- FNDN-02: Android export configured (device testing deferred)
 
 ### Next Milestone
-Phase 1: Validate mobile export pipeline and plugin compatibility (AdMob, IAP) on physical iOS and Android devices before writing game code.
+Phase 2: Implement core puzzle loop (WordPair data model, LetterSlot/WordRow UI components, GameplayScreen with keyboard and timer, end-to-end routing).
 
 ## Technology Stack
 
@@ -136,7 +150,7 @@ WordRunGame/
 8. Polish, Soft Launch, and Tuning (test market, analytics, economy tuning)
 9. Post-Launch Features (Vs mode, skins, Nations 4-9, expanded content)
 
-**Current Phase:** Phase 0 (planning complete, ready for Phase 1)
+**Current Phase:** Phase 1 Complete (Phase 2 planning ready to begin)
 
 ## Contributing
 
@@ -148,6 +162,6 @@ Proprietary - All rights reserved.
 
 ---
 
-**Last Updated:** 2026-01-29
+**Last Updated:** 2026-01-31
 **Project Started:** 2026-01-22
 **Engine:** Godot 4.5

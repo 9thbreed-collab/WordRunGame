@@ -9,7 +9,7 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - [x] **Idea & Validation**: Core concept defined and documented
 - [x] **Research**: Stack, architecture, features, and pitfalls researched
 - [x] **Planning**: 9-phase roadmap, 117 requirements, state tracking established
-- [ ] **Phase 1: Foundation and Validation Spikes**: Export pipeline and plugin validation
+- [x] **Phase 1: Foundation and Validation Spikes**: Code complete (4/4 plans, device testing deferred)
 - [ ] **Phase 2: Core Puzzle Loop**: Word-pair solving mechanic
 - [ ] **Phase 3: Game Feel**: Surge momentum system
 - [ ] **Phase 4: Obstacles & Content**: Obstacle system and word validation pipeline
@@ -19,7 +19,7 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - [ ] **Phase 8: Soft Launch**: Test market, analytics, tuning
 - [ ] **Phase 9: Post-Launch**: Vs mode, skins, content expansion
 
-**Current Phase:** Pre-Phase 1 (planning complete, ready to begin Phase 1)
+**Current Phase:** Phase 1 Complete (Foundation and Validation Spikes code-complete, device testing deferred)
 
 ### Key Decisions & Context
 
@@ -54,18 +54,19 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 ## Working Instructions
 
 ### Current Focus
-**Phase 1 Planning**: Break Foundation and Validation Spikes into executable plans
+**Phase 2 Planning**: Core Puzzle Loop implementation
 
-**Phase 1 Goals:**
-1. Validate Godot export to physical iOS device
-2. Validate Godot export to physical Android device
-3. Spike AdMob plugin: test ad on both platforms
-4. Spike IAP plugin: sandbox purchase on both platforms
-5. Implement architecture shell: EventBus, GameManager, PlatformServices, SaveData autoloads
-6. Build banner ad region test screen with collapsible behavior
+**Phase 2 Goals:**
+1. Implement WordPair and LevelData resource types with EventBus gameplay signals
+2. Build LetterSlot and WordRow UI components with input handling and feedback
+3. Create GameplayScreen with on-screen keyboard, scrolling, timer, and puzzle loop
+4. Implement MenuScreen, ResultsScreen, and GameManager routing for end-to-end flow
 
-**Blockers to Resolve:**
-- Godot 4.5 plugin compatibility (AdMob, Firebase, IAP) - single biggest unknown
+**Phase 1 Completion Status:**
+- Code complete (4/4 plans executed)
+- Architecture foundation established (autoloads, PlatformServices, FeatureFlags)
+- AdMob v5.3 and godot-iap v1.2.3 installed and integrated
+- Device validation deferred due to hardware blocker (non-blocking for Phases 2-6)
 
 ### Working Rules
 - Do not assume tools, libraries, or architecture unless explicitly defined in this file or .planning/ docs
@@ -97,6 +98,42 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - Themed word pools per land for narrative alignment
 
 ## Session History
+
+### Session 2026-01-31 (v0.0.02)
+- **Phase:** Phase 1 Complete / Phase 2 Transition
+- **Accomplishments:**
+  - Verified Phase 1 completion status (4/4 plans complete, device testing deferred)
+  - Updated planning configuration to use "budget" model profile
+  - Added Phase 2 plan outline to ROADMAP.md (4 plans for Core Puzzle Loop)
+  - Created 01-03-SUMMARY.md to document export pipeline plan deferral
+  - Updated project documentation to reflect Phase 1 completion
+- **Key Decisions:**
+  - Planning model switched to "budget" for cost optimization
+  - Phase 2 structured as 4 sequential plans (data model → UI components → gameplay screen → routing)
+  - Device testing deferred to pre-Phase 7 checkpoint (non-blocking for Phase 2-6 development)
+- **Next Steps:**
+  - Plan Phase 2 (Core Puzzle Loop) - research and planning phase
+  - Begin Phase 2-01: WordPair/LevelData data model and EventBus gameplay signals
+
+### Session 2026-01-30 (v0.0.02)
+- **Phase:** Phase 1 Execution (Foundation and Validation Spikes)
+- **Accomplishments:**
+  - Completed all 4 Phase 1 plans (01-01 through 01-04)
+  - Implemented architecture skeleton: EventBus, GameManager, PlatformServices, SaveData autoloads
+  - Created FeatureFlags resource system for runtime feature control
+  - Built BannerAdRegion component with collapsible behavior and test screen
+  - Installed and wired AdMob v5.3 plugin into PlatformServices
+  - Installed and wired godot-iap v1.2.3 plugin into PlatformServices
+  - Configured export presets for iOS and Android
+  - Created EXPORT_SETUP_GUIDE.md with step-by-step instructions
+- **Key Decisions:**
+  - Deferred physical device validation (Plans 01-03 Task 2, 01-04 Task 3) due to hardware blocker
+  - Hardware constraint documented: MacBook Air Mid-2013 cannot run Xcode 14+ for iOS 16+ devices
+  - Mitigation identified: Cloud Mac service (~$1/hr) for future device testing
+  - Risk assessed as low for Phases 2-6 (all run in Godot editor)
+- **Next Steps:**
+  - Phase 1 code complete
+  - Ready for Phase 2 planning
 
 ### Session 2026-01-29 (v0.0.02)
 - **Phase:** Foundation & Planning

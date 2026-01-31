@@ -96,11 +96,13 @@ Plans:
 
 **Estimated Complexity:** High
 
-**Plans:** TBD
+**Plans:** 4 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md -- Data model (WordPair, LevelData resources) and EventBus gameplay signals (Wave 1)
+- [ ] 02-02-PLAN.md -- LetterSlot and WordRow UI components with input handling and feedback (Wave 1)
+- [ ] 02-03-PLAN.md -- GameplayScreen with on-screen keyboard, scrolling, timer, and puzzle loop (Wave 2)
+- [ ] 02-04-PLAN.md -- MenuScreen, ResultsScreen, GameManager routing, end-to-end flow (Wave 3)
 
 ---
 
