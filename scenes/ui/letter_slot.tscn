@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2letter_slot"]
+
+[ext_resource type="Script" path="res://scripts/ui/letter_slot.gd" id="1_script"]
+
+[node name="LetterSlot" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 72)
+script = ExtResource("1_script")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
