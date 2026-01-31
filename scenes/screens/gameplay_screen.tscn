@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2gameplay_screen"]
+
+[ext_resource type="Script" path="res://scripts/screens/gameplay_screen.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://d2keyboard" path="res://scenes/ui/on_screen_keyboard.tscn" id="2_keyboard"]
+[ext_resource type="PackedScene" uid="uid://d2banner_ad_region" path="res://scenes/ui/banner_ad_region.tscn" id="3_banner"]
+
+[node name="GameplayScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="MainVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUD" type="HBoxContainer" parent="MainVBox"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="TimerLabel" type="Label" parent="MainVBox/HUD"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "03:00"
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="MainVBox/HUD"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WordCountLabel" type="Label" parent="MainVBox/HUD"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "1/15"
+vertical_alignment = 1
+
+[node name="WordDisplay" type="ScrollContainer" parent="MainVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="WordRows" type="VBoxContainer" parent="MainVBox/WordDisplay"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Keyboard" type="VBoxContainer" parent="MainVBox" instance=ExtResource("2_keyboard")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BannerAdRegion" parent="MainVBox" instance=ExtResource("3_banner")]
+layout_mode = 2
+
+[node name="GameTimer" type="Timer" parent="."]
+unique_name_in_owner = true
