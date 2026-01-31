@@ -5,34 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-01-29)
 
 **Core value:** The word-pair puzzle with the surge momentum system must feel like a "rush" -- the tension between solving fast for multipliers and risking a bust, combined with obstacle anticipation, is the experience that makes WordRun! unique.
-**Current focus:** Phase 1 code complete -- all 4 plans executed (01-03 and 01-04 Task 3 deferred due to hardware blocker). Ready for Phase 2 planning.
+**Current focus:** Phase 2 in progress -- Core Puzzle Loop UI components (2/4 plans complete). Building reusable letter slots and word rows for puzzle display.
 
 ## Current Position
 
 Phase: 2 of 9 (Core Puzzle Loop)
-Plan: 1 of 4 in current phase
+Plan: 2 of 4 in current phase
 Status: In progress
-Last activity: 2026-01-31 -- Completed 02-01-PLAN.md (WordPair/LevelData resources and test level)
+Last activity: 2026-01-31 -- Completed 02-02-PLAN.md (LetterSlot and WordRow UI components)
 
-Progress: [###.......] 14%
+Progress: [###.......] 18%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4 (+2 partial/deferred tasks)
+- Total plans completed: 5 (+2 partial/deferred tasks)
 - Average duration: 7 minutes
-- Total execution time: 0.63 hours
+- Total execution time: 0.76 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 4/4 (2 with deferred tasks) | 31m | 7.8m |
-| 2 | 1/4 | 2m | 2m |
+| 2 | 2/4 | 10m | 5m |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (3.5m), 01-03 (deferred), 01-04 (19.5m), 02-01 (2m)
-- Trend: Resource/data model tasks very fast; plugin integration slower
+- Last 5 plans: 01-03 (deferred), 01-04 (19.5m), 02-01 (2m), 02-02 (8m)
+- Trend: UI component tasks moderate speed; resource/data model tasks very fast; plugin integration slower
 
 *Updated after each plan completion*
 
@@ -41,7 +41,7 @@ Progress: [###.......] 14%
 | Phase | Name | Status | Requirements |
 |-------|------|--------|--------------|
 | 1 | Foundation and Validation Spikes | Code complete (4/4 plans, device testing deferred) | 8 items |
-| 2 | Core Puzzle Loop | In progress (1/4 plans complete) | 10 items |
+| 2 | Core Puzzle Loop | In progress (2/4 plans complete) | 10 items |
 | 3 | Game Feel -- Surge, Score, and Audio | Not started | 12 items |
 | 4 | Obstacles, Boosts, and Content Pipeline | Not started | 20 items |
 | 5 | Progression, Economy, and Retention | Not started | 25 items |
@@ -53,10 +53,10 @@ Progress: [###.......] 14%
 ## Key Metrics
 
 - Total v1 requirements: 117
-- Requirements complete: 6 (FNDN-05, FNDN-06, FNDN-07, FNDN-08, PUZL-03, PUZL-07)
+- Requirements complete: 8 (FNDN-05, FNDN-06, FNDN-07, FNDN-08, PUZL-02, PUZL-03, PUZL-05, PUZL-07)
 - Requirements partially addressed: 2 (FNDN-03, FNDN-04 -- code wired, device validation deferred)
 - Requirements deferred: 2 (FNDN-01, FNDN-02 -- device testing blocked by hardware)
-- Current phase progress: 25% (1/4 plans)
+- Current phase progress: 50% (2/4 plans)
 
 ## Accumulated Context
 
@@ -82,6 +82,9 @@ Recent decisions affecting current work:
 - [02-01-D2]: LevelData uses typed Array[WordPair] for type safety
 - [02-01-D3]: Test level follows 12 base + 3 bonus word structure (indices 12-14)
 - [02-01-D4]: Gameplay signals in EventBus follow existing pattern (signals only, no logic)
+- [02-02-D1]: StyleBoxFlat created programmatically in _ready() rather than in editor for maintainability
+- [02-02-D2]: Incorrect input flashes red for 0.2s then clears slot, providing immediate feedback
+- [02-02-D3]: Shake uses elastic easing with 5-step oscillation for satisfying physical feel
 
 ### Pending Todos
 
@@ -97,6 +100,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-31
-Stopped at: Completed 02-01-PLAN.md (WordPair/LevelData resources and test level)
+Stopped at: Completed 02-02-PLAN.md (LetterSlot and WordRow UI components)
 Resume file: None
-Next action: Continue Phase 2 execution (plans 02-02, 02-03, 02-04 remaining)
+Next action: Continue Phase 2 execution (plans 02-03, 02-04 remaining)
