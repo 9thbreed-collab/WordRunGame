@@ -9,29 +9,30 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 
 ## Current Position
 
-Phase: 1 of 9 (Foundation and Validation Spikes)
-Plan: 4 of 4 in current phase (01-03 partial, 01-04 Tasks 1-2 complete / Task 3 deferred)
-Status: Phase code complete (device validation deferred)
-Last activity: 2026-01-31 -- Completed 01-04-PLAN.md Tasks 1-2 (AdMob + IAP plugin installation and PlatformServices wiring)
+Phase: 2 of 9 (Core Puzzle Loop)
+Plan: 1 of 4 in current phase
+Status: In progress
+Last activity: 2026-01-31 -- Completed 02-01-PLAN.md (WordPair/LevelData resources and test level)
 
-Progress: [###.......] 10%
+Progress: [###.......] 14%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3 (+2 partial/deferred tasks)
-- Average duration: 9 minutes
-- Total execution time: 0.60 hours
+- Total plans completed: 4 (+2 partial/deferred tasks)
+- Average duration: 7 minutes
+- Total execution time: 0.63 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 4/4 (2 with deferred tasks) | 31m | 7.8m |
+| 2 | 1/4 | 2m | 2m |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (5m), 01-02 (3.5m), 01-03 (deferred), 01-04 (19.5m)
-- Trend: Plugin integration takes longer due to API research; hardware blocker on device testing
+- Last 5 plans: 01-02 (3.5m), 01-03 (deferred), 01-04 (19.5m), 02-01 (2m)
+- Trend: Resource/data model tasks very fast; plugin integration slower
 
 *Updated after each plan completion*
 
@@ -40,7 +41,7 @@ Progress: [###.......] 10%
 | Phase | Name | Status | Requirements |
 |-------|------|--------|--------------|
 | 1 | Foundation and Validation Spikes | Code complete (4/4 plans, device testing deferred) | 8 items |
-| 2 | Core Puzzle Loop | Not started | 10 items |
+| 2 | Core Puzzle Loop | In progress (1/4 plans complete) | 10 items |
 | 3 | Game Feel -- Surge, Score, and Audio | Not started | 12 items |
 | 4 | Obstacles, Boosts, and Content Pipeline | Not started | 20 items |
 | 5 | Progression, Economy, and Retention | Not started | 25 items |
@@ -52,10 +53,10 @@ Progress: [###.......] 10%
 ## Key Metrics
 
 - Total v1 requirements: 117
-- Requirements complete: 4 (FNDN-05, FNDN-06, FNDN-07, FNDN-08)
+- Requirements complete: 6 (FNDN-05, FNDN-06, FNDN-07, FNDN-08, PUZL-03, PUZL-07)
 - Requirements partially addressed: 2 (FNDN-03, FNDN-04 -- code wired, device validation deferred)
 - Requirements deferred: 2 (FNDN-01, FNDN-02 -- device testing blocked by hardware)
-- Current phase progress: 100% code complete (4/4 plans), device validation deferred
+- Current phase progress: 25% (1/4 plans)
 
 ## Accumulated Context
 
@@ -77,6 +78,10 @@ Recent decisions affecting current work:
 - [01-04-D2]: godot-iap as unified cross-platform IAP plugin (fallback to separate plugins if device testing fails)
 - [01-04-D3]: Plugin binaries excluded from git via .gitignore
 - [01-04-D4]: Deferred initialization via call_deferred for plugin detection
+- [02-01-D1]: WordPair uses word_a (clue) and word_b (answer) terminology
+- [02-01-D2]: LevelData uses typed Array[WordPair] for type safety
+- [02-01-D3]: Test level follows 12 base + 3 bonus word structure (indices 12-14)
+- [02-01-D4]: Gameplay signals in EventBus follow existing pattern (signals only, no logic)
 
 ### Pending Todos
 
@@ -92,6 +97,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-31
-Stopped at: Completed 01-04-PLAN.md Tasks 1-2; Phase 1 code complete
+Stopped at: Completed 02-01-PLAN.md (WordPair/LevelData resources and test level)
 Resume file: None
-Next action: Plan Phase 2 (Core Puzzle Loop) -- research and planning phase; device testing can be deferred until Phase 7
+Next action: Continue Phase 2 execution (plans 02-02, 02-03, 02-04 remaining)
