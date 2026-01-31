@@ -1,0 +1,85 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/level_data.gd" id="1_a1a1a"]
+[ext_resource type="Script" path="res://scripts/resources/word_pair.gd" id="2_b2b2b"]
+
+[sub_resource type="Resource" id="WordPair_1"]
+script = ExtResource("2_b2b2b")
+word_a = "sea"
+word_b = "shell"
+
+[sub_resource type="Resource" id="WordPair_2"]
+script = ExtResource("2_b2b2b")
+word_a = "key"
+word_b = "board"
+
+[sub_resource type="Resource" id="WordPair_3"]
+script = ExtResource("2_b2b2b")
+word_a = "foot"
+word_b = "ball"
+
+[sub_resource type="Resource" id="WordPair_4"]
+script = ExtResource("2_b2b2b")
+word_a = "birth"
+word_b = "day"
+
+[sub_resource type="Resource" id="WordPair_5"]
+script = ExtResource("2_b2b2b")
+word_a = "air"
+word_b = "plane"
+
+[sub_resource type="Resource" id="WordPair_6"]
+script = ExtResource("2_b2b2b")
+word_a = "book"
+word_b = "worm"
+
+[sub_resource type="Resource" id="WordPair_7"]
+script = ExtResource("2_b2b2b")
+word_a = "sun"
+word_b = "flower"
+
+[sub_resource type="Resource" id="WordPair_8"]
+script = ExtResource("2_b2b2b")
+word_a = "rail"
+word_b = "road"
+
+[sub_resource type="Resource" id="WordPair_9"]
+script = ExtResource("2_b2b2b")
+word_a = "space"
+word_b = "ship"
+
+[sub_resource type="Resource" id="WordPair_10"]
+script = ExtResource("2_b2b2b")
+word_a = "down"
+word_b = "load"
+
+[sub_resource type="Resource" id="WordPair_11"]
+script = ExtResource("2_b2b2b")
+word_a = "over"
+word_b = "flow"
+
+[sub_resource type="Resource" id="WordPair_12"]
+script = ExtResource("2_b2b2b")
+word_a = "under"
+word_b = "ground"
+
+[sub_resource type="Resource" id="WordPair_13"]
+script = ExtResource("2_b2b2b")
+word_a = "super"
+word_b = "star"
+
+[sub_resource type="Resource" id="WordPair_14"]
+script = ExtResource("2_b2b2b")
+word_a = "black"
+word_b = "hole"
+
+[sub_resource type="Resource" id="WordPair_15"]
+script = ExtResource("2_b2b2b")
+word_a = "high"
+word_b = "light"
+
+[resource]
+script = ExtResource("1_a1a1a")
+level_name = "Test Level 1"
+time_limit_seconds = 180
+word_pairs = Array[Resource]([SubResource("WordPair_1"), SubResource("WordPair_2"), SubResource("WordPair_3"), SubResource("WordPair_4"), SubResource("WordPair_5"), SubResource("WordPair_6"), SubResource("WordPair_7"), SubResource("WordPair_8"), SubResource("WordPair_9"), SubResource("WordPair_10"), SubResource("WordPair_11"), SubResource("WordPair_12"), SubResource("WordPair_13"), SubResource("WordPair_14"), SubResource("WordPair_15")])

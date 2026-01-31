@@ -24,3 +24,9 @@ signal banner_region_hide
 
 # --- Feature flag signals ---
 signal feature_flag_changed(flag_name: String, value: bool)
+
+# --- Gameplay signals ---
+signal word_completed(word_index: int)
+signal level_completed
+signal level_failed
+signal letter_input(letter: String, correct: bool)
