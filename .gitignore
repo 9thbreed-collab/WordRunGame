@@ -18,6 +18,16 @@ ios_build/
 *.xcodeproj
 *.xcworkspace
 
+# Plugin binary artifacts (large native libraries -- download from releases)
+# AdMob Android AAR files
+addons/AdmobPlugin/bin/
+# AdMob iOS frameworks (GoogleMobileAds, UserMessagingPlatform)
+ios/
+# godot-iap Android AAR files
+addons/godot-iap/android/*.aar
+# godot-iap native frameworks
+addons/godot-iap/bin/
+
 # macOS
 .DS_Store
 

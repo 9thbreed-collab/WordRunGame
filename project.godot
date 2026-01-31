@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="WordRun!"
+run/main_scene="res://scenes/screens/test_screen.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
-run/main_scene="res://scenes/screens/test_screen.tscn"
 
 [autoload]
 
@@ -29,6 +29,10 @@ window/size/viewport_height=1920
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AdmobPlugin/plugin.cfg")
 
 [rendering]
 
