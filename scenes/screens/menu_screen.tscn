@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2menu_screen"]
+
+[ext_resource type="Script" path="res://scripts/screens/menu_screen.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://d2banner_ad_region" path="res://scenes/ui/banner_ad_region.tscn" id="2_banner"]
+
+[node name="MenuScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="MainVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSpacer" type="Control" parent="MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterVBox" type="VBoxContainer" parent="MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MainVBox/CenterVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "WordRun!"
+horizontal_alignment = 1
+
+[node name="ButtonSpacer" type="Control" parent="MainVBox/CenterVBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MainVBox/CenterVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 72)
+layout_mode = 2
+text = "Play"
+
+[node name="BottomSpacer" type="Control" parent="MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BannerAdRegion" parent="MainVBox" instance=ExtResource("2_banner")]
+layout_mode = 2
