@@ -5,34 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-01-29)
 
 **Core value:** The word-pair puzzle with the surge momentum system must feel like a "rush" -- the tension between solving fast for multipliers and risking a bust, combined with obstacle anticipation, is the experience that makes WordRun! unique.
-**Current focus:** Phase 2 in progress -- Core Puzzle Loop UI components (3/4 plans complete). Playable puzzle loop with keyboard, scrolling word display, and timer now functional.
+**Current focus:** Phase 2 complete -- Core Puzzle Loop delivered. Complete end-to-end playable flow: Menu -> Gameplay -> Results -> Menu/Replay with all PUZL requirements integrated.
 
 ## Current Position
 
 Phase: 2 of 9 (Core Puzzle Loop)
-Plan: 3 of 4 in current phase
-Status: In progress
-Last activity: 2026-01-31 -- Completed 02-03-PLAN.md (OnScreenKeyboard and GameplayScreen)
+Plan: 4 of 4 in current phase
+Status: Phase complete
+Last activity: 2026-01-31 -- Completed 02-04-PLAN.md (Screen Navigation and Game Flow)
 
-Progress: [###.......] 21%
+Progress: [####......] 24%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6 (+2 partial/deferred tasks)
-- Average duration: 6 minutes
-- Total execution time: 0.78 hours
+- Total plans completed: 7 (+2 partial/deferred tasks)
+- Average duration: 4.9 minutes
+- Total execution time: 0.80 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 4/4 (2 with deferred tasks) | 31m | 7.8m |
-| 2 | 3/4 | 11m | 3.7m |
+| 2 | 4/4 | 13m | 3.3m |
 
 **Recent Trend:**
-- Last 5 plans: 01-04 (19.5m), 02-01 (2m), 02-02 (8m), 02-03 (1m)
-- Trend: Phase 2 accelerating (data models and UI components integrating smoothly); plugin integration slower
+- Last 5 plans: 02-01 (2m), 02-02 (8m), 02-03 (1m), 02-04 (2m), 01-04 (19.5m)
+- Trend: Phase 2 complete with excellent velocity (avg 3.3m); foundation patterns accelerating implementation
 
 *Updated after each plan completion*
 
@@ -41,7 +41,7 @@ Progress: [###.......] 21%
 | Phase | Name | Status | Requirements |
 |-------|------|--------|--------------|
 | 1 | Foundation and Validation Spikes | Code complete (4/4 plans, device testing deferred) | 8 items |
-| 2 | Core Puzzle Loop | In progress (3/4 plans complete) | 10 items |
+| 2 | Core Puzzle Loop | Complete (4/4 plans) | 10 items |
 | 3 | Game Feel -- Surge, Score, and Audio | Not started | 12 items |
 | 4 | Obstacles, Boosts, and Content Pipeline | Not started | 20 items |
 | 5 | Progression, Economy, and Retention | Not started | 25 items |
@@ -56,7 +56,7 @@ Progress: [###.......] 21%
 - Requirements complete: 14 (FNDN-05, FNDN-06, FNDN-07, FNDN-08, PUZL-01, PUZL-02, PUZL-03, PUZL-04, PUZL-05, PUZL-06, PUZL-07, PUZL-08, PUZL-09, PUZL-10)
 - Requirements partially addressed: 2 (FNDN-03, FNDN-04 -- code wired, device validation deferred)
 - Requirements deferred: 2 (FNDN-01, FNDN-02 -- device testing blocked by hardware)
-- Current phase progress: 75% (3/4 plans)
+- Current phase progress: 100% (4/4 plans - Phase 2 complete)
 
 ## Accumulated Context
 
@@ -89,6 +89,10 @@ Recent decisions affecting current work:
 - [02-03-D2]: Auto-scroll uses cubic easing over 0.4s for natural feel
 - [02-03-D3]: Bonus gate stub at word 11 (not 12) because word_pairs is zero-indexed
 - [02-03-D4]: ScrollContainer vertical_scroll_mode = 2 (show scrollbar when needed)
+- [02-04-D1]: MenuScreen and ResultsScreen transition to their AppState in _ready() before user interaction
+- [02-04-D2]: GameManager routes both level_completed and level_failed to ResultsScreen (single screen handles both states)
+- [02-04-D3]: GameplayScreen already decoupled (only emits EventBus signals, no direct screen changes)
+- [02-04-D4]: project.godot main_scene points to menu_screen (app launches into menu not test screen)
 
 ### Pending Todos
 
@@ -104,6 +108,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-31
-Stopped at: Completed 02-03-PLAN.md (OnScreenKeyboard and GameplayScreen)
+Stopped at: Completed 02-04-PLAN.md (Screen Navigation and Game Flow) -- Phase 2 complete
 Resume file: None
-Next action: Continue Phase 2 execution (plan 02-04 remaining - result screens)
+Next action: Begin Phase 3 planning (Game Feel - Surge, Score, and Audio)
