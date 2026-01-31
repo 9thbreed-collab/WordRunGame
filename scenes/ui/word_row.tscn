@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2word_row"]
+
+[ext_resource type="Script" path="res://scripts/ui/word_row.gd" id="1_script"]
+
+[node name="WordRow" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+alignment = 1
+script = ExtResource("1_script")
+
+[node name="ClueLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.3, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 24
+text = "CLUE"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
