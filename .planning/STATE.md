@@ -5,34 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-01-29)
 
 **Core value:** The word-pair puzzle with the surge momentum system must feel like a "rush" -- the tension between solving fast for multipliers and risking a bust, combined with obstacle anticipation, is the experience that makes WordRun! unique.
-**Current focus:** Phase 2 in progress -- Core Puzzle Loop UI components (2/4 plans complete). Building reusable letter slots and word rows for puzzle display.
+**Current focus:** Phase 2 in progress -- Core Puzzle Loop UI components (3/4 plans complete). Playable puzzle loop with keyboard, scrolling word display, and timer now functional.
 
 ## Current Position
 
 Phase: 2 of 9 (Core Puzzle Loop)
-Plan: 2 of 4 in current phase
+Plan: 3 of 4 in current phase
 Status: In progress
-Last activity: 2026-01-31 -- Completed 02-02-PLAN.md (LetterSlot and WordRow UI components)
+Last activity: 2026-01-31 -- Completed 02-03-PLAN.md (OnScreenKeyboard and GameplayScreen)
 
-Progress: [###.......] 18%
+Progress: [###.......] 21%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5 (+2 partial/deferred tasks)
-- Average duration: 7 minutes
-- Total execution time: 0.76 hours
+- Total plans completed: 6 (+2 partial/deferred tasks)
+- Average duration: 6 minutes
+- Total execution time: 0.78 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 4/4 (2 with deferred tasks) | 31m | 7.8m |
-| 2 | 2/4 | 10m | 5m |
+| 2 | 3/4 | 11m | 3.7m |
 
 **Recent Trend:**
-- Last 5 plans: 01-03 (deferred), 01-04 (19.5m), 02-01 (2m), 02-02 (8m)
-- Trend: UI component tasks moderate speed; resource/data model tasks very fast; plugin integration slower
+- Last 5 plans: 01-04 (19.5m), 02-01 (2m), 02-02 (8m), 02-03 (1m)
+- Trend: Phase 2 accelerating (data models and UI components integrating smoothly); plugin integration slower
 
 *Updated after each plan completion*
 
@@ -41,7 +41,7 @@ Progress: [###.......] 18%
 | Phase | Name | Status | Requirements |
 |-------|------|--------|--------------|
 | 1 | Foundation and Validation Spikes | Code complete (4/4 plans, device testing deferred) | 8 items |
-| 2 | Core Puzzle Loop | In progress (2/4 plans complete) | 10 items |
+| 2 | Core Puzzle Loop | In progress (3/4 plans complete) | 10 items |
 | 3 | Game Feel -- Surge, Score, and Audio | Not started | 12 items |
 | 4 | Obstacles, Boosts, and Content Pipeline | Not started | 20 items |
 | 5 | Progression, Economy, and Retention | Not started | 25 items |
@@ -53,10 +53,10 @@ Progress: [###.......] 18%
 ## Key Metrics
 
 - Total v1 requirements: 117
-- Requirements complete: 8 (FNDN-05, FNDN-06, FNDN-07, FNDN-08, PUZL-02, PUZL-03, PUZL-05, PUZL-07)
+- Requirements complete: 14 (FNDN-05, FNDN-06, FNDN-07, FNDN-08, PUZL-01, PUZL-02, PUZL-03, PUZL-04, PUZL-05, PUZL-06, PUZL-07, PUZL-08, PUZL-09, PUZL-10)
 - Requirements partially addressed: 2 (FNDN-03, FNDN-04 -- code wired, device validation deferred)
 - Requirements deferred: 2 (FNDN-01, FNDN-02 -- device testing blocked by hardware)
-- Current phase progress: 50% (2/4 plans)
+- Current phase progress: 75% (3/4 plans)
 
 ## Accumulated Context
 
@@ -85,6 +85,10 @@ Recent decisions affecting current work:
 - [02-02-D1]: StyleBoxFlat created programmatically in _ready() rather than in editor for maintainability
 - [02-02-D2]: Incorrect input flashes red for 0.2s then clears slot, providing immediate feedback
 - [02-02-D3]: Shake uses elastic easing with 5-step oscillation for satisfying physical feel
+- [02-03-D1]: OnScreenKeyboard uses dynamic iteration in _ready() to auto-connect all buttons (no manual connections needed)
+- [02-03-D2]: Auto-scroll uses cubic easing over 0.4s for natural feel
+- [02-03-D3]: Bonus gate stub at word 11 (not 12) because word_pairs is zero-indexed
+- [02-03-D4]: ScrollContainer vertical_scroll_mode = 2 (show scrollbar when needed)
 
 ### Pending Todos
 
@@ -100,6 +104,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-31
-Stopped at: Completed 02-02-PLAN.md (LetterSlot and WordRow UI components)
+Stopped at: Completed 02-03-PLAN.md (OnScreenKeyboard and GameplayScreen)
 Resume file: None
-Next action: Continue Phase 2 execution (plans 02-03, 02-04 remaining)
+Next action: Continue Phase 2 execution (plan 02-04 remaining - result screens)
