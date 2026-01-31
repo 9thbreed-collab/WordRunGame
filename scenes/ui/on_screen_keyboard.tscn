@@ -1,0 +1,181 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2keyboard"]
+
+[ext_resource type="Script" path="res://scripts/ui/on_screen_keyboard.gd" id="1_script"]
+
+[node name="OnScreenKeyboard" type="VBoxContainer"]
+custom_minimum_size = Vector2(0, 280)
+script = ExtResource("1_script")
+
+[node name="Row1" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Q" type="Button" parent="Row1"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Q"
+
+[node name="W" type="Button" parent="Row1"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "W"
+
+[node name="E" type="Button" parent="Row1"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "E"
+
+[node name="R" type="Button" parent="Row1"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "R"
+
+[node name="T" type="Button" parent="Row1"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "T"
+
+[node name="Y" type="Button" parent="Row1"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Y"
+
+[node name="U" type="Button" parent="Row1"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "U"
+
+[node name="I" type="Button" parent="Row1"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "I"
+
+[node name="O" type="Button" parent="Row1"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "O"
+
+[node name="P" type="Button" parent="Row1"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "P"
+
+[node name="Row2" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="A" type="Button" parent="Row2"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "A"
+
+[node name="S" type="Button" parent="Row2"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "S"
+
+[node name="D" type="Button" parent="Row2"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "D"
+
+[node name="F" type="Button" parent="Row2"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "F"
+
+[node name="G" type="Button" parent="Row2"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "G"
+
+[node name="H" type="Button" parent="Row2"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "H"
+
+[node name="J" type="Button" parent="Row2"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "J"
+
+[node name="K" type="Button" parent="Row2"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "K"
+
+[node name="L" type="Button" parent="Row2"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "L"
+
+[node name="Row3" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Z" type="Button" parent="Row3"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Z"
+
+[node name="X" type="Button" parent="Row3"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "X"
+
+[node name="C" type="Button" parent="Row3"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "C"
+
+[node name="V" type="Button" parent="Row3"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "V"
+
+[node name="B" type="Button" parent="Row3"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "B"
+
+[node name="N" type="Button" parent="Row3"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "N"
+
+[node name="M" type="Button" parent="Row3"]
+custom_minimum_size = Vector2(88, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "M"
+
+[node name="DEL" type="Button" parent="Row3"]
+custom_minimum_size = Vector2(140, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DEL"
