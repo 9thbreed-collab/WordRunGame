@@ -325,7 +325,7 @@ func _init_iap() -> void:
 		_iap_node.connected.connect(_on_iap_connected)
 
 	# Initialize the store connection.
-	var connected := _iap_node.init_connection()
+	var connected: bool = _iap_node.init_connection()
 	if connected:
 		_iap_initialized = true
 		print("PlatformServices: IAP initialized successfully")

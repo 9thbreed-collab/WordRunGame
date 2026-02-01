@@ -101,3 +101,22 @@ func get_letter() -> String:
 func clear() -> void:
 	_label.text = ""
 	set_state(State.EMPTY)
+
+
+## Flash the entire slot bright white then restore. Visible against the dark panel.
+func flash_white() -> void:
+	var flash_style := StyleBoxFlat.new()
+	flash_style.bg_color = Color(1, 1, 1, 1)
+	flash_style.border_color = Color(1, 1, 1, 1)
+	flash_style.border_width_left = 2
+	flash_style.border_width_right = 2
+	flash_style.border_width_top = 2
+	flash_style.border_width_bottom = 2
+	flash_style.corner_radius_top_left = 4
+	flash_style.corner_radius_top_right = 4
+	flash_style.corner_radius_bottom_left = 4
+	flash_style.corner_radius_bottom_right = 4
+	add_theme_stylebox_override("panel", flash_style)
+	_label.modulate = Color(1, 1, 1, 1)  # White text on white = letter vanishes
+	await get_tree().create_timer(0.12).timeout
+	set_state(_current_state)  # Snap back to previous visual

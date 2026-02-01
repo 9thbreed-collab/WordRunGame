@@ -25,8 +25,8 @@ func _ready() -> void:
 func transition_to(new_state: AppState) -> void:
 	var old_state := current_state
 	current_state = new_state
-	var old_name := AppState.keys()[old_state]
-	var new_name := AppState.keys()[new_state]
+	var old_name: String = AppState.keys()[old_state]
+	var new_name: String = AppState.keys()[new_state]
 	EventBus.app_state_changed.emit(old_name, new_name)
 	print("GameManager: %s -> %s" % [old_name, new_name])
 	_handle_state_entry(new_state)

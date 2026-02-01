@@ -1,15 +1,14 @@
 ## WordRow -- Single word puzzle row with clue label and dynamic letter slots.
-## Handles letter input, completion detection, and shake feedback.
+## Handles letter input, word-level auto-submit on last slot, and shake feedback.
 extends HBoxContainer
 
 signal word_completed
 
 const LetterSlotScene = preload("res://scenes/ui/letter_slot.tscn")
 
-@onready var _clue_label: Label = $ClueLabel
-
 var _solution_word: String = ""
 var _current_index: int = 0
+var _revealed_count: int = 0
 var _letter_slots: Array[LetterSlot] = []
 var _is_active: bool = false
 var _original_position_x: float = 0.0
@@ -20,9 +19,6 @@ func _ready() -> void:
 
 
 func set_word_pair(pair: WordPair) -> void:
-	# Set clue text
-	_clue_label.text = pair.word_a.to_upper()
-
 	# Store solution
 	_solution_word = pair.word_b.to_upper()
 
@@ -39,61 +35,99 @@ func set_word_pair(pair: WordPair) -> void:
 
 	# Reset state
 	_current_index = 0
+	_revealed_count = 0
 
 
+## Reveal all letters (used for the starter word -- non-interactive reference).
+func reveal_all() -> void:
+	for i in range(_solution_word.length()):
+		_letter_slots[i].set_letter(_solution_word[i])
+		_letter_slots[i].set_state(LetterSlot.State.FILLED)
+	_revealed_count = _solution_word.length()
+	_current_index = _solution_word.length()
+	# Starter word stays fully visible (not dimmed)
+	modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+
+## Reveal the first letter (used for playable words).
+func reveal_first_letter() -> void:
+	if _solution_word.length() > 0:
+		_letter_slots[0].set_letter(_solution_word[0])
+		_letter_slots[0].set_state(LetterSlot.State.FILLED)
+		_revealed_count = 1
+		_current_index = 1
+
+
+## Accept a letter into the next available slot. Returns true if accepted.
+## Auto-submits when the last slot is filled.
 func handle_input(letter: String) -> bool:
 	if not _is_active or _current_index >= _solution_word.length():
 		return false
 
 	var input_upper: String = letter.to_upper()
-	var expected_letter: String = _solution_word[_current_index]
 
-	if input_upper == expected_letter:
-		# Correct letter
-		var slot: LetterSlot = _letter_slots[_current_index]
-		slot.set_letter(input_upper)
-		slot.set_state(LetterSlot.State.FILLED)
-		_current_index += 1
+	# First blank position: if user re-types the revealed letter, always flash
+	# and ignore. Word lists should avoid double-opening-letter words.
+	if _current_index == _revealed_count and _revealed_count > 0:
+		var revealed_letter: String = _solution_word[_revealed_count - 1]
+		if input_upper == revealed_letter:
+			_letter_slots[_revealed_count - 1].flash_white()
+			return false
 
-		# Check if word is complete
-		if _current_index == _solution_word.length():
-			_mark_all_correct()
-			word_completed.emit()
+	var slot: LetterSlot = _letter_slots[_current_index]
+	slot.set_letter(input_upper)
+	slot.set_state(LetterSlot.State.FILLED)
+	_current_index += 1
 
-		return true
+	# Auto-submit when last slot is filled
+	if _current_index == _solution_word.length():
+		_auto_submit()
+
+	return true
+
+
+## Check the full word against the solution.
+func _auto_submit() -> void:
+	var all_correct := true
+	for i in range(_solution_word.length()):
+		if _letter_slots[i].get_letter() != _solution_word[i]:
+			all_correct = false
+			break
+
+	if all_correct:
+		_mark_all_correct()
+		word_completed.emit()
 	else:
-		# Incorrect letter
-		var slot: LetterSlot = _letter_slots[_current_index]
+		_flash_incorrect()
 
-		# Flash incorrect state
-		slot.set_letter(input_upper)
-		slot.set_state(LetterSlot.State.INCORRECT)
 
-		# Reset after brief delay
-		await get_tree().create_timer(0.2).timeout
-		slot.clear()
-
-		# Trigger shake
-		shake()
-
-		return false
+## Flash wrong answer feedback, then clear user-typed letters for retry.
+func _flash_incorrect() -> void:
+	_is_active = false  # Prevent input during animation
+	for i in range(_revealed_count, _solution_word.length()):
+		_letter_slots[i].set_state(LetterSlot.State.INCORRECT)
+	shake()
+	await get_tree().create_timer(0.3).timeout
+	for i in range(_revealed_count, _solution_word.length()):
+		_letter_slots[i].clear()
+	_current_index = _revealed_count
+	_is_active = true  # Re-enable input for retry
 
 
 func delete_letter() -> void:
-	if _current_index > 0:
+	# Only delete user-typed letters, never revealed ones
+	if _current_index > _revealed_count:
 		_current_index -= 1
 		_letter_slots[_current_index].clear()
 
 
 func activate() -> void:
 	_is_active = true
-	# Add subtle visual highlight
 	modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 
 func deactivate() -> void:
 	_is_active = false
-	# Dim slightly when inactive
 	modulate = Color(0.7, 0.7, 0.7, 1.0)
 
 
@@ -101,8 +135,6 @@ func shake() -> void:
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_ELASTIC)
 	tween.set_ease(Tween.EASE_OUT)
-
-	# Oscillate position.x +-15px
 	tween.tween_property(self, "position:x", _original_position_x + 15, 0.05)
 	tween.tween_property(self, "position:x", _original_position_x - 15, 0.05)
 	tween.tween_property(self, "position:x", _original_position_x + 10, 0.05)
