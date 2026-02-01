@@ -30,3 +30,9 @@ signal word_completed(word_index: int)
 signal level_completed
 signal level_failed
 signal letter_input(letter: String, correct: bool)
+
+# --- Surge system signals ---
+signal surge_changed(current_value: float, max_value: float)
+signal surge_threshold_crossed(new_multiplier: float)
+signal surge_bust()
+signal score_updated(new_score: int)
