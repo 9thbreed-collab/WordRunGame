@@ -1,6 +1,7 @@
 # Godot 4.x
 .godot/
 .import/
+*.uid
 
 # Export artifacts
 export_presets.cfg
@@ -35,6 +36,9 @@ addons/godot-iap/bin/macos/
 # IDE
 .vscode/
 .idea/
+
+# Browser automation
+.playwright-mcp/
 
 # OS files
 Thumbs.db

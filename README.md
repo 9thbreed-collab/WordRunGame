@@ -10,23 +10,51 @@ WordRun! is a timed word puzzle game built in Godot 4.5 for iOS and Android. Pla
 
 ## Current Status
 
-**Version:** v0.0.02
-**Phase:** Phase 1 Complete (Foundation and Validation Spikes)
-**Progress:** 4 of 117 v1 requirements complete (8 partially addressed)
+**Version:** v0.0.03
+**Phase:** Phase 2 Complete (Core Puzzle Loop)
+**Progress:** 14 of 117 v1 requirements complete (2 partially addressed)
 
-Phase 1 code is complete. The project has established architecture foundation (autoloads, PlatformServices abstraction, feature flags) and integrated monetization plugins (AdMob v5.3, godot-iap v1.2.3). Physical device validation is deferred due to hardware constraints but does not block Phase 2-6 development.
+Phase 2 code is complete. The project has a **fully playable end-to-end puzzle loop** with menu navigation, word-pair solving mechanics, on-screen keyboard input, auto-scrolling word display, timer, and results screen. All core puzzle requirements (PUZL-01 through PUZL-10) are integrated and functional.
 
-### Key Accomplishments
+### Playable Flow
+1. **Menu Screen** - Launch app, tap Play button
+2. **Gameplay Screen** - Solve 15-word chain puzzle with on-screen keyboard
+3. **Results Screen** - View completion status, replay or return to menu
+
+### Key Accomplishments (Phase 2)
+- WordPair and LevelData custom resource data model with typed arrays
+- LetterSlot UI component with 4 visual states (empty, filled, correct, incorrect)
+- WordRow component with dynamic letter slot generation and shake animation feedback
+- OnScreenKeyboard QWERTY layout with auto-connected buttons
+- GameplayScreen with full puzzle loop: scrolling word display, timer, input handling
+- MenuScreen and ResultsScreen with event-driven navigation
+- GameManager routing based on EventBus gameplay signals
+- Polish: word chain test level, auto-submit on last letter, native keyboard support
+- Word display panel with auto-scroll (cubic easing, triggers after 4th word)
+
+### Key Accomplishments (Phase 1)
 - Architecture skeleton: EventBus, GameManager, PlatformServices, SaveData autoloads
 - PlatformServices abstraction layer for plugin resilience
 - BannerAdRegion component with collapsible behavior and test screen
-- AdMob v5.3 plugin installed and wired into PlatformServices
-- godot-iap v1.2.3 plugin installed and wired into PlatformServices
+- AdMob v5.3 and godot-iap v1.2.3 plugins installed and integrated
 - FeatureFlags system for runtime feature control
 - Export pipeline documented (iOS/Android export presets guide created)
 
 ### Requirements Complete
-- FNDN-05: Autoload architecture implemented
+**Phase 2 (PUZL):**
+- PUZL-01: Word-pair puzzle mechanic
+- PUZL-02: Letter-by-letter input with visual feedback
+- PUZL-03: Test level with real compound word pairs
+- PUZL-04: On-screen keyboard with proper touch targets
+- PUZL-05: Scrolling word display window
+- PUZL-06: Timer display and logic
+- PUZL-07: 12 base + 3 bonus word structure
+- PUZL-08: Level completion detection
+- PUZL-09: Navigation between screens
+- PUZL-10: End-to-end playable flow
+
+**Phase 1 (FNDN):**
+- FNDN-05: Autoload architecture
 - FNDN-06: PlatformServices abstraction layer
 - FNDN-07: Banner ad region component
 - FNDN-08: FeatureFlags system
@@ -34,11 +62,9 @@ Phase 1 code is complete. The project has established architecture foundation (a
 ### Requirements Code-Ready (Device Validation Pending)
 - FNDN-03: AdMob plugin integrated (awaiting physical device test)
 - FNDN-04: IAP plugin integrated (awaiting physical device test)
-- FNDN-01: iOS export configured (device testing deferred)
-- FNDN-02: Android export configured (device testing deferred)
 
 ### Next Milestone
-Phase 2: Implement core puzzle loop (WordPair data model, LetterSlot/WordRow UI components, GameplayScreen with keyboard and timer, end-to-end routing).
+Phase 3: Game Feel - Surge, Score, and Audio (surge momentum system, scoring with multipliers, audio feedback integration).
 
 ## Technology Stack
 
@@ -96,10 +122,17 @@ Phase 2: Implement core puzzle loop (WordPair data model, LetterSlot/WordRow UI 
 **Steps:**
 1. Clone repository
 2. Open project in Godot 4.5
-3. Current state: minimal scaffold with main.tscn scene
-4. Export targets not yet configured (Phase 1 pending)
+3. Press F5 or click Play to launch
+4. Current state: Playable puzzle loop (Menu -> Gameplay -> Results)
 
-**Note:** No gameplay implemented yet. Project is in planning phase with documentation and structure established.
+**Test the Puzzle Loop:**
+- Tap Play button on menu screen
+- Solve word chain: SNOW → ball → park → bench → press → conference → room → mate → check → point → guard → rail → road → trip → wire → less → careless → whisper → good → morning → sickness → benefit → cost → front → line
+- Use on-screen QWERTY keyboard or native keyboard (A-Z, Backspace)
+- First letter of each word is pre-revealed
+- Wrong answer flashes red and shakes, then clears for retry
+- Auto-scroll after 4th word solved
+- Complete level or let timer run out to see results screen
 
 ## Project Structure
 
@@ -150,7 +183,7 @@ WordRunGame/
 8. Polish, Soft Launch, and Tuning (test market, analytics, economy tuning)
 9. Post-Launch Features (Vs mode, skins, Nations 4-9, expanded content)
 
-**Current Phase:** Phase 1 Complete (Phase 2 planning ready to begin)
+**Current Phase:** Phase 2 Complete (Phase 3 planning ready to begin)
 
 ## Contributing
 

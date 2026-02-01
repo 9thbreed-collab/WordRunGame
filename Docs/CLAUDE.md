@@ -10,7 +10,7 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - [x] **Research**: Stack, architecture, features, and pitfalls researched
 - [x] **Planning**: 9-phase roadmap, 117 requirements, state tracking established
 - [x] **Phase 1: Foundation and Validation Spikes**: Code complete (4/4 plans, device testing deferred)
-- [ ] **Phase 2: Core Puzzle Loop**: Word-pair solving mechanic
+- [x] **Phase 2: Core Puzzle Loop**: Complete (4/4 plans, fully playable end-to-end flow)
 - [ ] **Phase 3: Game Feel**: Surge momentum system
 - [ ] **Phase 4: Obstacles & Content**: Obstacle system and word validation pipeline
 - [ ] **Phase 5: Progression & Economy**: Hearts, currency, boss levels, inventory
@@ -19,7 +19,7 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - [ ] **Phase 8: Soft Launch**: Test market, analytics, tuning
 - [ ] **Phase 9: Post-Launch**: Vs mode, skins, content expansion
 
-**Current Phase:** Phase 1 Complete (Foundation and Validation Spikes code-complete, device testing deferred)
+**Current Phase:** Phase 2 Complete (Core Puzzle Loop delivered with 10 PUZL requirements complete)
 
 ### Key Decisions & Context
 
@@ -41,7 +41,7 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - **Naming:** WordRun! (exclamation mark part of brand)
 
 #### Production Notes
-- **Version:** v0.0.02 (foundation/planning phase)
+- **Version:** v0.0.03 (Phase 2 complete - playable puzzle loop)
 - **Versioning:** v0.0.XX during foundation, v0.X.XX during pre-release, v1.0.0 at launch
 - **Director Preferences:** Professional code quality (no shortcuts), AI-assisted assets (art, animation), documentation-first during foundation
 - **Architecture:** Layered (scenes/scripts/data/assets), autoloads (EventBus, GameManager, PlatformServices, SaveData)
@@ -54,19 +54,22 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 ## Working Instructions
 
 ### Current Focus
-**Phase 2 Planning**: Core Puzzle Loop implementation
+**Phase 3 Planning**: Game Feel - Surge, Score, and Audio
 
-**Phase 2 Goals:**
-1. Implement WordPair and LevelData resource types with EventBus gameplay signals
-2. Build LetterSlot and WordRow UI components with input handling and feedback
-3. Create GameplayScreen with on-screen keyboard, scrolling, timer, and puzzle loop
-4. Implement MenuScreen, ResultsScreen, and GameManager routing for end-to-end flow
+**Phase 3 Goals:**
+1. Implement surge momentum system with counter display and threshold tracking
+2. Wire bonus gate to surge requirements (must reach threshold to access bonus words)
+3. Add scoring calculation with multipliers based on surge level
+4. Integrate audio feedback for letter input, word completion, and level events
+5. Update ResultsScreen with actual score, time, and stars display
 
-**Phase 1 Completion Status:**
-- Code complete (4/4 plans executed)
-- Architecture foundation established (autoloads, PlatformServices, FeatureFlags)
-- AdMob v5.3 and godot-iap v1.2.3 installed and integrated
-- Device validation deferred due to hardware blocker (non-blocking for Phases 2-6)
+**Phase 2 Completion Status:**
+- Complete (4/4 plans executed, 13 commits)
+- Fully playable puzzle loop: Menu -> Gameplay -> Results -> Menu/Replay
+- All 10 PUZL requirements integrated
+- Component-driven UI architecture proven (LetterSlot, WordRow, OnScreenKeyboard)
+- Event-driven navigation working (EventBus signals, GameManager routing)
+- Polish pass complete (word chain, auto-submit, native keyboard, scroll behavior)
 
 ### Working Rules
 - Do not assume tools, libraries, or architecture unless explicitly defined in this file or .planning/ docs
@@ -99,7 +102,36 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 
 ## Session History
 
-### Session 2026-01-31 (v0.0.02)
+### Session 2026-01-31 Late (v0.0.03)
+- **Phase:** Phase 2 Complete (Core Puzzle Loop)
+- **Accomplishments:**
+  - Completed all 4 Phase 2 plans (02-01 through 02-04) with 13 commits
+  - Created WordPair and LevelData custom resources with typed arrays
+  - Built LetterSlot UI component with 4 visual states (empty, filled, correct, incorrect)
+  - Created WordRow with dynamic letter slot generation and shake animation feedback
+  - Implemented OnScreenKeyboard component with QWERTY layout and auto-connected buttons
+  - Built GameplayScreen with full puzzle loop, scrolling, timer, and level completion
+  - Created MenuScreen and ResultsScreen for complete navigation flow
+  - Wired GameManager for event-driven routing based on gameplay signals
+  - Polish pass: word chain level data, auto-submit on last letter, native keyboard support, scroll behavior refinement
+  - Updated main_scene to launch into menu instead of test screen
+- **Key Decisions:**
+  - WordPair uses word_a (clue) and word_b (answer) terminology
+  - Full-word auto-submit on last letter (not per-letter validation)
+  - Wrong answer flashes red, shakes, then clears user-typed letters for retry
+  - Backspace works but cannot delete revealed letters
+  - Auto-scroll triggers only after 4th word solved, one row at a time with cubic easing
+  - Timer counts up from 00:00 (changed from countdown)
+  - GameManager routes both level_completed and level_failed to single ResultsScreen
+  - Bonus gate stub at word index 11, ready for Phase 3 surge integration
+- **Requirements Completed:** PUZL-01 through PUZL-10 (all core puzzle loop requirements)
+- **Next Steps:**
+  - Plan Phase 3 (Game Feel - Surge, Score, and Audio)
+  - Implement surge momentum system and wire bonus gate
+  - Add scoring calculation with multipliers
+  - Integrate audio feedback layer
+
+### Session 2026-01-31 Early (v0.0.02)
 - **Phase:** Phase 1 Complete / Phase 2 Transition
 - **Accomplishments:**
   - Verified Phase 1 completion status (4/4 plans complete, device testing deferred)
