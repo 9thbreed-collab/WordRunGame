@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2gameplay_screen"]
+[gd_scene load_steps=7 format=3 uid="uid://d2gameplay_screen"]
 
 [ext_resource type="Script" path="res://scripts/screens/gameplay_screen.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://d2keyboard" path="res://scenes/ui/on_screen_keyboard.tscn" id="2_keyboard"]
 [ext_resource type="PackedScene" uid="uid://d2banner_ad_region" path="res://scenes/ui/banner_ad_region.tscn" id="3_banner"]
+[ext_resource type="PackedScene" uid="uid://cqr3xvwb8k7xy" path="res://scenes/ui/surge_bar.tscn" id="4_surge_bar"]
+[ext_resource type="Script" path="res://scripts/gameplay/surge_system.gd" id="5_surge_system"]
 
 [sub_resource type="StyleBoxFlat" id="word_panel_style"]
 bg_color = Color(0.08, 0.08, 0.14, 0.85)
@@ -59,6 +61,36 @@ theme_override_font_sizes/font_size = 28
 text = "0/15"
 vertical_alignment = 1
 
+[node name="ScoreHUD" type="HBoxContainer" parent="MainVBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MainVBox/ScoreHUD"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MultiplierLabel" type="Label" parent="MainVBox/ScoreHUD"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "x1.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SurgeBarContainer" type="CenterContainer" parent="MainVBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="SurgeBar" parent="MainVBox/SurgeBarContainer" instance=ExtResource("4_surge_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="TopSpacer" type="Control" parent="MainVBox"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -93,3 +125,7 @@ layout_mode = 2
 
 [node name="GameTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+
+[node name="SurgeSystem" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_surge_system")
