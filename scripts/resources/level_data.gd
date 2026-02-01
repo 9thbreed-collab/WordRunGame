@@ -12,3 +12,6 @@ extends Resource
 
 ## Array of word pairs for this level. First 12 = base, last 3 = bonus.
 @export var word_pairs: Array[WordPair] = []
+
+## Surge momentum configuration for this level
+@export var surge_config: SurgeConfig

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=18 format=3]
+[gd_resource type="Resource" script_class="LevelData" load_steps=19 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/level_data.gd" id="1_a1a1a"]
 [ext_resource type="Script" path="res://scripts/resources/word_pair.gd" id="2_b2b2b"]
+[ext_resource type="Script" path="res://scripts/resources/surge_config.gd" id="3_c3c3c"]
 
 [sub_resource type="Resource" id="WordPair_1"]
 script = ExtResource("2_b2b2b")
@@ -83,8 +84,18 @@ script = ExtResource("2_b2b2b")
 word_a = "front"
 word_b = "line"
 
+[sub_resource type="Resource" id="SurgeConfig_1"]
+script = ExtResource("3_c3c3c")
+max_value = 100.0
+fill_per_word = 15.0
+idle_drain_rate = 2.0
+imminent_drain_rate = 8.0
+thresholds = Array[float]([30.0, 60.0, 90.0])
+multipliers = Array[float]([1.0, 1.5, 2.0, 3.0])
+
 [resource]
 script = ExtResource("1_a1a1a")
 level_name = "Test Level 1"
 time_limit_seconds = 180
 word_pairs = Array[Resource]([SubResource("WordPair_1"), SubResource("WordPair_2"), SubResource("WordPair_3"), SubResource("WordPair_4"), SubResource("WordPair_5"), SubResource("WordPair_6"), SubResource("WordPair_7"), SubResource("WordPair_8"), SubResource("WordPair_9"), SubResource("WordPair_10"), SubResource("WordPair_11"), SubResource("WordPair_12"), SubResource("WordPair_13"), SubResource("WordPair_14"), SubResource("WordPair_15"), SubResource("WordPair_16")])
+surge_config = SubResource("SurgeConfig_1")
