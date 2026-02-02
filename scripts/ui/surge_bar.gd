@@ -8,7 +8,7 @@ var _config: SurgeConfig
 var _threshold_markers: Array[ColorRect] = []
 var _imminent_tween: Tween
 
-const SECTION_COLORS: Array[Color] = [
+var SECTION_COLORS: Array[Color] = [
 	Color(0.298, 0.686, 0.314),  # Green  (section 0)
 	Color(0.95, 0.85, 0.2),     # Yellow (section 1)
 	Color(0.95, 0.55, 0.15),    # Orange (section 2)
@@ -52,7 +52,7 @@ func setup(config: SurgeConfig) -> void:
 		_threshold_markers.append(marker)
 
 	# Position markers after layout settles
-	_progress_bar.sort_children.connect(_position_markers)
+	_position_markers.call_deferred()
 
 
 func _position_markers() -> void:

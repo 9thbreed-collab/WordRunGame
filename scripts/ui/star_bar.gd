@@ -9,8 +9,8 @@ extends Control
 
 const STAR_SOLID: String = "\u2605"
 const STAR_OUTLINE: String = "\u2606"
-const GOLD: Color = Color(1.0, 0.84, 0.0)
-const GRAY: Color = Color(0.5, 0.5, 0.5, 0.6)
+var GOLD := Color(1.0, 0.84, 0.0)
+var GRAY := Color(0.5, 0.5, 0.5, 0.6)
 
 ## Total time in seconds for the bar to fully drain.
 @export var duration_seconds: float = 240.0
