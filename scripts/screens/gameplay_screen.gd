@@ -5,6 +5,8 @@ extends Control
 
 const WordRowScene = preload("res://scenes/ui/word_row.tscn")
 
+enum InputMethod { QWERTY, RADIAL }
+
 @onready var _timer_label: Label = %TimerLabel
 @onready var _word_count_label: Label = %WordCountLabel
 @onready var _score_label: Label = %ScoreLabel
@@ -15,6 +17,7 @@ const WordRowScene = preload("res://scenes/ui/word_row.tscn")
 @onready var _word_display: ScrollContainer = %WordDisplay
 @onready var _surge_system: Node = %SurgeSystem
 @onready var _surge_bar: Control = %SurgeBar
+@onready var _star_bar: Control = %StarBar
 @onready var _bust_flash: ColorRect = %BustFlash
 
 var _level_data: LevelData
@@ -25,6 +28,7 @@ var _time_elapsed: int = 0
 var _is_level_active: bool = false
 var _score: int = 0
 var _current_multiplier: float = 1.0
+var _input_method: InputMethod = InputMethod.QWERTY
 
 const BASE_SCORE: int = 100
 
@@ -75,6 +79,10 @@ func _ready() -> void:
 	# Start game
 	_is_level_active = true
 	_game_timer.start()
+	_star_bar.start_timer()
+
+	# Setup input method
+	_apply_input_method()
 
 	# Transition to PLAYING state
 	GameManager.transition_to(GameManager.AppState.PLAYING)
@@ -130,6 +138,7 @@ func _on_word_completed(word_index: int) -> void:
 	_update_score_display()
 	EventBus.word_completed.emit(word_index)
 	EventBus.score_updated.emit(_score)
+	_surge_system.fill()
 	_update_word_count()
 
 	# Check if this was the last word
@@ -191,6 +200,7 @@ func _update_word_count() -> void:
 func _level_complete() -> void:
 	_is_level_active = false
 	_game_timer.stop()
+	_star_bar.stop_timer()
 	GameManager.last_score = _score
 	GameManager.last_time_elapsed = _time_elapsed
 	EventBus.level_completed.emit()
@@ -199,6 +209,7 @@ func _level_complete() -> void:
 func _level_failed() -> void:
 	_is_level_active = false
 	_game_timer.stop()
+	_star_bar.stop_timer()
 	EventBus.level_failed.emit()
 
 
@@ -222,3 +233,21 @@ func _on_surge_bust() -> void:
 	var t := create_tween()
 	t.tween_property(_bust_flash, "color:a", 0.3, 0.15)
 	t.tween_property(_bust_flash, "color:a", 0.0, 0.25)
+
+
+## --- Input Method Toggle ---
+
+func set_input_method(method: InputMethod) -> void:
+	_input_method = method
+	if is_inside_tree():
+		_apply_input_method()
+
+
+func _apply_input_method() -> void:
+	match _input_method:
+		InputMethod.QWERTY:
+			_keyboard.visible = true
+			# Radial wheel hidden when implemented
+		InputMethod.RADIAL:
+			_keyboard.visible = false
+			# Radial wheel shown when implemented

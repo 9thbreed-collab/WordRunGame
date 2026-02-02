@@ -88,9 +88,9 @@ word_b = "line"
 script = ExtResource("3_c3c3c")
 max_value = 100.0
 fill_per_word = 15.0
-idle_drain_rate = 2.0
-imminent_drain_rate = 8.0
-thresholds = Array[float]([30.0, 60.0, 90.0])
+thresholds = Array[float]([30.0, 60.0, 80.0])
+section_drain_times = Array[float]([9.0, 5.5, 3.5, 2.5])
+bust_drain_rate = 25.0
 multipliers = Array[float]([1.0, 1.5, 2.0, 3.0])
 
 [resource]
