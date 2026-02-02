@@ -13,7 +13,7 @@ WordRun! ships as a single-player-first commercial mobile word puzzle game built
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [~] **Phase 1: Foundation and Validation Spikes** (Code complete, device testing deferred) - Validate mobile export pipeline, plugin compatibility, and project architecture before writing game code
-- [ ] **Phase 2: Core Puzzle Loop** - Build the atomic word-pair solving mechanic and validate it on touch devices
+- [x] **Phase 2: Core Puzzle Loop** - Build the atomic word-pair solving mechanic and validate it on touch devices
 - [ ] **Phase 3: Game Feel -- Surge, Score, and Audio** - Add the surge momentum system, scoring, and audio/visual feedback that create the "rush"
 - [ ] **Phase 4: Obstacles, Boosts, and Content Pipeline** - Build the extensible obstacle/boost system and the word-pair content validation pipeline
 - [ ] **Phase 5: Progression, Economy, and Retention** - Add hearts/hints/lives, dual currency, boss levels, inventory, and login streaks
@@ -139,11 +139,12 @@ Plans:
 
 **Estimated Complexity:** Very High
 
-**Plans:** TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md -- Surge system, scoring, and multiplier (SurgeConfig resource, SurgeSystem node, surge bar UI, score tracking, results screen)
+- [ ] 03-02-PLAN.md -- Audio manager and haptics (AudioManager autoload, SFX pool, BGM, audio buses, haptic feedback)
+- [ ] 03-03-PLAN.md -- Animation polish (letter pop-in, word celebration, surge bar pulse, bust sequence)
 
 ---
 

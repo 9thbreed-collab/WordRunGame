@@ -62,6 +62,17 @@ theme_override_font_sizes/font_size = 24
 text = "Time: --:--"
 horizontal_alignment = 1
 
+[node name="StatsSpacer3" type="Control" parent="MainVBox/CenterVBox/StatsVBox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MainVBox/CenterVBox/StatsVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Score: --"
+horizontal_alignment = 1
+
 [node name="ButtonSpacer" type="Control" parent="MainVBox/CenterVBox"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2

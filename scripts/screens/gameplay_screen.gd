@@ -7,10 +7,14 @@ const WordRowScene = preload("res://scenes/ui/word_row.tscn")
 
 @onready var _timer_label: Label = %TimerLabel
 @onready var _word_count_label: Label = %WordCountLabel
+@onready var _score_label: Label = %ScoreLabel
+@onready var _multiplier_label: Label = %MultiplierLabel
 @onready var _word_rows_container: VBoxContainer = %WordRows
 @onready var _keyboard: VBoxContainer = %Keyboard
 @onready var _game_timer: Timer = %GameTimer
 @onready var _word_display: ScrollContainer = %WordDisplay
+@onready var _surge_system: Node = %SurgeSystem
+@onready var _surge_bar: Control = %SurgeBar
 
 var _level_data: LevelData
 var _word_rows: Array = []
@@ -18,6 +22,10 @@ var _current_word_index: int = 0
 var _words_completed: int = 0
 var _time_elapsed: int = 0
 var _is_level_active: bool = false
+var _score: int = 0
+var _current_multiplier: float = 1.0
+
+const BASE_SCORE: int = 100
 
 
 func _ready() -> void:
@@ -30,6 +38,14 @@ func _ready() -> void:
 
 	# Connect on-screen keyboard
 	_keyboard.key_pressed.connect(_on_key_pressed)
+
+	# Connect surge signals
+	EventBus.surge_threshold_crossed.connect(_on_surge_threshold_crossed)
+	EventBus.surge_bust.connect(_on_surge_bust)
+
+	# Initialize surge system
+	_surge_system.start(_level_data.surge_config)
+	_surge_bar.setup(_level_data.surge_config)
 
 	# Build word rows
 	_build_word_rows()
@@ -44,6 +60,11 @@ func _ready() -> void:
 	# Initialize timer (counts up)
 	_time_elapsed = 0
 	_update_timer_display()
+
+	# Initialize score display
+	_score = 0
+	_update_score_display()
+	_update_multiplier_display()
 
 	# Start on word 1 (first playable word after starter)
 	_current_word_index = 1
@@ -166,6 +187,8 @@ func _update_word_count() -> void:
 func _level_complete() -> void:
 	_is_level_active = false
 	_game_timer.stop()
+	GameManager.last_score = _score
+	GameManager.last_time_elapsed = _time_elapsed
 	EventBus.level_completed.emit()
 
 

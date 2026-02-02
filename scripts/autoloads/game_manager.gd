@@ -13,6 +13,8 @@ enum AppState {
 }
 
 var current_state: AppState = AppState.LOADING
+var last_score: int = 0
+var last_time_elapsed: int = 0
 
 
 func _ready() -> void:
