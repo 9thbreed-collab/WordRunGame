@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [~] **Phase 1: Foundation and Validation Spikes** (Code complete, device testing deferred) - Validate mobile export pipeline, plugin compatibility, and project architecture before writing game code
 - [x] **Phase 2: Core Puzzle Loop** - Build the atomic word-pair solving mechanic and validate it on touch devices
-- [ ] **Phase 3: Game Feel -- Surge, Score, and Audio** - Add the surge momentum system, scoring, and audio/visual feedback that create the "rush"
+- [x] **Phase 3: Game Feel -- Surge, Score, and Audio** - Add the surge momentum system, scoring, and audio/visual feedback that create the "rush"
 - [ ] **Phase 4: Obstacles, Boosts, and Content Pipeline** - Build the extensible obstacle/boost system and the word-pair content validation pipeline
 - [ ] **Phase 5: Progression, Economy, and Retention** - Add hearts/hints/lives, dual currency, boss levels, inventory, and login streaks
 - [ ] **Phase 6: World Map, Navigation, and Tutorial** - Build the world map, Ruut avatar navigation, progressive tutorial system, and name generator
@@ -142,9 +142,9 @@ Plans:
 **Plans:** 3 plans
 
 Plans:
-- [ ] 03-01-PLAN.md -- Surge system, scoring, and multiplier (SurgeConfig resource, SurgeSystem node, surge bar UI, score tracking, results screen)
-- [ ] 03-02-PLAN.md -- Audio manager and haptics (AudioManager autoload, SFX pool, BGM, audio buses, haptic feedback)
-- [ ] 03-03-PLAN.md -- Animation polish (letter pop-in, word celebration, surge bar pulse, bust sequence)
+- [x] 03-01-PLAN.md -- Surge system, scoring, and multiplier (SurgeConfig resource, SurgeSystem node, surge bar UI, score tracking, results screen)
+- [x] 03-02-PLAN.md -- Audio manager and haptics (AudioManager autoload, SFX pool, BGM, audio buses, haptic feedback)
+- [x] 03-03-PLAN.md -- Animation polish (letter pop-in, word celebration, surge bar pulse, bust sequence)
 
 ---
 
@@ -456,8 +456,8 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
 | 1. Foundation and Validation Spikes | 4/4 (2 with deferred tasks) | Code complete (device testing deferred) | 2026-01-31 |
-| 2. Core Puzzle Loop | 0/TBD | Not started | - |
-| 3. Game Feel -- Surge, Score, and Audio | 0/TBD | Not started | - |
+| 2. Core Puzzle Loop | 4/4 | Complete | 2026-02-01 |
+| 3. Game Feel -- Surge, Score, and Audio | 3/3 | Complete | 2026-02-02 |
 | 4. Obstacles, Boosts, and Content Pipeline | 0/TBD | Not started | - |
 | 5. Progression, Economy, and Retention | 0/TBD | Not started | - |
 | 6. World Map, Navigation, and Tutorial | 0/TBD | Not started | - |
@@ -467,4 +467,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
 
 ---
 *Roadmap created: 2026-01-29*
-*Last updated: 2026-01-31*
+*Last updated: 2026-02-02*
