@@ -41,7 +41,7 @@ func set_word_pair(pair: WordPair) -> void:
 ## Reveal all letters (used for the starter word -- non-interactive reference).
 func reveal_all() -> void:
 	for i in range(_solution_word.length()):
-		_letter_slots[i].set_letter(_solution_word[i])
+		_letter_slots[i].set_letter(_solution_word[i], false)
 		_letter_slots[i].set_state(LetterSlot.State.FILLED)
 	_revealed_count = _solution_word.length()
 	_current_index = _solution_word.length()
@@ -52,7 +52,7 @@ func reveal_all() -> void:
 ## Reveal the first letter (used for playable words).
 func reveal_first_letter() -> void:
 	if _solution_word.length() > 0:
-		_letter_slots[0].set_letter(_solution_word[0])
+		_letter_slots[0].set_letter(_solution_word[0], false)
 		_letter_slots[0].set_state(LetterSlot.State.FILLED)
 		_revealed_count = 1
 		_current_index = 1
@@ -146,3 +146,16 @@ func shake() -> void:
 func _mark_all_correct() -> void:
 	for slot in _letter_slots:
 		slot.set_state(LetterSlot.State.CORRECT)
+	_celebrate()
+
+
+## Staggered slot pop + row pulse on word completion.
+func _celebrate() -> void:
+	# Staggered scale pop on each slot
+	for i in range(_letter_slots.size()):
+		var slot: LetterSlot = _letter_slots[i]
+		slot.pivot_offset = slot.custom_minimum_size / 2.0
+		var t := create_tween()
+		t.tween_interval(i * 0.04)
+		t.tween_property(slot, "scale", Vector2(1.15, 1.15), 0.08).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		t.tween_property(slot, "scale", Vector2.ONE, 0.12).set_ease(Tween.EASE_OUT)

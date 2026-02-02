@@ -15,6 +15,7 @@ const WordRowScene = preload("res://scenes/ui/word_row.tscn")
 @onready var _word_display: ScrollContainer = %WordDisplay
 @onready var _surge_system: Node = %SurgeSystem
 @onready var _surge_bar: Control = %SurgeBar
+@onready var _bust_flash: ColorRect = %BustFlash
 
 var _level_data: LevelData
 var _word_rows: Array = []
@@ -125,7 +126,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_word_completed(word_index: int) -> void:
 	_words_completed += 1
+	_score += int(BASE_SCORE * _current_multiplier)
+	_update_score_display()
 	EventBus.word_completed.emit(word_index)
+	EventBus.score_updated.emit(_score)
 	_update_word_count()
 
 	# Check if this was the last word
@@ -196,3 +200,25 @@ func _level_failed() -> void:
 	_is_level_active = false
 	_game_timer.stop()
 	EventBus.level_failed.emit()
+
+
+func _update_score_display() -> void:
+	_score_label.text = "Score: %d" % _score
+
+
+func _update_multiplier_display() -> void:
+	_multiplier_label.text = "x%.1f" % _current_multiplier
+
+
+func _on_surge_threshold_crossed(new_multiplier: float) -> void:
+	_current_multiplier = new_multiplier
+	_update_multiplier_display()
+
+
+func _on_surge_bust() -> void:
+	_current_multiplier = 1.0
+	_update_multiplier_display()
+	# Screen flash
+	var t := create_tween()
+	t.tween_property(_bust_flash, "color:a", 0.3, 0.15)
+	t.tween_property(_bust_flash, "color:a", 0.0, 0.25)

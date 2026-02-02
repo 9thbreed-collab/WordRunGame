@@ -90,8 +90,10 @@ func set_state(new_state: State) -> void:
 			_label.modulate = Color(1, 1, 1, 1)  # White text
 
 
-func set_letter(character: String) -> void:
+func set_letter(character: String, animate: bool = true) -> void:
 	_label.text = character.to_upper()
+	if animate:
+		_pop_in()
 
 
 func get_letter() -> String:
@@ -101,6 +103,16 @@ func get_letter() -> String:
 func clear() -> void:
 	_label.text = ""
 	set_state(State.EMPTY)
+
+
+## Snappy scale pop-in when a letter is typed.
+func _pop_in() -> void:
+	pivot_offset = custom_minimum_size / 2.0
+	scale = Vector2.ZERO
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_BACK)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.2)
 
 
 ## Flash the entire slot bright white then restore. Visible against the dark panel.

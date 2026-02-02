@@ -8,8 +8,13 @@ var _config: SurgeConfig
 var _threshold_markers: Array[ColorRect] = []
 
 
+var _imminent_tween: Tween
+
+
 func _ready() -> void:
 	EventBus.surge_changed.connect(_on_surge_changed)
+	EventBus.surge_threshold_crossed.connect(_on_threshold_crossed)
+	EventBus.surge_bust.connect(_on_bust)
 
 
 func setup(config: SurgeConfig) -> void:
@@ -43,6 +48,42 @@ func update_value(current: float, max_val: float) -> void:
 
 func _on_surge_changed(current_value: float, max_value: float) -> void:
 	update_value(current_value, max_value)
+
+
+func _on_threshold_crossed(_new_multiplier: float) -> void:
+	pivot_offset = size / 2.0
+	var t := create_tween()
+	t.tween_property(self, "scale", Vector2(1.08, 1.08), 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	t.tween_property(self, "scale", Vector2.ONE, 0.15).set_ease(Tween.EASE_OUT)
+	# Brief brightness flash
+	var c := create_tween()
+	c.tween_property(_progress_bar, "modulate", Color(1.5, 1.5, 1.5, 1.0), 0.1)
+	c.tween_property(_progress_bar, "modulate", Color.WHITE, 0.2)
+
+
+func _on_bust() -> void:
+	# Flash red then drain
+	var t := create_tween()
+	t.tween_property(_progress_bar, "modulate", Color(1.0, 0.3, 0.3, 1.0), 0.15)
+	t.tween_property(_progress_bar, "value", 0.0, 0.4).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	t.tween_property(_progress_bar, "modulate", Color.WHITE, 0.2)
+	_stop_imminent_pulse()
+
+
+func start_imminent_pulse() -> void:
+	_stop_imminent_pulse()
+	pivot_offset = size / 2.0
+	_imminent_tween = create_tween()
+	_imminent_tween.set_loops()
+	_imminent_tween.tween_property(self, "scale", Vector2(1.03, 1.03), 0.3).set_trans(Tween.TRANS_SINE)
+	_imminent_tween.tween_property(self, "scale", Vector2.ONE, 0.3).set_trans(Tween.TRANS_SINE)
+
+
+func _stop_imminent_pulse() -> void:
+	if _imminent_tween and _imminent_tween.is_running():
+		_imminent_tween.kill()
+		_imminent_tween = null
+		scale = Vector2.ONE
 
 
 func _clear_markers() -> void:
