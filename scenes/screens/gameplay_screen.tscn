@@ -84,23 +84,22 @@ text = "x1.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BarRow" type="HBoxContainer" parent="MainVBox"]
-custom_minimum_size = Vector2(0, 50)
+[node name="StarBarRow" type="HBoxContainer" parent="MainVBox"]
+custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
 
-[node name="StarBar" parent="MainVBox/BarRow" instance=ExtResource("6_star_bar")]
+[node name="StarBar" parent="MainVBox/StarBarRow" instance=ExtResource("6_star_bar")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="BarSpacer" type="Control" parent="MainVBox/BarRow"]
+[node name="SurgeBarContainer" type="CenterContainer" parent="MainVBox"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="SurgeBar" parent="MainVBox/BarRow" instance=ExtResource("4_surge_bar")]
+[node name="SurgeBar" parent="MainVBox/SurgeBarContainer" instance=ExtResource("4_surge_bar")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="TopSpacer" type="Control" parent="MainVBox"]
 layout_mode = 2

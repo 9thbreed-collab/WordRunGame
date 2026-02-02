@@ -13,7 +13,7 @@ var GOLD := Color(1.0, 0.84, 0.0)
 var GRAY := Color(0.5, 0.5, 0.5, 0.6)
 
 ## Total time in seconds for the bar to fully drain.
-@export var duration_seconds: float = 240.0
+@export var duration_seconds: float = 420.0
 
 ## Star positions as percentages (0.0 to 1.0). Weighted left.
 var star_positions: Array[float] = [0.10, 0.40, 0.70]
