@@ -21,6 +21,7 @@ EventBus="*res://scripts/autoloads/event_bus.gd"
 SaveData="*res://scripts/autoloads/save_data.gd"
 GameManager="*res://scripts/autoloads/game_manager.gd"
 PlatformServices="*res://scripts/autoloads/platform_services.gd"
+AudioManager="*res://scripts/autoloads/audio_manager.gd"
 GodotIapPlugin="*res://addons/godot-iap/godot_iap.gd"
 
 [display]

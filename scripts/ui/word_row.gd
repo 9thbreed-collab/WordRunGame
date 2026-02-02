@@ -104,6 +104,7 @@ func _auto_submit() -> void:
 ## Flash wrong answer feedback, then clear user-typed letters for retry.
 func _flash_incorrect() -> void:
 	_is_active = false  # Prevent input during animation
+	EventBus.word_incorrect.emit()
 	for i in range(_revealed_count, _solution_word.length()):
 		_letter_slots[i].set_state(LetterSlot.State.INCORRECT)
 	shake()
