@@ -3,7 +3,7 @@
 class_name LetterSlot
 extends PanelContainer
 
-enum State { EMPTY, FILLED, CORRECT, INCORRECT }
+enum State { EMPTY, FILLED, CORRECT, INCORRECT, LOCKED, BLOCKED, SANDED }
 
 @onready var _label: Label = $Label
 
@@ -12,6 +12,13 @@ var _style_empty: StyleBoxFlat
 var _style_filled: StyleBoxFlat
 var _style_correct: StyleBoxFlat
 var _style_incorrect: StyleBoxFlat
+var _style_locked: StyleBoxFlat
+var _style_blocked: StyleBoxFlat
+var _style_sanded: StyleBoxFlat
+
+var _is_locked: bool = false
+var _is_blocked: bool = false
+var _is_sanded: bool = false
 
 
 func _ready() -> void:
@@ -72,6 +79,45 @@ func _create_styles() -> void:
 	_style_incorrect.corner_radius_bottom_left = 4
 	_style_incorrect.corner_radius_bottom_right = 4
 
+	# LOCKED: dark gray background
+	_style_locked = StyleBoxFlat.new()
+	_style_locked.bg_color = Color(0.3, 0.3, 0.3, 1)
+	_style_locked.border_color = Color(0.5, 0.5, 0.5, 1)
+	_style_locked.border_width_left = 2
+	_style_locked.border_width_right = 2
+	_style_locked.border_width_top = 2
+	_style_locked.border_width_bottom = 2
+	_style_locked.corner_radius_top_left = 4
+	_style_locked.corner_radius_top_right = 4
+	_style_locked.corner_radius_bottom_left = 4
+	_style_locked.corner_radius_bottom_right = 4
+
+	# BLOCKED: brown wood-grain placeholder
+	_style_blocked = StyleBoxFlat.new()
+	_style_blocked.bg_color = Color(0.55, 0.35, 0.15, 1)
+	_style_blocked.border_color = Color(0.4, 0.25, 0.1, 1)
+	_style_blocked.border_width_left = 2
+	_style_blocked.border_width_right = 2
+	_style_blocked.border_width_top = 2
+	_style_blocked.border_width_bottom = 2
+	_style_blocked.corner_radius_top_left = 4
+	_style_blocked.corner_radius_top_right = 4
+	_style_blocked.corner_radius_bottom_left = 4
+	_style_blocked.corner_radius_bottom_right = 4
+
+	# SANDED: sandy fill
+	_style_sanded = StyleBoxFlat.new()
+	_style_sanded.bg_color = Color(0.85, 0.75, 0.55, 0.8)
+	_style_sanded.border_color = Color(0.7, 0.6, 0.4, 1)
+	_style_sanded.border_width_left = 2
+	_style_sanded.border_width_right = 2
+	_style_sanded.border_width_top = 2
+	_style_sanded.border_width_bottom = 2
+	_style_sanded.corner_radius_top_left = 4
+	_style_sanded.corner_radius_top_right = 4
+	_style_sanded.corner_radius_bottom_left = 4
+	_style_sanded.corner_radius_bottom_right = 4
+
 
 func set_state(new_state: State) -> void:
 	_current_state = new_state
@@ -88,6 +134,15 @@ func set_state(new_state: State) -> void:
 		State.INCORRECT:
 			add_theme_stylebox_override("panel", _style_incorrect)
 			_label.modulate = Color(1, 1, 1, 1)  # White text
+		State.LOCKED:
+			add_theme_stylebox_override("panel", _style_locked)
+			_label.modulate = Color(0.5, 0.5, 0.5, 0.6)  # Dim text
+		State.BLOCKED:
+			add_theme_stylebox_override("panel", _style_blocked)
+			_label.modulate = Color(0.9, 0.8, 0.6, 1)  # Wood text
+		State.SANDED:
+			add_theme_stylebox_override("panel", _style_sanded)
+			_label.modulate = Color(0.6, 0.5, 0.3, 0.8)  # Sandy text
 
 
 func set_letter(character: String, animate: bool = true) -> void:
@@ -113,6 +168,34 @@ func _pop_in() -> void:
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "scale", Vector2.ONE, 0.2)
+
+
+func set_locked(locked: bool) -> void:
+	_is_locked = locked
+	if locked:
+		set_state(State.LOCKED)
+	else:
+		set_state(State.EMPTY)
+
+
+func set_blocked(blocked: bool) -> void:
+	_is_blocked = blocked
+	if blocked:
+		set_state(State.BLOCKED)
+	else:
+		set_state(State.EMPTY)
+
+
+func set_sanded(sanded: bool) -> void:
+	_is_sanded = sanded
+	if sanded:
+		set_state(State.SANDED)
+	else:
+		set_state(State.EMPTY)
+
+
+func can_accept_input() -> bool:
+	return not (_is_locked or _is_blocked or _is_sanded)
 
 
 ## Flash the entire slot bright white then restore. Visible against the dark panel.

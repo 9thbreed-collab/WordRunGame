@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=19 format=3]
+[gd_resource type="Resource" script_class="LevelData" load_steps=23 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/level_data.gd" id="1_a1a1a"]
 [ext_resource type="Script" path="res://scripts/resources/word_pair.gd" id="2_b2b2b"]
 [ext_resource type="Script" path="res://scripts/resources/surge_config.gd" id="3_c3c3c"]
+[ext_resource type="Script" path="res://scripts/resources/obstacle_config.gd" id="4_d4d4d"]
 
 [sub_resource type="Resource" id="WordPair_1"]
 script = ExtResource("2_b2b2b")
@@ -93,9 +94,37 @@ section_drain_times = Array[float]([15.3, 9.35, 5.95, 4.25])
 bust_drain_rate = 25.0
 multipliers = Array[float]([1.0, 1.5, 2.0, 3.0])
 
+[sub_resource type="Resource" id="Obstacle_1"]
+script = ExtResource("4_d4d4d")
+obstacle_type = "padlock"
+display_name = "Padlock"
+word_index = 5
+trigger_type = "level_start"
+delay_seconds = 0.0
+effect_data = {}
+
+[sub_resource type="Resource" id="Obstacle_2"]
+script = ExtResource("4_d4d4d")
+obstacle_type = "random_blocks"
+display_name = "Random Blocks"
+word_index = 8
+trigger_type = "word_start"
+delay_seconds = 0.0
+effect_data = {"block_count": 2}
+
+[sub_resource type="Resource" id="Obstacle_3"]
+script = ExtResource("4_d4d4d")
+obstacle_type = "sand"
+display_name = "Sand"
+word_index = 10
+trigger_type = "word_start"
+delay_seconds = 0.0
+effect_data = {"word_count": 2, "word_indices": [10, 11], "trickle_interval": 4.0}
+
 [resource]
 script = ExtResource("1_a1a1a")
 level_name = "Test Level 1"
 time_limit_seconds = 180
 word_pairs = Array[Resource]([SubResource("WordPair_1"), SubResource("WordPair_2"), SubResource("WordPair_3"), SubResource("WordPair_4"), SubResource("WordPair_5"), SubResource("WordPair_6"), SubResource("WordPair_7"), SubResource("WordPair_8"), SubResource("WordPair_9"), SubResource("WordPair_10"), SubResource("WordPair_11"), SubResource("WordPair_12"), SubResource("WordPair_13"), SubResource("WordPair_14"), SubResource("WordPair_15"), SubResource("WordPair_16")])
 surge_config = SubResource("SurgeConfig_1")
+obstacle_configs = Array[Resource]([SubResource("Obstacle_1"), SubResource("Obstacle_2"), SubResource("Obstacle_3")])

@@ -19,6 +19,9 @@ enum InputMethod { QWERTY, RADIAL }
 @onready var _surge_bar: Control = %SurgeBar
 @onready var _star_bar: Control = %StarBar
 @onready var _bust_flash: ColorRect = %BustFlash
+@onready var _obstacle_manager: Node = %ObstacleManager
+@onready var _boost_manager: Node = %BoostManager
+@onready var _boost_panel: HBoxContainer = %BoostPanel
 
 var _level_data: LevelData
 var _word_rows: Array = []
@@ -54,6 +57,15 @@ func _ready() -> void:
 
 	# Build word rows
 	_build_word_rows()
+
+	# Load obstacle configs for this level
+	_obstacle_manager.load_level_obstacles(_level_data, _word_rows)
+
+	# Setup boosts (hardcoded loadout for testing -- Phase 5 adds inventory/loadout screen)
+	var test_loadout: Array[String] = ["lock_key", "block_breaker", "bucket_of_water"]
+	_boost_manager.setup(_obstacle_manager, test_loadout)
+	_boost_panel.setup(test_loadout)
+	_boost_panel.boost_pressed.connect(_on_boost_pressed)
 
 	# Reveal starter word (index 0) -- fully visible reference
 	_word_rows[0].reveal_all()
@@ -99,6 +111,7 @@ func _build_word_rows() -> void:
 		# Now set up the row
 		word_row.set_word_pair(word_pair)
 		word_row.word_completed.connect(_on_word_completed.bind(i))
+		word_row.zero_point_completed.connect(_on_word_zero_point_completed.bind(i))
 		_word_rows.append(word_row)
 
 		# Deactivate all rows (will activate word 1 in _ready)
@@ -141,6 +154,11 @@ func _on_word_completed(word_index: int) -> void:
 	_surge_system.fill()
 	_update_word_count()
 
+	# Auto-unlock padlock on next word when current word solved
+	var next_idx := word_index + 1
+	if next_idx < _word_rows.size() and _obstacle_manager.has_obstacle_type(next_idx, "padlock"):
+		_obstacle_manager.clear_obstacle(next_idx)
+
 	# Check if this was the last word
 	if word_index == _level_data.word_pairs.size() - 1:
 		_level_complete()
@@ -148,7 +166,7 @@ func _on_word_completed(word_index: int) -> void:
 	elif word_index == 12:
 		_check_bonus_gate()
 	else:
-		_advance_to_next_word(word_index + 1)
+		_advance_to_next_word(next_idx)
 
 
 func _advance_to_next_word(next_index: int) -> void:
@@ -157,6 +175,9 @@ func _advance_to_next_word(next_index: int) -> void:
 
 	# Update index
 	_current_word_index = next_index
+
+	# Trigger any obstacles for the new active word
+	_obstacle_manager.check_trigger(next_index, "word_start")
 
 	# Activate next word
 	_word_rows[_current_word_index].activate()
@@ -233,6 +254,33 @@ func _on_surge_bust() -> void:
 	var t := create_tween()
 	t.tween_property(_bust_flash, "color:a", 0.3, 0.15)
 	t.tween_property(_bust_flash, "color:a", 0.0, 0.25)
+
+
+func _on_word_zero_point_completed(word_index: int) -> void:
+	_words_completed += 1
+	_update_word_count()
+	EventBus.word_completed.emit(word_index)
+	if word_index == _level_data.word_pairs.size() - 1:
+		_level_complete()
+	elif word_index == 12:
+		_check_bonus_gate()
+	else:
+		var next_idx := word_index + 1
+		if next_idx < _word_rows.size() and _obstacle_manager.has_obstacle_type(next_idx, "padlock"):
+			_obstacle_manager.clear_obstacle(next_idx)
+		_advance_to_next_word(next_idx)
+
+
+func _on_boost_pressed(index: int) -> void:
+	if not _is_level_active:
+		return
+	var result: Dictionary = _boost_manager.use_boost(index, _current_word_index)
+	if result.used:
+		_boost_panel.disable_boost(index)
+		if result.bonus:
+			_score += 500
+			_update_score_display()
+			EventBus.score_updated.emit(_score)
 
 
 ## --- Input Method Toggle ---

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2gameplay_screen"]
+[gd_scene load_steps=11 format=3 uid="uid://d2gameplay_screen"]
 
 [ext_resource type="Script" path="res://scripts/screens/gameplay_screen.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://d2keyboard" path="res://scenes/ui/on_screen_keyboard.tscn" id="2_keyboard"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cqr3xvwb8k7xy" path="res://scenes/ui/surge_bar.tscn" id="4_surge_bar"]
 [ext_resource type="Script" path="res://scripts/gameplay/surge_system.gd" id="5_surge_system"]
 [ext_resource type="PackedScene" uid="uid://cstar_bar_01" path="res://scenes/ui/star_bar.tscn" id="6_star_bar"]
+[ext_resource type="Script" path="res://scripts/gameplay/obstacle_manager.gd" id="7_obstacle_manager"]
+[ext_resource type="Script" path="res://scripts/gameplay/boost_manager.gd" id="8_boost_manager"]
+[ext_resource type="Script" path="res://scripts/ui/boost_panel.gd" id="9_boost_panel"]
 
 [sub_resource type="StyleBoxFlat" id="word_panel_style"]
 bg_color = Color(0.08, 0.08, 0.14, 0.85)
@@ -84,6 +87,13 @@ text = "x1.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="BoostPanel" type="HBoxContainer" parent="MainVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+alignment = 1
+script = ExtResource("9_boost_panel")
+
 [node name="StarBarRow" type="HBoxContainer" parent="MainVBox"]
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
@@ -150,3 +160,11 @@ unique_name_in_owner = true
 [node name="SurgeSystem" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_surge_system")
+
+[node name="ObstacleManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_obstacle_manager")
+
+[node name="BoostManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_boost_manager")

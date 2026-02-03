@@ -11,7 +11,7 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - [x] **Planning**: 9-phase roadmap, 117 requirements, state tracking established
 - [x] **Phase 1: Foundation and Validation Spikes**: Code complete (4/4 plans, device testing deferred)
 - [x] **Phase 2: Core Puzzle Loop**: Complete (4/4 plans, fully playable end-to-end flow)
-- [ ] **Phase 3: Game Feel**: Surge momentum system
+- [x] **Phase 3: Game Feel**: Complete (3/3 plans, surge momentum system, scoring, audio/haptics)
 - [ ] **Phase 4: Obstacles & Content**: Obstacle system and word validation pipeline
 - [ ] **Phase 5: Progression & Economy**: Hearts, currency, boss levels, inventory
 - [ ] **Phase 6: World Map & Tutorial**: 25 lands, Ruut navigation, progressive teaching
@@ -19,7 +19,7 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - [ ] **Phase 8: Soft Launch**: Test market, analytics, tuning
 - [ ] **Phase 9: Post-Launch**: Vs mode, skins, content expansion
 
-**Current Phase:** Phase 2 Complete (Core Puzzle Loop delivered with 10 PUZL requirements complete)
+**Current Phase:** Phase 3 Complete (Game Feel - surge momentum, scoring with multipliers, audio/haptic feedback, animation polish)
 
 ### Key Decisions & Context
 
@@ -41,10 +41,10 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - **Naming:** WordRun! (exclamation mark part of brand)
 
 #### Production Notes
-- **Version:** v0.0.03 (Phase 2 complete - playable puzzle loop)
+- **Version:** v0.0.04 (Phase 3 complete - surge momentum system working)
 - **Versioning:** v0.0.XX during foundation, v0.X.XX during pre-release, v1.0.0 at launch
 - **Director Preferences:** Professional code quality (no shortcuts), AI-assisted assets (art, animation), documentation-first during foundation
-- **Architecture:** Layered (scenes/scripts/data/assets), autoloads (EventBus, GameManager, PlatformServices, SaveData)
+- **Architecture:** Layered (scenes/scripts/data/assets), autoloads (EventBus, GameManager, PlatformServices, SaveData, AudioManager)
 
 ## Source of Truth
 - This repository is the only source of truth
@@ -54,22 +54,23 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 ## Working Instructions
 
 ### Current Focus
-**Phase 3 Planning**: Game Feel - Surge, Score, and Audio
+**Phase 4 Planning**: Obstacles, Boosts, and Content Pipeline
 
-**Phase 3 Goals:**
-1. Implement surge momentum system with counter display and threshold tracking
-2. Wire bonus gate to surge requirements (must reach threshold to access bonus words)
-3. Add scoring calculation with multipliers based on surge level
-4. Integrate audio feedback for letter input, word completion, and level events
-5. Update ResultsScreen with actual score, time, and stars display
+**Phase 4 Goals:**
+1. Define obstacle system architecture (template pattern, not hard-coded types)
+2. Implement 3 v1 obstacles: Padlock (blocks word), Random Blocks (random slots), Sand (timing effect)
+3. Create counter-boost system (inventory items consumed to neutralize obstacles)
+4. Build word-pair content pipeline (AI generation → validation → cloud storage)
+5. Integrate themed word pools (Nation 1: Nature/Outdoor theme)
 
-**Phase 2 Completion Status:**
-- Complete (4/4 plans executed, 13 commits)
-- Fully playable puzzle loop: Menu -> Gameplay -> Results -> Menu/Replay
-- All 10 PUZL requirements integrated
-- Component-driven UI architecture proven (LetterSlot, WordRow, OnScreenKeyboard)
-- Event-driven navigation working (EventBus signals, GameManager routing)
-- Polish pass complete (word chain, auto-submit, native keyboard, scroll behavior)
+**Phase 3 Completion Status:**
+- Complete (3/3 plans executed, 12 commits + 3 tuning commits)
+- Surge momentum system with state machine (IDLE, FILLING, IMMINENT, BUSTED)
+- Real-time scoring with multiplier system (1.0x → 3.0x based on surge thresholds)
+- AudioManager with SFX pool, BGM crossfade, haptic feedback
+- Animation polish: letter pop, word celebration, threshold pulse, bust flash
+- Bonus gate working (bonus words unlock if surge ≥ threshold at word 12)
+- ResultsScreen wired with actual score, time, and star rating
 
 ### Working Rules
 - Do not assume tools, libraries, or architecture unless explicitly defined in this file or .planning/ docs
@@ -101,6 +102,37 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - Themed word pools per land for narrative alignment
 
 ## Session History
+
+### Session 2026-02-01 to 2026-02-02 (v0.0.04)
+- **Phase:** Phase 3 Complete (Game Feel - Surge, Score, and Audio)
+- **Accomplishments:**
+  - Completed all 3 Phase 3 plans (03-01 through 03-03) with 12 commits
+  - Created SurgeConfig resource with configurable thresholds and multipliers
+  - Implemented SurgeSystem node with state machine (IDLE, FILLING, IMMINENT, BUSTED)
+  - Built SurgeBar UI with threshold markers and smooth tweened animations
+  - Added real-time score calculation and HUD display with surge multipliers
+  - Created AudioManager autoload with 10-player SFX pool and dual BGM crossfade
+  - Integrated haptic feedback for letter tap, word complete, surge events, level complete
+  - Added animation polish: letter pop-in, word celebration, threshold pulse, bust flash
+  - Wired bonus gate logic (bonus words unlock if surge ≥ threshold at word 12)
+  - Built star bar tracking level performance (1-3 stars based on completion time)
+  - Updated ResultsScreen with actual score, time, and star rating passthrough
+  - Post-phase tuning: 1.7x slower drain, 7-min star bar, 70% bigger stars, split bar layout
+- **Key Decisions:**
+  - SurgeSystem is child node of GameplayScreen (level-specific config, not autoload)
+  - Bust triggers when player reaches IMMINENT (≥90) then falls below final threshold
+  - Score uses integer math: base_points * current_multiplier
+  - AudioManager co-locates haptics with SFX (feedback is one concept)
+  - Placeholder audio infrastructure proven, real assets deferred to Phase 8
+  - Tweens for all animations (no AnimationPlayer needed yet)
+  - Bust sequence brief (~0.5s) to avoid frustrating interruption
+  - Drain rate tuned to 1.2/sec for better player control
+- **Requirements Completed:** FEEL-01 through FEEL-12 (all game feel requirements)
+- **Next Steps:**
+  - Plan Phase 4 (Obstacles, Boosts, and Content Pipeline)
+  - Define obstacle system template architecture
+  - Implement 3 v1 obstacles with counter-boost system
+  - Build word-pair content validation pipeline
 
 ### Session 2026-01-31 Late (v0.0.03)
 - **Phase:** Phase 2 Complete (Core Puzzle Loop)

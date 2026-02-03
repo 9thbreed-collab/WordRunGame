@@ -190,12 +190,12 @@ Plans:
 
 **Estimated Complexity:** Very High
 
-**Plans:** TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
-- [ ] 04-03: TBD
+- [ ] 04-01-PLAN.md -- Obstacle system foundation + Padlock (ObstacleConfig, ObstacleBase, ObstacleManager, LetterSlot/WordRow extensions, Padlock obstacle)
+- [ ] 04-02-PLAN.md -- Remaining obstacles + Boost system (Random Blocks, Sand, BoostConfig, BoostManager, BoostPanel, boost-obstacle interactions)
+- [ ] 04-03-PLAN.md -- Content pipeline + baseline content (ContentCache, WordValidator, ProfanityFilter, JSON format, Grasslands land)
 
 ---
 
@@ -458,7 +458,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
 | 1. Foundation and Validation Spikes | 4/4 (2 with deferred tasks) | Code complete (device testing deferred) | 2026-01-31 |
 | 2. Core Puzzle Loop | 4/4 | Complete | 2026-02-01 |
 | 3. Game Feel -- Surge, Score, and Audio | 3/3 | Complete | 2026-02-02 |
-| 4. Obstacles, Boosts, and Content Pipeline | 0/TBD | Not started | - |
+| 4. Obstacles, Boosts, and Content Pipeline | 0/3 | Plans ready | - |
 | 5. Progression, Economy, and Retention | 0/TBD | Not started | - |
 | 6. World Map, Navigation, and Tutorial | 0/TBD | Not started | - |
 | 7. Backend, Auth, Monetization, and Store | 0/TBD | Not started | - |

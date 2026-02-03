@@ -3,6 +3,7 @@
 extends HBoxContainer
 
 signal word_completed
+signal zero_point_completed
 
 const LetterSlotScene = preload("res://scenes/ui/letter_slot.tscn")
 
@@ -11,6 +12,7 @@ var _current_index: int = 0
 var _revealed_count: int = 0
 var _letter_slots: Array[LetterSlot] = []
 var _is_active: bool = false
+var _is_locked: bool = false
 var _original_position_x: float = 0.0
 
 
@@ -61,7 +63,7 @@ func reveal_first_letter() -> void:
 ## Accept a letter into the next available slot. Returns true if accepted.
 ## Auto-submits when the last slot is filled.
 func handle_input(letter: String) -> bool:
-	if not _is_active or _current_index >= _solution_word.length():
+	if not _is_active or _is_locked or _current_index >= _solution_word.length():
 		return false
 
 	var input_upper: String = letter.to_upper()
@@ -124,12 +126,27 @@ func delete_letter() -> void:
 
 func activate() -> void:
 	_is_active = true
-	modulate = Color(1.0, 1.0, 1.0, 1.0)
+	if not _is_locked:
+		modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 
 func deactivate() -> void:
 	_is_active = false
 	modulate = Color(0.7, 0.7, 0.7, 1.0)
+
+
+func set_locked(locked: bool) -> void:
+	_is_locked = locked
+	for slot in _letter_slots:
+		slot.set_locked(locked)
+	if locked:
+		modulate = Color(0.5, 0.5, 0.5, 0.7)
+	elif _is_active:
+		modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+
+func is_locked() -> bool:
+	return _is_locked
 
 
 func shake() -> void:
@@ -147,6 +164,15 @@ func _mark_all_correct() -> void:
 	for slot in _letter_slots:
 		slot.set_state(LetterSlot.State.CORRECT)
 	_celebrate()
+
+
+## Auto-solve the word for 0 points (all slots blocked scenario).
+func auto_solve_zero_points() -> void:
+	for i in range(_solution_word.length()):
+		_letter_slots[i].set_letter(_solution_word[i], false)
+		_letter_slots[i].set_state(LetterSlot.State.FILLED)
+	_current_index = _solution_word.length()
+	zero_point_completed.emit()
 
 
 ## Staggered slot pop + row pulse on word completion.

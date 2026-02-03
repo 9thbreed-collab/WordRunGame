@@ -10,16 +10,27 @@ WordRun! is a timed word puzzle game built in Godot 4.5 for iOS and Android. Pla
 
 ## Current Status
 
-**Version:** v0.0.03
-**Phase:** Phase 2 Complete (Core Puzzle Loop)
-**Progress:** 14 of 117 v1 requirements complete (2 partially addressed)
+**Version:** v0.0.04
+**Phase:** Phase 3 Complete (Game Feel - Surge, Score, and Audio)
+**Progress:** 26 of 117 v1 requirements complete (2 partially addressed)
 
-Phase 2 code is complete. The project has a **fully playable end-to-end puzzle loop** with menu navigation, word-pair solving mechanics, on-screen keyboard input, auto-scrolling word display, timer, and results screen. All core puzzle requirements (PUZL-01 through PUZL-10) are integrated and functional.
+Phase 3 code is complete. The project has a **fully playable surge momentum system** with real-time scoring, audio/haptic feedback, and animation polish. The surge system transforms the word puzzle into a high-tension experience with strategic risk/reward gameplay. All game feel requirements (FEEL-01 through FEEL-12) are integrated and functional.
 
 ### Playable Flow
 1. **Menu Screen** - Launch app, tap Play button
-2. **Gameplay Screen** - Solve 15-word chain puzzle with on-screen keyboard
-3. **Results Screen** - View completion status, replay or return to menu
+2. **Gameplay Screen** - Solve 15-word chain puzzle with surge momentum system
+3. **Results Screen** - View score, time, stars, replay or return to menu
+
+### Key Accomplishments (Phase 3)
+- SurgeSystem with state machine (IDLE, FILLING, IMMINENT, BUSTED) and threshold detection
+- SurgeBar UI with threshold markers and smooth value tweening
+- Real-time score calculation with surge multiplier system (1.0x → 3.0x)
+- AudioManager autoload with 10-player SFX pool and dual BGM crossfade
+- Haptic feedback for letter tap, word complete, surge events, level events
+- Animation polish: letter pop-in, word celebration, surge pulse, bust flash
+- Bonus gate logic (bonus words unlock if surge meets threshold at word 12)
+- Star bar tracking level performance (1-3 stars based on completion time)
+- ResultsScreen wired with actual score, time, and star rating
 
 ### Key Accomplishments (Phase 2)
 - WordPair and LevelData custom resource data model with typed arrays
@@ -41,30 +52,32 @@ Phase 2 code is complete. The project has a **fully playable end-to-end puzzle l
 - Export pipeline documented (iOS/Android export presets guide created)
 
 ### Requirements Complete
+**Phase 3 (FEEL):**
+- FEEL-01: Surge momentum counter display
+- FEEL-02: Surge fill/drain mechanics
+- FEEL-03: Threshold markers on surge bar
+- FEEL-04: Bonus gate surge requirement
+- FEEL-05: Score calculation with multipliers
+- FEEL-06: Score display in HUD
+- FEEL-07: Audio feedback system
+- FEEL-08: Haptic feedback
+- FEEL-09: ResultsScreen score/time/stars
+- FEEL-10: Letter pop-in animation
+- FEEL-11: Word completion celebration
+- FEEL-12: Surge threshold animations
+
 **Phase 2 (PUZL):**
-- PUZL-01: Word-pair puzzle mechanic
-- PUZL-02: Letter-by-letter input with visual feedback
-- PUZL-03: Test level with real compound word pairs
-- PUZL-04: On-screen keyboard with proper touch targets
-- PUZL-05: Scrolling word display window
-- PUZL-06: Timer display and logic
-- PUZL-07: 12 base + 3 bonus word structure
-- PUZL-08: Level completion detection
-- PUZL-09: Navigation between screens
-- PUZL-10: End-to-end playable flow
+- PUZL-01 through PUZL-10: Core puzzle loop (all requirements complete)
 
 **Phase 1 (FNDN):**
-- FNDN-05: Autoload architecture
-- FNDN-06: PlatformServices abstraction layer
-- FNDN-07: Banner ad region component
-- FNDN-08: FeatureFlags system
+- FNDN-05 through FNDN-08: Foundation architecture (all requirements complete)
 
 ### Requirements Code-Ready (Device Validation Pending)
 - FNDN-03: AdMob plugin integrated (awaiting physical device test)
 - FNDN-04: IAP plugin integrated (awaiting physical device test)
 
 ### Next Milestone
-Phase 3: Game Feel - Surge, Score, and Audio (surge momentum system, scoring with multipliers, audio feedback integration).
+Phase 4: Obstacles, Boosts, and Content Pipeline (3 obstacle types, counter-boost system, word-pair validation pipeline).
 
 ## Technology Stack
 
@@ -183,7 +196,7 @@ WordRunGame/
 8. Polish, Soft Launch, and Tuning (test market, analytics, economy tuning)
 9. Post-Launch Features (Vs mode, skins, Nations 4-9, expanded content)
 
-**Current Phase:** Phase 2 Complete (Phase 3 planning ready to begin)
+**Current Phase:** Phase 3 Complete (Phase 4 planning ready to begin)
 
 ## Contributing
 
@@ -195,6 +208,6 @@ Proprietary - All rights reserved.
 
 ---
 
-**Last Updated:** 2026-01-31
+**Last Updated:** 2026-02-02
 **Project Started:** 2026-01-22
 **Engine:** Godot 4.5

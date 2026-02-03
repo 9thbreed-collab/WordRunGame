@@ -15,3 +15,6 @@ extends Resource
 
 ## Surge momentum configuration for this level
 @export var surge_config: SurgeConfig
+
+## Obstacle configurations for this level
+@export var obstacle_configs: Array[ObstacleConfig] = []

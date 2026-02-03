@@ -37,3 +37,10 @@ signal surge_changed(current_value: float, max_value: float)
 signal surge_threshold_crossed(new_multiplier: float)
 signal surge_bust()
 signal score_updated(new_score: int)
+
+# --- Obstacle signals ---
+signal obstacle_triggered(word_index: int, obstacle_type: String)
+signal obstacle_cleared(word_index: int, obstacle_type: String)
+
+# --- Boost signals ---
+signal boost_used(boost_type: String, word_index: int)
