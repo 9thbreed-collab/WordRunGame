@@ -95,3 +95,12 @@ func has_obstacle_type(word_index: int, obstacle_type: String) -> bool:
 ## Get the active obstacle at a word index (or null).
 func get_obstacle(word_index: int) -> ObstacleBase:
 	return _active_obstacles.get(word_index, null)
+
+
+## Find word index of any active padlock obstacle. Returns -1 if none found.
+func find_padlock_word() -> int:
+	for word_index in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[word_index]
+		if obstacle.config.obstacle_type == "padlock":
+			return word_index
+	return -1

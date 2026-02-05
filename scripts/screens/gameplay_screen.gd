@@ -303,6 +303,18 @@ func _on_word_zero_point_completed(word_index: int) -> void:
 func _on_boost_pressed(index: int) -> void:
 	if not _is_level_active:
 		return
+
+	var loadout: Array[String] = _boost_manager.get_loadout()
+	if index >= loadout.size():
+		return
+	var boost_id: String = loadout[index]
+
+	# Special handling for Key boost
+	if boost_id == "lock_key":
+		_handle_key_boost(index)
+		return
+
+	# Default handling for other boosts
 	var result: Dictionary = _boost_manager.use_boost(index, _current_word_index)
 	if result.used:
 		_boost_panel.disable_boost(index)
@@ -310,6 +322,33 @@ func _on_boost_pressed(index: int) -> void:
 			_score += 500
 			_update_score_display()
 			EventBus.score_updated.emit(_score)
+
+
+func _handle_key_boost(index: int) -> void:
+	# Find any active padlock
+	var padlock_word: int = _obstacle_manager.find_padlock_word()
+
+	# No padlock exists - flash and don't consume
+	if padlock_word == -1:
+		_boost_panel.flash_boost(index)
+		return
+
+	# Padlock exists - use boost to clear it
+	var result: Dictionary = _boost_manager.use_boost(index, padlock_word)
+	if not result.used:
+		return
+
+	_boost_panel.disable_boost(index)
+
+	# If this was the skipped word, trigger backtrack
+	if _skipped_padlock_word != -1 and padlock_word == _skipped_padlock_word:
+		var backtrack_word := _skipped_padlock_word
+		_skipped_padlock_word = -1
+		_word_rows[_current_word_index].deactivate()
+		_current_word_index = backtrack_word
+		_word_rows[backtrack_word].activate()
+		_scroll_to_word(backtrack_word)
+	# Otherwise padlock was ahead of caret - just cleared, no backtrack needed
 
 
 ## --- Input Method Toggle ---

@@ -26,6 +26,16 @@ func disable_boost(index: int) -> void:
 		_buttons[index].modulate = Color(0.5, 0.5, 0.5, 0.6)
 
 
+func flash_boost(index: int) -> void:
+	if index >= _buttons.size():
+		return
+	var btn := _buttons[index]
+	var original_modulate := btn.modulate
+	btn.modulate = Color(1, 1, 1, 1)
+	await get_tree().create_timer(0.12).timeout
+	btn.modulate = original_modulate
+
+
 func _on_button_pressed(index: int) -> void:
 	boost_pressed.emit(index)
 

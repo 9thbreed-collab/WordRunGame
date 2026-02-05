@@ -143,6 +143,9 @@ func set_locked(locked: bool) -> void:
 		modulate = Color(0.5, 0.5, 0.5, 0.7)
 	elif _is_active:
 		modulate = Color(1.0, 1.0, 1.0, 1.0)
+	else:
+		# Unlocked but not active: use inactive modulate (future word state)
+		modulate = Color(0.7, 0.7, 0.7, 1.0)
 
 
 func is_locked() -> bool:
