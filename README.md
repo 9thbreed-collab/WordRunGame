@@ -10,16 +10,26 @@ WordRun! is a timed word puzzle game built in Godot 4.5 for iOS and Android. Pla
 
 ## Current Status
 
-**Version:** v0.0.04
-**Phase:** Phase 3 Complete (Game Feel - Surge, Score, and Audio)
-**Progress:** 26 of 117 v1 requirements complete (2 partially addressed)
+**Version:** v0.0.05
+**Phase:** Phase 4 In Progress (Obstacles, Boosts, and Content Pipeline)
+**Progress:** 31 of 117 v1 requirements complete (2 partially addressed)
 
-Phase 3 code is complete. The project has a **fully playable surge momentum system** with real-time scoring, audio/haptic feedback, and animation polish. The surge system transforms the word puzzle into a high-tension experience with strategic risk/reward gameplay. All game feel requirements (FEEL-01 through FEEL-12) are integrated and functional.
+Phase 4 is underway. The project has a **working obstacle system** with resource-based architecture and the Padlock obstacle fully implemented with skip/backtrack mechanic. Random Blocks and Sand obstacles are implemented but testing in progress. The boost system (Lock Key, Block Breaker, Bucket of Water) is wired and ready for validation.
 
 ### Playable Flow
 1. **Menu Screen** - Launch app, tap Play button
 2. **Gameplay Screen** - Solve 15-word chain puzzle with surge momentum system
 3. **Results Screen** - View score, time, stars, replay or return to menu
+
+### Key Accomplishments (Phase 4 - In Progress)
+- Obstacle system architecture: ObstacleBase, ObstacleManager, ObstacleConfig resource pattern
+- Template architecture validated: new obstacles require only config + script, no code changes
+- Padlock obstacle with skip/backtrack mechanic (auto-skip locked word, solve word+1 to unlock, backtrack)
+- LetterSlot LOCKED state with visual styling (dark gray, ghosted appearance)
+- WordRow lock support with input guards and modulate tinting
+- BoostManager and BoostPanel UI integration for manual boost usage
+- Three v1 obstacles implemented: Padlock (tested), Random Blocks (testing), Sand (testing)
+- Three counter-boosts wired: Lock Key, Block Breaker, Bucket of Water
 
 ### Key Accomplishments (Phase 3)
 - SurgeSystem with state machine (IDLE, FILLING, IMMINENT, BUSTED) and threshold detection
@@ -52,6 +62,13 @@ Phase 3 code is complete. The project has a **fully playable surge momentum syst
 - Export pipeline documented (iOS/Android export presets guide created)
 
 ### Requirements Complete
+**Phase 4 (OBST) - Partial:**
+- OBST-01: Obstacle system architecture defined
+- OBST-02: Obstacle trigger system implemented
+- OBST-05: Padlock obstacle complete with skip/backtrack
+- OBST-06: ObstacleConfig resource integration
+- OBST-07: Template architecture validated
+
 **Phase 3 (FEEL):**
 - FEEL-01: Surge momentum counter display
 - FEEL-02: Surge fill/drain mechanics
@@ -77,7 +94,7 @@ Phase 3 code is complete. The project has a **fully playable surge momentum syst
 - FNDN-04: IAP plugin integrated (awaiting physical device test)
 
 ### Next Milestone
-Phase 4: Obstacles, Boosts, and Content Pipeline (3 obstacle types, counter-boost system, word-pair validation pipeline).
+Complete Phase 4: Test Random Blocks and Sand obstacles, validate boost functionality, build word-pair content validation pipeline.
 
 ## Technology Stack
 
@@ -208,6 +225,6 @@ Proprietary - All rights reserved.
 
 ---
 
-**Last Updated:** 2026-02-02
+**Last Updated:** 2026-02-05
 **Project Started:** 2026-01-22
 **Engine:** Godot 4.5

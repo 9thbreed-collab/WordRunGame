@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-01-29)
 
 **Core value:** The word-pair puzzle with the surge momentum system must feel like a "rush" -- the tension between solving fast for multipliers and risking a bust, combined with obstacle anticipation, is the experience that makes WordRun! unique.
-**Current focus:** Phase 3 complete -- Game Feel delivered. Surge momentum system with scoring, audio/haptic feedback, and animation polish creates the strategic risk/reward tension at the heart of WordRun's unique experience.
+**Current focus:** Phase 4 in progress -- Obstacle system foundation established. Padlock obstacle with skip/backtrack mechanic working, Random Blocks and Sand obstacles implemented but testing pending. Template architecture validated for future obstacle expansion.
 
 ## Current Position
 
-Phase: 3 of 9 (Game Feel - Surge, Score, and Audio)
-Plan: 3 of 3 in current phase
-Status: Phase complete
-Last activity: 2026-02-02 -- Completed 03-03-PLAN.md (Animation Polish) plus post-phase tuning
+Phase: 4 of 9 (Obstacles, Boosts, and Content Pipeline)
+Plan: 1 of 3 in current phase (04-01 ~60% complete)
+Status: In progress
+Last activity: 2026-02-05 -- Implemented padlock skip/backtrack mechanic (Plan 04-01 partial)
 
-Progress: [#####.....] 35%
+Progress: [#####.....] 40%
 
 ## Performance Metrics
 
@@ -44,7 +44,7 @@ Progress: [#####.....] 35%
 | 1 | Foundation and Validation Spikes | Code complete (4/4 plans, device testing deferred) | 8 items |
 | 2 | Core Puzzle Loop | Complete (4/4 plans) | 10 items |
 | 3 | Game Feel -- Surge, Score, and Audio | Complete (3/3 plans) | 12 items |
-| 4 | Obstacles, Boosts, and Content Pipeline | Not started | 20 items |
+| 4 | Obstacles, Boosts, and Content Pipeline | In progress (Plan 04-01 ~60% complete) | 20 items |
 | 5 | Progression, Economy, and Retention | Not started | 25 items |
 | 6 | World Map, Navigation, and Tutorial | Not started | 17 items |
 | 7 | Backend, Auth, Monetization, and Store | Not started | 25 items |
@@ -54,10 +54,10 @@ Progress: [#####.....] 35%
 ## Key Metrics
 
 - Total v1 requirements: 117
-- Requirements complete: 26 (FNDN-05 through FNDN-08, PUZL-01 through PUZL-10, FEEL-01 through FEEL-12)
+- Requirements complete: 31 (FNDN-05 through FNDN-08, PUZL-01 through PUZL-10, FEEL-01 through FEEL-12, OBST-01, OBST-02, OBST-05, OBST-06, OBST-07)
 - Requirements partially addressed: 2 (FNDN-03, FNDN-04 -- code wired, device validation deferred)
 - Requirements deferred: 2 (FNDN-01, FNDN-02 -- device testing blocked by hardware)
-- Current phase progress: 100% (3/3 plans - Phase 3 complete)
+- Current phase progress: ~25% (Plan 04-01 ~60% complete, padlock tested, Random Blocks/Sand testing pending)
 
 ## Accumulated Context
 
@@ -123,7 +123,7 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-02
-Stopped at: Completed 03-03-PLAN.md (Animation Polish) plus post-phase tuning -- Phase 3 complete
-Resume file: None
-Next action: Begin Phase 4 planning (Obstacles, Boosts, and Content Pipeline)
+Last session: 2026-02-05
+Stopped at: Implemented padlock skip/backtrack mechanic (Plan 04-01 ~60% complete)
+Resume file: .planning/phases/04-obstacles-boosts-content/04-01-PLAN.md
+Next action: Test Random Blocks and Sand obstacles, verify boost functionality, complete Plan 04-01

@@ -12,14 +12,14 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - [x] **Phase 1: Foundation and Validation Spikes**: Code complete (4/4 plans, device testing deferred)
 - [x] **Phase 2: Core Puzzle Loop**: Complete (4/4 plans, fully playable end-to-end flow)
 - [x] **Phase 3: Game Feel**: Complete (3/3 plans, surge momentum system, scoring, audio/haptics)
-- [ ] **Phase 4: Obstacles & Content**: Obstacle system and word validation pipeline
+- [ ] **Phase 4: Obstacles & Content**: In Progress (Plan 04-01 ~60% complete, padlock working, Random Blocks/Sand testing pending)
 - [ ] **Phase 5: Progression & Economy**: Hearts, currency, boss levels, inventory
 - [ ] **Phase 6: World Map & Tutorial**: 25 lands, Ruut navigation, progressive teaching
 - [ ] **Phase 7: Backend & Monetization**: Firebase, IAP, ads, cloud sync
 - [ ] **Phase 8: Soft Launch**: Test market, analytics, tuning
 - [ ] **Phase 9: Post-Launch**: Vs mode, skins, content expansion
 
-**Current Phase:** Phase 3 Complete (Game Feel - surge momentum, scoring with multipliers, audio/haptic feedback, animation polish)
+**Current Phase:** Phase 4 In Progress (Obstacles, Boosts, and Content Pipeline - Plan 04-01 partial, padlock complete)
 
 ### Key Decisions & Context
 
@@ -41,7 +41,7 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - **Naming:** WordRun! (exclamation mark part of brand)
 
 #### Production Notes
-- **Version:** v0.0.04 (Phase 3 complete - surge momentum system working)
+- **Version:** v0.0.05 (Phase 4 in progress - obstacle system foundation + padlock working)
 - **Versioning:** v0.0.XX during foundation, v0.X.XX during pre-release, v1.0.0 at launch
 - **Director Preferences:** Professional code quality (no shortcuts), AI-assisted assets (art, animation), documentation-first during foundation
 - **Architecture:** Layered (scenes/scripts/data/assets), autoloads (EventBus, GameManager, PlatformServices, SaveData, AudioManager)
@@ -54,23 +54,22 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 ## Working Instructions
 
 ### Current Focus
-**Phase 4 Planning**: Obstacles, Boosts, and Content Pipeline
+**Phase 4 Execution**: Obstacles, Boosts, and Content Pipeline (Plan 04-01 ~60% complete)
 
-**Phase 4 Goals:**
-1. Define obstacle system architecture (template pattern, not hard-coded types)
-2. Implement 3 v1 obstacles: Padlock (blocks word), Random Blocks (random slots), Sand (timing effect)
-3. Create counter-boost system (inventory items consumed to neutralize obstacles)
-4. Build word-pair content pipeline (AI generation → validation → cloud storage)
-5. Integrate themed word pools (Nation 1: Nature/Outdoor theme)
+**Current Plan Status (04-01):**
+- Obstacle system architecture complete (ObstacleBase, ObstacleManager, ObstacleConfig)
+- Padlock obstacle complete with skip/backtrack mechanic (tested, working)
+- Random Blocks obstacle implemented (testing pending)
+- Sand obstacle implemented (testing pending)
+- BoostManager and BoostPanel wired (boost functionality testing pending)
+- Three counter-boosts implemented: Lock Key, Block Breaker, Bucket of Water
 
-**Phase 3 Completion Status:**
-- Complete (3/3 plans executed, 12 commits + 3 tuning commits)
-- Surge momentum system with state machine (IDLE, FILLING, IMMINENT, BUSTED)
-- Real-time scoring with multiplier system (1.0x → 3.0x based on surge thresholds)
-- AudioManager with SFX pool, BGM crossfade, haptic feedback
-- Animation polish: letter pop, word celebration, threshold pulse, bust flash
-- Bonus gate working (bonus words unlock if surge ≥ threshold at word 12)
-- ResultsScreen wired with actual score, time, and star rating
+**Immediate Next Steps:**
+1. Test Random Blocks obstacle (re-enable in test_level_01.tres, verify interaction with UI/surge/score)
+2. Test Sand obstacle (re-enable in test level, verify timing effect)
+3. Test boost functionality (Lock Key on padlock, Block Breaker on blocks, Bucket of Water on sand)
+4. Fix any integration issues discovered
+5. Complete Plan 04-01, proceed to 04-02 (obstacle animations/polish) or 04-03 (content pipeline)
 
 ### Working Rules
 - Do not assume tools, libraries, or architecture unless explicitly defined in this file or .planning/ docs
@@ -102,6 +101,32 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - Themed word pools per land for narrative alignment
 
 ## Session History
+
+### Session 2026-02-05 (v0.0.05)
+- **Phase:** Phase 4 In Progress (Obstacles, Boosts, and Content Pipeline - Plan 04-01 partial)
+- **Accomplishments:**
+  - Implemented padlock skip/backtrack mechanic in GameplayScreen
+  - Extended LetterSlot with LOCKED state (dark gray styling, input blocking)
+  - Extended WordRow with lock support (set_locked(), is_locked(), modulate tinting)
+  - Padlock auto-skip: when reaching locked word, caret advances to word+1
+  - Backtrack after word+1 completion: obstacle clears, caret returns to locked word
+  - Resume at word+2 after backtracked word solved (prevents loop)
+  - Disabled Random Blocks and Sand in test level for incremental testing
+  - Validated obstacle system architecture (ObstacleBase, ObstacleManager, factory pattern)
+- **Key Decisions:**
+  - Padlock auto-skip is automatic (no player choice, deterministic mechanic)
+  - Backtrack is automatic after solving word+1 (no modal dialogs)
+  - Single `_skipped_padlock_word` variable (only one padlock pending at a time)
+  - Resume point after backtrack is word+2 (word+1 already solved)
+  - Incremental testing: one obstacle type enabled at a time
+  - Visual polish deferred to Phase 8 (no padlock icon overlay, no lock/unlock animation)
+- **Requirements Completed:** OBST-01, OBST-02, OBST-05, OBST-06, OBST-07 (5 new requirements)
+- **Next Steps:**
+  - Re-enable and test Random Blocks obstacle
+  - Re-enable and test Sand obstacle
+  - Test boost functionality (Lock Key, Block Breaker, Bucket of Water)
+  - Fix integration issues, complete Plan 04-01
+  - Proceed to Plan 04-02 or 04-03
 
 ### Session 2026-02-01 to 2026-02-02 (v0.0.04)
 - **Phase:** Phase 3 Complete (Game Feel - Surge, Score, and Audio)
