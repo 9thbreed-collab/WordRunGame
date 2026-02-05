@@ -52,6 +52,9 @@ func _ready() -> void:
 	EventBus.surge_threshold_crossed.connect(_on_surge_threshold_crossed)
 	EventBus.surge_bust.connect(_on_surge_bust)
 
+	# Connect obstacle signals for scroll handling
+	EventBus.obstacle_triggered.connect(_on_obstacle_triggered)
+
 	# Initialize surge system
 	_surge_system.start(_level_data.surge_config)
 	_surge_bar.setup(_level_data.surge_config)
@@ -113,6 +116,7 @@ func _build_word_rows() -> void:
 		word_row.set_word_pair(word_pair)
 		word_row.word_completed.connect(_on_word_completed.bind(i))
 		word_row.zero_point_completed.connect(_on_word_zero_point_completed.bind(i))
+		word_row.word_unsolvable.connect(_on_word_unsolvable.bind(i))
 		_word_rows.append(word_row)
 
 		# Deactivate all rows (will activate word 1 in _ready)
@@ -314,6 +318,11 @@ func _on_boost_pressed(index: int) -> void:
 		_handle_key_boost(index)
 		return
 
+	# Special handling for Water boost
+	if boost_id == "bucket_of_water":
+		_handle_water_boost(index)
+		return
+
 	# Default handling for other boosts
 	var result: Dictionary = _boost_manager.use_boost(index, _current_word_index)
 	if result.used:
@@ -349,6 +358,138 @@ func _handle_key_boost(index: int) -> void:
 		_word_rows[backtrack_word].activate()
 		_scroll_to_word(backtrack_word)
 	# Otherwise padlock was ahead of caret - just cleared, no backtrack needed
+
+
+func _handle_water_boost(index: int) -> void:
+	# Check if any sand is active
+	if not _obstacle_manager.has_active_sand():
+		_boost_panel.flash_boost(index)
+		return
+
+	# Mark boost as used
+	var result: Dictionary = _boost_manager.use_boost(index, _current_word_index)
+	if not result.used:
+		return
+
+	_boost_panel.disable_boost(index)
+
+	# Clear sand (up to 3 from active + pending)
+	var clear_result: Dictionary = _obstacle_manager.clear_sand_with_boost()
+
+	# Show "X/Y cleared" text next to active word
+	_show_sand_clear_text(clear_result.cleared, clear_result.total)
+
+
+func _on_word_unsolvable(word_index: int) -> void:
+	# Grey out the unsolvable word
+	_word_rows[word_index].deactivate()
+	_word_rows[word_index].modulate = Color(0.4, 0.4, 0.4, 0.6)
+
+	# Check if this is a base word (1-12) - if so, it's a loss
+	if word_index <= 12:
+		_level_failed_no_moves()
+		return
+
+	# Bonus word - just move to next word
+	var next_idx: int = word_index + 1
+	if next_idx < _word_rows.size():
+		_advance_to_next_word(next_idx)
+	else:
+		# No more words - level complete (bonus words don't count against)
+		_level_complete()
+
+
+func _level_failed_no_moves() -> void:
+	_is_level_active = false
+	_game_timer.stop()
+	_star_bar.stop_timer()
+	# TODO: Show "No Available Moves" message
+	EventBus.level_failed.emit()
+
+
+func _on_obstacle_triggered(word_index: int, obstacle_type: String) -> void:
+	if obstacle_type == "sand":
+		# Get the sand obstacle's affected words and scroll to show them all
+		_scroll_to_show_sand_words(word_index)
+
+
+func _show_sand_clear_text(cleared: int, total: int) -> void:
+	# Create temporary label to show "X/Y cleared"
+	var label := Label.new()
+	label.text = "%d/%d cleared" % [cleared, total]
+	label.add_theme_font_size_override("font_size", 18)
+	label.add_theme_color_override("font_color", Color(0.3, 0.8, 1.0))  # Light blue
+	label.add_theme_color_override("font_outline_color", Color(0, 0, 0))
+	label.add_theme_constant_override("outline_size", 2)
+
+	# Add to the main control (self) so it's not clipped by scroll container
+	add_child(label)
+
+	# Position near the center-right of the word display area
+	var display_rect: Rect2 = _word_display.get_global_rect()
+	label.global_position = Vector2(
+		display_rect.position.x + display_rect.size.x - 100,
+		display_rect.position.y + display_rect.size.y / 2
+	)
+
+	# Animate: pop in, hold, fade out
+	label.scale = Vector2.ZERO
+	label.pivot_offset = label.size / 2
+	var tween := create_tween()
+	tween.tween_property(label, "scale", Vector2(1.2, 1.2), 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(label, "scale", Vector2.ONE, 0.1)
+	tween.tween_interval(1.5)
+	tween.tween_property(label, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(label.queue_free)
+
+
+func _scroll_to_show_sand_words(start_word_index: int) -> void:
+	# Find all words that will be affected by sand (from level data)
+	var sand_config: ObstacleConfig = null
+	for oc in _level_data.obstacle_configs:
+		if oc.obstacle_type == "sand" and oc.word_index == start_word_index:
+			sand_config = oc
+			break
+
+	if sand_config == null:
+		return
+
+	var word_indices: Array = sand_config.effect_data.get("word_indices", [])
+	if word_indices.is_empty():
+		var word_count: int = sand_config.effect_data.get("word_count", 3)
+		for i in range(word_count):
+			word_indices.append(start_word_index + i)
+
+	if word_indices.is_empty():
+		return
+
+	# Find the last affected word
+	var last_word_idx: int = word_indices.max()
+	if last_word_idx >= _word_rows.size():
+		last_word_idx = _word_rows.size() - 1
+
+	# Calculate scroll to show all affected words + 0.2 of next word
+	var row_step := 84  # 80px row + 4px VBoxContainer separation
+	var last_word_y: int = int(_word_rows[last_word_idx].position.y)
+	var container_height: int = int(_word_display.size.y)
+
+	# Target: last affected word should be near bottom with 0.2 of next word showing
+	# This means last word at position (container_height - row_step - 0.2*row_step)
+	var target_bottom_offset: int = int(row_step * 1.2)  # Full row + 0.2
+	var target_scroll: int = last_word_y - container_height + target_bottom_offset
+
+	# Don't scroll past the beginning
+	target_scroll = max(0, target_scroll)
+
+	# Don't scroll if we're already showing everything needed
+	var current_bottom: int = _word_display.scroll_vertical + container_height
+	if last_word_y + row_step <= current_bottom:
+		return
+
+	var tween: Tween = create_tween()
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(_word_display, "scroll_vertical", target_scroll, 0.5)
 
 
 ## --- Input Method Toggle ---

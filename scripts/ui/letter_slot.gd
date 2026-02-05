@@ -19,6 +19,9 @@ var _style_sanded: StyleBoxFlat
 var _is_locked: bool = false
 var _is_blocked: bool = false
 var _is_sanded: bool = false
+var _sand_fill_progress: float = 0.0  # 0.0 to 1.0
+var _sand_fill_tween: Tween = null
+var _is_protected: bool = false  # First letter protection
 
 
 func _ready() -> void:
@@ -195,11 +198,82 @@ func set_sanded(sanded: bool) -> void:
 	if sanded:
 		set_state(State.SANDED)
 	else:
-		set_state(State.EMPTY)
+		_sand_fill_progress = 0.0
+		if _sand_fill_tween:
+			_sand_fill_tween.kill()
+			_sand_fill_tween = null
+		# Restore appropriate state
+		if _label.text != "":
+			set_state(State.FILLED)
+		else:
+			set_state(State.EMPTY)
+
+
+func set_protected(protected: bool) -> void:
+	_is_protected = protected
+
+
+func is_protected() -> bool:
+	return _is_protected
+
+
+## Start gradual sand fill over duration seconds
+func start_sand_fill(duration: float) -> void:
+	if _is_protected:
+		return
+	_sand_fill_progress = 0.0
+	_is_sanded = true
+	_update_sand_visual()
+
+	if _sand_fill_tween:
+		_sand_fill_tween.kill()
+	_sand_fill_tween = create_tween()
+	_sand_fill_tween.tween_method(_set_sand_progress, 0.0, 1.0, duration)
+	_sand_fill_tween.finished.connect(_on_sand_fill_complete)
+
+
+func _set_sand_progress(progress: float) -> void:
+	_sand_fill_progress = progress
+	_update_sand_visual()
+
+
+func _update_sand_visual() -> void:
+	# Interpolate sand color based on fill progress
+	var base_color := Color(0.85, 0.75, 0.55, 0.3)  # Light sand, low alpha
+	var full_color := Color(0.85, 0.75, 0.55, 1.0)  # Full sand
+	var current_color := base_color.lerp(full_color, _sand_fill_progress)
+
+	_style_sanded.bg_color = current_color
+	add_theme_stylebox_override("panel", _style_sanded)
+
+	# Text gets more obscured as sand fills
+	var text_alpha := 1.0 - (_sand_fill_progress * 0.7)
+	_label.modulate = Color(0.6, 0.5, 0.3, text_alpha)
+
+
+func _on_sand_fill_complete() -> void:
+	_sand_fill_progress = 1.0
+	# Erase any letter when fully sanded
+	_label.text = ""
+	_update_sand_visual()
+	EventBus.slot_fully_sanded.emit(self)
+
+
+func is_fully_sanded() -> bool:
+	return _is_sanded and _sand_fill_progress >= 1.0
+
+
+func get_sand_progress() -> float:
+	return _sand_fill_progress
 
 
 func can_accept_input() -> bool:
-	return not (_is_locked or _is_blocked or _is_sanded)
+	# Can input if not locked/blocked, and either not sanded or sand not complete
+	if _is_locked or _is_blocked:
+		return false
+	if _is_sanded and _sand_fill_progress >= 1.0:
+		return false
+	return true
 
 
 ## Flash the entire slot bright white then restore. Visible against the dark panel.

@@ -104,3 +104,47 @@ func find_padlock_word() -> int:
 		if obstacle.config.obstacle_type == "padlock":
 			return word_index
 	return -1
+
+
+## Check if any sand obstacle is currently active
+func has_active_sand() -> bool:
+	for word_index in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[word_index]
+		if obstacle.config.obstacle_type == "sand":
+			var sand_obs: SandObstacle = obstacle as SandObstacle
+			if sand_obs and sand_obs.is_active():
+				return true
+	return false
+
+
+## Get all sanded slots within the next N words from current position
+func get_sanded_slots_in_range(from_word: int, range_count: int) -> Array:
+	var result: Array = []  # Array of {word_idx, slot_idx}
+	for word_index in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[word_index]
+		if obstacle.config.obstacle_type == "sand":
+			var sand_obs: SandObstacle = obstacle as SandObstacle
+			if sand_obs:
+				var sanded_slots: Dictionary = sand_obs.get_sanded_slots()
+				for word_idx in sanded_slots:
+					if word_idx >= from_word and word_idx < from_word + range_count:
+						result.append({"word_idx": word_idx, "slot_idx": sanded_slots[word_idx], "obstacle": sand_obs})
+	return result
+
+
+## Clear specific sanded slots
+func clear_sanded_slots(slots_to_clear: Array) -> void:
+	for slot_info in slots_to_clear:
+		var sand_obs: SandObstacle = slot_info.obstacle
+		sand_obs.clear_slot(slot_info.word_idx, slot_info.slot_idx)
+
+
+## Clear sand using the water boost - clears up to 3 from active + pending. Returns {cleared, total}.
+func clear_sand_with_boost() -> Dictionary:
+	for word_index in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[word_index]
+		if obstacle.config.obstacle_type == "sand":
+			var sand_obs: SandObstacle = obstacle as SandObstacle
+			if sand_obs and sand_obs.is_active():
+				return sand_obs.clear_with_count()
+	return {"cleared": 0, "total": 0}

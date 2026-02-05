@@ -42,5 +42,9 @@ signal score_updated(new_score: int)
 signal obstacle_triggered(word_index: int, obstacle_type: String)
 signal obstacle_cleared(word_index: int, obstacle_type: String)
 
+# --- Sand signals ---
+signal slot_fully_sanded(slot: Node)
+signal word_unsolvable(word_index: int)
+
 # --- Boost signals ---
 signal boost_used(boost_type: String, word_index: int)

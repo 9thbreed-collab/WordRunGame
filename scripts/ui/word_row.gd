@@ -4,6 +4,7 @@ extends HBoxContainer
 
 signal word_completed
 signal zero_point_completed
+signal word_unsolvable
 
 const LetterSlotScene = preload("res://scenes/ui/letter_slot.tscn")
 
@@ -56,6 +57,7 @@ func reveal_first_letter() -> void:
 	if _solution_word.length() > 0:
 		_letter_slots[0].set_letter(_solution_word[0], false)
 		_letter_slots[0].set_state(LetterSlot.State.FILLED)
+		_letter_slots[0].set_protected(true)  # Protect from sand
 		_revealed_count = 1
 		_current_index = 1
 
@@ -63,7 +65,7 @@ func reveal_first_letter() -> void:
 ## Accept a letter into the next available slot. Returns true if accepted.
 ## Auto-submits when the last slot is filled.
 func handle_input(letter: String) -> bool:
-	if not _is_active or _is_locked or _current_index >= _solution_word.length():
+	if not _is_active or _is_locked:
 		return false
 
 	var input_upper: String = letter.to_upper()
@@ -76,16 +78,74 @@ func handle_input(letter: String) -> bool:
 			_letter_slots[_revealed_count - 1].flash_white()
 			return false
 
-	var slot: LetterSlot = _letter_slots[_current_index]
+	# Find next available slot (skip fully sanded slots)
+	var target_index: int = _find_next_available_slot(_current_index)
+	if target_index == -1:
+		# No available slots - check if word is unsolvable
+		if is_unsolvable():
+			word_unsolvable.emit()
+		return false
+
+	var slot: LetterSlot = _letter_slots[target_index]
+
+	# If current slot is fully sanded, flash it and move to available slot
+	if target_index != _current_index:
+		_letter_slots[_current_index].flash_white()
+		_current_index = target_index
+
 	slot.set_letter(input_upper)
 	slot.set_state(LetterSlot.State.FILLED)
-	_current_index += 1
+	_current_index = target_index + 1
 
-	# Auto-submit when last slot is filled
-	if _current_index == _solution_word.length():
+	# Find next available slot for cursor position
+	var next_available: int = _find_next_available_slot(_current_index)
+	if next_available != -1:
+		_current_index = next_available
+
+	# Check if all fillable slots are filled (for auto-submit)
+	if _are_all_slots_filled():
 		_auto_submit()
 
 	return true
+
+
+## Find left-most available slot starting from given index. Returns -1 if none.
+func _find_next_available_slot(from_index: int) -> int:
+	for i in range(from_index, _solution_word.length()):
+		if _letter_slots[i].can_accept_input() and _letter_slots[i].get_letter() == "":
+			return i
+	return -1
+
+
+## Find left-most available slot in the entire word. Returns -1 if none.
+func find_leftmost_available_slot() -> int:
+	return _find_next_available_slot(_revealed_count)
+
+
+## Check if all non-protected slots are either filled with letters or fully sanded
+func _are_all_slots_filled() -> bool:
+	for i in range(_revealed_count, _solution_word.length()):
+		var slot: LetterSlot = _letter_slots[i]
+		if slot.get_letter() == "" and not slot.is_fully_sanded():
+			return false
+	return true
+
+
+## Check if word is unsolvable (all slots are blocked or filled, can't complete correctly)
+func is_unsolvable() -> bool:
+	# Word is unsolvable if no empty slots that can accept input
+	for i in range(_revealed_count, _solution_word.length()):
+		var slot: LetterSlot = _letter_slots[i]
+		if slot.can_accept_input() and slot.get_letter() == "":
+			return false
+	# All slots are either filled or fully sanded - check if we can submit
+	if _are_all_slots_filled():
+		# Check if current letters match solution
+		for i in range(_solution_word.length()):
+			if _letter_slots[i].get_letter() != _solution_word[i]:
+				# Wrong answer and can't retry - unsolvable
+				return true
+	return false
 
 
 ## Check the full word against the solution.
@@ -108,13 +168,23 @@ func _flash_incorrect() -> void:
 	_is_active = false  # Prevent input during animation
 	EventBus.word_incorrect.emit()
 	for i in range(_revealed_count, _solution_word.length()):
-		_letter_slots[i].set_state(LetterSlot.State.INCORRECT)
+		var slot: LetterSlot = _letter_slots[i]
+		if not slot.is_fully_sanded():
+			slot.set_state(LetterSlot.State.INCORRECT)
 	shake()
 	await get_tree().create_timer(0.3).timeout
 	for i in range(_revealed_count, _solution_word.length()):
-		_letter_slots[i].clear()
-	_current_index = _revealed_count
+		var slot: LetterSlot = _letter_slots[i]
+		if not slot.is_fully_sanded():
+			slot.clear()
+	# Reset cursor to first available slot
+	var first_available: int = _find_next_available_slot(_revealed_count)
+	_current_index = first_available if first_available != -1 else _revealed_count
 	_is_active = true  # Re-enable input for retry
+
+	# Check if word became unsolvable after clearing
+	if is_unsolvable():
+		word_unsolvable.emit()
 
 
 func delete_letter() -> void:

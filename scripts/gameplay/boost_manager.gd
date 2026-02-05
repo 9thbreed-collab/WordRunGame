@@ -26,14 +26,11 @@ func use_boost(index: int, current_word_index: int) -> Dictionary:
 
 	var counters := _get_counter_type(boost_id)
 
+	# Note: Sand boost (bucket_of_water) is handled specially in gameplay_screen._handle_water_boost()
+	# so we don't clear sand here - just mark it as used
 	if counters == "sand":
-		# Sand clears globally, not per-word
-		var sand_obstacles := _get_sand_obstacles()
-		if sand_obstacles.size() > 0:
-			for obs in sand_obstacles:
-				obs.clear()
-		else:
-			result.bonus = true
+		# Sand clearing is handled by gameplay_screen to get proper counts
+		pass
 	elif counters != "" and _obstacle_manager.has_obstacle_type(current_word_index, counters):
 		_obstacle_manager.clear_obstacle(current_word_index, boost_id)
 	else:
