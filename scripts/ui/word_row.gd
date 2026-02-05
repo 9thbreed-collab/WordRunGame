@@ -149,6 +149,14 @@ func is_locked() -> bool:
 	return _is_locked
 
 
+func is_completed() -> bool:
+	# Check if all slots are in CORRECT state
+	for slot in _letter_slots:
+		if slot._current_state != LetterSlot.State.CORRECT:
+			return false
+	return _letter_slots.size() > 0
+
+
 func shake() -> void:
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_ELASTIC)

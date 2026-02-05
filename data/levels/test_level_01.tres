@@ -127,4 +127,4 @@ level_name = "Test Level 1"
 time_limit_seconds = 180
 word_pairs = Array[Resource]([SubResource("WordPair_1"), SubResource("WordPair_2"), SubResource("WordPair_3"), SubResource("WordPair_4"), SubResource("WordPair_5"), SubResource("WordPair_6"), SubResource("WordPair_7"), SubResource("WordPair_8"), SubResource("WordPair_9"), SubResource("WordPair_10"), SubResource("WordPair_11"), SubResource("WordPair_12"), SubResource("WordPair_13"), SubResource("WordPair_14"), SubResource("WordPair_15"), SubResource("WordPair_16")])
 surge_config = SubResource("SurgeConfig_1")
-obstacle_configs = Array[Resource]([SubResource("Obstacle_1"), SubResource("Obstacle_2"), SubResource("Obstacle_3")])
+obstacle_configs = Array[Resource]([SubResource("Obstacle_1")])

@@ -32,6 +32,7 @@ var _is_level_active: bool = false
 var _score: int = 0
 var _current_multiplier: float = 1.0
 var _input_method: InputMethod = InputMethod.QWERTY
+var _skipped_padlock_word: int = -1  # Track the word we skipped due to padlock
 
 const BASE_SCORE: int = 100
 
@@ -154,24 +155,47 @@ func _on_word_completed(word_index: int) -> void:
 	_surge_system.fill()
 	_update_word_count()
 
-	# Auto-unlock padlock on next word when current word solved
-	var next_idx := word_index + 1
-	if next_idx < _word_rows.size() and _obstacle_manager.has_obstacle_type(next_idx, "padlock"):
-		_obstacle_manager.clear_obstacle(next_idx)
-
 	# Check if this was the last word
 	if word_index == _level_data.word_pairs.size() - 1:
 		_level_complete()
+		return
+
 	# Check if this is the last base word before bonus words (index 12 = 12th base)
-	elif word_index == 12:
+	if word_index == 12:
 		_check_bonus_gate()
-	else:
+		return
+
+	# If we just completed a word after a padlocked word, unlock and backtrack
+	if _skipped_padlock_word != -1 and word_index == _skipped_padlock_word + 1:
+		_obstacle_manager.clear_obstacle(_skipped_padlock_word)
+		var backtrack_word := _skipped_padlock_word
+		_skipped_padlock_word = -1
+		_word_rows[_current_word_index].deactivate()
+		_current_word_index = backtrack_word
+		_word_rows[backtrack_word].activate()
+		_scroll_to_word(backtrack_word)
+		return
+
+	# If we just completed a backtracked word, continue from word+2
+	var next_idx := word_index + 1
+	if next_idx < _word_rows.size() and _word_rows[next_idx].is_completed():
+		next_idx += 1
+
+	if next_idx < _word_rows.size():
 		_advance_to_next_word(next_idx)
 
 
 func _advance_to_next_word(next_index: int) -> void:
 	# Deactivate current word
 	_word_rows[_current_word_index].deactivate()
+
+	# Check if next word has a padlock - if so, skip it
+	if _obstacle_manager.has_obstacle_type(next_index, "padlock"):
+		_skipped_padlock_word = next_index
+		next_index += 1
+		if next_index >= _word_rows.size():
+			_level_complete()
+			return
 
 	# Update index
 	_current_word_index = next_index
@@ -182,14 +206,19 @@ func _advance_to_next_word(next_index: int) -> void:
 	# Activate next word
 	_word_rows[_current_word_index].activate()
 
-	# Scroll only when the next active word would land at the 5th visible slot
+	# Scroll to keep active word visible
+	_scroll_to_word(next_index)
+
+
+func _scroll_to_word(word_index: int) -> void:
+	# Scroll only when the word would land at the 5th visible slot
 	# or beyond (position index 4+). Scroll exactly one row so it sits at slot 4.
-	# No scroll at all until the 4th word in the container has been solved.
 	var row_step := 84  # 80px row + 4px VBoxContainer separation
-	var word_y: int = int(_word_rows[next_index].position.y)
+	var word_y: int = int(_word_rows[word_index].position.y)
 	var visible_pos: int = word_y - _word_display.scroll_vertical
 	if visible_pos >= 4 * row_step:
-		var target_scroll: int = _word_display.scroll_vertical + row_step
+		var target_scroll: int = word_y - (3 * row_step)  # Position word at slot 3 (4th from top)
+		target_scroll = max(0, target_scroll)
 		var tween: Tween = create_tween()
 		tween.set_trans(Tween.TRANS_CUBIC)
 		tween.set_ease(Tween.EASE_OUT)

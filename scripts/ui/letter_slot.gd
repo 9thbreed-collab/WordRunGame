@@ -175,7 +175,11 @@ func set_locked(locked: bool) -> void:
 	if locked:
 		set_state(State.LOCKED)
 	else:
-		set_state(State.EMPTY)
+		# Preserve FILLED state for slots that have content (e.g., revealed first letter)
+		if _label.text != "":
+			set_state(State.FILLED)
+		else:
+			set_state(State.EMPTY)
 
 
 func set_blocked(blocked: bool) -> void:
