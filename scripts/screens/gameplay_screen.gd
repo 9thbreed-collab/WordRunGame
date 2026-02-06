@@ -68,6 +68,9 @@ func _ready() -> void:
 	# Load obstacle configs for this level
 	_obstacle_manager.load_level_obstacles(_level_data, _word_rows)
 
+	# Connect to random blocks signals after obstacles are loaded
+	_connect_block_signals()
+
 	# Setup boosts (hardcoded loadout for testing -- Phase 5 adds inventory/loadout screen)
 	var test_loadout: Array[String] = ["lock_key", "block_breaker", "bucket_of_water"]
 	_boost_manager.setup(_obstacle_manager, test_loadout)
@@ -346,6 +349,11 @@ func _on_boost_pressed(index: int) -> void:
 		_handle_water_boost(index)
 		return
 
+	# Special handling for Breaker boost
+	if boost_id == "block_breaker":
+		_handle_breaker_boost(index)
+		return
+
 	# Default handling for other boosts
 	var result: Dictionary = _boost_manager.use_boost(index, _current_word_index)
 	if result.used:
@@ -473,6 +481,112 @@ func _on_obstacle_triggered(word_index: int, obstacle_type: String) -> void:
 	if obstacle_type == "sand":
 		# Get the sand obstacle's affected words and scroll to show them all
 		_scroll_to_show_sand_words(word_index)
+	elif obstacle_type == "random_blocks":
+		# Connect to block signals
+		_connect_block_signals()
+
+
+func _handle_breaker_boost(index: int) -> void:
+	# Check if any blocks are active
+	if not _obstacle_manager.has_active_blocks():
+		_boost_panel.flash_boost(index)
+		return
+
+	# Mark boost as used
+	var result: Dictionary = _boost_manager.use_boost(index, _current_word_index)
+	if not result.used:
+		return
+
+	_boost_panel.disable_boost(index)
+
+	# Clear all blocks
+	_obstacle_manager.clear_blocks_with_boost()
+
+
+func _connect_block_signals() -> void:
+	var blocks_obs: RandomBlocksObstacle = _obstacle_manager.get_active_blocks_obstacle()
+	if blocks_obs:
+		blocks_obs.block_spawned_on_active_slot.connect(_on_block_spawned_on_active_slot)
+		blocks_obs.virus_spreading.connect(_on_virus_spreading)
+		blocks_obs.word_fully_blocked.connect(_on_word_fully_blocked)
+
+
+func _on_block_spawned_on_active_slot(word_index: int, slot_index: int) -> void:
+	# Pause the game
+	_is_level_active = false
+	_game_timer.stop()
+
+	# Blink the slot red
+	var word_row = _word_rows[word_index]
+	var slot: LetterSlot = word_row._letter_slots[slot_index]
+	_blink_slot_red(slot)
+
+	# After blink, resume and jump caret
+	await get_tree().create_timer(1.5).timeout
+
+	# Jump caret to left-most available slot
+	var new_idx: int = word_row.find_leftmost_available_slot()
+	if new_idx != -1:
+		word_row._current_index = new_idx
+
+	# Resume game
+	_is_level_active = true
+	_game_timer.start()
+
+
+func _blink_slot_red(slot: LetterSlot) -> void:
+	var original_modulate: Color = slot.modulate
+	var blink_count: int = 3
+	for i in range(blink_count):
+		slot.modulate = Color(1, 0.3, 0.3, 1)  # Red tint
+		await get_tree().create_timer(0.25).timeout
+		slot.modulate = original_modulate
+		await get_tree().create_timer(0.25).timeout
+
+
+func _on_virus_spreading(from_word: int, to_word: int) -> void:
+	# Scroll to show all infected words
+	_scroll_to_show_virus_words(to_word)
+
+
+func _scroll_to_show_virus_words(last_infected_word: int) -> void:
+	if last_infected_word >= _word_rows.size():
+		return
+
+	# Calculate scroll to show infected words + 0.2 of next word
+	var row_step := 84
+	var last_word_y: int = int(_word_rows[last_infected_word].position.y)
+	var container_height: int = int(_word_display.size.y)
+
+	var target_bottom_offset: int = int(row_step * 1.2)
+	var target_scroll: int = last_word_y - container_height + target_bottom_offset
+	target_scroll = max(0, target_scroll)
+
+	var current_bottom: int = _word_display.scroll_vertical + container_height
+	if last_word_y + row_step <= current_bottom:
+		return
+
+	var tween: Tween = create_tween()
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(_word_display, "scroll_vertical", target_scroll, 0.5)
+
+
+func _on_word_fully_blocked(word_index: int) -> void:
+	# Grey out the word
+	_word_rows[word_index].set_sand_blocked(true)  # Reuse sand_blocked visual
+
+	# If this is the current word, move to next
+	if word_index == _current_word_index:
+		if word_index <= 12:
+			_level_failed_no_moves()
+			return
+
+		var next_idx: int = _find_next_available_word(word_index + 1)
+		if next_idx != -1:
+			_advance_to_next_word(next_idx)
+		else:
+			_level_complete()
 
 
 func _show_sand_clear_text(cleared: int, total: int) -> void:

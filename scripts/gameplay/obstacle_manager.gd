@@ -40,6 +40,9 @@ func _spawn_obstacle(oc: ObstacleConfig) -> void:
 
 	if oc.obstacle_type == "sand":
 		obstacle.setup_multi(oc, _word_rows)
+	elif oc.obstacle_type == "random_blocks":
+		var blocks_obs: RandomBlocksObstacle = obstacle as RandomBlocksObstacle
+		blocks_obs.setup_with_rows(oc, _word_rows, oc.word_index)
 	else:
 		obstacle.setup(oc, word_row)
 	_active_obstacles[oc.word_index] = obstacle
@@ -148,3 +151,36 @@ func clear_sand_with_boost() -> Dictionary:
 			if sand_obs and sand_obs.is_active():
 				return sand_obs.clear_with_count()
 	return {"cleared": 0, "total": 0}
+
+
+## Check if any random_blocks obstacle is currently active
+func has_active_blocks() -> bool:
+	for word_index in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[word_index]
+		if obstacle.config.obstacle_type == "random_blocks":
+			var blocks_obs: RandomBlocksObstacle = obstacle as RandomBlocksObstacle
+			if blocks_obs and blocks_obs.is_active():
+				return true
+	return false
+
+
+## Clear all blocks using the breaker boost
+func clear_blocks_with_boost() -> void:
+	for word_index in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[word_index]
+		if obstacle.config.obstacle_type == "random_blocks":
+			var blocks_obs: RandomBlocksObstacle = obstacle as RandomBlocksObstacle
+			if blocks_obs and blocks_obs.is_active():
+				blocks_obs.clear()
+				return
+
+
+## Get the random blocks obstacle if active
+func get_active_blocks_obstacle() -> RandomBlocksObstacle:
+	for word_index in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[word_index]
+		if obstacle.config.obstacle_type == "random_blocks":
+			var blocks_obs: RandomBlocksObstacle = obstacle as RandomBlocksObstacle
+			if blocks_obs and blocks_obs.is_active():
+				return blocks_obs
+	return null

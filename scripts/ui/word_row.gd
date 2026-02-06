@@ -16,6 +16,7 @@ var _is_active: bool = false
 var _is_locked: bool = false
 var _is_sand_blocked: bool = false
 var _original_position_x: float = 0.0
+var _last_typed_slot_index: int = -1  # Track last slot a letter was typed into
 
 
 func _ready() -> void:
@@ -96,6 +97,7 @@ func handle_input(letter: String) -> bool:
 
 	slot.set_letter(input_upper)
 	slot.set_state(LetterSlot.State.FILLED)
+	_last_typed_slot_index = target_index  # Track which slot was just filled
 	_current_index = target_index + 1
 
 	# Find next available slot for cursor position
@@ -232,6 +234,10 @@ func set_sand_blocked(blocked: bool) -> void:
 
 func is_sand_blocked() -> bool:
 	return _is_sand_blocked
+
+
+func get_last_typed_slot_index() -> int:
+	return _last_typed_slot_index
 
 
 func is_completed() -> bool:
