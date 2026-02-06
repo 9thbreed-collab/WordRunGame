@@ -22,6 +22,8 @@ var _is_sanded: bool = false
 var _sand_fill_progress: float = 0.0  # 0.0 to 1.0
 var _sand_fill_tween: Tween = null
 var _is_protected: bool = false  # First letter protection
+var _caret_glow_tween: Tween = null
+var _is_caret_active: bool = false
 
 
 func _ready() -> void:
@@ -178,8 +180,10 @@ func set_locked(locked: bool) -> void:
 	if locked:
 		set_state(State.LOCKED)
 	else:
-		# Preserve FILLED state for slots that have content (e.g., revealed first letter)
-		if _label.text != "":
+		# When unlocking, preserve blocked state if slot was blocked by virus
+		if _is_blocked:
+			set_state(State.BLOCKED)
+		elif _label.text != "":
 			set_state(State.FILLED)
 		else:
 			set_state(State.EMPTY)
@@ -296,3 +300,66 @@ func flash_white() -> void:
 	_label.modulate = Color(1, 1, 1, 1)  # White text on white = letter vanishes
 	await get_tree().create_timer(0.12).timeout
 	set_state(_current_state)  # Snap back to previous visual
+
+
+## Start slow pulsing blue glow for caret indicator
+func start_caret_glow() -> void:
+	if _is_caret_active:
+		return
+	_is_caret_active = true
+	_pulse_caret_glow()
+
+
+func _pulse_caret_glow() -> void:
+	if not _is_caret_active:
+		return
+
+	if _caret_glow_tween:
+		_caret_glow_tween.kill()
+
+	_caret_glow_tween = create_tween()
+	_caret_glow_tween.set_loops()
+
+	# Medium sky blue with full slot fill glow
+	var glow_color := Color(0.53, 0.81, 0.98, 1.0)  # Sky blue #87CEFA
+	var normal_color := Color(1.0, 1.0, 1.0, 1.0)
+
+	# Pulse the entire slot with background color change
+	_caret_glow_tween.tween_method(_set_glow_intensity, 0.0, 1.0, 0.75).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_caret_glow_tween.tween_method(_set_glow_intensity, 1.0, 0.0, 0.75).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+
+func _set_glow_intensity(intensity: float) -> void:
+	# Create a glow style that fills the entire slot
+	var glow_style := StyleBoxFlat.new()
+
+	# Sky blue glow color with intensity
+	var sky_blue := Color(0.53, 0.81, 0.98)  # #87CEFA
+	var base_bg := Color(0.0, 0.0, 0.0, 0.0)  # Transparent base
+
+	# Interpolate background to glowing sky blue
+	glow_style.bg_color = base_bg.lerp(Color(sky_blue.r, sky_blue.g, sky_blue.b, 0.5), intensity)
+
+	# Border also glows sky blue
+	var border_base := Color(0.8, 0.8, 0.8, 1.0)  # Normal border
+	glow_style.border_color = border_base.lerp(sky_blue, intensity)
+	glow_style.border_width_left = 2
+	glow_style.border_width_right = 2
+	glow_style.border_width_top = 2
+	glow_style.border_width_bottom = 2
+	glow_style.corner_radius_top_left = 4
+	glow_style.corner_radius_top_right = 4
+	glow_style.corner_radius_bottom_left = 4
+	glow_style.corner_radius_bottom_right = 4
+
+	add_theme_stylebox_override("panel", glow_style)
+
+
+## Stop the caret glow
+func stop_caret_glow() -> void:
+	_is_caret_active = false
+	if _caret_glow_tween:
+		_caret_glow_tween.kill()
+		_caret_glow_tween = null
+	modulate = Color(1.0, 1.0, 1.0, 1.0)  # Reset modulate
+	set_state(_current_state)  # Restore proper style

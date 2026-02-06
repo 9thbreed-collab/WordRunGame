@@ -24,7 +24,8 @@ func load_level_obstacles(level_data: LevelData, word_rows: Array) -> void:
 func check_trigger(word_index: int, trigger_type: String) -> void:
 	for oc in _level_obstacles:
 		if oc.word_index == word_index and oc.trigger_type == trigger_type:
-			if not _active_obstacles.has(word_index):
+			var obstacle_key: String = oc.obstacle_type + "_" + str(oc.word_index)
+			if not _active_obstacles.has(obstacle_key):
 				_spawn_obstacle(oc)
 
 
@@ -45,7 +46,8 @@ func _spawn_obstacle(oc: ObstacleConfig) -> void:
 		blocks_obs.setup_with_rows(oc, _word_rows, oc.word_index)
 	else:
 		obstacle.setup(oc, word_row)
-	_active_obstacles[oc.word_index] = obstacle
+	var obstacle_key: String = oc.obstacle_type + "_" + str(oc.word_index)
+	_active_obstacles[obstacle_key] = obstacle
 	add_child(obstacle)
 
 	if oc.delay_seconds > 0.0:
@@ -73,46 +75,65 @@ func _get_word_row(word_index: int):
 	return null
 
 
-## Clear the obstacle at a given word index.
-func clear_obstacle(word_index: int, _boost_type: String = "") -> void:
-	if _active_obstacles.has(word_index):
-		var obstacle: ObstacleBase = _active_obstacles[word_index]
-		obstacle.clear()
-		obstacle.queue_free()
-		_active_obstacles.erase(word_index)
+## Clear the obstacle at a given word index and type.
+func clear_obstacle(word_index: int, obstacle_type: String = "") -> void:
+	if obstacle_type != "":
+		var obstacle_key: String = obstacle_type + "_" + str(word_index)
+		if _active_obstacles.has(obstacle_key):
+			var obstacle: ObstacleBase = _active_obstacles[obstacle_key]
+			obstacle.clear()
+			obstacle.queue_free()
+			_active_obstacles.erase(obstacle_key)
+	else:
+		# Clear any obstacle at this word index
+		var keys_to_remove: Array = []
+		for key in _active_obstacles:
+			var obstacle: ObstacleBase = _active_obstacles[key]
+			if obstacle.config.word_index == word_index:
+				obstacle.clear()
+				obstacle.queue_free()
+				keys_to_remove.append(key)
+		for key in keys_to_remove:
+			_active_obstacles.erase(key)
 
 
 ## Check if a word has any active obstacle.
 func has_obstacle(word_index: int) -> bool:
-	return _active_obstacles.has(word_index)
+	for key in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[key]
+		if obstacle.config.word_index == word_index:
+			return true
+	return false
 
 
 ## Check if a word has an obstacle of a specific type.
 func has_obstacle_type(word_index: int, obstacle_type: String) -> bool:
-	if _active_obstacles.has(word_index):
-		var obstacle: ObstacleBase = _active_obstacles[word_index]
-		return obstacle.config.obstacle_type == obstacle_type
-	return false
+	var obstacle_key: String = obstacle_type + "_" + str(word_index)
+	return _active_obstacles.has(obstacle_key)
 
 
-## Get the active obstacle at a word index (or null).
+## Get the active obstacle at a word index (or null). Returns first found.
 func get_obstacle(word_index: int) -> ObstacleBase:
-	return _active_obstacles.get(word_index, null)
+	for key in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[key]
+		if obstacle.config.word_index == word_index:
+			return obstacle
+	return null
 
 
 ## Find word index of any active padlock obstacle. Returns -1 if none found.
 func find_padlock_word() -> int:
-	for word_index in _active_obstacles:
-		var obstacle: ObstacleBase = _active_obstacles[word_index]
+	for key in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[key]
 		if obstacle.config.obstacle_type == "padlock":
-			return word_index
+			return obstacle.config.word_index
 	return -1
 
 
 ## Check if any sand obstacle is currently active
 func has_active_sand() -> bool:
-	for word_index in _active_obstacles:
-		var obstacle: ObstacleBase = _active_obstacles[word_index]
+	for key in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[key]
 		if obstacle.config.obstacle_type == "sand":
 			var sand_obs: SandObstacle = obstacle as SandObstacle
 			if sand_obs and sand_obs.is_active():
@@ -123,8 +144,8 @@ func has_active_sand() -> bool:
 ## Get all sanded slots within the next N words from current position
 func get_sanded_slots_in_range(from_word: int, range_count: int) -> Array:
 	var result: Array = []  # Array of {word_idx, slot_idx}
-	for word_index in _active_obstacles:
-		var obstacle: ObstacleBase = _active_obstacles[word_index]
+	for key in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[key]
 		if obstacle.config.obstacle_type == "sand":
 			var sand_obs: SandObstacle = obstacle as SandObstacle
 			if sand_obs:
@@ -144,8 +165,8 @@ func clear_sanded_slots(slots_to_clear: Array) -> void:
 
 ## Clear sand using the water boost - clears up to 3 from active + pending. Returns {cleared, total}.
 func clear_sand_with_boost() -> Dictionary:
-	for word_index in _active_obstacles:
-		var obstacle: ObstacleBase = _active_obstacles[word_index]
+	for key in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[key]
 		if obstacle.config.obstacle_type == "sand":
 			var sand_obs: SandObstacle = obstacle as SandObstacle
 			if sand_obs and sand_obs.is_active():
@@ -155,8 +176,8 @@ func clear_sand_with_boost() -> Dictionary:
 
 ## Check if any random_blocks obstacle is currently active
 func has_active_blocks() -> bool:
-	for word_index in _active_obstacles:
-		var obstacle: ObstacleBase = _active_obstacles[word_index]
+	for key in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[key]
 		if obstacle.config.obstacle_type == "random_blocks":
 			var blocks_obs: RandomBlocksObstacle = obstacle as RandomBlocksObstacle
 			if blocks_obs and blocks_obs.is_active():
@@ -166,8 +187,8 @@ func has_active_blocks() -> bool:
 
 ## Clear all blocks using the breaker boost
 func clear_blocks_with_boost() -> void:
-	for word_index in _active_obstacles:
-		var obstacle: ObstacleBase = _active_obstacles[word_index]
+	for key in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[key]
 		if obstacle.config.obstacle_type == "random_blocks":
 			var blocks_obs: RandomBlocksObstacle = obstacle as RandomBlocksObstacle
 			if blocks_obs and blocks_obs.is_active():
@@ -177,8 +198,8 @@ func clear_blocks_with_boost() -> void:
 
 ## Get the random blocks obstacle if active
 func get_active_blocks_obstacle() -> RandomBlocksObstacle:
-	for word_index in _active_obstacles:
-		var obstacle: ObstacleBase = _active_obstacles[word_index]
+	for key in _active_obstacles:
+		var obstacle: ObstacleBase = _active_obstacles[key]
 		if obstacle.config.obstacle_type == "random_blocks":
 			var blocks_obs: RandomBlocksObstacle = obstacle as RandomBlocksObstacle
 			if blocks_obs and blocks_obs.is_active():

@@ -105,6 +105,8 @@ func handle_input(letter: String) -> bool:
 	if next_available != -1:
 		_current_index = next_available
 
+	_update_caret_glow()
+
 	# Check if all fillable slots are filled (for auto-submit)
 	if _are_all_slots_filled():
 		_auto_submit()
@@ -184,6 +186,7 @@ func _flash_incorrect() -> void:
 	var first_available: int = _find_next_available_slot(_revealed_count)
 	_current_index = first_available if first_available != -1 else _revealed_count
 	_is_active = true  # Re-enable input for retry
+	_update_caret_glow()
 
 	# Check if word became unsolvable after clearing
 	if is_unsolvable():
@@ -195,17 +198,40 @@ func delete_letter() -> void:
 	if _current_index > _revealed_count:
 		_current_index -= 1
 		_letter_slots[_current_index].clear()
+		_update_caret_glow()
 
 
 func activate() -> void:
 	_is_active = true
 	if not _is_locked:
 		modulate = Color(1.0, 1.0, 1.0, 1.0)
+	_update_caret_glow()
 
 
 func deactivate() -> void:
 	_is_active = false
 	modulate = Color(0.7, 0.7, 0.7, 1.0)
+	_clear_caret_glow()
+
+
+## Update caret glow to show on current input slot
+func _update_caret_glow() -> void:
+	if not _is_active:
+		return
+	# Clear all glows first
+	for slot in _letter_slots:
+		slot.stop_caret_glow()
+	# Show glow on current input slot if valid
+	if _current_index >= 0 and _current_index < _letter_slots.size():
+		var slot: LetterSlot = _letter_slots[_current_index]
+		if slot.can_accept_input():
+			slot.start_caret_glow()
+
+
+## Clear all caret glows
+func _clear_caret_glow() -> void:
+	for slot in _letter_slots:
+		slot.stop_caret_glow()
 
 
 func set_locked(locked: bool) -> void:

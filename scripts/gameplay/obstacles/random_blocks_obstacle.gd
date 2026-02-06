@@ -71,7 +71,7 @@ func _spawn_next_block() -> void:
 
 	var word_row = _all_word_rows[_current_target_word]
 
-	# Skip completed words
+	# Skip completed or sand-blocked words
 	if word_row.is_completed() or word_row.is_sand_blocked():
 		_try_spread_to_next_word()
 		return
