@@ -12,14 +12,14 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - [x] **Phase 1: Foundation and Validation Spikes**: Code complete (4/4 plans, device testing deferred)
 - [x] **Phase 2: Core Puzzle Loop**: Complete (4/4 plans, fully playable end-to-end flow)
 - [x] **Phase 3: Game Feel**: Complete (3/3 plans, surge momentum system, scoring, audio/haptics)
-- [ ] **Phase 4: Obstacles & Content**: In Progress (Plan 04-01 ~60% complete, padlock working, Random Blocks/Sand testing pending)
+- [x] **Phase 4: Obstacles & Content**: Plan 04-01 Complete (all 3 v1 obstacles + boosts working)
 - [ ] **Phase 5: Progression & Economy**: Hearts, currency, boss levels, inventory
 - [ ] **Phase 6: World Map & Tutorial**: 25 lands, Ruut navigation, progressive teaching
 - [ ] **Phase 7: Backend & Monetization**: Firebase, IAP, ads, cloud sync
 - [ ] **Phase 8: Soft Launch**: Test market, analytics, tuning
 - [ ] **Phase 9: Post-Launch**: Vs mode, skins, content expansion
 
-**Current Phase:** Phase 4 In Progress (Obstacles, Boosts, and Content Pipeline - Plan 04-01 partial, padlock complete)
+**Current Phase:** Phase 4 In Progress (Obstacles, Boosts, and Content Pipeline - Plan 04-01 Complete, Plan 04-02 or 04-03 next)
 
 ### Key Decisions & Context
 
@@ -41,7 +41,7 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - **Naming:** WordRun! (exclamation mark part of brand)
 
 #### Production Notes
-- **Version:** v0.0.05 (Phase 4 in progress - obstacle system foundation + padlock working)
+- **Version:** v0.0.06 (Phase 4 Plan 04-01 complete - all 3 v1 obstacles + boosts working)
 - **Versioning:** v0.0.XX during foundation, v0.X.XX during pre-release, v1.0.0 at launch
 - **Director Preferences:** Professional code quality (no shortcuts), AI-assisted assets (art, animation), documentation-first during foundation
 - **Architecture:** Layered (scenes/scripts/data/assets), autoloads (EventBus, GameManager, PlatformServices, SaveData, AudioManager)
@@ -54,22 +54,25 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 ## Working Instructions
 
 ### Current Focus
-**Phase 4 Execution**: Obstacles, Boosts, and Content Pipeline (Plan 04-01 ~60% complete)
+**Phase 4 Execution**: Obstacles, Boosts, and Content Pipeline (Plan 04-01 COMPLETE)
 
-**Current Plan Status (04-01):**
+**Current Plan Status (04-01 COMPLETE):**
 - Obstacle system architecture complete (ObstacleBase, ObstacleManager, ObstacleConfig)
+- Multi-obstacle support enabled (multiple obstacles can coexist on same word)
 - Padlock obstacle complete with skip/backtrack mechanic (tested, working)
-- Random Blocks obstacle implemented (testing pending)
-- Sand obstacle implemented (testing pending)
-- BoostManager and BoostPanel wired (boost functionality testing pending)
-- Three counter-boosts implemented: Lock Key, Block Breaker, Bucket of Water
+- Virus (Random Blocks) obstacle complete with gradual spread mechanics (tested, working)
+- Sand obstacle complete with gradual fill mechanics (tested, working)
+- All three counter-boosts functional and tested: Lock Key, Block Breaker, Bucket of Water
+- 8 LetterSlot visual states: EMPTY, FILLED, CORRECT, INCORRECT, LOCKED, VIRUS, SAND, CARET
+- Caret glow implemented (pulsing sky blue indicator on current input slot)
 
 **Immediate Next Steps:**
-1. Test Random Blocks obstacle (re-enable in test_level_01.tres, verify interaction with UI/surge/score)
-2. Test Sand obstacle (re-enable in test level, verify timing effect)
-3. Test boost functionality (Lock Key on padlock, Block Breaker on blocks, Bucket of Water on sand)
-4. Fix any integration issues discovered
-5. Complete Plan 04-01, proceed to 04-02 (obstacle animations/polish) or 04-03 (content pipeline)
+1. Choose next plan: 04-02 (Obstacle animations/polish) or 04-03 (Content pipeline)
+2. Recommendation: Start with 04-03 (Content pipeline) to unblock level design and playtesting
+3. Build word-pair validation system (dictionary check, compound phrase validation)
+4. Implement themed word pools for Nation 1 lands
+5. Set up cloud storage for word pairs (Firebase or alternative)
+6. Create local caching for offline play
 
 ### Working Rules
 - Do not assume tools, libraries, or architecture unless explicitly defined in this file or .planning/ docs
@@ -101,6 +104,42 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - Themed word pools per land for narrative alignment
 
 ## Session History
+
+### Session 2026-02-06 (v0.0.06)
+- **Phase:** Phase 4 In Progress (Obstacles, Boosts, and Content Pipeline - Plan 04-01 COMPLETE)
+- **Accomplishments:**
+  - Implemented Virus (Random Blocks) obstacle with gradual spread mechanics
+  - Virus spreads 1 block every 2 seconds with even distribution across words
+  - 100% virus word auto-solves with zero points (penalty for spread)
+  - Implemented Sand obstacle with gradual fill on 1-5 words simultaneously
+  - Sand fills 1 random slot every 2 seconds per affected word
+  - 100% sand word becomes unsolvable (level failure if current word)
+  - Extended ObstacleManager to support multiple obstacles per word (compound key: type+index)
+  - Added 3 new LetterSlot states: VIRUS (dark red with X), SAND (tan), CARET (sky blue glow)
+  - Implemented caret glow with pulsing animation (1.5s cycle) for current input position
+  - All three counter-boosts tested and working: Lock Key, Block Breaker, Bucket of Water
+  - Lock Key clears any padlock in level (works even when word is skipped)
+  - Block Breaker clears all virus blocks from all words instantly
+  - Bucket of Water clears sand from 3 words around current word
+  - Fixed multi-obstacle interaction bugs (virus/sand with padlock state)
+  - Fixed caret advancement after auto-solve (virus or sand completing word)
+  - Added EventBus.boost_used signal for future analytics and UI feedback
+  - Re-enabled all three obstacles in test level (padlock @ word 5, virus @ word 2, sand @ words 3-7)
+- **Key Decisions:**
+  - Multi-obstacle architecture: ObstacleManager uses compound key (type+index) to allow multiple obstacles per word
+  - Virus spread respects padlock state (won't add blocks to locked words)
+  - Sand fill respects padlock state (won't fill locked words)
+  - Visual state priority: LOCKED > CARET > VIRUS/SAND > FILLED > EMPTY
+  - Caret glow always visible on current input slot regardless of other states
+  - Virus auto-solve gives zero points (penalty, not reward)
+  - Sand unsolvable triggers immediate level failure if current word
+  - Boost animations and obstacle drop effects deferred to Plan 04-02
+- **Requirements Completed:** OBST-03, OBST-04, OBST-08, OBST-09, OBST-10, OBST-11 (6 new requirements, 11 total for Phase 4 Plan 04-01)
+- **Next Steps:**
+  - Choose Plan 04-02 (obstacle animations/polish) or Plan 04-03 (content pipeline)
+  - Recommendation: Start with 04-03 to unblock level design with real word variety
+  - Build word-pair validation system and themed word pools
+  - Set up cloud storage and local caching for word content
 
 ### Session 2026-02-05 (v0.0.05)
 - **Phase:** Phase 4 In Progress (Obstacles, Boosts, and Content Pipeline - Plan 04-01 partial)
