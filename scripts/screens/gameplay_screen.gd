@@ -55,6 +55,9 @@ func _ready() -> void:
 	# Connect obstacle signals for scroll handling
 	EventBus.obstacle_triggered.connect(_on_obstacle_triggered)
 
+	# Connect sand fill complete signal
+	EventBus.slot_fully_sanded.connect(_on_slot_fully_sanded)
+
 	# Initialize surge system
 	_surge_system.start(_level_data.surge_config)
 	_surge_bar.setup(_level_data.surge_config)
@@ -172,7 +175,7 @@ func _on_word_completed(word_index: int) -> void:
 	# If we just completed a word after a padlocked word, unlock and backtrack
 	if _skipped_padlock_word != -1 and word_index == _skipped_padlock_word + 1:
 		_obstacle_manager.clear_obstacle(_skipped_padlock_word)
-		var backtrack_word := _skipped_padlock_word
+		var backtrack_word: int = _skipped_padlock_word
 		_skipped_padlock_word = -1
 		_word_rows[_current_word_index].deactivate()
 		_current_word_index = backtrack_word
@@ -180,23 +183,43 @@ func _on_word_completed(word_index: int) -> void:
 		_scroll_to_word(backtrack_word)
 		return
 
-	# If we just completed a backtracked word, continue from word+2
+	# If we just completed the padlocked word itself (after being unlocked), clear the flag
+	if _skipped_padlock_word == word_index:
+		_skipped_padlock_word = -1
+
+	# Find next available word (skip completed and sand-blocked)
 	var next_idx := word_index + 1
-	if next_idx < _word_rows.size() and _word_rows[next_idx].is_completed():
+	while next_idx < _word_rows.size():
+		var row = _word_rows[next_idx]
+		if not row.is_completed() and not row.is_sand_blocked():
+			break
 		next_idx += 1
 
 	if next_idx < _word_rows.size():
 		_advance_to_next_word(next_idx)
+	else:
+		_level_complete()
 
 
 func _advance_to_next_word(next_index: int) -> void:
 	# Deactivate current word
 	_word_rows[_current_word_index].deactivate()
 
+	# Skip sand-blocked words
+	while next_index < _word_rows.size() and _word_rows[next_index].is_sand_blocked():
+		next_index += 1
+
+	if next_index >= _word_rows.size():
+		_level_complete()
+		return
+
 	# Check if next word has a padlock - if so, skip it
 	if _obstacle_manager.has_obstacle_type(next_index, "padlock"):
 		_skipped_padlock_word = next_index
 		next_index += 1
+		# Skip any sand-blocked words after padlock too
+		while next_index < _word_rows.size() and _word_rows[next_index].is_sand_blocked():
+			next_index += 1
 		if next_index >= _word_rows.size():
 			_level_complete()
 			return
@@ -351,7 +374,7 @@ func _handle_key_boost(index: int) -> void:
 
 	# If this was the skipped word, trigger backtrack
 	if _skipped_padlock_word != -1 and padlock_word == _skipped_padlock_word:
-		var backtrack_word := _skipped_padlock_word
+		var backtrack_word: int = _skipped_padlock_word
 		_skipped_padlock_word = -1
 		_word_rows[_current_word_index].deactivate()
 		_current_word_index = backtrack_word
@@ -397,6 +420,45 @@ func _on_word_unsolvable(word_index: int) -> void:
 	else:
 		# No more words - level complete (bonus words don't count against)
 		_level_complete()
+
+
+func _on_slot_fully_sanded(slot: Node) -> void:
+	# Find which word contains this slot
+	var word_index: int = -1
+	for i in range(_word_rows.size()):
+		var word_row = _word_rows[i]
+		if slot in word_row._letter_slots:
+			word_index = i
+			break
+
+	if word_index == -1:
+		return
+
+	# Grey out the word (sand block remains visible)
+	_word_rows[word_index].set_sand_blocked(true)
+
+	# If this is the current word, advance to next
+	if word_index == _current_word_index:
+		# Check if this is a base word (1-12) - if so, it's a loss
+		if word_index <= 12:
+			_level_failed_no_moves()
+			return
+
+		# Bonus word - move to next word
+		var next_idx: int = _find_next_available_word(word_index + 1)
+		if next_idx != -1:
+			_advance_to_next_word(next_idx)
+		else:
+			# No more words - level complete (bonus words don't count against)
+			_level_complete()
+
+
+func _find_next_available_word(from_index: int) -> int:
+	# Find next word that isn't greyed out / sand blocked
+	for i in range(from_index, _word_rows.size()):
+		if not _word_rows[i].is_sand_blocked() and not _word_rows[i].is_completed():
+			return i
+	return -1
 
 
 func _level_failed_no_moves() -> void:

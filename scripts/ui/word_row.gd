@@ -14,6 +14,7 @@ var _revealed_count: int = 0
 var _letter_slots: Array[LetterSlot] = []
 var _is_active: bool = false
 var _is_locked: bool = false
+var _is_sand_blocked: bool = false
 var _original_position_x: float = 0.0
 
 
@@ -220,6 +221,17 @@ func set_locked(locked: bool) -> void:
 
 func is_locked() -> bool:
 	return _is_locked
+
+
+func set_sand_blocked(blocked: bool) -> void:
+	_is_sand_blocked = blocked
+	if blocked:
+		_is_active = false
+		modulate = Color(0.4, 0.4, 0.4, 0.6)
+
+
+func is_sand_blocked() -> bool:
+	return _is_sand_blocked
 
 
 func is_completed() -> bool:

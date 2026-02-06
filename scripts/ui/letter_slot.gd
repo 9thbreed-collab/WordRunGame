@@ -202,8 +202,11 @@ func set_sanded(sanded: bool) -> void:
 		if _sand_fill_tween:
 			_sand_fill_tween.kill()
 			_sand_fill_tween = null
-		# Restore appropriate state
-		if _label.text != "":
+		# Restore appropriate state - preserve CORRECT if word was solved
+		if _current_state == State.CORRECT:
+			# Keep CORRECT state, just update internal flag
+			pass
+		elif _label.text != "":
 			set_state(State.FILLED)
 		else:
 			set_state(State.EMPTY)

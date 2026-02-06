@@ -116,10 +116,10 @@ effect_data = {"block_count": 2}
 script = ExtResource("4_d4d4d")
 obstacle_type = "sand"
 display_name = "Sand"
-word_index = 5
+word_index = 3
 trigger_type = "word_start"
 delay_seconds = 0.0
-effect_data = {"word_count": 3, "word_indices": [5, 6, 7]}
+effect_data = {"word_count": 3, "word_indices": [3, 4, 6]}
 
 [resource]
 script = ExtResource("1_a1a1a")
@@ -127,4 +127,4 @@ level_name = "Test Level 1"
 time_limit_seconds = 180
 word_pairs = Array[Resource]([SubResource("WordPair_1"), SubResource("WordPair_2"), SubResource("WordPair_3"), SubResource("WordPair_4"), SubResource("WordPair_5"), SubResource("WordPair_6"), SubResource("WordPair_7"), SubResource("WordPair_8"), SubResource("WordPair_9"), SubResource("WordPair_10"), SubResource("WordPair_11"), SubResource("WordPair_12"), SubResource("WordPair_13"), SubResource("WordPair_14"), SubResource("WordPair_15"), SubResource("WordPair_16")])
 surge_config = SubResource("SurgeConfig_1")
-obstacle_configs = Array[Resource]([SubResource("Obstacle_3")])
+obstacle_configs = Array[Resource]([SubResource("Obstacle_1"), SubResource("Obstacle_3")])
