@@ -32,7 +32,7 @@ func use_boost(index: int, current_word_index: int) -> Dictionary:
 		# Sand clearing is handled by gameplay_screen to get proper counts
 		pass
 	elif counters != "" and _obstacle_manager.has_obstacle_type(current_word_index, counters):
-		_obstacle_manager.clear_obstacle(current_word_index, boost_id)
+		_obstacle_manager.clear_obstacle(current_word_index, counters)
 	else:
 		result.bonus = true
 

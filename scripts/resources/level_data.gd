@@ -1,6 +1,6 @@
 ## LevelData -- Complete configuration for one puzzle level.
 ## Holds all word pairs, time limit, and metadata for a single level.
-## First 12 word_pairs = base words, last 3 (indices 12-14) = bonus words.
+## First N word_pairs = base words (required), remaining = bonus words.
 class_name LevelData
 extends Resource
 
@@ -10,7 +10,13 @@ extends Resource
 ## Time limit for this level in seconds (default: 180 = 3 minutes)
 @export var time_limit_seconds: int = 180
 
-## Array of word pairs for this level. First 12 = base, last 3 = bonus.
+## Number of base words (excluding starter). Bonus words come after.
+@export var base_word_count: int = 12
+
+## Number of bonus words after base words.
+@export var bonus_word_count: int = 3
+
+## Array of word pairs for this level. First base_word_count = base, then bonus_word_count = bonus.
 @export var word_pairs: Array[WordPair] = []
 
 ## Surge momentum configuration for this level

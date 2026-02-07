@@ -170,8 +170,8 @@ func _on_word_completed(word_index: int) -> void:
 		_level_complete()
 		return
 
-	# Check if this is the last base word before bonus words (index 12 = 12th base)
-	if word_index == 12:
+	# Check if this is the last base word before bonus words
+	if word_index == _level_data.base_word_count:
 		_check_bonus_gate()
 		return
 
@@ -283,6 +283,8 @@ func _level_complete() -> void:
 	_star_bar.stop_timer()
 	GameManager.last_score = _score
 	GameManager.last_time_elapsed = _time_elapsed
+	GameManager.last_words_solved = _words_completed
+	GameManager.last_total_words = _level_data.base_word_count  # Base words only
 	EventBus.level_completed.emit()
 
 
@@ -290,6 +292,10 @@ func _level_failed() -> void:
 	_is_level_active = false
 	_game_timer.stop()
 	_star_bar.stop_timer()
+	GameManager.last_score = _score
+	GameManager.last_time_elapsed = _time_elapsed
+	GameManager.last_words_solved = _words_completed
+	GameManager.last_total_words = _level_data.base_word_count
 	EventBus.level_failed.emit()
 
 
@@ -321,7 +327,7 @@ func _on_word_zero_point_completed(word_index: int) -> void:
 	EventBus.word_completed.emit(word_index)
 	if word_index == _level_data.word_pairs.size() - 1:
 		_level_complete()
-	elif word_index == 12:
+	elif word_index == _level_data.base_word_count:
 		_check_bonus_gate()
 	else:
 		var next_idx := word_index + 1
@@ -416,8 +422,8 @@ func _on_word_unsolvable(word_index: int) -> void:
 	_word_rows[word_index].deactivate()
 	_word_rows[word_index].modulate = Color(0.4, 0.4, 0.4, 0.6)
 
-	# Check if this is a base word (1-12) - if so, it's a loss
-	if word_index <= 12:
+	# Check if this is a base word - if so, it's a loss
+	if word_index <= _level_data.base_word_count:
 		_level_failed_no_moves()
 		return
 
@@ -447,8 +453,8 @@ func _on_slot_fully_sanded(slot: Node) -> void:
 
 	# If this is the current word, advance to next
 	if word_index == _current_word_index:
-		# Check if this is a base word (1-12) - if so, it's a loss
-		if word_index <= 12:
+		# Check if this is a base word - if so, it's a loss
+		if word_index <= _level_data.base_word_count:
 			_level_failed_no_moves()
 			return
 
@@ -473,6 +479,10 @@ func _level_failed_no_moves() -> void:
 	_is_level_active = false
 	_game_timer.stop()
 	_star_bar.stop_timer()
+	GameManager.last_score = _score
+	GameManager.last_time_elapsed = _time_elapsed
+	GameManager.last_words_solved = _words_completed
+	GameManager.last_total_words = _level_data.base_word_count
 	# TODO: Show "No Available Moves" message
 	EventBus.level_failed.emit()
 
@@ -578,7 +588,7 @@ func _on_word_fully_blocked(word_index: int) -> void:
 
 	# If this is the current word, move to next
 	if word_index == _current_word_index:
-		if word_index <= 12:
+		if word_index <= _level_data.base_word_count:
 			_level_failed_no_moves()
 			return
 

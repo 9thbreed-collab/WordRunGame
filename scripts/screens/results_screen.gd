@@ -15,11 +15,12 @@ func _ready() -> void:
 	_main_menu_button.pressed.connect(_on_main_menu_pressed)
 	GameManager.transition_to(GameManager.AppState.RESULTS)
 
-	# Display score and time from last run
+	# Display score, time, and words solved from last run
 	_score_label.text = "Score: %d" % GameManager.last_score
 	var mins: int = GameManager.last_time_elapsed / 60
 	var secs: int = GameManager.last_time_elapsed % 60
 	_time_taken_label.text = "Time: %02d:%02d" % [mins, secs]
+	_words_solved_label.text = "Words: %d/%d" % [GameManager.last_words_solved, GameManager.last_total_words]
 
 
 func _on_play_again_pressed() -> void:
