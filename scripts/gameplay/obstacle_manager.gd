@@ -205,3 +205,12 @@ func get_active_blocks_obstacle() -> RandomBlocksObstacle:
 			if blocks_obs and blocks_obs.is_active():
 				return blocks_obs
 	return null
+
+
+## Check if a word has a configured (not yet active) obstacle of a specific type
+## that will trigger on word_start. Used to skip padlocked words before activation.
+func has_configured_obstacle(word_index: int, obstacle_type: String, trigger_type: String = "word_start") -> bool:
+	for oc in _level_obstacles:
+		if oc.word_index == word_index and oc.obstacle_type == obstacle_type and oc.trigger_type == trigger_type:
+			return true
+	return false

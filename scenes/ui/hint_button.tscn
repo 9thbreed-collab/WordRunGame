@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://hint_button_01"]
+
+[ext_resource type="Script" path="res://scripts/ui/hint_button.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="badge_style"]
+bg_color = Color(0.9, 0.2, 0.2, 1.0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_left = 10
+corner_radius_bottom_right = 10
+content_margin_left = 4
+content_margin_right = 4
+content_margin_top = 1
+content_margin_bottom = 1
+
+[node name="HintButton" type="Control"]
+custom_minimum_size = Vector2(56, 48)
+layout_mode = 2
+script = ExtResource("1_script")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "💡"
+
+[node name="Badge" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -20.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 16.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("badge_style")
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1

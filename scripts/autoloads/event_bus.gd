@@ -37,6 +37,9 @@ signal surge_changed(current_value: float, max_value: float)
 signal surge_threshold_crossed(new_multiplier: float)
 signal surge_bust()
 signal score_updated(new_score: int)
+signal bonus_mode_entered
+signal bonus_mode_blink
+signal bonus_mode_ended
 
 # --- Obstacle signals ---
 signal obstacle_triggered(word_index: int, obstacle_type: String)
@@ -48,3 +51,8 @@ signal word_unsolvable(word_index: int)
 
 # --- Boost signals ---
 signal boost_used(boost_type: String, word_index: int)
+
+# --- Content pipeline signals ---
+signal content_update_available(version: String)
+signal content_downloaded(land_id: String)
+signal content_download_failed(land_id: String)

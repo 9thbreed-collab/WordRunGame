@@ -22,6 +22,7 @@ enum InputMethod { QWERTY, RADIAL }
 @onready var _obstacle_manager: Node = %ObstacleManager
 @onready var _boost_manager: Node = %BoostManager
 @onready var _boost_panel: HBoxContainer = %BoostPanel
+@onready var _hint_button: Control = %HintButton
 
 var _level_data: LevelData
 var _word_rows: Array = []
@@ -33,13 +34,21 @@ var _score: int = 0
 var _current_multiplier: float = 1.0
 var _input_method: InputMethod = InputMethod.QWERTY
 var _skipped_padlock_word: int = -1  # Track the word we skipped due to padlock
+var _in_bonus_mode: bool = false
+var _bonus_words_revealed: int = 0  # How many bonus words have been shown
+var _bonus_words_completed: int = 0  # How many bonus words have been solved
+var _bonus_scroll_tween: Tween = null  # Track bonus scroll to prevent stacking
 
 const BASE_SCORE: int = 100
 
 
 func _ready() -> void:
-	# Load test level
-	_level_data = load("res://data/levels/test_level_01.tres")
+	# Load level from ContentCache (JSON), fallback to .tres for testing
+	var level_json := ContentCache.get_level_json("grasslands", 0)
+	if not level_json.is_empty():
+		_level_data = ContentCache.build_level_data(level_json)
+	else:
+		_level_data = load("res://data/levels/test_level_01.tres")
 
 	# Setup timer
 	_game_timer.wait_time = 1.0
@@ -57,6 +66,9 @@ func _ready() -> void:
 
 	# Connect sand fill complete signal
 	EventBus.slot_fully_sanded.connect(_on_slot_fully_sanded)
+
+	# Connect bonus mode signal
+	EventBus.bonus_mode_ended.connect(_on_bonus_mode_ended)
 
 	# Initialize surge system
 	_surge_system.start(_level_data.surge_config)
@@ -77,12 +89,21 @@ func _ready() -> void:
 	_boost_panel.setup(test_loadout)
 	_boost_panel.boost_pressed.connect(_on_boost_pressed)
 
+	# Connect hint button
+	_hint_button.hint_requested.connect(_on_hint_requested)
+
 	# Reveal starter word (index 0) -- fully visible reference
 	_word_rows[0].reveal_all()
 
-	# Reveal first letter of all playable words
+	# Reveal first letter of base words only (bonus words hidden until earned)
+	# Base words are indices 1 through base_word_count (inclusive)
+	var first_bonus_index: int = _level_data.base_word_count + 1  # +1 for starter word
 	for i in range(1, _word_rows.size()):
-		_word_rows[i].reveal_first_letter()
+		if i < first_bonus_index:
+			_word_rows[i].reveal_first_letter()
+		else:
+			# Bonus words: hide initially
+			_word_rows[i].visible = false
 
 	# Initialize timer (counts up)
 	_time_elapsed = 0
@@ -157,6 +178,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_word_completed(word_index: int) -> void:
+	# Handle bonus words separately
+	if _in_bonus_mode:
+		_on_bonus_word_completed()
+		return
+
 	_words_completed += 1
 	_score += int(BASE_SCORE * _current_multiplier)
 	_update_score_display()
@@ -216,16 +242,23 @@ func _advance_to_next_word(next_index: int) -> void:
 		_level_complete()
 		return
 
-	# Check if next word has a padlock - if so, skip it
-	if _obstacle_manager.has_obstacle_type(next_index, "padlock"):
+	# Check if next word has a padlock - if so, spawn it and skip to the word after
+	# Check both active obstacles AND configured obstacles (padlock triggers on word_start,
+	# so it may not be active yet when we're deciding to skip)
+	if _obstacle_manager.has_obstacle_type(next_index, "padlock") or \
+	   _obstacle_manager.has_configured_obstacle(next_index, "padlock", "word_start"):
+		# Spawn the padlock so it shows as locked and can respond to Key boost
+		_obstacle_manager.check_trigger(next_index, "word_start")
 		_skipped_padlock_word = next_index
-		next_index += 1
+		# Move to the next word after the padlock (only skip ONE word)
+		var skip_target: int = next_index + 1
 		# Skip any sand-blocked words after padlock too
-		while next_index < _word_rows.size() and _word_rows[next_index].is_sand_blocked():
-			next_index += 1
-		if next_index >= _word_rows.size():
+		while skip_target < _word_rows.size() and _word_rows[skip_target].is_sand_blocked():
+			skip_target += 1
+		if skip_target >= _word_rows.size():
 			_level_complete()
 			return
+		next_index = skip_target
 
 	# Update index
 	_current_word_index = next_index
@@ -255,10 +288,44 @@ func _scroll_to_word(word_index: int) -> void:
 		tween.tween_property(_word_display, "scroll_vertical", target_scroll, 0.4)
 
 
+func _scroll_to_bonus_word(_word_index: int) -> void:
+	# Bonus words are hidden initially and just became visible
+	# Wait for ScrollContainer to update its scrollbar range after VBoxContainer resizes
+	# This takes 2 frames: Frame 1 = VBoxContainer resizes, Frame 2 = ScrollContainer updates
+	var v_scroll_bar: ScrollBar = _word_display.get_v_scroll_bar()
+	await v_scroll_bar.changed
+	_do_bonus_scroll()
+
+
+func _do_bonus_scroll() -> void:
+	# Kill any in-progress bonus scroll to prevent animation stacking
+	if _bonus_scroll_tween and _bonus_scroll_tween.is_running():
+		_bonus_scroll_tween.kill()
+
+	# Scroll down one row to reveal the newly populated bonus word
+	var row_step := 84  # 80px row + 4px VBoxContainer separation
+	var current_scroll: int = _word_display.scroll_vertical
+	var target_scroll: int = current_scroll + row_step
+	var max_scroll: int = _word_display.get_v_scroll_bar().max_value
+
+	# Debug output
+	print("BONUS SCROLL: current=%d, target=%d, max=%d" % [current_scroll, target_scroll, max_scroll])
+
+	_bonus_scroll_tween = create_tween()
+	_bonus_scroll_tween.set_trans(Tween.TRANS_CUBIC)
+	_bonus_scroll_tween.set_ease(Tween.EASE_OUT)
+	_bonus_scroll_tween.tween_property(_word_display, "scroll_vertical", target_scroll, 0.5)
+
+
 func _check_bonus_gate() -> void:
-	# STUB: Phase 3 will check surge momentum here
-	# For now, always allow bonus words
-	_advance_to_next_word(13)
+	# Check if surge is above 60% (second threshold)
+	if not _surge_system.is_above_bonus_threshold():
+		# Not enough surge - level complete without bonus words
+		_level_complete()
+		return
+
+	# Qualified for bonus mode!
+	_enter_bonus_mode()
 
 
 func _on_timer_tick() -> void:
@@ -676,6 +743,88 @@ func _scroll_to_show_sand_words(start_word_index: int) -> void:
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(_word_display, "scroll_vertical", target_scroll, 0.5)
+
+
+## --- Bonus Mode ---
+
+func _enter_bonus_mode() -> void:
+	_in_bonus_mode = true
+	_bonus_words_revealed = 0
+	_bonus_words_completed = 0
+
+	# Tell surge system to enter bonus mode
+	_surge_system.enter_bonus_mode()
+
+	# Reveal the first bonus word
+	_reveal_next_bonus_word()
+
+
+func _reveal_next_bonus_word() -> void:
+	var first_bonus_index: int = _level_data.base_word_count + 1  # +1 for starter
+	var next_bonus_index: int = first_bonus_index + _bonus_words_revealed
+
+	if next_bonus_index >= _word_rows.size():
+		# No more bonus words
+		_level_complete()
+		return
+
+	var word_row = _word_rows[next_bonus_index]
+	word_row.visible = true
+	word_row.set_bonus_word(true)
+	word_row.reveal_first_letter()
+	word_row.activate()
+
+	_bonus_words_revealed += 1
+	_current_word_index = next_bonus_index
+
+	# Scroll container to show the new bonus word
+	_scroll_to_bonus_word(next_bonus_index)
+
+
+func _on_bonus_word_completed() -> void:
+	_bonus_words_completed += 1
+	_words_completed += 1
+	_score += int(BASE_SCORE * _current_multiplier)
+	_update_score_display()
+	_update_word_count()
+	EventBus.word_completed.emit(_current_word_index)
+	EventBus.score_updated.emit(_score)
+	_surge_system.fill()  # Will trigger blink in bonus mode (no actual fill)
+
+	# Check if all bonus words completed
+	if _bonus_words_completed >= _level_data.bonus_word_count:
+		_level_complete()
+		return
+
+	# Check if surge is still active
+	if _surge_system.get_surge_value() <= 0:
+		_level_complete()
+		return
+
+	# Reveal next bonus word
+	_word_rows[_current_word_index].deactivate()
+	_reveal_next_bonus_word()
+
+
+func _on_bonus_mode_ended() -> void:
+	# Surge ran out during bonus mode
+	if _in_bonus_mode:
+		_level_complete()
+
+
+## --- Hint System ---
+
+func _on_hint_requested() -> void:
+	if not _is_level_active:
+		return
+
+	# Try to reveal a random letter in the active word
+	var revealed: bool = _word_rows[_current_word_index].reveal_random_letter()
+	if revealed:
+		_hint_button.use_hint()
+	else:
+		# No letters to reveal - flash the button
+		_hint_button.flash_empty()
 
 
 ## --- Input Method Toggle ---

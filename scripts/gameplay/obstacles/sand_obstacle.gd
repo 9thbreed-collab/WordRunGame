@@ -174,6 +174,12 @@ func clear_with_count() -> Dictionary:
 			var word_row = _all_word_rows[word_idx]
 			if slot_idx < word_row._letter_slots.size():
 				word_row._letter_slots[slot_idx].set_sanded(false)
+			# Update caret on active word
+			if word_row._is_active:
+				var leftmost: int = word_row.find_leftmost_available_slot()
+				if leftmost != -1:
+					word_row._current_index = leftmost
+					word_row._update_caret_glow()
 		_active_fills.erase(word_idx)
 		cleared += 1
 

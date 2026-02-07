@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$comment": "Reference schema for land content files. Not loaded by game.",
+  "title": "WordRun Land Content Schema",
+  "type": "object",
+  "required": ["land_id", "display_name", "levels"],
+  "properties": {
+    "land_id": {
+      "type": "string",
+      "description": "Unique identifier for this land (e.g., 'grasslands')"
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Human-readable name shown in UI"
+    },
+    "theme": {
+      "type": "string",
+      "description": "Comma-separated themes for word pairs in this land"
+    },
+    "levels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["level_id", "level_name", "word_pairs"],
+        "properties": {
+          "level_id": {
+            "type": "string",
+            "description": "Unique identifier for this level"
+          },
+          "level_name": {
+            "type": "string",
+            "description": "Display name shown in UI"
+          },
+          "time_limit_seconds": {
+            "type": "integer",
+            "default": 180,
+            "description": "Level time limit (default: 3 minutes)"
+          },
+          "base_word_count": {
+            "type": "integer",
+            "default": 12,
+            "description": "Number of base words (excluding starter)"
+          },
+          "bonus_word_count": {
+            "type": "integer",
+            "default": 3,
+            "description": "Number of bonus words after base"
+          },
+          "difficulty": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Difficulty rating 1-5"
+          },
+          "word_pairs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["word_a", "word_b"],
+              "properties": {
+                "word_a": {
+                  "type": "string",
+                  "description": "First word (empty string for starter)"
+                },
+                "word_b": {
+                  "type": "string",
+                  "description": "Second word (the answer)"
+                }
+              }
+            }
+          },
+          "surge_config": {
+            "type": "object",
+            "properties": {
+              "max_value": { "type": "number", "default": 100.0 },
+              "fill_per_word": { "type": "number", "default": 15.0 },
+              "thresholds": {
+                "type": "array",
+                "items": { "type": "number" }
+              },
+              "section_drain_times": {
+                "type": "array",
+                "items": { "type": "number" }
+              },
+              "bust_drain_rate": { "type": "number", "default": 25.0 },
+              "multipliers": {
+                "type": "array",
+                "items": { "type": "number" }
+              }
+            }
+          },
+          "obstacle_configs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["obstacle_type", "word_index"],
+              "properties": {
+                "obstacle_type": {
+                  "type": "string",
+                  "enum": ["padlock", "random_blocks", "sand"]
+                },
+                "word_index": {
+                  "type": "integer",
+                  "description": "Which word triggers this obstacle"
+                },
+                "trigger_type": {
+                  "type": "string",
+                  "default": "word_start",
+                  "enum": ["word_start", "on_completion"]
+                },
+                "delay_seconds": {
+                  "type": "number",
+                  "default": 0.0
+                },
+                "effect_data": {
+                  "type": "object",
+                  "description": "Obstacle-specific configuration"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@
 class_name LetterSlot
 extends PanelContainer
 
-enum State { EMPTY, FILLED, CORRECT, INCORRECT, LOCKED, BLOCKED, SANDED }
+enum State { EMPTY, FILLED, CORRECT, INCORRECT, LOCKED, BLOCKED, SANDED, BONUS_EMPTY, BONUS_FILLED, BONUS_CORRECT }
 
 @onready var _label: Label = $Label
 
@@ -15,6 +15,9 @@ var _style_incorrect: StyleBoxFlat
 var _style_locked: StyleBoxFlat
 var _style_blocked: StyleBoxFlat
 var _style_sanded: StyleBoxFlat
+var _style_bonus_empty: StyleBoxFlat
+var _style_bonus_filled: StyleBoxFlat
+var _style_bonus_correct: StyleBoxFlat
 
 var _is_locked: bool = false
 var _is_blocked: bool = false
@@ -123,6 +126,45 @@ func _create_styles() -> void:
 	_style_sanded.corner_radius_bottom_left = 4
 	_style_sanded.corner_radius_bottom_right = 4
 
+	# BONUS_EMPTY: purple border, transparent fill
+	_style_bonus_empty = StyleBoxFlat.new()
+	_style_bonus_empty.bg_color = Color(0.4, 0.2, 0.5, 0.3)  # Light purple tint
+	_style_bonus_empty.border_color = Color(0.6, 0.3, 0.8, 1)  # Purple
+	_style_bonus_empty.border_width_left = 2
+	_style_bonus_empty.border_width_right = 2
+	_style_bonus_empty.border_width_top = 2
+	_style_bonus_empty.border_width_bottom = 2
+	_style_bonus_empty.corner_radius_top_left = 4
+	_style_bonus_empty.corner_radius_top_right = 4
+	_style_bonus_empty.corner_radius_bottom_left = 4
+	_style_bonus_empty.corner_radius_bottom_right = 4
+
+	# BONUS_FILLED: purple background
+	_style_bonus_filled = StyleBoxFlat.new()
+	_style_bonus_filled.bg_color = Color(0.6, 0.3, 0.8, 1)  # Purple
+	_style_bonus_filled.border_color = Color(0.4, 0.2, 0.5, 1)  # Darker purple
+	_style_bonus_filled.border_width_left = 2
+	_style_bonus_filled.border_width_right = 2
+	_style_bonus_filled.border_width_top = 2
+	_style_bonus_filled.border_width_bottom = 2
+	_style_bonus_filled.corner_radius_top_left = 4
+	_style_bonus_filled.corner_radius_top_right = 4
+	_style_bonus_filled.corner_radius_bottom_left = 4
+	_style_bonus_filled.corner_radius_bottom_right = 4
+
+	# BONUS_CORRECT: blue background (completed bonus word)
+	_style_bonus_correct = StyleBoxFlat.new()
+	_style_bonus_correct.bg_color = Color(0.2, 0.5, 0.9, 1)  # Blue
+	_style_bonus_correct.border_color = Color(0.15, 0.35, 0.7, 1)  # Darker blue
+	_style_bonus_correct.border_width_left = 2
+	_style_bonus_correct.border_width_right = 2
+	_style_bonus_correct.border_width_top = 2
+	_style_bonus_correct.border_width_bottom = 2
+	_style_bonus_correct.corner_radius_top_left = 4
+	_style_bonus_correct.corner_radius_top_right = 4
+	_style_bonus_correct.corner_radius_bottom_left = 4
+	_style_bonus_correct.corner_radius_bottom_right = 4
+
 
 func set_state(new_state: State) -> void:
 	_current_state = new_state
@@ -148,6 +190,15 @@ func set_state(new_state: State) -> void:
 		State.SANDED:
 			add_theme_stylebox_override("panel", _style_sanded)
 			_label.modulate = Color(0.6, 0.5, 0.3, 0.8)  # Sandy text
+		State.BONUS_EMPTY:
+			add_theme_stylebox_override("panel", _style_bonus_empty)
+			_label.modulate = Color(0.7, 0.5, 0.9, 1)  # Light purple text
+		State.BONUS_FILLED:
+			add_theme_stylebox_override("panel", _style_bonus_filled)
+			_label.modulate = Color(1, 1, 1, 1)  # White text
+		State.BONUS_CORRECT:
+			add_theme_stylebox_override("panel", _style_bonus_correct)
+			_label.modulate = Color(1, 1, 1, 1)  # White text
 
 
 func set_letter(character: String, animate: bool = true) -> void:

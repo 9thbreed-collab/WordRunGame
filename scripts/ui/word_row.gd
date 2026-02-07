@@ -17,6 +17,7 @@ var _is_locked: bool = false
 var _is_sand_blocked: bool = false
 var _original_position_x: float = 0.0
 var _last_typed_slot_index: int = -1  # Track last slot a letter was typed into
+var _is_bonus_word: bool = false
 
 
 func _ready() -> void:
@@ -58,10 +59,24 @@ func reveal_all() -> void:
 func reveal_first_letter() -> void:
 	if _solution_word.length() > 0:
 		_letter_slots[0].set_letter(_solution_word[0], false)
-		_letter_slots[0].set_state(LetterSlot.State.FILLED)
+		if _is_bonus_word:
+			_letter_slots[0].set_state(LetterSlot.State.BONUS_FILLED)
+		else:
+			_letter_slots[0].set_state(LetterSlot.State.FILLED)
 		_letter_slots[0].set_protected(true)  # Protect from sand
 		_revealed_count = 1
 		_current_index = 1
+
+
+## Set this word as a bonus word (purple styling)
+func set_bonus_word(is_bonus: bool) -> void:
+	_is_bonus_word = is_bonus
+	if is_bonus:
+		# Set all empty slots to bonus empty state
+		for i in range(_letter_slots.size()):
+			var slot: LetterSlot = _letter_slots[i]
+			if slot.get_letter() == "":
+				slot.set_state(LetterSlot.State.BONUS_EMPTY)
 
 
 ## Accept a letter into the next available slot. Returns true if accepted.
@@ -96,7 +111,10 @@ func handle_input(letter: String) -> bool:
 		_current_index = target_index
 
 	slot.set_letter(input_upper)
-	slot.set_state(LetterSlot.State.FILLED)
+	if _is_bonus_word:
+		slot.set_state(LetterSlot.State.BONUS_FILLED)
+	else:
+		slot.set_state(LetterSlot.State.FILLED)
 	_last_typed_slot_index = target_index  # Track which slot was just filled
 	_current_index = target_index + 1
 
@@ -287,7 +305,10 @@ func shake() -> void:
 
 func _mark_all_correct() -> void:
 	for slot in _letter_slots:
-		slot.set_state(LetterSlot.State.CORRECT)
+		if _is_bonus_word:
+			slot.set_state(LetterSlot.State.BONUS_CORRECT)
+		else:
+			slot.set_state(LetterSlot.State.CORRECT)
 	_celebrate()
 
 
@@ -298,6 +319,45 @@ func auto_solve_zero_points() -> void:
 		_letter_slots[i].set_state(LetterSlot.State.FILLED)
 	_current_index = _solution_word.length()
 	zero_point_completed.emit()
+
+
+## Reveal a random unsolved letter. Returns true if a letter was revealed.
+func reveal_random_letter() -> bool:
+	# Find all empty slots that can accept input
+	var available_indices: Array[int] = []
+	for i in range(_revealed_count, _solution_word.length()):
+		var slot: LetterSlot = _letter_slots[i]
+		if slot.get_letter() == "" and slot.can_accept_input():
+			available_indices.append(i)
+
+	if available_indices.is_empty():
+		return false
+
+	# Pick a random slot
+	available_indices.shuffle()
+	var idx: int = available_indices[0]
+
+	# Reveal the correct letter with animation
+	_letter_slots[idx].set_letter(_solution_word[idx], true)
+	_letter_slots[idx].set_state(LetterSlot.State.FILLED)
+
+	# Update cursor position if this was ahead of current
+	if idx < _current_index:
+		pass  # Keep cursor where it is
+	elif idx == _current_index:
+		# Move cursor to next available slot
+		var next: int = _find_next_available_slot(_current_index + 1)
+		if next != -1:
+			_current_index = next
+		else:
+			_current_index = idx + 1
+		_update_caret_glow()
+
+	# Check if word is now complete
+	if _are_all_slots_filled():
+		_auto_submit()
+
+	return true
 
 
 ## Staggered slot pop + row pulse on word completion.

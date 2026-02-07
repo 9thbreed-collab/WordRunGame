@@ -229,6 +229,7 @@ func _break_random_block(word_idx: int) -> void:
 		var leftmost: int = word_row.find_leftmost_available_slot()
 		if leftmost != -1:
 			word_row._current_index = leftmost
+			word_row._update_caret_glow()
 
 	# Don't erase word from infected_words - allows regeneration
 	# The virus can re-block empty slots on its next spawn cycle
@@ -274,6 +275,12 @@ func clear() -> void:
 			for slot_idx in _infected_words[word_idx]:
 				if slot_idx < word_row._letter_slots.size():
 					word_row._letter_slots[slot_idx].set_blocked(false)
+			# Update caret position on active word after clearing
+			if word_row._is_active:
+				var leftmost: int = word_row.find_leftmost_available_slot()
+				if leftmost != -1:
+					word_row._current_index = leftmost
+					word_row._update_caret_glow()
 
 	_infected_words.clear()
 	_stop_virus()

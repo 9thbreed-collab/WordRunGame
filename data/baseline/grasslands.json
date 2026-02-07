@@ -1,0 +1,477 @@
+{
+  "land_id": "grasslands",
+  "display_name": "Grasslands",
+  "theme": "nature, animals, plants",
+  "levels": [
+    {
+      "level_id": "grasslands_01",
+      "level_name": "Level 1",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 1,
+      "word_pairs": [
+        { "word_a": "", "word_b": "sun" },
+        { "word_a": "sun", "word_b": "flower" },
+        { "word_a": "flower", "word_b": "bed" },
+        { "word_a": "bed", "word_b": "room" },
+        { "word_a": "room", "word_b": "mate" },
+        { "word_a": "mate", "word_b": "ship" },
+        { "word_a": "ship", "word_b": "yard" },
+        { "word_a": "yard", "word_b": "stick" },
+        { "word_a": "stick", "word_b": "ball" },
+        { "word_a": "ball", "word_b": "park" },
+        { "word_a": "park", "word_b": "way" },
+        { "word_a": "way", "word_b": "side" },
+        { "word_a": "side", "word_b": "walk" },
+        { "word_a": "walk", "word_b": "out" },
+        { "word_a": "out", "word_b": "door" },
+        { "word_a": "door", "word_b": "bell" }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [15.3, 9.35, 5.95, 4.25],
+        "bust_drain_rate": 25.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "padlock",
+          "word_index": 3,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        },
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 6,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        },
+        {
+          "obstacle_type": "sand",
+          "word_index": 9,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": { "fill_duration": 8.0 }
+        }
+      ]
+    },
+    {
+      "level_id": "grasslands_02",
+      "level_name": "Level 2",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 1,
+      "word_pairs": [
+        { "word_a": "", "word_b": "grass" },
+        { "word_a": "grass", "word_b": "hopper" },
+        { "word_a": "hopper", "word_b": "car" },
+        { "word_a": "car", "word_b": "pool" },
+        { "word_a": "pool", "word_b": "side" },
+        { "word_a": "side", "word_b": "line" },
+        { "word_a": "line", "word_b": "man" },
+        { "word_a": "man", "word_b": "hole" },
+        { "word_a": "hole", "word_b": "some" },
+        { "word_a": "some", "word_b": "thing" },
+        { "word_a": "thing", "word_b": "king" },
+        { "word_a": "king", "word_b": "pin" },
+        { "word_a": "pin", "word_b": "ball" },
+        { "word_a": "ball", "word_b": "room" },
+        { "word_a": "room", "word_b": "key" },
+        { "word_a": "key", "word_b": "note" }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [15.3, 9.35, 5.95, 4.25],
+        "bust_drain_rate": 25.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": []
+    },
+    {
+      "level_id": "grasslands_03",
+      "level_name": "Level 3",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 1,
+      "word_pairs": [
+        { "word_a": "", "word_b": "rain" },
+        { "word_a": "rain", "word_b": "bow" },
+        { "word_a": "bow", "word_b": "tie" },
+        { "word_a": "tie", "word_b": "break" },
+        { "word_a": "break", "word_b": "fast" },
+        { "word_a": "fast", "word_b": "ball" },
+        { "word_a": "ball", "word_b": "game" },
+        { "word_a": "game", "word_b": "day" },
+        { "word_a": "day", "word_b": "light" },
+        { "word_a": "light", "word_b": "house" },
+        { "word_a": "house", "word_b": "wife" },
+        { "word_a": "wife", "word_b": "hood" },
+        { "word_a": "hood", "word_b": "wink" },
+        { "word_a": "wink", "word_b": "eye" },
+        { "word_a": "eye", "word_b": "brow" },
+        { "word_a": "brow", "word_b": "beat" }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [15.3, 9.35, 5.95, 4.25],
+        "bust_drain_rate": 25.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": []
+    },
+    {
+      "level_id": "grasslands_04",
+      "level_name": "Level 4",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 2,
+      "word_pairs": [
+        { "word_a": "", "word_b": "butter" },
+        { "word_a": "butter", "word_b": "fly" },
+        { "word_a": "fly", "word_b": "wheel" },
+        { "word_a": "wheel", "word_b": "chair" },
+        { "word_a": "chair", "word_b": "man" },
+        { "word_a": "man", "word_b": "kind" },
+        { "word_a": "kind", "word_b": "heart" },
+        { "word_a": "heart", "word_b": "beat" },
+        { "word_a": "beat", "word_b": "box" },
+        { "word_a": "box", "word_b": "car" },
+        { "word_a": "car", "word_b": "wash" },
+        { "word_a": "wash", "word_b": "board" },
+        { "word_a": "board", "word_b": "walk" },
+        { "word_a": "walk", "word_b": "over" },
+        { "word_a": "over", "word_b": "look" },
+        { "word_a": "look", "word_b": "out" }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [14.0, 8.5, 5.5, 4.0],
+        "bust_drain_rate": 25.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "padlock",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "grasslands_05",
+      "level_name": "Level 5",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 2,
+      "word_pairs": [
+        { "word_a": "", "word_b": "lady" },
+        { "word_a": "lady", "word_b": "bug" },
+        { "word_a": "bug", "word_b": "spray" },
+        { "word_a": "spray", "word_b": "paint" },
+        { "word_a": "paint", "word_b": "brush" },
+        { "word_a": "brush", "word_b": "fire" },
+        { "word_a": "fire", "word_b": "wood" },
+        { "word_a": "wood", "word_b": "land" },
+        { "word_a": "land", "word_b": "mark" },
+        { "word_a": "mark", "word_b": "down" },
+        { "word_a": "down", "word_b": "fall" },
+        { "word_a": "fall", "word_b": "out" },
+        { "word_a": "out", "word_b": "break" },
+        { "word_a": "break", "word_b": "down" },
+        { "word_a": "down", "word_b": "town" },
+        { "word_a": "town", "word_b": "ship" }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [14.0, 8.5, 5.5, 4.0],
+        "bust_drain_rate": 25.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "padlock",
+          "word_index": 4,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        },
+        {
+          "obstacle_type": "padlock",
+          "word_index": 8,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "grasslands_06",
+      "level_name": "Level 6",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 2,
+      "word_pairs": [
+        { "word_a": "", "word_b": "bird" },
+        { "word_a": "bird", "word_b": "house" },
+        { "word_a": "house", "word_b": "work" },
+        { "word_a": "work", "word_b": "shop" },
+        { "word_a": "shop", "word_b": "lift" },
+        { "word_a": "lift", "word_b": "off" },
+        { "word_a": "off", "word_b": "spring" },
+        { "word_a": "spring", "word_b": "time" },
+        { "word_a": "time", "word_b": "line" },
+        { "word_a": "line", "word_b": "back" },
+        { "word_a": "back", "word_b": "yard" },
+        { "word_a": "yard", "word_b": "sale" },
+        { "word_a": "sale", "word_b": "man" },
+        { "word_a": "man", "word_b": "made" },
+        { "word_a": "made", "word_b": "over" },
+        { "word_a": "over", "word_b": "time" }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [13.0, 8.0, 5.0, 3.75],
+        "bust_drain_rate": 25.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": { "block_count": 2 }
+        }
+      ]
+    },
+    {
+      "level_id": "grasslands_07",
+      "level_name": "Level 7",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 2,
+      "word_pairs": [
+        { "word_a": "", "word_b": "honey" },
+        { "word_a": "honey", "word_b": "bee" },
+        { "word_a": "bee", "word_b": "hive" },
+        { "word_a": "hive", "word_b": "mind" },
+        { "word_a": "mind", "word_b": "set" },
+        { "word_a": "set", "word_b": "back" },
+        { "word_a": "back", "word_b": "bone" },
+        { "word_a": "bone", "word_b": "fire" },
+        { "word_a": "fire", "word_b": "fly" },
+        { "word_a": "fly", "word_b": "paper" },
+        { "word_a": "paper", "word_b": "clip" },
+        { "word_a": "clip", "word_b": "board" },
+        { "word_a": "board", "word_b": "game" },
+        { "word_a": "game", "word_b": "plan" },
+        { "word_a": "plan", "word_b": "book" },
+        { "word_a": "book", "word_b": "worm" }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [13.0, 8.0, 5.0, 3.75],
+        "bust_drain_rate": 25.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 4,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": { "block_count": 2 }
+        },
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 9,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": { "block_count": 3 }
+        }
+      ]
+    },
+    {
+      "level_id": "grasslands_08",
+      "level_name": "Level 8",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 3,
+      "word_pairs": [
+        { "word_a": "", "word_b": "cat" },
+        { "word_a": "cat", "word_b": "fish" },
+        { "word_a": "fish", "word_b": "bowl" },
+        { "word_a": "bowl", "word_b": "cut" },
+        { "word_a": "cut", "word_b": "back" },
+        { "word_a": "back", "word_b": "pack" },
+        { "word_a": "pack", "word_b": "horse" },
+        { "word_a": "horse", "word_b": "play" },
+        { "word_a": "play", "word_b": "ground" },
+        { "word_a": "ground", "word_b": "work" },
+        { "word_a": "work", "word_b": "force" },
+        { "word_a": "force", "word_b": "field" },
+        { "word_a": "field", "word_b": "trip" },
+        { "word_a": "trip", "word_b": "wire" },
+        { "word_a": "wire", "word_b": "tap" },
+        { "word_a": "tap", "word_b": "dance" }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [12.0, 7.5, 4.75, 3.5],
+        "bust_drain_rate": 25.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "padlock",
+          "word_index": 3,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        },
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 6,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": { "block_count": 2 }
+        }
+      ]
+    },
+    {
+      "level_id": "grasslands_09",
+      "level_name": "Level 9",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 3,
+      "word_pairs": [
+        { "word_a": "", "word_b": "tree" },
+        { "word_a": "tree", "word_b": "top" },
+        { "word_a": "top", "word_b": "soil" },
+        { "word_a": "soil", "word_b": "bank" },
+        { "word_a": "bank", "word_b": "roll" },
+        { "word_a": "roll", "word_b": "over" },
+        { "word_a": "over", "word_b": "flow" },
+        { "word_a": "flow", "word_b": "chart" },
+        { "word_a": "chart", "word_b": "top" },
+        { "word_a": "top", "word_b": "hat" },
+        { "word_a": "hat", "word_b": "band" },
+        { "word_a": "band", "word_b": "stand" },
+        { "word_a": "stand", "word_b": "point" },
+        { "word_a": "point", "word_b": "blank" },
+        { "word_a": "blank", "word_b": "check" },
+        { "word_a": "check", "word_b": "mate" }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [12.0, 7.5, 4.75, 3.5],
+        "bust_drain_rate": 25.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "padlock",
+          "word_index": 4,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        },
+        {
+          "obstacle_type": "sand",
+          "word_index": 7,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": { "fill_duration": 8.0 }
+        }
+      ]
+    },
+    {
+      "level_id": "grasslands_10",
+      "level_name": "Level 10",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 3,
+      "word_pairs": [
+        { "word_a": "", "word_b": "water" },
+        { "word_a": "water", "word_b": "fall" },
+        { "word_a": "fall", "word_b": "back" },
+        { "word_a": "back", "word_b": "drop" },
+        { "word_a": "drop", "word_b": "kick" },
+        { "word_a": "kick", "word_b": "off" },
+        { "word_a": "off", "word_b": "hand" },
+        { "word_a": "hand", "word_b": "shake" },
+        { "word_a": "shake", "word_b": "down" },
+        { "word_a": "down", "word_b": "hill" },
+        { "word_a": "hill", "word_b": "side" },
+        { "word_a": "side", "word_b": "step" },
+        { "word_a": "step", "word_b": "child" },
+        { "word_a": "child", "word_b": "hood" },
+        { "word_a": "hood", "word_b": "lum" },
+        { "word_a": "lum", "word_b": "jack" }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [11.0, 7.0, 4.5, 3.25],
+        "bust_drain_rate": 25.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "padlock",
+          "word_index": 3,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        },
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": { "block_count": 2 }
+        },
+        {
+          "obstacle_type": "sand",
+          "word_index": 9,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": { "fill_duration": 7.0 }
+        }
+      ]
+    }
+  ]
+}

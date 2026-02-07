@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/gameplay/obstacle_manager.gd" id="7_obstacle_manager"]
 [ext_resource type="Script" path="res://scripts/gameplay/boost_manager.gd" id="8_boost_manager"]
 [ext_resource type="Script" path="res://scripts/ui/boost_panel.gd" id="9_boost_panel"]
+[ext_resource type="PackedScene" uid="uid://hint_button_01" path="res://scenes/ui/hint_button.tscn" id="10_hint_button"]
 
 [sub_resource type="StyleBoxFlat" id="word_panel_style"]
 bg_color = Color(0.08, 0.08, 0.14, 0.85)
@@ -64,6 +65,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "0/15"
 vertical_alignment = 1
+
+[node name="HintButton" parent="MainVBox/HUD" instance=ExtResource("10_hint_button")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="ScoreHUD" type="HBoxContainer" parent="MainVBox"]
 custom_minimum_size = Vector2(0, 40)

@@ -15,14 +15,22 @@ var SECTION_COLORS: Array[Color] = [
 	Color(0.9, 0.2, 0.2),       # Red    (section 3)
 ]
 
+const BONUS_PURPLE: Color = Color(0.6, 0.3, 0.8)  # Purple for bonus mode
+const BONUS_BLINK_BLUE: Color = Color(0.3, 0.6, 1.0)  # Blue for blink
+const BONUS_BLINK_WHITE: Color = Color(1.0, 1.0, 1.0)  # White for blink
+
 var _current_section: int = -1
 var _fill_style: StyleBoxFlat
+var _bonus_mode: bool = false
+var _blink_tween: Tween
 
 
 func _ready() -> void:
 	EventBus.surge_changed.connect(_on_surge_changed)
 	EventBus.surge_threshold_crossed.connect(_on_threshold_crossed)
 	EventBus.surge_bust.connect(_on_bust)
+	EventBus.bonus_mode_entered.connect(_on_bonus_mode_entered)
+	EventBus.bonus_mode_blink.connect(_on_bonus_mode_blink)
 
 	# Create mutable fill style
 	_fill_style = StyleBoxFlat.new()
@@ -67,6 +75,10 @@ func _position_markers() -> void:
 
 func _on_surge_changed(current_value: float, max_value: float) -> void:
 	_progress_bar.value = current_value
+
+	# In bonus mode, keep purple color (no section changes)
+	if _bonus_mode:
+		return
 
 	# Determine section and update color
 	var section := _calc_section(current_value)
@@ -132,3 +144,24 @@ func _clear_markers() -> void:
 	for marker in _threshold_markers:
 		marker.queue_free()
 	_threshold_markers.clear()
+
+
+func _on_bonus_mode_entered() -> void:
+	_bonus_mode = true
+	_stop_imminent_pulse()
+	# Transition to purple
+	var tween := create_tween()
+	tween.tween_property(_fill_style, "bg_color", BONUS_PURPLE, 0.5)
+
+
+func _on_bonus_mode_blink() -> void:
+	if not _bonus_mode:
+		return
+	# Blue and white blink (doubled duration for visibility)
+	if _blink_tween and _blink_tween.is_running():
+		_blink_tween.kill()
+	_blink_tween = create_tween()
+	_blink_tween.tween_property(_fill_style, "bg_color", BONUS_BLINK_BLUE, 0.16)
+	_blink_tween.tween_property(_fill_style, "bg_color", BONUS_BLINK_WHITE, 0.16)
+	_blink_tween.tween_property(_fill_style, "bg_color", BONUS_BLINK_BLUE, 0.16)
+	_blink_tween.tween_property(_fill_style, "bg_color", BONUS_PURPLE, 0.30)
