@@ -14,6 +14,7 @@ var _active_fills: Dictionary = {}  ## word_idx -> slot_idx (currently filling)
 var _pending_targets: Array = []  ## Targets not yet started filling
 var _active: bool = false
 var _stagger_timer: Timer = null
+var _original_total_count: int = 0  ## Total targets at trigger time (for display)
 
 
 ## Sand targets multiple words, so uses a special setup.
@@ -23,6 +24,7 @@ func setup_multi(obstacle_config: ObstacleConfig, word_rows: Array) -> void:
 	_predetermined_targets = []
 	_active_fills = {}
 	_pending_targets = []
+	_original_total_count = 0
 
 
 func activate() -> void:
@@ -64,6 +66,9 @@ func activate() -> void:
 		var slot_idx: int = available_slots[0]
 
 		_predetermined_targets.append({"word_idx": word_idx, "slot_idx": slot_idx})
+
+	# Store original total for display purposes
+	_original_total_count = _predetermined_targets.size()
 
 	if _predetermined_targets.is_empty():
 		obstacle_activated.emit()
@@ -158,7 +163,7 @@ func get_total_sand_count() -> int:
 
 ## Clear up to 3 sand traps (active first, then pending). Returns {cleared, total}.
 func clear_with_count() -> Dictionary:
-	var total: int = get_total_sand_count()
+	var total: int = _original_total_count  # Use original count, not current
 	var cleared: int = 0
 	var max_clear: int = 3
 

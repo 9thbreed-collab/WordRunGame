@@ -605,6 +605,7 @@ func _on_block_spawned_on_active_slot(word_index: int, slot_index: int) -> void:
 	var new_idx: int = word_row.find_leftmost_available_slot()
 	if new_idx != -1:
 		word_row._current_index = new_idx
+		word_row._update_caret_glow()
 
 	# Resume game
 	_is_level_active = true
@@ -612,13 +613,14 @@ func _on_block_spawned_on_active_slot(word_index: int, slot_index: int) -> void:
 
 
 func _blink_slot_red(slot: LetterSlot) -> void:
-	var original_modulate: Color = slot.modulate
 	var blink_count: int = 3
 	for i in range(blink_count):
 		slot.modulate = Color(1, 0.3, 0.3, 1)  # Red tint
 		await get_tree().create_timer(0.25).timeout
-		slot.modulate = original_modulate
+		slot.modulate = Color.WHITE  # Reset to white, not original (which may have caret glow)
 		await get_tree().create_timer(0.25).timeout
+	# Restore proper blocked visual after blink
+	slot.set_state(slot._current_state)
 
 
 func _on_virus_spreading(from_word: int, to_word: int) -> void:

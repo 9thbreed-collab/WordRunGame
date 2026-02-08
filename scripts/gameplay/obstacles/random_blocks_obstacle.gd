@@ -16,8 +16,9 @@ var _all_word_rows: Array = []
 var _infected_words: Dictionary = {}  ## word_index -> Array[int] of blocked slot indices
 var _active: bool = false
 var _block_timer: Timer = null
-var _current_target_word: int = -1
+var _current_target_word: int = -1  # The leading edge word for spread checks
 var _spread_count: int = 0  # How many words virus has spread to
+var _round_robin_idx: int = 0  # Cycles through infected words for block spawning
 
 
 func setup(obstacle_config: ObstacleConfig, word_row) -> void:
@@ -31,6 +32,7 @@ func setup_with_rows(obstacle_config: ObstacleConfig, word_rows: Array, start_wo
 	_current_target_word = start_word
 	_infected_words = {}
 	_spread_count = 0
+	_round_robin_idx = 0
 
 
 func activate() -> void:
@@ -64,55 +66,82 @@ func _spawn_next_block() -> void:
 	if not _active:
 		return
 
-	# Find an empty slot on current target word
-	if _current_target_word >= _all_word_rows.size():
+	# Get all infected word indices
+	var infected_indices: Array = _infected_words.keys()
+	if infected_indices.is_empty():
 		_stop_virus()
 		return
 
-	var word_row = _all_word_rows[_current_target_word]
+	print("VIRUS: Spawning block. Infected words: %s" % str(infected_indices))
 
-	# Skip completed or sand-blocked words
-	if word_row.is_completed() or word_row.is_sand_blocked():
-		_try_spread_to_next_word()
-		return
-
-	# Find available slots (not first letter, empty, not already blocked)
+	# Round-robin through infected words to find one that can accept a block
+	var attempts: int = 0
+	var max_attempts: int = infected_indices.size()
+	var target_word_idx: int = -1
 	var available_slots: Array[int] = []
-	var blocked_slots: Array = _infected_words.get(_current_target_word, [])
 
-	for i in range(1, word_row._letter_slots.size()):  # Skip first letter
-		var slot: LetterSlot = word_row._letter_slots[i]
-		if not slot.is_protected() and slot.get_letter() == "" and not slot._is_blocked and not i in blocked_slots:
-			available_slots.append(i)
+	while attempts < max_attempts:
+		# Wrap round-robin index
+		if _round_robin_idx >= infected_indices.size():
+			_round_robin_idx = 0
 
-	if available_slots.is_empty():
-		# No more slots to block on this word
+		var candidate_idx: int = infected_indices[_round_robin_idx]
+		_round_robin_idx += 1
+		attempts += 1
+
+		if candidate_idx >= _all_word_rows.size():
+			continue
+
+		var word_row = _all_word_rows[candidate_idx]
+
+		# Skip completed or sand-blocked words
+		if word_row.is_completed() or word_row.is_sand_blocked():
+			continue
+
+		# Find available slots (not first letter, empty, not already blocked)
+		available_slots.clear()
+		var blocked_slots: Array = _infected_words.get(candidate_idx, [])
+
+		for i in range(1, word_row._letter_slots.size()):  # Skip first letter
+			var slot: LetterSlot = word_row._letter_slots[i]
+			if not slot.is_protected() and slot.get_letter() == "" and not slot._is_blocked and not i in blocked_slots:
+				available_slots.append(i)
+
+		if not available_slots.is_empty():
+			target_word_idx = candidate_idx
+			break
+
+	# No available slots on any infected word
+	if target_word_idx == -1 or available_slots.is_empty():
+		# Check if leading word is fully blocked
 		if _all_slots_blocked(_current_target_word):
 			word_fully_blocked.emit(_current_target_word)
 		return
+
+	var word_row = _all_word_rows[target_word_idx]
 
 	# Pick random slot and block it
 	available_slots.shuffle()
 	var slot_idx: int = available_slots[0]
 
 	# Check if this is the active input slot
-	var is_active_slot: bool = _is_active_input_slot(_current_target_word, slot_idx)
+	var is_active_slot: bool = _is_active_input_slot(target_word_idx, slot_idx)
 
 	# Block the slot
-	if not _infected_words.has(_current_target_word):
-		_infected_words[_current_target_word] = []
-	_infected_words[_current_target_word].append(slot_idx)
+	_infected_words[target_word_idx].append(slot_idx)
 	word_row._letter_slots[slot_idx].set_blocked(true)
+
+	print("VIRUS: Blocked word %d slot %d (active_slot=%s)" % [target_word_idx, slot_idx, is_active_slot])
 
 	# Signal if this was the active slot (game should pause and blink)
 	if is_active_slot:
-		block_spawned_on_active_slot.emit(_current_target_word, slot_idx)
+		block_spawned_on_active_slot.emit(target_word_idx, slot_idx)
 
 	# Reset timer to normal interval if it was set to spread delay
 	if _block_timer and _block_timer.wait_time != BLOCK_INTERVAL:
 		_block_timer.wait_time = BLOCK_INTERVAL
 
-	# Check for virus spread (>50% blocked)
+	# Check for virus spread on the leading word (>50% blocked)
 	_check_virus_spread()
 
 
@@ -162,6 +191,7 @@ func _try_spread_to_next_word() -> void:
 	_current_target_word = next_word
 	_infected_words[next_word] = []
 
+	print("VIRUS: Spreading from word %d to word %d (spread_count=%d, infected=%s)" % [old_word, next_word, _spread_count, str(_infected_words.keys())])
 	virus_spreading.emit(old_word, next_word)
 
 	# Reset timer for spread: first block after 5 seconds, then back to 10
