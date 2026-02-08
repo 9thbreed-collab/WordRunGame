@@ -12,14 +12,14 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - [x] **Phase 1: Foundation and Validation Spikes**: Code complete (4/4 plans, device testing deferred)
 - [x] **Phase 2: Core Puzzle Loop**: Complete (4/4 plans, fully playable end-to-end flow)
 - [x] **Phase 3: Game Feel**: Complete (3/3 plans, surge momentum system, scoring, audio/haptics)
-- [x] **Phase 4: Obstacles & Content**: Plan 04-01 Complete (all 3 v1 obstacles + boosts working)
+- [x] **Phase 4: Obstacles & Content**: Plan 04-01 Complete + bonus mode, hints, JSON content pipeline
 - [ ] **Phase 5: Progression & Economy**: Hearts, currency, boss levels, inventory
 - [ ] **Phase 6: World Map & Tutorial**: 25 lands, Ruut navigation, progressive teaching
 - [ ] **Phase 7: Backend & Monetization**: Firebase, IAP, ads, cloud sync
 - [ ] **Phase 8: Soft Launch**: Test market, analytics, tuning
 - [ ] **Phase 9: Post-Launch**: Vs mode, skins, content expansion
 
-**Current Phase:** Phase 4 In Progress (Obstacles, Boosts, and Content Pipeline - Plan 04-01 Complete, Plan 04-02 or 04-03 next)
+**Current Phase:** Phase 4 In Progress (Plan 04-01 Complete + bonus mode, hints, JSON content pipeline - Phase 5 or content expansion next)
 
 ### Key Decisions & Context
 
@@ -41,7 +41,7 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - **Naming:** WordRun! (exclamation mark part of brand)
 
 #### Production Notes
-- **Version:** v0.0.06 (Phase 4 Plan 04-01 complete - all 3 v1 obstacles + boosts working)
+- **Version:** v0.0.07 (Phase 4 extended - obstacles, boosts, bonus mode, hints, JSON content pipeline)
 - **Versioning:** v0.0.XX during foundation, v0.X.XX during pre-release, v1.0.0 at launch
 - **Director Preferences:** Professional code quality (no shortcuts), AI-assisted assets (art, animation), documentation-first during foundation
 - **Architecture:** Layered (scenes/scripts/data/assets), autoloads (EventBus, GameManager, PlatformServices, SaveData, AudioManager)
@@ -54,25 +54,26 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 ## Working Instructions
 
 ### Current Focus
-**Phase 4 Execution**: Obstacles, Boosts, and Content Pipeline (Plan 04-01 COMPLETE)
+**Phase 4 Extended + Phase 5 Transition**: Obstacles complete, bonus mode working, JSON content pipeline established
 
-**Current Plan Status (04-01 COMPLETE):**
+**Current Status (Phase 4 Expanded):**
 - Obstacle system architecture complete (ObstacleBase, ObstacleManager, ObstacleConfig)
-- Multi-obstacle support enabled (multiple obstacles can coexist on same word)
-- Padlock obstacle complete with skip/backtrack mechanic (tested, working)
-- Virus (Random Blocks) obstacle complete with gradual spread mechanics (tested, working)
-- Sand obstacle complete with gradual fill mechanics (tested, working)
-- All three counter-boosts functional and tested: Lock Key, Block Breaker, Bucket of Water
-- 8 LetterSlot visual states: EMPTY, FILLED, CORRECT, INCORRECT, LOCKED, VIRUS, SAND, CARET
-- Caret glow implemented (pulsing sky blue indicator on current input slot)
+- All three v1 obstacles working: Padlock, Virus (round-robin spread), Sand (gradual fill)
+- All three counter-boosts functional: Lock Key, Block Breaker, Bucket of Water
+- Bonus mode implemented: purple surge bar, 50-second fixed timer, words 13-15 unlock at word 12
+- Hint system complete: 3 hints per level, reveals random letters, EventBus integration
+- ContentCache autoload: JSON level loading from data/baseline/ with .tres fallback
+- 11 LetterSlot visual states: includes BONUS_EMPTY, BONUS_FILLED, BONUS_CORRECT
+- Results screen: displays score, time, stars, and words solved progress metric
+- Configurable level structure: base_word_count and bonus_word_count properties
 
 **Immediate Next Steps:**
-1. Choose next plan: 04-02 (Obstacle animations/polish) or 04-03 (Content pipeline)
-2. Recommendation: Start with 04-03 (Content pipeline) to unblock level design and playtesting
-3. Build word-pair validation system (dictionary check, compound phrase validation)
-4. Implement themed word pools for Nation 1 lands
-5. Set up cloud storage for word pairs (Firebase or alternative)
-6. Create local caching for offline play
+1. Decision point: Begin Phase 5 (Progression & Economy) or expand Phase 4 content
+2. Recommendation: Hybrid approach - implement hearts/lives system + populate lands 1-10 JSON content
+3. Hearts/lives system (3 hearts, lose 1 on failure, recover via rewarded ad or wait timer)
+4. Create JSON content for lands 1-10 (120 levels = 1,800 word pairs)
+5. Build word-pair validation tool (dictionary check, compound phrase validation, profanity filter)
+6. Defer boost inventory and shop until hearts/content stable
 
 ### Working Rules
 - Do not assume tools, libraries, or architecture unless explicitly defined in this file or .planning/ docs
@@ -104,6 +105,40 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - Themed word pools per land for narrative alignment
 
 ## Session History
+
+### Session 2026-02-07 (v0.0.07)
+- **Phase:** Phase 4 Extended (Plan 04-01 Complete + Bonus Mode, Hints, Content Pipeline)
+- **Accomplishments:**
+  - Implemented bonus mode: purple surge bar, 50-second fixed timer, bonus words 13-15
+  - Bonus gate check at word 12 (surge ≥ 60 unlocks bonus words)
+  - Bonus visual treatment: purple color scheme, blue blink on word complete
+  - Created hint system: 3 hints per level, reveals random unrevealed letters
+  - HintButton UI component with remaining count display and disabled states
+  - EventBus.hint_used and bonus_mode_entered signals for future analytics
+  - Built ContentCache autoload for JSON-based level loading with schema validation
+  - Created grasslands.json with Level 1 obstacles (padlock, random_blocks, sand)
+  - JSON schema validation against data/baseline/schema.json for content integrity
+  - Fallback to .tres resources for backwards compatibility and offline play
+  - Added base_word_count and bonus_word_count to LevelData for configurable level structure
+  - Results screen displays words solved progress metric (X/12 format)
+  - Fixed 8 critical bugs: virus round-robin spawning, block blink preserving caret glow, sand clear count, bonus scroll timing, padlock skip config check, boost caret update, lock key obstacle type, results screen progress
+  - Added BONUS_EMPTY, BONUS_FILLED, BONUS_CORRECT states to LetterSlot (11 total states)
+- **Key Decisions:**
+  - Bonus mode uses fixed 50-second timer with no drain (reward, not challenge)
+  - Hint reveals single random letter (not entire word) to maintain puzzle challenge
+  - ContentCache uses JSON from data/baseline/ with .tres fallback for offline/backwards compatibility
+  - Bonus words use purple visual scheme to celebrate reaching threshold
+  - base_word_count configuration future-proofs variable level lengths (12-word, 15-word, boss levels)
+  - Virus round-robin spawning ensures even distribution across all infected words
+  - Block blink animation resets modulate to WHITE to preserve caret glow state
+  - Sand clear count uses original total (not dynamic count) for consistent feedback
+- **Requirements Completed:** OBST-12 (partial), OBST-13, CONT-01, CONT-02, CONT-03, PROG-15, PROG-16 (partial) - 6 new/partial requirements
+- **Next Steps:**
+  - Decision point: Begin Phase 5 (Progression & Economy) or expand Phase 4 content
+  - Recommendation: Hybrid approach - hearts/lives system + populate lands 1-10 JSON content
+  - Implement hearts/lives system (3 hearts, lose 1 on failure, recover via rewarded ad or wait)
+  - Create JSON content for lands 1-10 (120 levels = 1,800 word pairs)
+  - Build word-pair validation tool (dictionary check, compound phrase validation, profanity filter)
 
 ### Session 2026-02-06 (v0.0.06)
 - **Phase:** Phase 4 In Progress (Obstacles, Boosts, and Content Pipeline - Plan 04-01 COMPLETE)

@@ -10,31 +10,34 @@ WordRun! is a timed word puzzle game built in Godot 4.5 for iOS and Android. Pla
 
 ## Current Status
 
-**Version:** v0.0.06
+**Version:** v0.0.07
 **Phase:** Phase 4 In Progress (Obstacles, Boosts, and Content Pipeline)
-**Progress:** 42 of 117 v1 requirements complete
+**Progress:** 48 of 117 v1 requirements complete
 
-Phase 4 Plan 04-01 is **COMPLETE**. The project has a **fully functional obstacle system** with three v1 obstacles working simultaneously: Padlock (skip/backtrack mechanic), Virus (gradual spread), and Sand (gradual fill with timing pressure). All three counter-boosts are functional and tested.
+Phase 4 Plan 04-01 is **COMPLETE** with significant expansion into bonus mode, hints, and content pipeline. The project has a **fully functional obstacle system** with three v1 obstacles, **bonus mode with purple surge bar**, **hint system with 3 hints per level**, and **JSON-based content loading** via ContentCache autoload.
 
 ### Playable Flow
 1. **Menu Screen** - Launch app, tap Play button
 2. **Gameplay Screen** - Solve 15-word chain puzzle with surge momentum and obstacles
 3. **Results Screen** - View score, time, stars, replay or return to menu
 
-### Key Accomplishments (Phase 4 Plan 04-01 - Complete)
+### Key Accomplishments (Phase 4 - Plan 04-01 Complete + Expansions)
 - Obstacle system architecture: ObstacleBase, ObstacleManager, ObstacleConfig resource pattern
 - Template architecture validated: new obstacles require only config + script, no code changes
 - Multi-obstacle support: multiple obstacles can coexist on same word and across level
 - **Padlock obstacle:** Skip locked word, auto-unlock after solving next word, backtrack to solve
-- **Virus obstacle:** Gradual spread (1 block/2sec), even distribution, 100% virus auto-solves with zero points
+- **Virus obstacle:** Gradual spread (1 block/2sec), round-robin distribution, 100% virus auto-solves with zero points
 - **Sand obstacle:** Gradual fill on 1-5 words simultaneously, 100% sand makes word unsolvable
 - **Lock Key boost:** Clears any padlock in level (works even when word is skipped)
 - **Block Breaker boost:** Clears all virus blocks from all words instantly
 - **Bucket of Water boost:** Clears sand from 3 words around current word
-- LetterSlot visual states: 8 states (EMPTY, FILLED, CORRECT, INCORRECT, LOCKED, VIRUS, SAND, CARET)
+- **Bonus mode:** Purple surge bar, 50-second fixed timer, bonus words 13-15 unlocked at word 12 if surge ≥ 60
+- **Hint system:** 3 hints per level, reveals random unrevealed letters, disabled when word complete
+- **ContentCache autoload:** JSON-based level loading from data/baseline/ with .tres fallback
+- LetterSlot visual states: 11 states (includes BONUS_EMPTY, BONUS_FILLED, BONUS_CORRECT)
 - Caret glow: Pulsing sky blue indicator on current input slot for visual clarity
-- WordRow lock support: Input guards, modulate tinting, state tracking
-- EventBus boost_used signal for future analytics and UI feedback
+- Results screen: Displays score, time, stars, and words solved progress metric
+- Configurable level structure: base_word_count and bonus_word_count for variable level lengths
 
 ### Key Accomplishments (Phase 3 - Complete)
 - SurgeSystem with state machine (IDLE, FILLING, IMMINENT, BUSTED) and threshold detection
@@ -67,18 +70,13 @@ Phase 4 Plan 04-01 is **COMPLETE**. The project has a **fully functional obstacl
 - Export pipeline documented (iOS/Android export presets guide created)
 
 ### Requirements Complete
-**Phase 4 (OBST) - Plan 04-01 Complete:**
-- OBST-01: Obstacle system architecture defined ✓
-- OBST-02: Obstacle trigger system implemented ✓
-- OBST-03: Random Blocks (Virus) obstacle complete ✓
-- OBST-04: Sand obstacle complete ✓
-- OBST-05: Padlock obstacle complete ✓
-- OBST-06: ObstacleConfig resource integration ✓
-- OBST-07: Template architecture validated ✓
-- OBST-08: BoostConfig resource and BoostManager ✓
-- OBST-09: Lock Key boost functionality ✓
-- OBST-10: Block Breaker boost functionality ✓
-- OBST-11: Bucket of Water boost functionality ✓
+**Phase 4 (OBST + CONT) - Plan 04-01 Complete + Expansions:**
+- OBST-01 through OBST-11: All Plan 04-01 requirements ✓
+- OBST-12: Bonus mode implementation (partial - surge mechanics complete) ✓
+- OBST-13: Hint system (3 hints per level with single letter reveal) ✓
+- CONT-01: JSON-based level loading (ContentCache autoload) ✓
+- CONT-02: Themed word pools (grasslands.json template) ✓
+- CONT-03: Local caching (.tres fallback for offline play) ✓
 
 **Phase 3 (FEEL) - Complete:**
 - FEEL-01 through FEEL-12: All surge, score, and audio requirements ✓
@@ -94,7 +92,7 @@ Phase 4 Plan 04-01 is **COMPLETE**. The project has a **fully functional obstacl
 - FNDN-04: IAP plugin integrated (awaiting physical device test)
 
 ### Next Milestone
-Complete Phase 4: Build word-pair content validation pipeline (Plan 04-03) or add obstacle animations and polish (Plan 04-02).
+Begin Phase 5 (Progression & Economy): Implement hearts/lives system, boost inventory, dual currency (Stars/Diamonds), and boss levels. Or continue Phase 4 content expansion: populate lands 1-10 with JSON level data.
 
 ## Technology Stack
 
@@ -242,6 +240,6 @@ Proprietary - All rights reserved.
 
 ---
 
-**Last Updated:** 2026-02-06
+**Last Updated:** 2026-02-07
 **Project Started:** 2026-01-22
 **Engine:** Godot 4.5

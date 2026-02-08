@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-01-29)
 
 **Core value:** The word-pair puzzle with the surge momentum system must feel like a "rush" -- the tension between solving fast for multipliers and risking a bust, combined with obstacle anticipation, is the experience that makes WordRun! unique.
-**Current focus:** Phase 4 in progress -- Obstacle system foundation established. Padlock obstacle with skip/backtrack mechanic working, Random Blocks and Sand obstacles implemented but testing pending. Template architecture validated for future obstacle expansion.
+**Current focus:** Phase 4 extended -- All three v1 obstacles complete, bonus mode implemented, hint system functional, JSON content pipeline established. Ready for Phase 5 progression mechanics or Phase 4 content expansion.
 
 ## Current Position
 
 Phase: 4 of 9 (Obstacles, Boosts, and Content Pipeline)
-Plan: 1 of 3 in current phase (04-01 ~60% complete)
-Status: In progress
-Last activity: 2026-02-05 -- Implemented padlock skip/backtrack mechanic (Plan 04-01 partial)
+Plan: 1 of 3 complete (04-01 COMPLETE + bonus/hints/content expansions)
+Status: Extended - ready for Phase 5 or content expansion
+Last activity: 2026-02-07 -- Bonus mode, hints, JSON content pipeline, 8 bug fixes
 
-Progress: [#####.....] 40%
+Progress: [#####.....] 48%
 
 ## Performance Metrics
 
@@ -44,8 +44,8 @@ Progress: [#####.....] 40%
 | 1 | Foundation and Validation Spikes | Code complete (4/4 plans, device testing deferred) | 8 items |
 | 2 | Core Puzzle Loop | Complete (4/4 plans) | 10 items |
 | 3 | Game Feel -- Surge, Score, and Audio | Complete (3/3 plans) | 12 items |
-| 4 | Obstacles, Boosts, and Content Pipeline | In progress (Plan 04-01 ~60% complete) | 20 items |
-| 5 | Progression, Economy, and Retention | Not started | 25 items |
+| 4 | Obstacles, Boosts, and Content Pipeline | Extended (Plan 04-01 complete + bonus/hints/content) | 20 items |
+| 5 | Progression, Economy, and Retention | Ready to start | 25 items |
 | 6 | World Map, Navigation, and Tutorial | Not started | 17 items |
 | 7 | Backend, Auth, Monetization, and Store | Not started | 25 items |
 | 8 | Polish, Soft Launch, and Tuning | Not started | Cross-cutting |
@@ -54,10 +54,10 @@ Progress: [#####.....] 40%
 ## Key Metrics
 
 - Total v1 requirements: 117
-- Requirements complete: 31 (FNDN-05 through FNDN-08, PUZL-01 through PUZL-10, FEEL-01 through FEEL-12, OBST-01, OBST-02, OBST-05, OBST-06, OBST-07)
-- Requirements partially addressed: 2 (FNDN-03, FNDN-04 -- code wired, device validation deferred)
+- Requirements complete: 48 (FNDN-05 through FNDN-08, PUZL-01 through PUZL-10, FEEL-01 through FEEL-12, OBST-01 through OBST-11, OBST-13, CONT-01 through CONT-03, PROG-15)
+- Requirements partially addressed: 4 (FNDN-03, FNDN-04 -- code wired, device validation deferred; OBST-12, PROG-16 -- partial implementation)
 - Requirements deferred: 2 (FNDN-01, FNDN-02 -- device testing blocked by hardware)
-- Current phase progress: ~25% (Plan 04-01 ~60% complete, padlock tested, Random Blocks/Sand testing pending)
+- Current phase progress: ~60% (Plan 04-01 complete + bonus mode, hints, JSON content pipeline)
 
 ## Accumulated Context
 
@@ -123,7 +123,7 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-05
-Stopped at: Implemented padlock skip/backtrack mechanic (Plan 04-01 ~60% complete)
-Resume file: .planning/phases/04-obstacles-boosts-content/04-01-PLAN.md
-Next action: Test Random Blocks and Sand obstacles, verify boost functionality, complete Plan 04-01
+Last session: 2026-02-07
+Stopped at: Bonus mode, hints, JSON content pipeline implemented (Plan 04-01 complete + expansions)
+Resume file: .planning/phases/05-progression-economy-retention/ or continue Phase 4 content expansion
+Next action: Begin Phase 5 hearts/lives system OR populate lands 1-10 JSON content (hybrid approach recommended)
