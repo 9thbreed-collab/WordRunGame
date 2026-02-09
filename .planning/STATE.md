@@ -61,6 +61,46 @@ Progress: [#####.....] 48%
 
 ## Accumulated Context
 
+### Business Intent
+
+**Revenue Strategy:** Online-first with graceful offline.
+- Ads require internet - maximize online sessions for ad revenue
+- Content downloads on land entry (requires connection)
+- Offline play allowed for cached lands, but rewarded features disabled
+- Soft-gate progression behind online (players must connect to download new lands)
+- Don't block offline, just don't get paid for it
+
+### Content Design Intent
+
+**Structure:** 9 Nations → Lands → Levels (v1 ships 3 Nations)
+- Full game: Forward progression (Nations 1-9), then reverse progression (harder)
+- First half easier than second half (reverse is not a mirror, but close)
+
+**Difficulty Progression (Fractal):**
+- Nation to nation: gradual increase
+- Land to land within nation: gradual increase
+- Level to level within land: very subtle increase
+- Result: Barely noticeable level-to-level, but significant when comparing distant stages
+- Pregame star/diamond challenges add additional difficulty layer
+
+**Ambiguity:**
+- Always exactly ONE correct answer
+- First half: Clues have one obvious answer in player's mind
+- Second half: Hybrid - some clues have 2-3 plausible guesses, weighted toward obvious
+- Introduced with story warning, framed as intentional challenge (not unfair flaw)
+
+**Lore/Theme:**
+- First land: Corinthia (placeholder) - theme: adultery allegorized as "romanticizing" (family-friendly)
+- Not every word is themed - thematic words diluted with neutral words
+- Detailed nation/land culture documentation coming later
+- Design for flexibility to overhaul when lore docs are added
+
+**Repetition:**
+- Repeated pairs/words acceptable if spread out and infrequent
+- Not excessive, not close in frequency
+
+**Word Length:** No hard limits, progression-appropriate
+
 ### Decisions
 
 Decisions are logged in PROJECT.md Key Decisions table.
@@ -112,7 +152,7 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-None.
+- **Validator Tool (Phase 4 deferred):** Build WordValidator integration for mass content validation when scaling to 250+ levels. See `.planning/CLOUD_SCHEMA.md` for filter specs (difficulty, rarity, lore, profanity). Not blocking - game works without it.
 
 ### Blockers/Concerns
 

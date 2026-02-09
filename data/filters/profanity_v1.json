@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "profanity": [],
+  "safe_words": [
+    "class",
+    "assassin",
+    "basement",
+    "therapist",
+    "assume",
+    "grape",
+    "scrap",
+    "cocktail",
+    "classic",
+    "assist",
+    "asset",
+    "passage",
+    "compass",
+    "bypass",
+    "titmouse",
+    "shitake",
+    "cockatoo",
+    "cockatiel",
+    "peacock",
+    "woodcock",
+    "hancock",
+    "hitchcock"
+  ]
+}

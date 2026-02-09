@@ -106,6 +106,31 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 
 ## Session History
 
+### Session 2026-02-09 (v0.0.07 - Planning)
+- **Phase:** Phase 4 Extended (Documentation and Planning)
+- **Accomplishments:**
+  - Created CLOUD_SCHEMA.md: Complete Firebase architecture for content delivery
+  - Documented cloud/database design: Firestore metadata + Cloud Storage for bulk content
+  - Defined four validation filters: Difficulty, Rarity, Lore, Profanity
+  - Created GEMINI_HANDOFF.md: Quick start guide for cross-AI agent collaboration
+  - Added profanity_v1.json filter data baseline
+  - Created word_validator.gd and profanity_filter.gd tool foundations
+  - Updated STATE.md with business intent (online-first revenue) and content design intent (9 Nations structure, fractal difficulty progression, lore theming)
+  - Added GIT_REMOTE file for remote configuration tracking
+- **Key Decisions:**
+  - Cloud Storage for bulk level content (lands/{land_id}/content.json) - downloaded once per land
+  - Firestore for metadata only (content_versions, profanity_filter) - minimal read operations
+  - Zero network calls during gameplay - all reads from local cache
+  - Four-layer validation pipeline: difficulty scoring, rarity scoring, lore fit, profanity checks
+  - Word metadata stays in cloud (build-time validation only, not shipped to client)
+  - Fractal difficulty progression: barely noticeable level-to-level, significant across distance
+  - Online-first revenue strategy: ads require internet, offline play allowed but not monetized
+- **Requirements Progress:** Planning and documentation - no new requirements completed
+- **Next Steps:**
+  - Same as previous session: Begin Phase 5 (hearts/lives) or expand Phase 4 content
+  - Cloud schema ready for Phase 7 backend integration
+  - Validation tools ready for mass content authoring
+
 ### Session 2026-02-07 (v0.0.07)
 - **Phase:** Phase 4 Extended (Plan 04-01 Complete + Bonus Mode, Hints, Content Pipeline)
 - **Accomplishments:**
