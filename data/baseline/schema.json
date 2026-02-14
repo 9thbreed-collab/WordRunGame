@@ -7,7 +7,7 @@
   "properties": {
     "land_id": {
       "type": "string",
-      "description": "Unique identifier for this land (e.g., 'grasslands')"
+      "description": "Unique identifier for this land (e.g., 'corinthia')"
     },
     "display_name": {
       "type": "string",

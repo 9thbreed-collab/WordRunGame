@@ -1,0 +1,381 @@
+{
+  "land_id": "corinthia",
+  "display_name": "Corinthia",
+  "theme": "food, household, everyday objects",
+  "levels": [
+    {
+      "level_id": "corinthia_01",
+      "level_name": "Level 1",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 1,
+      "word_pairs": [
+        {"word_a": "", "word_b": "hot"},
+        {"word_a": "hot", "word_b": "dog"},
+        {"word_a": "dog", "word_b": "park"},
+        {"word_a": "park", "word_b": "bench"},
+        {"word_a": "bench", "word_b": "press"},
+        {"word_a": "press", "word_b": "box"},
+        {"word_a": "box", "word_b": "office"},
+        {"word_a": "office", "word_b": "chair"},
+        {"word_a": "chair", "word_b": "lift"},
+        {"word_a": "lift", "word_b": "ticket"},
+        {"word_a": "ticket", "word_b": "price"},
+        {"word_a": "price", "word_b": "tag"},
+        {"word_a": "tag", "word_b": "team"},
+        {"word_a": "team", "word_b": "player"},
+        {"word_a": "player", "word_b": "card"},
+        {"word_a": "card", "word_b": "game"}
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 18.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [18.0, 12.0, 8.0, 6.0],
+        "bust_drain_rate": 20.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": []
+    },
+    {
+      "level_id": "corinthia_02",
+      "level_name": "Level 2",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 1,
+      "word_pairs": [
+        {"word_a": "", "word_b": "high"},
+        {"word_a": "high", "word_b": "school"},
+        {"word_a": "school", "word_b": "bus"},
+        {"word_a": "bus", "word_b": "stop"},
+        {"word_a": "stop", "word_b": "sign"},
+        {"word_a": "sign", "word_b": "language"},
+        {"word_a": "language", "word_b": "arts"},
+        {"word_a": "arts", "word_b": "center"},
+        {"word_a": "center", "word_b": "stage"},
+        {"word_a": "stage", "word_b": "left"},
+        {"word_a": "left", "word_b": "turn"},
+        {"word_a": "turn", "word_b": "signal"},
+        {"word_a": "signal", "word_b": "fire"},
+        {"word_a": "fire", "word_b": "truck"},
+        {"word_a": "truck", "word_b": "driver"},
+        {"word_a": "driver", "word_b": "seat"}
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 18.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [18.0, 12.0, 8.0, 6.0],
+        "bust_drain_rate": 20.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": []
+    },
+    {
+      "level_id": "corinthia_03",
+      "level_name": "Level 3",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 1,
+      "word_pairs": [
+        {"word_a": "", "word_b": "ice"},
+        {"word_a": "ice", "word_b": "cream"},
+        {"word_a": "cream", "word_b": "cheese"},
+        {"word_a": "cheese", "word_b": "pizza"},
+        {"word_a": "pizza", "word_b": "box"},
+        {"word_a": "box", "word_b": "car"},
+        {"word_a": "car", "word_b": "seat"},
+        {"word_a": "seat", "word_b": "belt"},
+        {"word_a": "belt", "word_b": "buckle"},
+        {"word_a": "buckle", "word_b": "shoe"},
+        {"word_a": "shoe", "word_b": "store"},
+        {"word_a": "store", "word_b": "front"},
+        {"word_a": "front", "word_b": "door"},
+        {"word_a": "door", "word_b": "frame"},
+        {"word_a": "frame", "word_b": "rate"},
+        {"word_a": "rate", "word_b": "card"}
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 18.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [18.0, 12.0, 8.0, 6.0],
+        "bust_drain_rate": 20.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {"obstacle_type": "padlock", "word_index": 10, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {}}
+      ]
+    },
+    {
+      "level_id": "corinthia_04",
+      "level_name": "Level 4",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 1,
+      "word_pairs": [
+        {"word_a": "", "word_b": "credit"},
+        {"word_a": "credit", "word_b": "card"},
+        {"word_a": "card", "word_b": "game"},
+        {"word_a": "game", "word_b": "day"},
+        {"word_a": "day", "word_b": "care"},
+        {"word_a": "care", "word_b": "package"},
+        {"word_a": "package", "word_b": "deal"},
+        {"word_a": "deal", "word_b": "breaker"},
+        {"word_a": "breaker", "word_b": "box"},
+        {"word_a": "box", "word_b": "spring"},
+        {"word_a": "spring", "word_b": "roll"},
+        {"word_a": "roll", "word_b": "call"},
+        {"word_a": "call", "word_b": "center"},
+        {"word_a": "center", "word_b": "stage"},
+        {"word_a": "stage", "word_b": "fright"},
+        {"word_a": "fright", "word_b": "night"}
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 18.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [18.0, 12.0, 8.0, 6.0],
+        "bust_drain_rate": 20.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {"obstacle_type": "padlock", "word_index": 8, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {}}
+      ]
+    },
+    {
+      "level_id": "corinthia_05",
+      "level_name": "Level 5",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 1,
+      "word_pairs": [
+        {"word_a": "", "word_b": "gift"},
+        {"word_a": "gift", "word_b": "card"},
+        {"word_a": "card", "word_b": "stock"},
+        {"word_a": "stock", "word_b": "option"},
+        {"word_a": "option", "word_b": "play"},
+        {"word_a": "play", "word_b": "date"},
+        {"word_a": "date", "word_b": "night"},
+        {"word_a": "night", "word_b": "owl"},
+        {"word_a": "owl", "word_b": "pellet"},
+        {"word_a": "pellet", "word_b": "gun"},
+        {"word_a": "gun", "word_b": "shot"},
+        {"word_a": "shot", "word_b": "glass"},
+        {"word_a": "glass", "word_b": "house"},
+        {"word_a": "house", "word_b": "guest"},
+        {"word_a": "guest", "word_b": "room"},
+        {"word_a": "room", "word_b": "key"}
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 18.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [18.0, 12.0, 8.0, 6.0],
+        "bust_drain_rate": 20.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {"obstacle_type": "padlock", "word_index": 6, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {}},
+        {"obstacle_type": "padlock", "word_index": 11, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {}}
+      ]
+    },
+    {
+      "level_id": "corinthia_06",
+      "level_name": "Level 6",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 1,
+      "word_pairs": [
+        {"word_a": "", "word_b": "fish"},
+        {"word_a": "fish", "word_b": "tank"},
+        {"word_a": "tank", "word_b": "top"},
+        {"word_a": "top", "word_b": "dog"},
+        {"word_a": "dog", "word_b": "show"},
+        {"word_a": "show", "word_b": "boat"},
+        {"word_a": "boat", "word_b": "ride"},
+        {"word_a": "ride", "word_b": "share"},
+        {"word_a": "share", "word_b": "price"},
+        {"word_a": "price", "word_b": "cut"},
+        {"word_a": "cut", "word_b": "rate"},
+        {"word_a": "rate", "word_b": "card"},
+        {"word_a": "card", "word_b": "trick"},
+        {"word_a": "trick", "word_b": "question"},
+        {"word_a": "question", "word_b": "mark"},
+        {"word_a": "mark", "word_b": "down"}
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 18.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [18.0, 12.0, 8.0, 6.0],
+        "bust_drain_rate": 20.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {"obstacle_type": "padlock", "word_index": 5, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {}},
+        {"obstacle_type": "random_blocks", "word_index": 10, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {"block_count": 2}}
+      ]
+    },
+    {
+      "level_id": "corinthia_07",
+      "level_name": "Level 7",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 1,
+      "word_pairs": [
+        {"word_a": "", "word_b": "beach"},
+        {"word_a": "beach", "word_b": "ball"},
+        {"word_a": "ball", "word_b": "game"},
+        {"word_a": "game", "word_b": "show"},
+        {"word_a": "show", "word_b": "room"},
+        {"word_a": "room", "word_b": "service"},
+        {"word_a": "service", "word_b": "station"},
+        {"word_a": "station", "word_b": "wagon"},
+        {"word_a": "wagon", "word_b": "train"},
+        {"word_a": "train", "word_b": "track"},
+        {"word_a": "track", "word_b": "record"},
+        {"word_a": "record", "word_b": "deal"},
+        {"word_a": "deal", "word_b": "breaker"},
+        {"word_a": "breaker", "word_b": "box"},
+        {"word_a": "box", "word_b": "office"},
+        {"word_a": "office", "word_b": "chair"}
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 18.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [18.0, 12.0, 8.0, 6.0],
+        "bust_drain_rate": 20.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {"obstacle_type": "random_blocks", "word_index": 5, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {"block_count": 2}},
+        {"obstacle_type": "padlock", "word_index": 10, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {}}
+      ]
+    },
+    {
+      "level_id": "corinthia_08",
+      "level_name": "Level 8",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 1,
+      "word_pairs": [
+        {"word_a": "", "word_b": "snow"},
+        {"word_a": "snow", "word_b": "ball"},
+        {"word_a": "ball", "word_b": "park"},
+        {"word_a": "park", "word_b": "bench"},
+        {"word_a": "bench", "word_b": "press"},
+        {"word_a": "press", "word_b": "release"},
+        {"word_a": "release", "word_b": "date"},
+        {"word_a": "date", "word_b": "night"},
+        {"word_a": "night", "word_b": "shift"},
+        {"word_a": "shift", "word_b": "change"},
+        {"word_a": "change", "word_b": "order"},
+        {"word_a": "order", "word_b": "form"},
+        {"word_a": "form", "word_b": "letter"},
+        {"word_a": "letter", "word_b": "grade"},
+        {"word_a": "grade", "word_b": "school"},
+        {"word_a": "school", "word_b": "year"}
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 18.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [18.0, 12.0, 8.0, 6.0],
+        "bust_drain_rate": 20.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {"obstacle_type": "padlock", "word_index": 5, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {}},
+        {"obstacle_type": "sand", "word_index": 10, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {"fill_duration": 12.0}}
+      ]
+    },
+    {
+      "level_id": "corinthia_09",
+      "level_name": "Level 9",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 1,
+      "word_pairs": [
+        {"word_a": "", "word_b": "drum"},
+        {"word_a": "drum", "word_b": "roll"},
+        {"word_a": "roll", "word_b": "call"},
+        {"word_a": "call", "word_b": "center"},
+        {"word_a": "center", "word_b": "field"},
+        {"word_a": "field", "word_b": "goal"},
+        {"word_a": "goal", "word_b": "line"},
+        {"word_a": "line", "word_b": "dance"},
+        {"word_a": "dance", "word_b": "class"},
+        {"word_a": "class", "word_b": "action"},
+        {"word_a": "action", "word_b": "figure"},
+        {"word_a": "figure", "word_b": "skate"},
+        {"word_a": "skate", "word_b": "park"},
+        {"word_a": "park", "word_b": "ranger"},
+        {"word_a": "ranger", "word_b": "station"},
+        {"word_a": "station", "word_b": "wagon"}
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 18.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [18.0, 12.0, 8.0, 6.0],
+        "bust_drain_rate": 20.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {"obstacle_type": "padlock", "word_index": 4, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {}},
+        {"obstacle_type": "random_blocks", "word_index": 8, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {"block_count": 2}},
+        {"obstacle_type": "sand", "word_index": 12, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {"fill_duration": 10.0}}
+      ]
+    },
+    {
+      "level_id": "corinthia_10",
+      "level_name": "Level 10",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 1,
+      "word_pairs": [
+        {"word_a": "", "word_b": "full"},
+        {"word_a": "full", "word_b": "house"},
+        {"word_a": "house", "word_b": "guest"},
+        {"word_a": "guest", "word_b": "room"},
+        {"word_a": "room", "word_b": "service"},
+        {"word_a": "service", "word_b": "charge"},
+        {"word_a": "charge", "word_b": "card"},
+        {"word_a": "card", "word_b": "game"},
+        {"word_a": "game", "word_b": "face"},
+        {"word_a": "face", "word_b": "value"},
+        {"word_a": "value", "word_b": "meal"},
+        {"word_a": "meal", "word_b": "plan"},
+        {"word_a": "plan", "word_b": "view"},
+        {"word_a": "view", "word_b": "point"},
+        {"word_a": "point", "word_b": "blank"},
+        {"word_a": "blank", "word_b": "check"}
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 18.0,
+        "thresholds": [30.0, 60.0, 80.0],
+        "section_drain_times": [18.0, 12.0, 8.0, 6.0],
+        "bust_drain_rate": 20.0,
+        "multipliers": [1.0, 1.5, 2.0, 3.0]
+      },
+      "obstacle_configs": [
+        {"obstacle_type": "padlock", "word_index": 4, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {}},
+        {"obstacle_type": "random_blocks", "word_index": 7, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {"block_count": 3}},
+        {"obstacle_type": "sand", "word_index": 11, "trigger_type": "word_start", "delay_seconds": 0.0, "effect_data": {"fill_duration": 9.0}}
+      ]
+    }
+  ]
+}

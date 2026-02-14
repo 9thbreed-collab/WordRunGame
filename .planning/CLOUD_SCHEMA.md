@@ -48,7 +48,7 @@ Tracks current version of all content. Client checks this on app launch.
 {
   "document_id": "current",
   "lands": {
-    "grasslands": { "version": "1.2.0", "checksum": "sha256:abc123...", "size_kb": 45 },
+    "corinthia": { "version": "1.2.0", "checksum": "sha256:abc123...", "size_kb": 45 },
     "forest": { "version": "1.0.0", "checksum": "sha256:def456...", "size_kb": 52 },
     "desert": { "version": "1.1.0", "checksum": "sha256:ghi789...", "size_kb": 48 }
   },
@@ -81,7 +81,7 @@ Master word database with validation attributes. Used at **content authoring tim
     "corpus": "english_compound", // which word list
     "commonness_tier": 2          // 1=everyday, 2=familiar, 3=uncommon, 4=rare
   },
-  "lore_tags": ["nature", "plants", "grasslands", "growth", "garden"],
+  "lore_tags": ["nature", "plants", "corinthia", "growth", "garden"],
   "profanity": {
     "is_profane": false,
     "is_safe_exception": false,  // true for words like "class" that contain profane substrings
@@ -119,8 +119,8 @@ Validated two-word combinations with compound scoring.
     "phrase_frequency": 7200,
     "commonness_tier": 1  // 1=very common phrase
   },
-  "lore_tags": ["nature", "grasslands", "plants"],
-  "nations": ["grasslands", "forest"],  // which nations can use this pair
+  "lore_tags": ["nature", "corinthia", "plants"],
+  "nations": ["corinthia", "forest"],  // which nations can use this pair
   "mood": "cheerful",  // cheerful, neutral, tense, mysterious, dark
   "profanity_check": {
     "word_a_safe": true,
@@ -164,8 +164,8 @@ Nation/land structure and lore configuration.
 
 ```json
 {
-  "document_id": "grasslands_nation",
-  "nation_id": "grasslands_nation",
+  "document_id": "corinthia_nation",
+  "nation_id": "corinthia_nation",
   "display_name": "The Grasslands",
   "order": 1,
   "theme": {
@@ -181,7 +181,7 @@ Nation/land structure and lore configuration.
     "mood_progression": ["cheerful", "curious", "determined"]
   },
   "lands": [
-    { "land_id": "grasslands", "order": 1, "level_count": 10 },
+    { "land_id": "corinthia", "order": 1, "level_count": 10 },
     { "land_id": "meadow_path", "order": 2, "level_count": 10 },
     { "land_id": "flower_fields", "order": 3, "level_count": 10 }
   ],
@@ -204,7 +204,7 @@ All level content is stored in Cloud Storage as JSON files for bulk download.
 ```
 gs://wordrun-content/
 ├── lands/
-│   ├── grasslands/
+│   ├── corinthia/
 │   │   ├── content.json      # Full land content (all 10 levels)
 │   │   └── manifest.json     # Version, checksum, metadata
 │   ├── meadow_path/
@@ -221,9 +221,9 @@ gs://wordrun-content/
 
 ```json
 {
-  "land_id": "grasslands",
+  "land_id": "corinthia",
   "display_name": "Grasslands",
-  "nation_id": "grasslands_nation",
+  "nation_id": "corinthia_nation",
   "theme": {
     "mood": "cheerful",
     "lore_tags": ["nature", "plants", "growth"]
@@ -231,7 +231,7 @@ gs://wordrun-content/
   "version": "1.2.0",
   "levels": [
     {
-      "level_id": "grasslands_01",
+      "level_id": "corinthia_01",
       "level_name": "Level 1",
       "difficulty": 1,
       "time_limit_seconds": 180,

@@ -18,6 +18,10 @@ var last_time_elapsed: int = 0
 var last_words_solved: int = 0
 var last_total_words: int = 0
 
+# Level selection (for testing)
+var selected_land: String = "corinthia"
+var selected_level: int = 0
+
 
 func _ready() -> void:
 	EventBus.level_completed.connect(_on_level_completed)

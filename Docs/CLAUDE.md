@@ -106,6 +106,27 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 
 ## Session History
 
+### Session 2026-02-14 (v0.0.07 - Refactoring & QoL)
+- **Phase:** Phase 4 Extended (Quality of Life Improvements)
+- **Accomplishments:**
+  - Renamed first land from "grasslands" to canonical "Corinthia" throughout entire codebase
+  - Updated 30+ files: data/baseline JSON files, schema, cloud architecture docs, planning docs
+  - Implemented level selector dropdown in menu screen (OptionButton with levels 1-10)
+  - Extended GameManager with selected_land and selected_level properties for dynamic loading
+  - Modified GameplayScreen to load from GameManager selection instead of hardcoded level
+  - Added debug logging to confirm which level is loaded during gameplay
+  - UI layout: level selector placed above Play button with 20px spacer for visual balance
+- **Key Decisions:**
+  - Corinthia is canonical first land name (placeholder for lore/theming, formerly "grasslands")
+  - Level selector enables rapid playtesting without code edits - critical developer UX improvement
+  - GameManager state tracks selection (foundation for world map and progression in Phase 6)
+  - Consistent naming across all files reduces cognitive load and technical debt
+  - Historical context preserved in docs ("formerly Grasslands") for continuity
+- **Next Steps:**
+  - Decision point: Begin Phase 5 (hearts/lives system) OR expand Phase 4 content (lands 2-8)
+  - Recommendation: Hybrid approach - implement basic hearts + expand to 3 full Corinthia lands
+  - Level selector ready to integrate unlock state when progression system is implemented
+
 ### Session 2026-02-09 (v0.0.07 - Planning)
 - **Phase:** Phase 4 Extended (Documentation and Planning)
 - **Accomplishments:**

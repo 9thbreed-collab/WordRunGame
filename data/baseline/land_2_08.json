@@ -1,0 +1,2420 @@
+{
+  "land_id": "land_2_08",
+  "display_name": "Land 2-8",
+  "nation": 2,
+  "obstacle_type": "random_blocks",
+  "theme": "placeholder - awaiting lore docs",
+  "levels": [
+    {
+      "level_id": "land_2_08_01",
+      "level_name": "Level 1",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 4,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": []
+    },
+    {
+      "level_id": "land_2_08_02",
+      "level_name": "Level 2",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 4,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": []
+    },
+    {
+      "level_id": "land_2_08_03",
+      "level_name": "Level 3",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 4,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": []
+    },
+    {
+      "level_id": "land_2_08_04",
+      "level_name": "Level 4",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 4,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 2,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_05",
+      "level_name": "Level 5",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 4,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 2,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_06",
+      "level_name": "Level 6",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 4,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 3,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_07",
+      "level_name": "Level 7",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 4,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 3,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_08",
+      "level_name": "Level 8",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 4,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_09",
+      "level_name": "Level 9",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 4,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_10",
+      "level_name": "Level 10",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_11",
+      "level_name": "Level 11",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_12",
+      "level_name": "Level 12",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_13",
+      "level_name": "Level 13",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_14",
+      "level_name": "Level 14",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_15",
+      "level_name": "Level 15",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_16",
+      "level_name": "Level 16",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_17",
+      "level_name": "Level 17",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_18",
+      "level_name": "Level 18",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_19",
+      "level_name": "Level 19",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_20",
+      "level_name": "Level 20",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_21",
+      "level_name": "Level 21",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_22",
+      "level_name": "Level 22",
+      "time_limit_seconds": 180,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": [
+        {
+          "obstacle_type": "random_blocks",
+          "word_index": 5,
+          "trigger_type": "word_start",
+          "delay_seconds": 0.0,
+          "effect_data": {}
+        }
+      ]
+    },
+    {
+      "level_id": "land_2_08_23",
+      "level_name": "Boss Level",
+      "time_limit_seconds": 240,
+      "base_word_count": 18,
+      "bonus_word_count": 4,
+      "difficulty": 5,
+      "word_pairs": [
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        },
+        {
+          "word_a": "",
+          "word_b": "PLACEHOLDER"
+        }
+      ],
+      "surge_config": {
+        "max_value": 100.0,
+        "fill_per_word": 15.0,
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          15.3,
+          9.35,
+          5.95,
+          4.25
+        ],
+        "bust_drain_rate": 25.0,
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      },
+      "obstacle_configs": []
+    }
+  ]
+}

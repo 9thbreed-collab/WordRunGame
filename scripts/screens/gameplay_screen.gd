@@ -44,11 +44,15 @@ const BASE_SCORE: int = 100
 
 func _ready() -> void:
 	# Load level from ContentCache (JSON), fallback to .tres for testing
-	var level_json := ContentCache.get_level_json("grasslands", 0)
+	var land_id: String = GameManager.selected_land
+	var level_idx: int = GameManager.selected_level
+	var level_json := ContentCache.get_level_json(land_id, level_idx)
 	if not level_json.is_empty():
 		_level_data = ContentCache.build_level_data(level_json)
+		print("Loaded: %s level %d" % [land_id, level_idx + 1])
 	else:
 		_level_data = load("res://data/levels/test_level_01.tres")
+		print("Fallback: test_level_01.tres")
 
 	# Setup timer
 	_game_timer.wait_time = 1.0

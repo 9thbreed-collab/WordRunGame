@@ -72,9 +72,12 @@ Progress: [#####.....] 48%
 
 ### Content Design Intent
 
-**Structure:** 9 Nations → Lands → Levels (v1 ships 3 Nations)
-- Full game: Forward progression (Nations 1-9), then reverse progression (harder)
-- First half easier than second half (reverse is not a mirror, but close)
+**Structure:** 9 Nations → 8 Lands each → 23 Levels each (22 + 1 boss minimum)
+- Total: 3,312 levels (not including bonus levels added later)
+- Full game: Forward (Nations 1-9) + Reverse (Nations 9-1) = 2 visits per nation
+- 184 levels per nation per visit
+- First half (forward) easier than second half (reverse, not a mirror but close)
+- v1 ships: 3 Nations = 552 levels (forward pass only)
 
 **Difficulty Progression (Fractal):**
 - Nation to nation: gradual increase
@@ -90,7 +93,7 @@ Progress: [#####.....] 48%
 - Introduced with story warning, framed as intentional challenge (not unfair flaw)
 
 **Lore/Theme:**
-- First land: Corinthia (placeholder) - theme: adultery allegorized as "romanticizing" (family-friendly)
+- First land: Corinthia (placeholder name, formerly "Grasslands") - theme: adultery allegorized as "romanticizing" (family-friendly)
 - Not every word is themed - thematic words diluted with neutral words
 - Detailed nation/land culture documentation coming later
 - Design for flexibility to overhaul when lore docs are added
@@ -163,7 +166,7 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-02-07
-Stopped at: Bonus mode, hints, JSON content pipeline implemented (Plan 04-01 complete + expansions)
+Last session: 2026-02-14
+Stopped at: Land renaming (grasslands→Corinthia), level selector UI implemented
 Resume file: .planning/phases/05-progression-economy-retention/ or continue Phase 4 content expansion
-Next action: Begin Phase 5 hearts/lives system OR populate lands 1-10 JSON content (hybrid approach recommended)
+Next action: Begin Phase 5 hearts/lives system OR populate Corinthia lands 2-8 (hybrid approach recommended)
