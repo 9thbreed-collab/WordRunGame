@@ -153,7 +153,6 @@ func _build_word_rows() -> void:
 		# Deactivate all rows (will activate word 1 in _ready)
 		word_row.deactivate()
 
-
 func _on_key_pressed(key: String) -> void:
 	if not _is_level_active:
 		return

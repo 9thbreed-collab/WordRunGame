@@ -1,0 +1,377 @@
+{
+  "test_level_1": {
+    "tier": 1,
+    "difficulty_target": 20,
+    "description": "Starting from \"horse shoe\" - animal/household chain",
+    "phrases": [
+      {
+        "position": 1,
+        "phrase": "horse shoe",
+        "word1": "horse",
+        "word2": "shoe",
+        "difficulty": 21.5
+      },
+      {
+        "position": 2,
+        "phrase": "shoe box",
+        "word1": "shoe",
+        "word2": "box",
+        "difficulty": 18.5
+      },
+      {
+        "position": 3,
+        "phrase": "box car",
+        "word1": "box",
+        "word2": "car",
+        "difficulty": 17.0
+      },
+      {
+        "position": 4,
+        "phrase": "car pool",
+        "word1": "car",
+        "word2": "pool",
+        "difficulty": 21.5
+      },
+      {
+        "position": 5,
+        "phrase": "pool table",
+        "word1": "pool",
+        "word2": "table",
+        "difficulty": 21.5
+      },
+      {
+        "position": 6,
+        "phrase": "table lamp",
+        "word1": "table",
+        "word2": "lamp",
+        "difficulty": 21.5
+      },
+      {
+        "position": 7,
+        "phrase": "lamp post",
+        "word1": "lamp",
+        "word2": "post",
+        "difficulty": 20.0
+      },
+      {
+        "position": 8,
+        "phrase": "post card",
+        "word1": "post",
+        "word2": "card",
+        "difficulty": 20.0
+      },
+      {
+        "position": 9,
+        "phrase": "card game",
+        "word1": "card",
+        "word2": "game",
+        "difficulty": 18.0
+      },
+      {
+        "position": 10,
+        "phrase": "game bird",
+        "word1": "game",
+        "word2": "bird",
+        "difficulty": 20.0
+      },
+      {
+        "position": 11,
+        "phrase": "bird house",
+        "word1": "bird",
+        "word2": "house",
+        "difficulty": 21.5
+      },
+      {
+        "position": 12,
+        "phrase": "house key",
+        "word1": "house",
+        "word2": "key",
+        "difficulty": 18.0
+      },
+      {
+        "position": 13,
+        "phrase": "key chain",
+        "word1": "key",
+        "word2": "chain",
+        "difficulty": 18.0
+      },
+      {
+        "position": 14,
+        "phrase": "chain link",
+        "word1": "chain",
+        "word2": "link",
+        "difficulty": 21.5
+      },
+      {
+        "position": 15,
+        "phrase": "link fence",
+        "word1": "link",
+        "word2": "fence",
+        "difficulty": 21.5
+      },
+      {
+        "position": 16,
+        "phrase": "fence post",
+        "word1": "fence",
+        "word2": "post",
+        "difficulty": 21.5
+      }
+    ],
+    "stats": {
+      "avg_difficulty": 20.09,
+      "min_difficulty": 17.0,
+      "max_difficulty": 21.5,
+      "chain_valid": true
+    }
+  },
+  "test_level_2": {
+    "tier": 1,
+    "difficulty_target": 20,
+    "description": "Starting from \"candy bar\" - food/commerce chain",
+    "phrases": [
+      {
+        "position": 1,
+        "phrase": "candy bar",
+        "word1": "candy",
+        "word2": "bar",
+        "difficulty": 18.0
+      },
+      {
+        "position": 2,
+        "phrase": "bar tab",
+        "word1": "bar",
+        "word2": "tab",
+        "difficulty": 17.0
+      },
+      {
+        "position": 3,
+        "phrase": "tab key",
+        "word1": "tab",
+        "word2": "key",
+        "difficulty": 17.0
+      },
+      {
+        "position": 4,
+        "phrase": "key word",
+        "word1": "key",
+        "word2": "word",
+        "difficulty": 18.5
+      },
+      {
+        "position": 5,
+        "phrase": "word game",
+        "word1": "word",
+        "word2": "game",
+        "difficulty": 18.0
+      },
+      {
+        "position": 6,
+        "phrase": "game bird",
+        "word1": "game",
+        "word2": "bird",
+        "difficulty": 20.0
+      },
+      {
+        "position": 7,
+        "phrase": "bird house",
+        "word1": "bird",
+        "word2": "house",
+        "difficulty": 21.5
+      },
+      {
+        "position": 8,
+        "phrase": "house key",
+        "word1": "house",
+        "word2": "key",
+        "difficulty": 18.0
+      },
+      {
+        "position": 9,
+        "phrase": "key chain",
+        "word1": "key",
+        "word2": "chain",
+        "difficulty": 18.0
+      },
+      {
+        "position": 10,
+        "phrase": "chain link",
+        "word1": "chain",
+        "word2": "link",
+        "difficulty": 21.5
+      },
+      {
+        "position": 11,
+        "phrase": "link fence",
+        "word1": "link",
+        "word2": "fence",
+        "difficulty": 21.5
+      },
+      {
+        "position": 12,
+        "phrase": "fence post",
+        "word1": "fence",
+        "word2": "post",
+        "difficulty": 21.5
+      },
+      {
+        "position": 13,
+        "phrase": "post card",
+        "word1": "post",
+        "word2": "card",
+        "difficulty": 20.0
+      },
+      {
+        "position": 14,
+        "phrase": "card table",
+        "word1": "card",
+        "word2": "table",
+        "difficulty": 21.5
+      },
+      {
+        "position": 15,
+        "phrase": "table lamp",
+        "word1": "table",
+        "word2": "lamp",
+        "difficulty": 21.5
+      },
+      {
+        "position": 16,
+        "phrase": "lamp post",
+        "word1": "lamp",
+        "word2": "post",
+        "difficulty": 20.0
+      }
+    ],
+    "stats": {
+      "avg_difficulty": 19.59,
+      "min_difficulty": 17.0,
+      "max_difficulty": 21.5,
+      "chain_valid": true
+    }
+  },
+  "test_level_3": {
+    "tier": 1,
+    "difficulty_target": 20,
+    "description": "Starting from \"fire truck\" - transport/emergency chain",
+    "phrases": [
+      {
+        "position": 1,
+        "phrase": "fire truck",
+        "word1": "fire",
+        "word2": "truck",
+        "difficulty": 19.5
+      },
+      {
+        "position": 2,
+        "phrase": "truck bed",
+        "word1": "truck",
+        "word2": "bed",
+        "difficulty": 20.0
+      },
+      {
+        "position": 3,
+        "phrase": "bed sheet",
+        "word1": "bed",
+        "word2": "sheet",
+        "difficulty": 20.0
+      },
+      {
+        "position": 4,
+        "phrase": "sheet music",
+        "word1": "sheet",
+        "word2": "music",
+        "difficulty": 23.0
+      },
+      {
+        "position": 5,
+        "phrase": "music box",
+        "word1": "music",
+        "word2": "box",
+        "difficulty": 20.0
+      },
+      {
+        "position": 6,
+        "phrase": "box car",
+        "word1": "box",
+        "word2": "car",
+        "difficulty": 17.0
+      },
+      {
+        "position": 7,
+        "phrase": "car pool",
+        "word1": "car",
+        "word2": "pool",
+        "difficulty": 21.5
+      },
+      {
+        "position": 8,
+        "phrase": "pool table",
+        "word1": "pool",
+        "word2": "table",
+        "difficulty": 21.5
+      },
+      {
+        "position": 9,
+        "phrase": "table lamp",
+        "word1": "table",
+        "word2": "lamp",
+        "difficulty": 21.5
+      },
+      {
+        "position": 10,
+        "phrase": "lamp post",
+        "word1": "lamp",
+        "word2": "post",
+        "difficulty": 20.0
+      },
+      {
+        "position": 11,
+        "phrase": "post card",
+        "word1": "post",
+        "word2": "card",
+        "difficulty": 20.0
+      },
+      {
+        "position": 12,
+        "phrase": "card table",
+        "word1": "card",
+        "word2": "table",
+        "difficulty": 21.5
+      },
+      {
+        "position": 13,
+        "phrase": "table cloth",
+        "word1": "table",
+        "word2": "cloth",
+        "difficulty": 23.0
+      },
+      {
+        "position": 14,
+        "phrase": "cloth bag",
+        "word1": "cloth",
+        "word2": "bag",
+        "difficulty": 20.0
+      },
+      {
+        "position": 15,
+        "phrase": "bag lunch",
+        "word1": "bag",
+        "word2": "lunch",
+        "difficulty": 20.0
+      },
+      {
+        "position": 16,
+        "phrase": "lunch break",
+        "word1": "lunch",
+        "word2": "break",
+        "difficulty": 21.0
+      }
+    ],
+    "stats": {
+      "avg_difficulty": 20.59,
+      "min_difficulty": 17.0,
+      "max_difficulty": 23.0,
+      "chain_valid": true
+    }
+  }
+}

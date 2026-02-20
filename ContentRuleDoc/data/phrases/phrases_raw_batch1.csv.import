@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://stgg20air0in"
+
+[deps]
+
+files=["res://ContentRuleDoc/data/phrases/phrases_raw_batch1.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_raw_batch1.word2.translation"]
+
+source_file="res://ContentRuleDoc/data/phrases/phrases_raw_batch1.csv"
+dest_files=["res://ContentRuleDoc/data/phrases/phrases_raw_batch1.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_raw_batch1.word2.translation"]
+
+[params]
+
+compress=true
+delimiter=0

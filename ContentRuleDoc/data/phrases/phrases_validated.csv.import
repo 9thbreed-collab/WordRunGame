@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dxpj81687gvsg"
+
+[deps]
+
+files=["res://ContentRuleDoc/data/phrases/phrases_validated.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.familiarity.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.categories.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.tone.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.tag.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.tag.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.tag.translation"]
+
+source_file="res://ContentRuleDoc/data/phrases/phrases_validated.csv"
+dest_files=["res://ContentRuleDoc/data/phrases/phrases_validated.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.familiarity.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.categories.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.tone.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.tag.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.tag.translation", "res://ContentRuleDoc/data/phrases/phrases_validated.tag.translation"]
+
+[params]
+
+compress=true
+delimiter=0

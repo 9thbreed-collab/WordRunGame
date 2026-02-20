@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://6yuousqjwvys"
+
+[deps]
+
+files=["res://ContentRuleDoc/data/phrases/phrases_scored.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.familiarity.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.categories.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.tone.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.tag.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.tag.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.tag.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.entropy.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.difficulty.translation"]
+
+source_file="res://ContentRuleDoc/data/phrases/phrases_scored.csv"
+dest_files=["res://ContentRuleDoc/data/phrases/phrases_scored.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.familiarity.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.categories.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.tone.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.tag.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.tag.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.tag.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.entropy.translation", "res://ContentRuleDoc/data/phrases/phrases_scored.difficulty.translation"]
+
+[params]
+
+compress=true
+delimiter=0
