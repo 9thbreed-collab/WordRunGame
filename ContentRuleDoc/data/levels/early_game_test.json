@@ -1,0 +1,2536 @@
+{
+  "generated_at": "2026-02-20T02:43:52.468473",
+  "config": {
+    "num_levels": 20,
+    "phrases_per_level": 16,
+    "seed": 42
+  },
+  "summary": {
+    "levels_generated": 18,
+    "total_phrases_used": 288,
+    "eligible_phrases": 1810,
+    "coverage": 15.9
+  },
+  "levels": [
+    {
+      "level": 1,
+      "start_word": "book",
+      "phrases": [
+        {
+          "phrase": "book shelf",
+          "word1": "book",
+          "word2": "shelf",
+          "pfs": 2.22,
+          "ces": 3,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "book bag",
+          "word1": "book",
+          "word2": "bag",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "bag lunch",
+          "word1": "bag",
+          "word2": "lunch",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "lunch room",
+          "word1": "lunch",
+          "word2": "room",
+          "pfs": 2.21,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "room key",
+          "word1": "room",
+          "word2": "key",
+          "pfs": 2.08,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "key chain",
+          "word1": "key",
+          "word2": "chain",
+          "pfs": 2.08,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "chain link",
+          "word1": "chain",
+          "word2": "link",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "link fence",
+          "word1": "link",
+          "word2": "fence",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "fence post",
+          "word1": "fence",
+          "word2": "post",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "post card",
+          "word1": "post",
+          "word2": "card",
+          "pfs": 2.22,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "card game",
+          "word1": "card",
+          "word2": "game",
+          "pfs": 2.22,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "game day",
+          "word1": "game",
+          "word2": "day",
+          "pfs": 2.22,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "game night",
+          "word1": "game",
+          "word2": "night",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "game time",
+          "word1": "game",
+          "word2": "time",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "time frame",
+          "word1": "time",
+          "word2": "frame",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "time zone",
+          "word1": "time",
+          "word2": "zone",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 27.8,
+      "stats": {
+        "branches_explored": 18,
+        "backtracks": 4,
+        "dead_ends": 4
+      }
+    },
+    {
+      "level": 2,
+      "start_word": "door",
+      "phrases": [
+        {
+          "phrase": "door bell",
+          "word1": "door",
+          "word2": "bell",
+          "pfs": 2.22,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "bell pepper",
+          "word1": "bell",
+          "word2": "pepper",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "pepper mill",
+          "word1": "pepper",
+          "word2": "mill",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "mill stone",
+          "word1": "mill",
+          "word2": "stone",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "stone wall",
+          "word1": "stone",
+          "word2": "wall",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "wall clock",
+          "word1": "wall",
+          "word2": "clock",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "clock hand",
+          "word1": "clock",
+          "word2": "hand",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "hand rail",
+          "word1": "hand",
+          "word2": "rail",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "rail car",
+          "word1": "rail",
+          "word2": "car",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "car seat",
+          "word1": "car",
+          "word2": "seat",
+          "pfs": 2.22,
+          "ces": 2,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "seat belt",
+          "word1": "seat",
+          "word2": "belt",
+          "pfs": 2.23,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "car wash",
+          "word1": "car",
+          "word2": "wash",
+          "pfs": 2.22,
+          "ces": 3,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "wash cloth",
+          "word1": "wash",
+          "word2": "cloth",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "car crash",
+          "word1": "car",
+          "word2": "crash",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "car key",
+          "word1": "car",
+          "word2": "key",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "key ring",
+          "word1": "key",
+          "word2": "ring",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 26.01,
+      "stats": {
+        "branches_explored": 19,
+        "backtracks": 5,
+        "dead_ends": 5
+      }
+    },
+    {
+      "level": 3,
+      "start_word": "car",
+      "phrases": [
+        {
+          "phrase": "car door",
+          "word1": "car",
+          "word2": "door",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "door mat",
+          "word1": "door",
+          "word2": "mat",
+          "pfs": 2.21,
+          "ces": 2,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "door frame",
+          "word1": "door",
+          "word2": "frame",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "door trim",
+          "word1": "door",
+          "word2": "trim",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "trim tab",
+          "word1": "trim",
+          "word2": "tab",
+          "pfs": 2.05,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "tab key",
+          "word1": "tab",
+          "word2": "key",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "key word",
+          "word1": "key",
+          "word2": "word",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "word document",
+          "word1": "word",
+          "word2": "document",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "word game",
+          "word1": "word",
+          "word2": "game",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "word search",
+          "word1": "word",
+          "word2": "search",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "search party",
+          "word1": "search",
+          "word2": "party",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "party dress",
+          "word1": "party",
+          "word2": "dress",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "key lime",
+          "word1": "key",
+          "word2": "lime",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "lime juice",
+          "word1": "lime",
+          "word2": "juice",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "lime green",
+          "word1": "lime",
+          "word2": "green",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "green grass",
+          "word1": "green",
+          "word2": "grass",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 23.76,
+      "stats": {
+        "branches_explored": 20,
+        "backtracks": 9,
+        "dead_ends": 9
+      }
+    },
+    {
+      "level": 4,
+      "start_word": "school",
+      "phrases": [
+        {
+          "phrase": "school yard",
+          "word1": "school",
+          "word2": "yard",
+          "pfs": 2.22,
+          "ces": 2,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "school bus",
+          "word1": "school",
+          "word2": "bus",
+          "pfs": 2.23,
+          "ces": 6,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "bus stop",
+          "word1": "bus",
+          "word2": "stop",
+          "pfs": 2.23,
+          "ces": 3,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "stop sign",
+          "word1": "stop",
+          "word2": "sign",
+          "pfs": 2.23,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "sign post",
+          "word1": "sign",
+          "word2": "post",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "post office",
+          "word1": "post",
+          "word2": "office",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "office building",
+          "word1": "office",
+          "word2": "building",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "office chair",
+          "word1": "office",
+          "word2": "chair",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "office desk",
+          "word1": "office",
+          "word2": "desk",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "desk top",
+          "word1": "desk",
+          "word2": "top",
+          "pfs": 2.22,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "top hat",
+          "word1": "top",
+          "word2": "hat",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "desk lamp",
+          "word1": "desk",
+          "word2": "lamp",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "office hours",
+          "word1": "office",
+          "word2": "hours",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "sign up",
+          "word1": "sign",
+          "word2": "up",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "sign in",
+          "word1": "sign",
+          "word2": "in",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "in field",
+          "word1": "in",
+          "word2": "field",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 25.78,
+      "stats": {
+        "branches_explored": 29,
+        "backtracks": 11,
+        "dead_ends": 11
+      }
+    },
+    {
+      "level": 5,
+      "start_word": "water",
+      "phrases": [
+        {
+          "phrase": "water bottle",
+          "word1": "water",
+          "word2": "bottle",
+          "pfs": 2.22,
+          "ces": 4,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "bottle neck",
+          "word1": "bottle",
+          "word2": "neck",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "neck pillow",
+          "word1": "neck",
+          "word2": "pillow",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "neck tie",
+          "word1": "neck",
+          "word2": "tie",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "tie clip",
+          "word1": "tie",
+          "word2": "clip",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "clip art",
+          "word1": "clip",
+          "word2": "art",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "art work",
+          "word1": "art",
+          "word2": "work",
+          "pfs": 1.65,
+          "ces": 1,
+          "concreteness": 0.8
+        },
+        {
+          "phrase": "work day",
+          "word1": "work",
+          "word2": "day",
+          "pfs": 2.21,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "work crew",
+          "word1": "work",
+          "word2": "crew",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "work room",
+          "word1": "work",
+          "word2": "room",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "room mate",
+          "word1": "room",
+          "word2": "mate",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "work week",
+          "word1": "work",
+          "word2": "week",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "work load",
+          "word1": "work",
+          "word2": "load",
+          "pfs": 1.61,
+          "ces": 1,
+          "concreteness": 0.8
+        },
+        {
+          "phrase": "art gallery",
+          "word1": "art",
+          "word2": "gallery",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "art museum",
+          "word1": "art",
+          "word2": "museum",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "museum guide",
+          "word1": "museum",
+          "word2": "guide",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 22.97,
+      "stats": {
+        "branches_explored": 21,
+        "backtracks": 9,
+        "dead_ends": 9
+      }
+    },
+    {
+      "level": 6,
+      "start_word": "music",
+      "phrases": [
+        {
+          "phrase": "music box",
+          "word1": "music",
+          "word2": "box",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "box lunch",
+          "word1": "box",
+          "word2": "lunch",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "lunch line",
+          "word1": "lunch",
+          "word2": "line",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "line dance",
+          "word1": "line",
+          "word2": "dance",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "dance floor",
+          "word1": "dance",
+          "word2": "floor",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "floor lamp",
+          "word1": "floor",
+          "word2": "lamp",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "floor plan",
+          "word1": "floor",
+          "word2": "plan",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "floor board",
+          "word1": "floor",
+          "word2": "board",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "board game",
+          "word1": "board",
+          "word2": "game",
+          "pfs": 2.22,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "board meeting",
+          "word1": "board",
+          "word2": "meeting",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "floor rug",
+          "word1": "floor",
+          "word2": "rug",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "dance hall",
+          "word1": "dance",
+          "word2": "hall",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "dance partner",
+          "word1": "dance",
+          "word2": "partner",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "dance teacher",
+          "word1": "dance",
+          "word2": "teacher",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "teacher desk",
+          "word1": "teacher",
+          "word2": "desk",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "desk drawer",
+          "word1": "desk",
+          "word2": "drawer",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 22.51,
+      "stats": {
+        "branches_explored": 22,
+        "backtracks": 9,
+        "dead_ends": 9
+      }
+    },
+    {
+      "level": 7,
+      "start_word": "soup",
+      "phrases": [
+        {
+          "phrase": "soup bowl",
+          "word1": "soup",
+          "word2": "bowl",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "soup can",
+          "word1": "soup",
+          "word2": "can",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "soup kitchen",
+          "word1": "soup",
+          "word2": "kitchen",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "kitchen floor",
+          "word1": "kitchen",
+          "word2": "floor",
+          "pfs": 2.08,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "kitchen sink",
+          "word1": "kitchen",
+          "word2": "sink",
+          "pfs": 2.08,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "kitchen counter",
+          "word1": "kitchen",
+          "word2": "counter",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "kitchen door",
+          "word1": "kitchen",
+          "word2": "door",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "kitchen knife",
+          "word1": "kitchen",
+          "word2": "knife",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "kitchen window",
+          "word1": "kitchen",
+          "word2": "window",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "window pane",
+          "word1": "window",
+          "word2": "pane",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "window trim",
+          "word1": "window",
+          "word2": "trim",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "window frame",
+          "word1": "window",
+          "word2": "frame",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "soup ladle",
+          "word1": "soup",
+          "word2": "ladle",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "soup pot",
+          "word1": "soup",
+          "word2": "pot",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "pot roast",
+          "word1": "pot",
+          "word2": "roast",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "roast beef",
+          "word1": "roast",
+          "word2": "beef",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 24.1,
+      "stats": {
+        "branches_explored": 23,
+        "backtracks": 13,
+        "dead_ends": 13
+      }
+    },
+    {
+      "level": 8,
+      "start_word": "rain",
+      "phrases": [
+        {
+          "phrase": "rain coat",
+          "word1": "rain",
+          "word2": "coat",
+          "pfs": 2.22,
+          "ces": 3,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "coat closet",
+          "word1": "coat",
+          "word2": "closet",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "coat rack",
+          "word1": "coat",
+          "word2": "rack",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "rain drop",
+          "word1": "rain",
+          "word2": "drop",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "rain storm",
+          "word1": "rain",
+          "word2": "storm",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "storm door",
+          "word1": "storm",
+          "word2": "door",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "storm cloud",
+          "word1": "storm",
+          "word2": "cloud",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "cloud cover",
+          "word1": "cloud",
+          "word2": "cover",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "cloud storage",
+          "word1": "cloud",
+          "word2": "storage",
+          "pfs": 1.61,
+          "ces": 1,
+          "concreteness": 0.8
+        },
+        {
+          "phrase": "storage room",
+          "word1": "storage",
+          "word2": "room",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "rain gauge",
+          "word1": "rain",
+          "word2": "gauge",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "rain hat",
+          "word1": "rain",
+          "word2": "hat",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "rain puddle",
+          "word1": "rain",
+          "word2": "puddle",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "rain water",
+          "word1": "rain",
+          "word2": "water",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "water glass",
+          "word1": "water",
+          "word2": "glass",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "glass door",
+          "word1": "glass",
+          "word2": "door",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 23.43,
+      "stats": {
+        "branches_explored": 32,
+        "backtracks": 13,
+        "dead_ends": 13
+      }
+    },
+    {
+      "level": 9,
+      "start_word": "summer",
+      "phrases": [
+        {
+          "phrase": "summer camp",
+          "word1": "summer",
+          "word2": "camp",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "camp ground",
+          "word1": "camp",
+          "word2": "ground",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "ground beef",
+          "word1": "ground",
+          "word2": "beef",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "beef burger",
+          "word1": "beef",
+          "word2": "burger",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "camp chair",
+          "word1": "camp",
+          "word2": "chair",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "camp out",
+          "word1": "camp",
+          "word2": "out",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "summer day",
+          "word1": "summer",
+          "word2": "day",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "summer time",
+          "word1": "summer",
+          "word2": "time",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "summer vacation",
+          "word1": "summer",
+          "word2": "vacation",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "summer break",
+          "word1": "summer",
+          "word2": "break",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "summer heat",
+          "word1": "summer",
+          "word2": "heat",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "heat wave",
+          "word1": "heat",
+          "word2": "wave",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "wave pool",
+          "word1": "wave",
+          "word2": "pool",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "pool deck",
+          "word1": "pool",
+          "word2": "deck",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "deck chair",
+          "word1": "deck",
+          "word2": "chair",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "deck hand",
+          "word1": "deck",
+          "word2": "hand",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 22.98,
+      "stats": {
+        "branches_explored": 30,
+        "backtracks": 11,
+        "dead_ends": 11
+      }
+    },
+    {
+      "level": 10,
+      "start_word": "hot",
+      "phrases": [
+        {
+          "phrase": "hot key",
+          "word1": "hot",
+          "word2": "key",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "hot water",
+          "word1": "hot",
+          "word2": "water",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "water color",
+          "word1": "water",
+          "word2": "color",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "color book",
+          "word1": "color",
+          "word2": "book",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "book end",
+          "word1": "book",
+          "word2": "end",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "end game",
+          "word1": "end",
+          "word2": "game",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "end table",
+          "word1": "end",
+          "word2": "table",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "table cloth",
+          "word1": "table",
+          "word2": "cloth",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "book fair",
+          "word1": "book",
+          "word2": "fair",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "book mark",
+          "word1": "book",
+          "word2": "mark",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "book report",
+          "word1": "book",
+          "word2": "report",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "report card",
+          "word1": "report",
+          "word2": "card",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "card holder",
+          "word1": "card",
+          "word2": "holder",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "card board",
+          "word1": "card",
+          "word2": "board",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "board room",
+          "word1": "board",
+          "word2": "room",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "room number",
+          "word1": "room",
+          "word2": "number",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 23.96,
+      "stats": {
+        "branches_explored": 20,
+        "backtracks": 8,
+        "dead_ends": 8
+      }
+    },
+    {
+      "level": 11,
+      "start_word": "piano",
+      "phrases": [
+        {
+          "phrase": "piano stool",
+          "word1": "piano",
+          "word2": "stool",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "piano bench",
+          "word1": "piano",
+          "word2": "bench",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "bench press",
+          "word1": "bench",
+          "word2": "press",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "press box",
+          "word1": "press",
+          "word2": "box",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "box car",
+          "word1": "box",
+          "word2": "car",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "car alarm",
+          "word1": "car",
+          "word2": "alarm",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "alarm clock",
+          "word1": "alarm",
+          "word2": "clock",
+          "pfs": 2.22,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "clock tower",
+          "word1": "clock",
+          "word2": "tower",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "clock face",
+          "word1": "clock",
+          "word2": "face",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "face cloth",
+          "word1": "face",
+          "word2": "cloth",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "cloth bag",
+          "word1": "cloth",
+          "word2": "bag",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "clock in",
+          "word1": "clock",
+          "word2": "in",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "clock out",
+          "word1": "clock",
+          "word2": "out",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "out field",
+          "word1": "out",
+          "word2": "field",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "field trip",
+          "word1": "field",
+          "word2": "trip",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "field day",
+          "word1": "field",
+          "word2": "day",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 23.79,
+      "stats": {
+        "branches_explored": 20,
+        "backtracks": 7,
+        "dead_ends": 7
+      }
+    },
+    {
+      "level": 12,
+      "start_word": "egg",
+      "phrases": [
+        {
+          "phrase": "egg roll",
+          "word1": "egg",
+          "word2": "roll",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "egg white",
+          "word1": "egg",
+          "word2": "white",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "white rice",
+          "word1": "white",
+          "word2": "rice",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "rice bowl",
+          "word1": "rice",
+          "word2": "bowl",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "rice cake",
+          "word1": "rice",
+          "word2": "cake",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "cake batter",
+          "word1": "cake",
+          "word2": "batter",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "cake mix",
+          "word1": "cake",
+          "word2": "mix",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "mix tape",
+          "word1": "mix",
+          "word2": "tape",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "white gravy",
+          "word1": "white",
+          "word2": "gravy",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "gravy boat",
+          "word1": "gravy",
+          "word2": "boat",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "boat dock",
+          "word1": "boat",
+          "word2": "dock",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "gravy train",
+          "word1": "gravy",
+          "word2": "train",
+          "pfs": 1.6,
+          "ces": 1,
+          "concreteness": 0.7
+        },
+        {
+          "phrase": "train station",
+          "word1": "train",
+          "word2": "station",
+          "pfs": 2.22,
+          "ces": 2,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "train bridge",
+          "word1": "train",
+          "word2": "bridge",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "train car",
+          "word1": "train",
+          "word2": "car",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "car engine",
+          "word1": "car",
+          "word2": "engine",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 22.0,
+      "stats": {
+        "branches_explored": 24,
+        "backtracks": 11,
+        "dead_ends": 11
+      }
+    },
+    {
+      "level": 13,
+      "start_word": "lake",
+      "phrases": [
+        {
+          "phrase": "lake bed",
+          "word1": "lake",
+          "word2": "bed",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "bed frame",
+          "word1": "bed",
+          "word2": "frame",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "bed time",
+          "word1": "bed",
+          "word2": "time",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "lake front",
+          "word1": "lake",
+          "word2": "front",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "front door",
+          "word1": "front",
+          "word2": "door",
+          "pfs": 2.23,
+          "ces": 2,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "front yard",
+          "word1": "front",
+          "word2": "yard",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "front office",
+          "word1": "front",
+          "word2": "office",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "lake house",
+          "word1": "lake",
+          "word2": "house",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "house plant",
+          "word1": "house",
+          "word2": "plant",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "plant pot",
+          "word1": "plant",
+          "word2": "pot",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "pot hole",
+          "word1": "pot",
+          "word2": "hole",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "hole punch",
+          "word1": "hole",
+          "word2": "punch",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "pot pie",
+          "word1": "pot",
+          "word2": "pie",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "pie crust",
+          "word1": "pie",
+          "word2": "crust",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "pie filling",
+          "word1": "pie",
+          "word2": "filling",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "pie plate",
+          "word1": "pie",
+          "word2": "plate",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 23.28,
+      "stats": {
+        "branches_explored": 25,
+        "backtracks": 11,
+        "dead_ends": 11
+      }
+    },
+    {
+      "level": 14,
+      "start_word": "wild",
+      "phrases": [
+        {
+          "phrase": "wild animal",
+          "word1": "wild",
+          "word2": "animal",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "wild flower",
+          "word1": "wild",
+          "word2": "flower",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "flower vase",
+          "word1": "flower",
+          "word2": "vase",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "wild game",
+          "word1": "wild",
+          "word2": "game",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "wild life",
+          "word1": "wild",
+          "word2": "life",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "wild bird",
+          "word1": "wild",
+          "word2": "bird",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "bird house",
+          "word1": "bird",
+          "word2": "house",
+          "pfs": 2.22,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "house number",
+          "word1": "house",
+          "word2": "number",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "house salad",
+          "word1": "house",
+          "word2": "salad",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "salad dressing",
+          "word1": "salad",
+          "word2": "dressing",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "salad fork",
+          "word1": "salad",
+          "word2": "fork",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "salad plate",
+          "word1": "salad",
+          "word2": "plate",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "plate glass",
+          "word1": "plate",
+          "word2": "glass",
+          "pfs": 2.05,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "glass jar",
+          "word1": "glass",
+          "word2": "jar",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "glass pane",
+          "word1": "glass",
+          "word2": "pane",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "glass bottle",
+          "word1": "glass",
+          "word2": "bottle",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 23.37,
+      "stats": {
+        "branches_explored": 21,
+        "backtracks": 10,
+        "dead_ends": 10
+      }
+    },
+    {
+      "level": 15,
+      "start_word": "pop",
+      "phrases": [
+        {
+          "phrase": "pop corn",
+          "word1": "pop",
+          "word2": "corn",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "corn bread",
+          "word1": "corn",
+          "word2": "bread",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "bread roll",
+          "word1": "bread",
+          "word2": "roll",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "bread crumb",
+          "word1": "bread",
+          "word2": "crumb",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "bread knife",
+          "word1": "bread",
+          "word2": "knife",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "pop music",
+          "word1": "pop",
+          "word2": "music",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "music class",
+          "word1": "music",
+          "word2": "class",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "class room",
+          "word1": "class",
+          "word2": "room",
+          "pfs": 2.23,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "class election",
+          "word1": "class",
+          "word2": "election",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "music festival",
+          "word1": "music",
+          "word2": "festival",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "music hall",
+          "word1": "music",
+          "word2": "hall",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "music room",
+          "word1": "music",
+          "word2": "room",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "pop art",
+          "word1": "pop",
+          "word2": "art",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "pop quiz",
+          "word1": "pop",
+          "word2": "quiz",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "quiz bowl",
+          "word1": "quiz",
+          "word2": "bowl",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "quiz show",
+          "word1": "quiz",
+          "word2": "show",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 22.14,
+      "stats": {
+        "branches_explored": 23,
+        "backtracks": 14,
+        "dead_ends": 14
+      }
+    },
+    {
+      "level": 16,
+      "start_word": "family",
+      "phrases": [
+        {
+          "phrase": "family dinner",
+          "word1": "family",
+          "word2": "dinner",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "dinner fork",
+          "word1": "dinner",
+          "word2": "fork",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "dinner bell",
+          "word1": "dinner",
+          "word2": "bell",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "dinner menu",
+          "word1": "dinner",
+          "word2": "menu",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "dinner napkin",
+          "word1": "dinner",
+          "word2": "napkin",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "family room",
+          "word1": "family",
+          "word2": "room",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "family business",
+          "word1": "family",
+          "word2": "business",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "business card",
+          "word1": "business",
+          "word2": "card",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "card table",
+          "word1": "card",
+          "word2": "table",
+          "pfs": 2.07,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "business trip",
+          "word1": "business",
+          "word2": "trip",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "business hour",
+          "word1": "business",
+          "word2": "hour",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "business meeting",
+          "word1": "business",
+          "word2": "meeting",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "business owner",
+          "word1": "business",
+          "word2": "owner",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "business suit",
+          "word1": "business",
+          "word2": "suit",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "family friend",
+          "word1": "family",
+          "word2": "friend",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "family name",
+          "word1": "family",
+          "word2": "name",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 22.32,
+      "stats": {
+        "branches_explored": 29,
+        "backtracks": 15,
+        "dead_ends": 15
+      }
+    },
+    {
+      "level": 17,
+      "start_word": "rock",
+      "phrases": [
+        {
+          "phrase": "rock roll",
+          "word1": "rock",
+          "word2": "roll",
+          "pfs": 1.71,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "rock band",
+          "word1": "rock",
+          "word2": "band",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "band member",
+          "word1": "band",
+          "word2": "member",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "rock music",
+          "word1": "rock",
+          "word2": "music",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "rock garden",
+          "word1": "rock",
+          "word2": "garden",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "garden hose",
+          "word1": "garden",
+          "word2": "hose",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "garden bed",
+          "word1": "garden",
+          "word2": "bed",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "garden gate",
+          "word1": "garden",
+          "word2": "gate",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "garden path",
+          "word1": "garden",
+          "word2": "path",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "garden tool",
+          "word1": "garden",
+          "word2": "tool",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "tool chest",
+          "word1": "tool",
+          "word2": "chest",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "tool kit",
+          "word1": "tool",
+          "word2": "kit",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "garden wall",
+          "word1": "garden",
+          "word2": "wall",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "wall art",
+          "word1": "wall",
+          "word2": "art",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "art room",
+          "word1": "art",
+          "word2": "room",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "art teacher",
+          "word1": "art",
+          "word2": "teacher",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 21.48,
+      "stats": {
+        "branches_explored": 23,
+        "backtracks": 12,
+        "dead_ends": 12
+      }
+    },
+    {
+      "level": 18,
+      "start_word": "first",
+      "phrases": [
+        {
+          "phrase": "first base",
+          "word1": "first",
+          "word2": "base",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "base ball",
+          "word1": "base",
+          "word2": "ball",
+          "pfs": 2.08,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "base hit",
+          "word1": "base",
+          "word2": "hit",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "base line",
+          "word1": "base",
+          "word2": "line",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "base pay",
+          "word1": "base",
+          "word2": "pay",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "pay check",
+          "word1": "pay",
+          "word2": "check",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "check in",
+          "word1": "check",
+          "word2": "in",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "check list",
+          "word1": "check",
+          "word2": "list",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "list price",
+          "word1": "list",
+          "word2": "price",
+          "pfs": 1.63,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "price tag",
+          "word1": "price",
+          "word2": "tag",
+          "pfs": 2.22,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "first class",
+          "word1": "first",
+          "word2": "class",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "first grade",
+          "word1": "first",
+          "word2": "grade",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "grade school",
+          "word1": "grade",
+          "word2": "school",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "school lunch",
+          "word1": "school",
+          "word2": "lunch",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "lunch box",
+          "word1": "lunch",
+          "word2": "box",
+          "pfs": 2.22,
+          "ces": 3,
+          "concreteness": 1.0
+        },
+        {
+          "phrase": "box office",
+          "word1": "box",
+          "word2": "office",
+          "pfs": 1.67,
+          "ces": 1,
+          "concreteness": 1.0
+        }
+      ],
+      "score": 23.27,
+      "stats": {
+        "branches_explored": 33,
+        "backtracks": 11,
+        "dead_ends": 11
+      }
+    }
+  ]
+}
