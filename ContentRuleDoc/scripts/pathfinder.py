@@ -2,19 +2,21 @@
 """
 Backtracking DFS Pathfinder for WordRun! level generation.
 
+STABILIZED VERSION - Aligned to ContentRuleDoc v2.0
+
 Builds a directed graph from phrase bank where:
 - Nodes are words
 - Edges are phrases (word1 -> word2)
 
-Finds paths of specified length maximizing:
-- Sum of PFS * familiarity_weight
-- Minimizing reuse penalty
+Finds paths of specified length using:
+- Entropy-based candidate sorting (prefer lower entropy)
+- Familiarity via avg_zipf (prefer higher zipf)
+- Category filtering via external filter function
 
 Features:
 - Backtracking when stuck
 - Node reuse with penalty (soft constraint)
 - Comprehensive logging
-- Objective function optimization
 """
 
 import csv
@@ -44,10 +46,9 @@ class Phrase:
     phrase: str
     word1: str
     word2: str
-    pfs: float
-    ces: int
-    concreteness: float
-    abstraction_level: str
+    pfs: float          # Legacy - kept for compatibility
+    ces: int            # Entropy (CES_estimate in CSV)
+    avg_zipf: float     # Average Zipf frequency of both words
     tone_tag: str
     category_tag: str
     level_tier: str
@@ -382,10 +383,9 @@ def load_phrases(filepath: Path) -> PhraseGraph:
                     phrase=row["phrase"],
                     word1=row["word1"],
                     word2=row["word2"],
-                    pfs=float(row.get("PFS", 1.5)),
-                    ces=int(float(row.get("CES_estimate", 1))),
-                    concreteness=float(row.get("concreteness_score", 0.7)),
-                    abstraction_level=row.get("abstraction_level", "concrete"),
+                    pfs=float(row.get("PFS", 1.5)),  # Legacy - kept for compatibility
+                    ces=int(float(row.get("CES_estimate", 1))),  # Entropy
+                    avg_zipf=float(row.get("avg_zipf", 5.0)),
                     tone_tag=row.get("tone_tag", "neutral"),
                     category_tag=row.get("category_tag", "general"),
                     level_tier=row.get("level_tier", "mid (21-50)")

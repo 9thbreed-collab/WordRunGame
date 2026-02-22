@@ -2,29 +2,50 @@
 """
 Early-Game Filter for WordRun! phrases.
 
-Enforces strict constraints for levels 1-20:
-- CES = 1 (cognitively obvious - only one obvious answer)
-- PFS >= 2.0 (high familiarity)
-- concreteness_score >= 0.7 (concrete, not abstract)
-- abstraction_level = "concrete"
-- No archaic or technical vocabulary
-- No double meanings or ambiguous phrases
+STABILIZED VERSION - Per Phrase Frequency Correction Directive
 
-Test cases:
-- MUST FAIL: "pack horse", "tone arm", "game bird", "draft horse"
-- MUST PASS: "hot dog", "fire truck", "ice cream", "school bus"
+Enforces ONLY documented constraints:
+- PHRASE FREQUENCY SCORE (PFS) from spoken American English corpus
+- Entropy <= entropy_cap
+- Category whitelist for Tier 1-2
+- Blocklist/Allowlist checks
+- Phrase reuse rules
+
+PFS DEFINITION (per Stabilization Directive):
+- PFS = normalized percentile rank of bigram frequency from spoken corpora
+- Sources: COCA Spoken, SUBTLEX-US, Google Ngrams (fallback)
+
+REMOVED (drift from spec):
+- avg_zipf word-level heuristics
+- concreteness_score (not documented)
+- abstraction_level (not documented)
 """
 
 import csv
+import json
 from pathlib import Path
 from dataclasses import dataclass
-from typing import Optional, Callable
+from typing import Optional, Callable, Set, Dict
 
 # Paths
 DATA_DIR = Path("/Users/nathanielgiddens/WordRunGame/ContentRuleDoc/data/phrases")
 INPUT_FILE = DATA_DIR / "phrases_master_pfs.csv"
+SPOKEN_PFS_FILE = DATA_DIR / "spoken_pfs_manual.json"
 
-# Explicit blocklist of phrases that should NEVER appear in early game
+# Load spoken PFS data
+_SPOKEN_PFS_CACHE: Dict[str, int] = {}
+
+def _load_spoken_pfs() -> Dict[str, int]:
+    """Load spoken PFS data from JSON file."""
+    global _SPOKEN_PFS_CACHE
+    if not _SPOKEN_PFS_CACHE and SPOKEN_PFS_FILE.exists():
+        with open(SPOKEN_PFS_FILE, "r") as f:
+            _SPOKEN_PFS_CACHE = json.load(f)
+    return _SPOKEN_PFS_CACHE
+
+# =============================================================================
+# BLOCKLIST - Explicit phrases that should NEVER appear in early game
+# =============================================================================
 EARLY_GAME_BLOCKLIST = {
     # Archaic/technical terms
     "pack horse", "pack mule", "pack animal", "pack saddle",
@@ -65,7 +86,9 @@ EARLY_GAME_BLOCKLIST = {
     "punch line", "hit man", "cut throat",
 }
 
-# Explicit allowlist of verified familiar phrases for early game
+# =============================================================================
+# ALLOWLIST - Verified familiar phrases for early game (fast-pass)
+# =============================================================================
 EARLY_GAME_ALLOWLIST = {
     # Food - universally known
     "hot dog", "ice cream", "apple pie", "french fries",
@@ -97,7 +120,27 @@ EARLY_GAME_ALLOWLIST = {
     "flower pot", "grass land", "sand box", "beach ball",
 }
 
-# Words that often lead to archaic/unfamiliar phrases
+# =============================================================================
+# CATEGORY WHITELIST - Allowed categories for Tier 1-2 (Phase 2)
+# =============================================================================
+TIER_1_2_ALLOWED_CATEGORIES = {
+    "household",
+    "object_neutral",
+    "food",
+    "animal",
+    "nature",
+    "clothing",
+    "transport",
+    "agriculture",
+    "craft",
+    # Also allow these concrete object categories
+    "object",
+    "drink",
+}
+
+# =============================================================================
+# ARCHAIC WORD DETECTION
+# =============================================================================
 SUSPICIOUS_WORD1 = {
     "pack", "tone", "game", "draft", "gun", "wheel",
     "mill", "forge", "kiln", "anvil", "loom",
@@ -105,7 +148,6 @@ SUSPICIOUS_WORD1 = {
     "barrel", "cask", "keg", "vat", "trough",
 }
 
-# Words that indicate archaic word2 (when paired with suspicious word1)
 ARCHAIC_WORD2 = {
     "horse", "mule", "oxen", "wagon", "carriage",
     "wright", "monger",
@@ -120,13 +162,69 @@ class FilterResult:
     reason: str = ""
 
 
-def early_game_filter(phrase_dict: dict, max_ces: int = 2) -> FilterResult:
+def get_spoken_pfs(phrase: str) -> int:
     """
-    Apply early-game constraints to a phrase.
+    Get PHRASE FREQUENCY SCORE from spoken American English corpus.
+
+    Per Stabilization Directive:
+    - PFS = normalized percentile rank of bigram frequency
+    - Sources: COCA Spoken, SUBTLEX-US, Google Ngrams
+
+    | Percentile | PFS |
+    |------------|-----|
+    | Top 10%    | 5   |
+    | 70-90%     | 4   |
+    | 40-70%     | 3   |
+    | 20-40%     | 2   |
+    | Below 20%  | 1   |
+
+    Returns:
+        PFS score (1-5), or 0 if not in corpus
+    """
+    pfs_data = _load_spoken_pfs()
+    phrase_key = phrase.lower().strip()
+    return pfs_data.get(phrase_key, 0)
+
+
+def compute_familiarity_score(avg_zipf: float) -> int:
+    """
+    DEPRECATED: Use get_spoken_pfs() instead.
+
+    This function is kept for backwards compatibility but should not be used.
+    Per Stabilization Directive, familiarity is now based on spoken corpus PFS,
+    not word-level Zipf heuristics.
+    """
+    if avg_zipf >= 6.0:
+        return 5
+    elif avg_zipf >= 5.5:
+        return 4
+    elif avg_zipf >= 5.0:
+        return 3
+    elif avg_zipf >= 4.5:
+        return 2
+    else:
+        return 1
+
+
+def early_game_filter(
+    phrase_dict: dict,
+    entropy_cap: int = 2,
+    min_pfs: int = 4,
+    enforce_categories: bool = True
+) -> FilterResult:
+    """
+    Apply early-game constraints per Stabilization Directive.
 
     Args:
-        phrase_dict: Dictionary with phrase attributes (from CSV row or Phrase object)
-        max_ces: Maximum allowed CES (default 2 for early game)
+        phrase_dict: Dictionary with phrase attributes
+        entropy_cap: Maximum entropy allowed (default 2 for Tier 1)
+        min_pfs: Minimum PHRASE FREQUENCY SCORE (default 4 for Tier 1)
+        enforce_categories: Whether to enforce category whitelist
+
+    PFS Tier Enforcement:
+        Tier 1 → require PFS >= 4
+        Tier 2 → require PFS >= 3
+        Tier 3+ → no PFS restriction
 
     Returns:
         FilterResult indicating pass/fail and reason
@@ -143,45 +241,50 @@ def early_game_filter(phrase_dict: dict, max_ces: int = 2) -> FilterResult:
     if phrase in EARLY_GAME_ALLOWLIST:
         return FilterResult(True, "Allowlist: verified familiar phrase")
 
-    # Check CES (Cognitive Entropy Score) - allow up to max_ces
-    ces = int(float(phrase_dict.get("CES_estimate", 1)))
-    if ces > max_ces:
-        return FilterResult(False, f"CES={ces} > {max_ces}: too many obvious alternatives")
+    # Check entropy (CES_estimate in CSV = entropy per ContentRuleDoc)
+    entropy = int(float(phrase_dict.get("CES_estimate", phrase_dict.get("entropy", 1))))
+    if entropy > entropy_cap:
+        return FilterResult(False, f"Entropy={entropy} > {entropy_cap}: exceeds cap")
 
-    # Check PFS (Phrase Familiarity Score) - minimum 1.6 for early game
-    pfs = float(phrase_dict.get("PFS", 1.5))
-    if pfs < 1.6:
-        return FilterResult(False, f"PFS={pfs:.2f} < 1.6: insufficient familiarity")
+    # Check PHRASE FREQUENCY SCORE from spoken corpus (per Stabilization Directive)
+    pfs = get_spoken_pfs(phrase)
+    if pfs == 0:
+        # Phrase not in spoken corpus - fall back to allowlist check
+        # If not in allowlist, it fails
+        return FilterResult(False, f"PFS=0: '{phrase}' not in spoken corpus")
+    if pfs < min_pfs:
+        return FilterResult(False, f"PFS={pfs} < {min_pfs}: insufficient spoken frequency")
 
-    # Check concreteness
-    concreteness = float(phrase_dict.get("concreteness_score", 0.7))
-    if concreteness < 0.7:
-        return FilterResult(False, f"Concreteness={concreteness:.2f} < 0.7: too abstract")
+    # Check category whitelist (Phase 2)
+    if enforce_categories:
+        category = phrase_dict.get("category_tag", "").lower().strip()
+        if category and category not in TIER_1_2_ALLOWED_CATEGORIES:
+            return FilterResult(False, f"Category '{category}' not in Tier 1-2 whitelist")
 
-    # Check abstraction level
-    abstraction = phrase_dict.get("abstraction_level", "concrete").lower()
-    if abstraction != "concrete":
-        return FilterResult(False, f"Abstraction='{abstraction}': not concrete")
-
-    # Check for suspicious word combinations
+    # Check for suspicious word combinations (archaic detection)
     if word1 in SUSPICIOUS_WORD1 and word2 in ARCHAIC_WORD2:
-        return FilterResult(False, f"Suspicious combo: '{word1}' + '{word2}' likely archaic")
+        return FilterResult(False, f"Archaic combo: '{word1}' + '{word2}'")
 
     # Check for archaic word2
     if word2 in ARCHAIC_WORD2:
         return FilterResult(False, f"Archaic word2: '{word2}'")
 
     # All checks passed
-    return FilterResult(True, "Passed all early-game constraints")
+    return FilterResult(True, f"Passed all constraints (PFS={pfs})")
 
 
-def create_filter_function(min_pfs: float = 2.0, max_ces: int = 2) -> Callable:
+def create_filter_function(
+    entropy_cap: int = 2,
+    min_pfs: int = 4,
+    enforce_categories: bool = True
+) -> Callable:
     """
     Create a filter function for the pathfinder.
 
     Args:
-        min_pfs: Minimum PFS required
-        max_ces: Maximum CES allowed (default 2 for manageable cognitive load)
+        entropy_cap: Maximum entropy allowed (default 2 for Tier 1)
+        min_pfs: Minimum PHRASE FREQUENCY SCORE (default 4 for Tier 1, 3 for Tier 2)
+        enforce_categories: Whether to enforce category whitelist
 
     Returns:
         Filter function compatible with pathfinder
@@ -193,45 +296,96 @@ def create_filter_function(min_pfs: float = 2.0, max_ces: int = 2) -> Callable:
                 "phrase": phrase.phrase,
                 "word1": phrase.word1,
                 "word2": phrase.word2,
-                "PFS": phrase.pfs,
-                "CES_estimate": phrase.ces,
-                "concreteness_score": phrase.concreteness,
-                "abstraction_level": phrase.abstraction_level,
-                "tone_tag": phrase.tone_tag,
+                "CES_estimate": getattr(phrase, 'ces', 1),
+                "category_tag": getattr(phrase, 'category_tag', ''),
             }
         else:
             phrase_dict = phrase
 
-        result = early_game_filter(phrase_dict, max_ces=max_ces)
+        result = early_game_filter(
+            phrase_dict,
+            entropy_cap=entropy_cap,
+            min_pfs=min_pfs,
+            enforce_categories=enforce_categories
+        )
         return result.passed
 
     return filter_func
 
 
+# =============================================================================
+# PHRASE REUSE RULES (Phase 3)
+# =============================================================================
+
+class PhraseReuseTracker:
+    """
+    Track phrase usage to enforce reuse rules.
+
+    Rules:
+    - No phrase may repeat within the first 20 levels.
+    - After that, minimum reuse gap = 10 levels.
+    """
+
+    def __init__(self):
+        self.phrase_last_used: dict[str, int] = {}  # phrase -> level number
+
+    def can_use_phrase(self, phrase: str, current_level: int) -> bool:
+        """Check if a phrase can be used at the current level."""
+        phrase = phrase.lower().strip()
+
+        if phrase not in self.phrase_last_used:
+            return True
+
+        last_used_level = self.phrase_last_used[phrase]
+
+        # Rule: No phrase may repeat within the first 20 levels
+        if current_level <= 20:
+            return False  # Already used, and we're in first 20 levels
+
+        # Rule: After level 20, minimum reuse gap = 10 levels
+        gap = current_level - last_used_level
+        return gap >= 10
+
+    def mark_used(self, phrase: str, level: int):
+        """Mark a phrase as used at a specific level."""
+        phrase = phrase.lower().strip()
+        self.phrase_last_used[phrase] = level
+
+    def get_blocked_phrases(self, current_level: int) -> Set[str]:
+        """Get set of phrases that cannot be used at current level."""
+        blocked = set()
+        for phrase, last_used in self.phrase_last_used.items():
+            if not self.can_use_phrase(phrase, current_level):
+                blocked.add(phrase)
+        return blocked
+
+
+# =============================================================================
+# TEST FUNCTIONS
+# =============================================================================
+
 def test_filter():
     """Test the filter against known cases."""
     print("=" * 60)
-    print("EARLY-GAME FILTER TEST")
+    print("EARLY-GAME FILTER TEST (STABILIZED)")
     print("=" * 60)
 
     # Test cases that MUST FAIL
     must_fail = [
-        {"phrase": "pack horse", "word1": "pack", "word2": "horse", "CES_estimate": 1, "PFS": 1.30, "concreteness_score": 1.0, "abstraction_level": "concrete"},
-        {"phrase": "tone arm", "word1": "tone", "word2": "arm", "CES_estimate": 1, "PFS": 1.30, "concreteness_score": 0.8, "abstraction_level": "concrete"},
-        {"phrase": "game bird", "word1": "game", "word2": "bird", "CES_estimate": 1, "PFS": 1.50, "concreteness_score": 1.0, "abstraction_level": "concrete"},
-        {"phrase": "draft horse", "word1": "draft", "word2": "horse", "CES_estimate": 1, "PFS": 1.40, "concreteness_score": 1.0, "abstraction_level": "concrete"},
-        {"phrase": "good luck", "word1": "good", "word2": "luck", "CES_estimate": 1, "PFS": 2.22, "concreteness_score": 0.5, "abstraction_level": "abstract"},
-        {"phrase": "pack mule", "word1": "pack", "word2": "mule", "CES_estimate": 2, "PFS": 1.67, "concreteness_score": 1.0, "abstraction_level": "concrete"},
+        {"phrase": "pack horse", "word1": "pack", "word2": "horse", "CES_estimate": 1, "avg_zipf": 5.5, "category_tag": "animal"},
+        {"phrase": "tone arm", "word1": "tone", "word2": "arm", "CES_estimate": 1, "avg_zipf": 5.5, "category_tag": "object"},
+        {"phrase": "game bird", "word1": "game", "word2": "bird", "CES_estimate": 1, "avg_zipf": 5.5, "category_tag": "animal"},
+        {"phrase": "soup kitchen", "word1": "soup", "word2": "kitchen", "CES_estimate": 1, "avg_zipf": 5.2, "category_tag": "social"},  # Wrong category
+        {"phrase": "bench press", "word1": "bench", "word2": "press", "CES_estimate": 1, "avg_zipf": 5.5, "category_tag": "sports"},  # Wrong category
     ]
 
     # Test cases that MUST PASS
     must_pass = [
-        {"phrase": "hot dog", "word1": "hot", "word2": "dog", "CES_estimate": 1, "PFS": 2.22, "concreteness_score": 1.0, "abstraction_level": "concrete"},
-        {"phrase": "fire truck", "word1": "fire", "word2": "truck", "CES_estimate": 1, "PFS": 2.22, "concreteness_score": 1.0, "abstraction_level": "concrete"},
-        {"phrase": "ice cream", "word1": "ice", "word2": "cream", "CES_estimate": 1, "PFS": 2.22, "concreteness_score": 1.0, "abstraction_level": "concrete"},
-        {"phrase": "school bus", "word1": "school", "word2": "bus", "CES_estimate": 1, "PFS": 2.22, "concreteness_score": 1.0, "abstraction_level": "concrete"},
-        {"phrase": "front door", "word1": "front", "word2": "door", "CES_estimate": 1, "PFS": 2.22, "concreteness_score": 1.0, "abstraction_level": "concrete"},
-        {"phrase": "card game", "word1": "card", "word2": "game", "CES_estimate": 1, "PFS": 2.22, "concreteness_score": 1.0, "abstraction_level": "concrete"},
+        {"phrase": "hot dog", "word1": "hot", "word2": "dog", "CES_estimate": 1, "avg_zipf": 6.0, "category_tag": "food"},
+        {"phrase": "fire truck", "word1": "fire", "word2": "truck", "CES_estimate": 1, "avg_zipf": 6.0, "category_tag": "transport"},
+        {"phrase": "ice cream", "word1": "ice", "word2": "cream", "CES_estimate": 1, "avg_zipf": 6.0, "category_tag": "food"},
+        {"phrase": "front door", "word1": "front", "word2": "door", "CES_estimate": 1, "avg_zipf": 6.0, "category_tag": "household"},
+        {"phrase": "card game", "word1": "card", "word2": "game", "CES_estimate": 1, "avg_zipf": 5.8, "category_tag": "object"},
     ]
 
     print("\n--- Must FAIL cases ---")
@@ -262,9 +416,9 @@ def test_filter():
 
 
 def analyze_phrase_bank():
-    """Analyze the full phrase bank with early-game filter."""
+    """Analyze the full phrase bank with stabilized filter."""
     print("\n" + "=" * 60)
-    print("PHRASE BANK ANALYSIS")
+    print("PHRASE BANK ANALYSIS (STABILIZED)")
     print("=" * 60)
 
     # Load phrases
@@ -300,18 +454,9 @@ def analyze_phrase_bank():
 
     print(f"\nSample PASSING phrases:")
     for p in passed[:20]:
-        print(f"  {p['phrase']}: PFS={p['PFS']}, CES={p['CES_estimate']}")
-
-    # Write passing phrases to file
-    output_file = DATA_DIR / "phrases_early_game.csv"
-    with open(output_file, "w", newline="", encoding="utf-8") as f:
-        if passed:
-            writer = csv.DictWriter(f, fieldnames=passed[0].keys())
-            writer.writeheader()
-            for p in passed:
-                writer.writerow(p)
-
-    print(f"\nWrote {len(passed)} early-game phrases to {output_file}")
+        avg_zipf = float(p.get('avg_zipf', 5.0))
+        fam = compute_familiarity_score(avg_zipf)
+        print(f"  {p['phrase']}: entropy={p.get('CES_estimate', p.get('entropy', '?'))}, familiarity={fam}, category={p.get('category_tag', '?')}")
 
     return passed
 

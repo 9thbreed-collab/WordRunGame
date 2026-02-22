@@ -192,30 +192,85 @@ avg_word_length = (word1_length + word2_length) / 2
 
 No rounding.
 
-### 3.2 FAMILIARITY SCORE (OBJECTIVE)
+### 3.2 PHRASE FREQUENCY SCORE (PFS) — SPOKEN CORPUS
 
-Familiarity is computed using Zipf frequency only.
+**CRITICAL**: PFS replaces word-level Zipf heuristics for phrase familiarity.
+
+PFS measures how often Americans **hear and say** a two-word phrase in everyday speech.
+
+#### 3.2.1 PFS Definition
 
 ```
-zipf1 = zipf(word1)
-zipf2 = zipf(word2)
-avg_zipf = (zipf1 + zipf2) / 2
+PFS = normalized percentile rank of bigram frequency
+      derived from spoken American English corpora
 ```
 
-Convert avg_zipf to familiarity_score:
+#### 3.2.2 Acceptable Reference Sources (Priority Order)
 
-| avg_zipf | familiarity_score |
-|----------|-------------------|
-| >= 6.0 | 5 |
-| 5.5–5.99 | 4 |
-| 5.0–5.49 | 3 |
-| 4.5–4.99 | 2 |
-| < 4.5 | 1 |
+1. **COCA Spoken Corpus** (spoken-only filter)
+2. **SUBTLEX-US** (movie subtitle data — proxy for spoken)
+3. **Google Ngrams** filtered for recent decades (fallback only)
+4. Other publicly accessible spoken American corpora
 
-For MVP:
+#### 3.2.3 Search Method
+
+- Query exact bigram in lowercase
+- Exclude hyphenated or punctuated variants
+- Use raw frequency count
+- Convert to percentile rank relative to full bigram dataset
+
+#### 3.2.4 PFS Normalization Table
+
+| Percentile | PFS | Description |
+|------------|-----|-------------|
+| Top 10% (90-100) | 5 | Extremely common (said daily) |
+| 70-90% | 4 | Very common (said weekly) |
+| 40-70% | 3 | Common (said monthly) |
+| 20-40% | 2 | Occasional (few times per year) |
+| Below 20% | 1 | Rare (specialized/archaic) |
+
+#### 3.2.5 Tier Enforcement
+
+| Tier | PFS Requirement |
+|------|-----------------|
+| Tier 1 | PFS >= 4 |
+| Tier 2 | PFS >= 3 |
+| Tier 3+ | No PFS restriction |
+
+#### 3.2.6 PFS Usage Rules
+
+- PFS is a **FILTER only**
+- PFS does **NOT** incorporate into difficulty_score
+- PFS does **NOT** modify entropy calculation
+- PFS does **NOT** modify graph generation logic
+
+#### 3.2.7 Example PFS Values
+
+| Phrase | PFS | Tier Eligibility |
+|--------|-----|------------------|
+| seat belt | 5 | All tiers |
+| stop sign | 5 | All tiers |
+| ice cream | 4 | Tier 1+ |
+| fire truck | 4 | Tier 1+ |
+| card game | 4 | Tier 1+ |
+| truck bed | 3 | Tier 2+ |
+| office chair | 3 | Tier 2+ |
+| chair lift | 2 | Tier 3+ |
+| rack mount | 1 | Tier 3+ |
+
+#### 3.2.8 DEPRECATED: Word-Level Zipf Heuristic
+
+The following method is **DEPRECATED** and must not be used:
+
 ```
-Reject familiarity_score < 3.
+# DEPRECATED - DO NOT USE
+avg_zipf = (zipf(word1) + zipf(word2)) / 2
+familiarity_score = lookup_table(avg_zipf)
 ```
+
+Word-level Zipf does not capture phrase-level experiential familiarity.
+A phrase like "rack mount" may have high individual word Zipf scores
+but low spoken frequency as a bigram.
 
 ### 3.3 ENTROPY (PRIMARY DIFFICULTY DRIVER)
 
@@ -640,9 +695,29 @@ Example (Tier 1):
 difficulty_target = 20
 window_percent = 8
 entropy_cap = 2
-min_familiarity = 4
+min_pfs = 4          # Phrase Frequency Score from spoken corpus
 theme_density_target = 0.45
 theme_density_range = 0.40–0.55
+```
+
+Example (Tier 2):
+```
+difficulty_target = 25
+window_percent = 10
+entropy_cap = 3
+min_pfs = 3          # Allows PFS 3 phrases
+theme_density_target = 0.50
+theme_density_range = 0.45–0.60
+```
+
+Example (Tier 3+):
+```
+difficulty_target = 30
+window_percent = 12
+entropy_cap = 4
+min_pfs = 0          # No PFS restriction
+theme_density_target = 0.55
+theme_density_range = 0.50–0.65
 ```
 
 ---
@@ -675,11 +750,17 @@ All phrases must satisfy:
 entropy_score <= entropy_cap
 ```
 
-### 10.3 FAMILIARITY RULE
+### 10.3 PHRASE FREQUENCY SCORE (PFS) RULE
 
 ```
-familiarity_score >= min_familiarity
+phrase.pfs >= min_pfs
 ```
+
+Where `pfs` is the Phrase Frequency Score derived from spoken American English corpus.
+
+PFS values must be precomputed and stored in the phrase database.
+
+No runtime corpus queries allowed during level generation.
 
 ### 10.4 THEME DENSITY RULE
 
@@ -735,7 +816,7 @@ Process:
 1. Filter nodes by:
    - difficulty band
    - entropy cap
-   - familiarity minimum
+   - **PFS minimum** (Phrase Frequency Score from spoken corpus)
    - tone cap
    - Nation category constraints
 2. Construct filtered graph.
@@ -746,6 +827,14 @@ Process:
 4. After candidate path found: Validate theme density rules.
 5. If fail: Continue search.
 6. Return first valid path.
+
+**PFS Filter Implementation:**
+```python
+def passes_pfs_filter(phrase, min_pfs):
+    return phrase.pfs >= min_pfs
+```
+
+PFS values are precomputed from spoken corpus data and stored in phrase database.
 
 ---
 
@@ -769,15 +858,23 @@ phrase_sequence:
 ## 14. ABSOLUTE NON-NEGOTIABLES
 
 The system must NEVER:
-- Guess familiarity.
+- Guess familiarity or PFS.
 - Guess entropy.
 - Use subjective "common sense."
 - Use semantic similarity for tagging.
 - Modify difficulty formula dynamically.
 - Adjust window inside level.
 - Allow any axis to alter another.
+- **Use word-level Zipf to estimate phrase-level familiarity** (deprecated).
+- **Incorporate PFS into difficulty_score** (PFS is filter only).
+- **Modify entropy calculation based on PFS**.
 
 All evaluation must be numeric and reproducible.
+
+**PFS Data Integrity:**
+- PFS values must be sourced from spoken corpus data
+- No runtime estimation or guessing
+- No word-level proxies (avg_zipf is deprecated for this purpose)
 
 ---
 
@@ -786,7 +883,7 @@ All evaluation must be numeric and reproducible.
 You now have:
 - Master database
 - Deterministic scoring
-- Objective familiarity
+- **Phrase Frequency Score (PFS)** from spoken American English corpus
 - Computed entropy
 - Stable per-level difficulty
 - Stair-step global progression
@@ -796,6 +893,13 @@ You now have:
 - Industry word pools
 - No drift architecture
 
+**PFS Data Pipeline:**
+1. Source bigram frequencies from COCA Spoken / SUBTLEX-US / Google Ngrams
+2. Compute percentile rank for each phrase
+3. Normalize to PFS scale (1-5)
+4. Store in phrase database
+5. Apply as tier filter during level generation
+
 ---
 
 ## VERSION HISTORY
@@ -804,3 +908,4 @@ You now have:
 |---------|------|---------|
 | 1.0 | 2026-02-19 | Initial deterministic system |
 | 2.0 | 2026-02-19 | Added: 5-axis architecture, tone cap functions, content exclusion layers, industry pools, nation abstractions, difficulty formula constants, semantic category list |
+| 2.1 | 2026-02-21 | **Phrase Frequency Correction**: Replaced word-level Zipf heuristics with PHRASE FREQUENCY SCORE (PFS) derived from spoken American English corpora. PFS is now the authoritative measure of bigram experiential familiarity. Updated: Section 3.2, Section 9.2, Section 10.3, Section 12, Section 15. |

@@ -7,35 +7,96 @@
       "level_id": "corinthia_01",
       "level_name": "Level 1",
       "time_limit_seconds": 180,
-      "base_word_count": 14,
-      "bonus_word_count": 2,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
       "difficulty": 1,
       "word_pairs": [
-        {"word_a": "", "word_b": "fire"},
-        {"word_a": "fire", "word_b": "truck"},
-        {"word_a": "truck", "word_b": "bed"},
-        {"word_a": "bed", "word_b": "sheet"},
-        {"word_a": "sheet", "word_b": "music"},
-        {"word_a": "music", "word_b": "box"},
-        {"word_a": "box", "word_b": "car"},
-        {"word_a": "car", "word_b": "key"},
-        {"word_a": "key", "word_b": "chain"},
-        {"word_a": "chain", "word_b": "link"},
-        {"word_a": "link", "word_b": "fence"},
-        {"word_a": "fence", "word_b": "post"},
-        {"word_a": "post", "word_b": "card"},
-        {"word_a": "card", "word_b": "game"},
-        {"word_a": "game", "word_b": "day"},
-        {"word_a": "day", "word_b": "camp"},
-        {"word_a": "camp", "word_b": "fire"}
+        {
+          "word_a": "",
+          "word_b": "house"
+        },
+        {
+          "word_a": "house",
+          "word_b": "cat"
+        },
+        {
+          "word_a": "cat",
+          "word_b": "food"
+        },
+        {
+          "word_a": "food",
+          "word_b": "bank"
+        },
+        {
+          "word_a": "bank",
+          "word_b": "account"
+        },
+        {
+          "word_a": "account",
+          "word_b": "number"
+        },
+        {
+          "word_a": "number",
+          "word_b": "one"
+        },
+        {
+          "word_a": "one",
+          "word_b": "way"
+        },
+        {
+          "word_a": "way",
+          "word_b": "out"
+        },
+        {
+          "word_a": "out",
+          "word_b": "back"
+        },
+        {
+          "word_a": "back",
+          "word_b": "door"
+        },
+        {
+          "word_a": "door",
+          "word_b": "prize"
+        },
+        {
+          "word_a": "prize",
+          "word_b": "money"
+        },
+        {
+          "word_a": "money",
+          "word_b": "order"
+        },
+        {
+          "word_a": "order",
+          "word_b": "form"
+        },
+        {
+          "word_a": "form",
+          "word_b": "letter"
+        }
       ],
       "surge_config": {
         "max_value": 100.0,
         "fill_per_word": 18.0,
-        "thresholds": [30.0, 60.0, 80.0],
-        "section_drain_times": [18.0, 12.0, 8.0, 6.0],
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          18.0,
+          12.0,
+          8.0,
+          6.0
+        ],
         "bust_drain_rate": 20.0,
-        "multipliers": [1.0, 1.5, 2.0, 3.0]
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
       },
       "obstacle_configs": []
     },
@@ -43,35 +104,96 @@
       "level_id": "corinthia_02",
       "level_name": "Level 2",
       "time_limit_seconds": 180,
-      "base_word_count": 14,
-      "bonus_word_count": 2,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
       "difficulty": 1,
       "word_pairs": [
-        {"word_a": "", "word_b": "paper"},
-        {"word_a": "paper", "word_b": "bag"},
-        {"word_a": "bag", "word_b": "lunch"},
-        {"word_a": "lunch", "word_b": "room"},
-        {"word_a": "room", "word_b": "key"},
-        {"word_a": "key", "word_b": "lime"},
-        {"word_a": "lime", "word_b": "green"},
-        {"word_a": "green", "word_b": "bean"},
-        {"word_a": "bean", "word_b": "soup"},
-        {"word_a": "soup", "word_b": "kitchen"},
-        {"word_a": "kitchen", "word_b": "floor"},
-        {"word_a": "floor", "word_b": "lamp"},
-        {"word_a": "lamp", "word_b": "post"},
-        {"word_a": "post", "word_b": "card"},
-        {"word_a": "card", "word_b": "table"},
-        {"word_a": "table", "word_b": "top"},
-        {"word_a": "top", "word_b": "hat"}
+        {
+          "word_a": "",
+          "word_b": "credit"
+        },
+        {
+          "word_a": "credit",
+          "word_b": "card"
+        },
+        {
+          "word_a": "card",
+          "word_b": "game"
+        },
+        {
+          "word_a": "game",
+          "word_b": "show"
+        },
+        {
+          "word_a": "show",
+          "word_b": "room"
+        },
+        {
+          "word_a": "room",
+          "word_b": "service"
+        },
+        {
+          "word_a": "service",
+          "word_b": "dog"
+        },
+        {
+          "word_a": "dog",
+          "word_b": "park"
+        },
+        {
+          "word_a": "park",
+          "word_b": "bench"
+        },
+        {
+          "word_a": "bench",
+          "word_b": "press"
+        },
+        {
+          "word_a": "press",
+          "word_b": "release"
+        },
+        {
+          "word_a": "release",
+          "word_b": "date"
+        },
+        {
+          "word_a": "date",
+          "word_b": "night"
+        },
+        {
+          "word_a": "night",
+          "word_b": "shift"
+        },
+        {
+          "word_a": "shift",
+          "word_b": "key"
+        },
+        {
+          "word_a": "key",
+          "word_b": "lime"
+        }
       ],
       "surge_config": {
         "max_value": 100.0,
         "fill_per_word": 18.0,
-        "thresholds": [30.0, 60.0, 80.0],
-        "section_drain_times": [18.0, 12.0, 8.0, 6.0],
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          18.0,
+          12.0,
+          8.0,
+          6.0
+        ],
         "bust_drain_rate": 20.0,
-        "multipliers": [1.0, 1.5, 2.0, 3.0]
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
       },
       "obstacle_configs": []
     },
@@ -79,35 +201,96 @@
       "level_id": "corinthia_03",
       "level_name": "Level 3",
       "time_limit_seconds": 180,
-      "base_word_count": 14,
-      "bonus_word_count": 2,
+      "base_word_count": 12,
+      "bonus_word_count": 3,
       "difficulty": 1,
       "word_pairs": [
-        {"word_a": "", "word_b": "hot"},
-        {"word_a": "hot", "word_b": "dog"},
-        {"word_a": "dog", "word_b": "park"},
-        {"word_a": "park", "word_b": "bench"},
-        {"word_a": "bench", "word_b": "press"},
-        {"word_a": "press", "word_b": "box"},
-        {"word_a": "box", "word_b": "lunch"},
-        {"word_a": "lunch", "word_b": "room"},
-        {"word_a": "room", "word_b": "key"},
-        {"word_a": "key", "word_b": "chain"},
-        {"word_a": "chain", "word_b": "link"},
-        {"word_a": "link", "word_b": "fence"},
-        {"word_a": "fence", "word_b": "post"},
-        {"word_a": "post", "word_b": "office"},
-        {"word_a": "office", "word_b": "desk"},
-        {"word_a": "desk", "word_b": "top"},
-        {"word_a": "top", "word_b": "hat"}
+        {
+          "word_a": "",
+          "word_b": "dry"
+        },
+        {
+          "word_a": "dry",
+          "word_b": "ice"
+        },
+        {
+          "word_a": "ice",
+          "word_b": "cream"
+        },
+        {
+          "word_a": "cream",
+          "word_b": "cheese"
+        },
+        {
+          "word_a": "cheese",
+          "word_b": "pizza"
+        },
+        {
+          "word_a": "pizza",
+          "word_b": "box"
+        },
+        {
+          "word_a": "box",
+          "word_b": "office"
+        },
+        {
+          "word_a": "office",
+          "word_b": "chair"
+        },
+        {
+          "word_a": "chair",
+          "word_b": "lift"
+        },
+        {
+          "word_a": "lift",
+          "word_b": "ticket"
+        },
+        {
+          "word_a": "ticket",
+          "word_b": "price"
+        },
+        {
+          "word_a": "price",
+          "word_b": "tag"
+        },
+        {
+          "word_a": "tag",
+          "word_b": "team"
+        },
+        {
+          "word_a": "team",
+          "word_b": "sport"
+        },
+        {
+          "word_a": "sport",
+          "word_b": "coat"
+        },
+        {
+          "word_a": "coat",
+          "word_b": "rack"
+        }
       ],
       "surge_config": {
         "max_value": 100.0,
         "fill_per_word": 18.0,
-        "thresholds": [30.0, 60.0, 80.0],
-        "section_drain_times": [18.0, 12.0, 8.0, 6.0],
+        "thresholds": [
+          30.0,
+          60.0,
+          80.0
+        ],
+        "section_drain_times": [
+          18.0,
+          12.0,
+          8.0,
+          6.0
+        ],
         "bust_drain_rate": 20.0,
-        "multipliers": [1.0, 1.5, 2.0, 3.0]
+        "multipliers": [
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
       },
       "obstacle_configs": []
     }
