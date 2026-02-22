@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dkhtfiykdiudw"
+
+[deps]
+
+files=["res://ContentRuleDoc/data/phrases/batch1_household_everyday.word1.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.word2.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.bigram.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.avg.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.PFS.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.CES.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.concreteness.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.abstraction.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.tone.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.category.translation"]
+
+source_file="res://ContentRuleDoc/data/phrases/batch1_household_everyday.csv"
+dest_files=["res://ContentRuleDoc/data/phrases/batch1_household_everyday.word1.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.word2.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.bigram.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.avg.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.PFS.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.CES.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.concreteness.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.abstraction.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.tone.translation", "res://ContentRuleDoc/data/phrases/batch1_household_everyday.category.translation"]
+
+[params]
+
+compress=true
+delimiter=0

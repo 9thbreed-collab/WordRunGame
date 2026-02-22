@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bt56h7qgukoyl"
+
+[deps]
+
+files=["res://ContentRuleDoc/data/phrases/batch2_food_drink.word1.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.word2.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.bigram.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.avg.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.PFS.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.CES.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.concreteness.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.abstraction.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.tone.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.category.translation"]
+
+source_file="res://ContentRuleDoc/data/phrases/batch2_food_drink.csv"
+dest_files=["res://ContentRuleDoc/data/phrases/batch2_food_drink.word1.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.word2.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.bigram.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.avg.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.PFS.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.CES.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.concreteness.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.abstraction.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.tone.translation", "res://ContentRuleDoc/data/phrases/batch2_food_drink.category.translation"]
+
+[params]
+
+compress=true
+delimiter=0

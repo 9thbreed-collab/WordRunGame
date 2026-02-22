@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dw8gy15ssr2nx"
+
+[deps]
+
+files=["res://ContentRuleDoc/data/phrases/batch6_abstraction.word1.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.word2.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.bigram.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.avg.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.PFS.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.CES.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.concreteness.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.abstraction.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.tone.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.category.translation"]
+
+source_file="res://ContentRuleDoc/data/phrases/batch6_abstraction.csv"
+dest_files=["res://ContentRuleDoc/data/phrases/batch6_abstraction.word1.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.word2.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.bigram.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.avg.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.PFS.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.CES.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.concreteness.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.abstraction.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.tone.translation", "res://ContentRuleDoc/data/phrases/batch6_abstraction.category.translation"]
+
+[params]
+
+compress=true
+delimiter=0

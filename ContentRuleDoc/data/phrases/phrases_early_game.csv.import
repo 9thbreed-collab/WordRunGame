@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://d4gse17g7qbjr"
+
+[deps]
+
+files=["res://ContentRuleDoc/data/phrases/phrases_early_game.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.bigram.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.PFS.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.CES.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.concreteness.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.abstraction.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.tone.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.category.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.difficulty.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.entropy.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.familiarity.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.level.translation"]
+
+source_file="res://ContentRuleDoc/data/phrases/phrases_early_game.csv"
+dest_files=["res://ContentRuleDoc/data/phrases/phrases_early_game.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.bigram.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.PFS.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.CES.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.concreteness.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.abstraction.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.tone.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.category.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.difficulty.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.entropy.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.familiarity.translation", "res://ContentRuleDoc/data/phrases/phrases_early_game.level.translation"]
+
+[params]
+
+compress=true
+delimiter=0

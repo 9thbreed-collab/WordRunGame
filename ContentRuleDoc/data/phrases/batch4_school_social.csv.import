@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bk6njtcip8b8q"
+
+[deps]
+
+files=["res://ContentRuleDoc/data/phrases/batch4_school_social.word1.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.word2.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.bigram.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.avg.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.PFS.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.CES.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.concreteness.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.abstraction.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.tone.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.category.translation"]
+
+source_file="res://ContentRuleDoc/data/phrases/batch4_school_social.csv"
+dest_files=["res://ContentRuleDoc/data/phrases/batch4_school_social.word1.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.word2.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.bigram.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.avg.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.PFS.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.CES.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.concreteness.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.abstraction.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.tone.translation", "res://ContentRuleDoc/data/phrases/batch4_school_social.category.translation"]
+
+[params]
+
+compress=true
+delimiter=0

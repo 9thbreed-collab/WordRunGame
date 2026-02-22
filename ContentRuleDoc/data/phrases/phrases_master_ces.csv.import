@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b5dghoyhff223"
+
+[deps]
+
+files=["res://ContentRuleDoc/data/phrases/phrases_master_ces.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.bigram.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.PFS.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.CES.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.concreteness.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.abstraction.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.tone.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.category.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.difficulty.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.entropy.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.familiarity.translation"]
+
+source_file="res://ContentRuleDoc/data/phrases/phrases_master_ces.csv"
+dest_files=["res://ContentRuleDoc/data/phrases/phrases_master_ces.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.bigram.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.PFS.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.CES.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.concreteness.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.abstraction.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.tone.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.category.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.difficulty.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.entropy.translation", "res://ContentRuleDoc/data/phrases/phrases_master_ces.familiarity.translation"]
+
+[params]
+
+compress=true
+delimiter=0

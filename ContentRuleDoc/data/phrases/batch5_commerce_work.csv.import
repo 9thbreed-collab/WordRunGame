@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://1yen63uau6c7"
+
+[deps]
+
+files=["res://ContentRuleDoc/data/phrases/batch5_commerce_work.word1.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.word2.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.bigram.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.avg.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.PFS.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.CES.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.concreteness.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.abstraction.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.tone.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.category.translation"]
+
+source_file="res://ContentRuleDoc/data/phrases/batch5_commerce_work.csv"
+dest_files=["res://ContentRuleDoc/data/phrases/batch5_commerce_work.word1.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.word2.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.bigram.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.avg.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.PFS.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.CES.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.concreteness.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.abstraction.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.tone.translation", "res://ContentRuleDoc/data/phrases/batch5_commerce_work.category.translation"]
+
+[params]
+
+compress=true
+delimiter=0

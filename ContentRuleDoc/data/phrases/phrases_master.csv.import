@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dumpxcmakjdt1"
+
+[deps]
+
+files=["res://ContentRuleDoc/data/phrases/phrases_master.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_master.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_master.bigram.translation", "res://ContentRuleDoc/data/phrases/phrases_master.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_master.PFS.translation", "res://ContentRuleDoc/data/phrases/phrases_master.CES.translation", "res://ContentRuleDoc/data/phrases/phrases_master.concreteness.translation", "res://ContentRuleDoc/data/phrases/phrases_master.abstraction.translation", "res://ContentRuleDoc/data/phrases/phrases_master.tone.translation", "res://ContentRuleDoc/data/phrases/phrases_master.category.translation", "res://ContentRuleDoc/data/phrases/phrases_master.difficulty.translation", "res://ContentRuleDoc/data/phrases/phrases_master.entropy.translation", "res://ContentRuleDoc/data/phrases/phrases_master.familiarity.translation"]
+
+source_file="res://ContentRuleDoc/data/phrases/phrases_master.csv"
+dest_files=["res://ContentRuleDoc/data/phrases/phrases_master.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_master.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_master.bigram.translation", "res://ContentRuleDoc/data/phrases/phrases_master.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_master.PFS.translation", "res://ContentRuleDoc/data/phrases/phrases_master.CES.translation", "res://ContentRuleDoc/data/phrases/phrases_master.concreteness.translation", "res://ContentRuleDoc/data/phrases/phrases_master.abstraction.translation", "res://ContentRuleDoc/data/phrases/phrases_master.tone.translation", "res://ContentRuleDoc/data/phrases/phrases_master.category.translation", "res://ContentRuleDoc/data/phrases/phrases_master.difficulty.translation", "res://ContentRuleDoc/data/phrases/phrases_master.entropy.translation", "res://ContentRuleDoc/data/phrases/phrases_master.familiarity.translation"]
+
+[params]
+
+compress=true
+delimiter=0

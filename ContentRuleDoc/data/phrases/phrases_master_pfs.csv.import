@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c8km3pgbr4rjs"
+
+[deps]
+
+files=["res://ContentRuleDoc/data/phrases/phrases_master_pfs.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.bigram.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.PFS.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.CES.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.concreteness.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.abstraction.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.tone.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.category.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.difficulty.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.entropy.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.familiarity.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.level.translation"]
+
+source_file="res://ContentRuleDoc/data/phrases/phrases_master_pfs.csv"
+dest_files=["res://ContentRuleDoc/data/phrases/phrases_master_pfs.word1.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.word2.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.bigram.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.avg.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.PFS.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.CES.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.concreteness.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.abstraction.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.tone.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.category.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.difficulty.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.entropy.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.familiarity.translation", "res://ContentRuleDoc/data/phrases/phrases_master_pfs.level.translation"]
+
+[params]
+
+compress=true
+delimiter=0

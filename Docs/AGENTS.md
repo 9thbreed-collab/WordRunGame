@@ -19,7 +19,7 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - [ ] **Phase 8: Soft Launch**: Test market, analytics, tuning
 - [ ] **Phase 9: Post-Launch**: Vs mode, skins, content expansion
 
-**Current Phase:** Phase 4 In Progress (Plan 04-01 Complete + bonus mode, hints, JSON content pipeline - Phase 5 or content expansion next)
+**Current Phase:** Phase 4 Extended - Content pipeline infrastructure complete (ContentRuleDoc system, 3,184-phrase database, PFS scoring, DFS level generator, 3 validated Corinthia chains)
 
 ### Key Decisions & Context
 
@@ -41,7 +41,7 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - **Naming:** WordRun! (exclamation mark part of brand)
 
 #### Production Notes
-- **Version:** v0.0.07 (Phase 4 extended - obstacles, boosts, bonus mode, hints, JSON content pipeline)
+- **Version:** v0.0.08 (Phase 4 extended - ContentRuleDoc system, 3,184-phrase database, PFS scoring, DFS level generator, 3 validated Corinthia chains)
 - **Versioning:** v0.0.XX during foundation, v0.X.XX during pre-release, v1.0.0 at launch
 - **Director Preferences:** Professional code quality (no shortcuts), AI-assisted assets (art, animation), documentation-first during foundation
 - **Architecture:** Layered (scenes/scripts/data/assets), autoloads (EventBus, GameManager, PlatformServices, SaveData, AudioManager)
@@ -54,26 +54,30 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 ## Working Instructions
 
 ### Current Focus
-**Phase 4 Extended + Phase 5 Transition**: Obstacles complete, bonus mode working, JSON content pipeline established
+**Phase 4 Extended - Content Pipeline Complete**: ContentRuleDoc system built, 3,184-phrase database generated, PFS-based level generation working, 3 validated Corinthia chains in corinthia.json
 
-**Current Status (Phase 4 Expanded):**
-- Obstacle system architecture complete (ObstacleBase, ObstacleManager, ObstacleConfig)
-- All three v1 obstacles working: Padlock, Virus (round-robin spread), Sand (gradual fill)
-- All three counter-boosts functional: Lock Key, Block Breaker, Bucket of Water
-- Bonus mode implemented: purple surge bar, 50-second fixed timer, words 13-15 unlock at word 12
-- Hint system complete: 3 hints per level, reveals random letters, EventBus integration
-- ContentCache autoload: JSON level loading from data/baseline/ with .tres fallback
-- 11 LetterSlot visual states: includes BONUS_EMPTY, BONUS_FILLED, BONUS_CORRECT
-- Results screen: displays score, time, stars, and words solved progress metric
-- Configurable level structure: base_word_count and bonus_word_count properties
+**Current Status (Phase 4 Content Pipeline):**
+- ContentRuleDoc system: deterministic 5-axis content architecture documented and implemented
+- ContentRuleDoc.md v2.1: master rules document with PFS, entropy, tone cap, nation filters
+- Phrase Frequency Score (PFS): replaces deprecated word-level Zipf heuristics
+- 3,184 phrases in phrases_master_pfs.csv with full scoring (PFS, CES, difficulty, entropy, tone)
+- 6 thematic batch CSVs: household, food/drink, transport/outdoor, school/social, commerce/work, abstraction
+- Python pipeline scripts: pathfinder.py, early_filter.py, generate_early_levels.py, merge_phrases.py, calculate_pfs.py, calculate_ces.py, spoken_pfs.py
+- 3 validated Corinthia levels in data/baseline/corinthia.json (16-phrase chains, PFS-scored)
+- Obstacle system, bonus mode, hints, level selector all complete from prior sessions
+- 11 LetterSlot visual states, results screen, configurable level structure all complete
 
 **Immediate Next Steps:**
-1. Decision point: Begin Phase 5 (Progression & Economy) or expand Phase 4 content
-2. Recommendation: Hybrid approach - implement hearts/lives system + populate lands 1-10 JSON content
-3. Hearts/lives system (3 hearts, lose 1 on failure, recover via rewarded ad or wait timer)
-4. Create JSON content for lands 1-10 (120 levels = 1,800 word pairs)
-5. Build word-pair validation tool (dictionary check, compound phrase validation, profanity filter)
-6. Defer boost inventory and shop until hearts/content stable
+1. DECISION: Begin Phase 5 (Progression & Economy) or expand Phase 4 content (populate Corinthia levels 4-23)
+2. Resolve level count alignment: ContentRuleDoc specifies 16 phrases, Godot game built for 12+3=15. Which is canonical?
+3. If content expansion: Expand phrase bank per-nation (current 3,184 is too small for all 3,024 levels)
+4. If Phase 5: Implement hearts/lives system (3 hearts, lose 1 on failure, recover via rewarded ad or wait timer)
+5. Translation files decision: commit Godot .translation artifacts to repo or keep untracked?
+
+**Open Questions:**
+- corinthia.json has levels 1-3 only. Level selector shows 1-10. Levels 4-10 need content.
+- Nation-specific phrase pools needed (current batches are generic, not Corinthia-themed)
+- Phrase bank needs ~500x expansion to generate full 3,024-level game without repetition
 
 ### Working Rules
 - Do not assume tools, libraries, or architecture unless explicitly defined in this file or .planning/ docs
@@ -91,6 +95,11 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - `.planning/phases/01-foundation-and-validation-spikes/01-CONTEXT.md` - Phase 1 implementation decisions
 - `VisionPageWordRun!.md` - Original vision document from creator
 - `COMPONENT_DRIVEN_ARCHITECTURE_GUIDE.md` - UI/UX architecture principles
+- `ContentRuleDoc/ContentRuleDoc.md` - Master content rules document v2.1 (deterministic phrase scoring and level generation)
+- `ContentRuleDoc/data/phrases/phrases_master_pfs.csv` - 3,184 phrases with full PFS/entropy/difficulty scoring
+- `ContentRuleDoc/scripts/generate_early_levels.py` - Level generation orchestrator
+- `ContentRuleDoc/scripts/pathfinder.py` - DFS chain builder
+- `data/baseline/corinthia.json` - Corinthia land 1 level data (3 validated 16-phrase chains)
 
 ### Monetization Integration Approach
 - **Primary Strategy:** PlatformServices abstraction layer insulates game code from direct plugin dependencies
@@ -105,6 +114,33 @@ WordRun! — Visual Game Development (Godot 4.5 mobile word puzzle game)
 - Themed word pools per land for narrative alignment
 
 ## Session History
+
+### Session 2026-02-22 (v0.0.08 - ContentRuleDoc & Level Generation)
+- **Phase:** Phase 4 Extended (Content Pipeline Infrastructure)
+- **Accomplishments:**
+  - Built ContentRuleDoc system: deterministic 5-axis content architecture (ContentRuleDoc.md v2.1)
+  - Defined Phrase Frequency Score (PFS) replacing deprecated word-level Zipf heuristics
+  - PFS sourced from spoken American English corpora (COCA Spoken, SUBTLEX-US, Google Ngrams)
+  - Generated 3,184 phrases in phrases_master_pfs.csv with full scoring
+  - Created 6 thematic batch CSVs: household, food/drink, transport/outdoor, school/social, commerce/work, abstraction
+  - Built Python pipeline: pathfinder.py (DFS), early_filter.py, generate_early_levels.py, merge_phrases.py, calculate_pfs.py, calculate_ces.py, spoken_pfs.py
+  - Generated ngram_cache.json for fast PFS lookups
+  - Replaced 3 buggy test levels with 3 validated 16-phrase Corinthia chains (avg PFS 3.20-3.53)
+  - Archived old word-system-v1 to .planning/archive/word-system-v1/
+  - Disabled IAP plugin in project.godot (wrong architecture for local testing)
+- **Key Decisions:**
+  - PFS is a FILTER ONLY - does not affect difficulty_score, entropy, or graph construction
+  - Difficulty formula locked: (5 * entropy) + (3 * avg_word_length) + (2 * (7 - avg_zipf))
+  - Additive formula only - multiplication rejected for instability
+  - Entropy computed from full validated database only (not partial views)
+  - Theme tagging via keyword lexicon exact match only - no embeddings, no semantic similarity
+  - Pipeline v2.1: filter before graph construction (not after) for DFS efficiency
+  - 16 phrases per level (content spec) - needs alignment check with Godot game (built for 12+3=15)
+  - Compound Word Gate from MEMORY.md applies BEFORE any scoring
+- **Next Steps:**
+  - Decide: Phase 5 (hearts/lives) vs expand Corinthia content to levels 4-23
+  - Resolve 16 vs 15 phrase-per-level alignment between ContentRuleDoc and Godot game
+  - Expand phrase bank per-nation for meaningful level generation at full scale
 
 ### Session 2026-02-14 (v0.0.07 - Refactoring & QoL)
 - **Phase:** Phase 4 Extended (Quality of Life Improvements)

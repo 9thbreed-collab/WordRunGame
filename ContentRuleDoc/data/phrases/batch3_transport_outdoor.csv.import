@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ifipo476nfp5"
+
+[deps]
+
+files=["res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.word1.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.word2.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.bigram.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.avg.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.PFS.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.CES.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.concreteness.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.abstraction.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.tone.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.category.translation"]
+
+source_file="res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.csv"
+dest_files=["res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.word1.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.word2.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.bigram.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.avg.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.PFS.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.CES.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.concreteness.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.abstraction.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.tone.translation", "res://ContentRuleDoc/data/phrases/batch3_transport_outdoor.category.translation"]
+
+[params]
+
+compress=true
+delimiter=0
